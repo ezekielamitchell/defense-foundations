@@ -29,6 +29,8 @@ This timeline mirrors the Aegis Nexus `_Phase Config` as of **2026-06-22**. When
 
 ## Active course-driven calendar
 
+This ramp climbs the autonomy stack in order: foundations and perception first, then the ROS 2 middleware and distributed telemetry that wire perception into navigation and mission logic, then agent and mission-execution work. The Sep–Nov ROS 2 block is the autonomy-middleware stage, not a detour into robotics. Dates below are authoritative; the framing does not move them.
+
 | Month | Primary lane | Parallel lane | Intended evidence |
 |---|---|---|---|
 | Jun 2026, from 06-22 | Foundations: Python, Rust, Linux, Git | Light OpenCV camera on-ramp | foundation reps and camera pipeline v0 |

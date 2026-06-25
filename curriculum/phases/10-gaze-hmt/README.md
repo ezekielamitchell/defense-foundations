@@ -5,7 +5,7 @@
 
 ## Focus
 
-Measured gaze estimation and operator-aware autonomy in which gaze changes system behavior rather than merely decorating a UI.
+Measured gaze estimation and operator-aware autonomy in which gaze changes system behavior rather than merely decorating a UI. Human-machine teaming is the layer where a human stays meaningfully in command of an autonomous system: supervisory control, mixed initiative, and trust calibration are how an operator directs mission execution without flying every waypoint. This is a first-class autonomy capability—every fielded defense-autonomy system answers to a human—and it ties the perception and mission-planning layers back to an accountable operator.
 
 ## Topics
 

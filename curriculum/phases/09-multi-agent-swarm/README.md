@@ -5,7 +5,7 @@
 
 ## Focus
 
-Reinforcement learning, MARL, decentralized control, consensus, and communication-constrained coordination. This is distinct from LLM-agent orchestration.
+Reinforcement learning, MARL, decentralized control, consensus, and communication-constrained coordination. This is the multi-agent core of mission planning: task allocation, consensus, and coordination under degraded communications are exactly what a swarm reconnaissance or distributed ISR mission requires, and they connect directly to the mission-planning and human-machine-teaming layers above. This is distinct from LLM-agent orchestration—the agent sprint handles the latter—but both answer the same question of how multiple autonomous actors divide and execute a mission.
 
 ## Topics
 

@@ -20,4 +20,4 @@ Research reading supports builds; it does not replace them. During P0, papers ar
 5. Connect it to an active project.
 6. Create a full paper note only when it affects a build, capstone, report, or interview claim.
 
-If a paper does not change what you build, it is background reading rather than priority research.
+If a paper does not change what you build, it is background reading rather than priority research. Priority research feeds an integrated autonomy system—a method that improves a perception, ROS 2, distributed, or mission-planning artifact—rather than a standalone model; that is the difference between a paper summary and interview-grade evidence (see [Progress](../progress/README.md#interview-grade-evidence)).

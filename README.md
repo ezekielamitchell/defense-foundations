@@ -1,6 +1,6 @@
 # Defense AI & Autonomy Curriculum
 
-> A README-only curriculum index for an evidence-driven transition into defense-focused AI, edge perception, robotics, autonomy, and human-machine teaming. Runnable work lives in dedicated project repositories; this repository explains what to learn, when to learn it, and what proof unlocks the next gate.
+> A README-only curriculum index for an evidence-driven transition into autonomous defense systems engineering: perception, edge AI, robotics middleware (ROS 2), distributed systems and telemetry, multi-agent coordination, mission planning, and human-machine teaming, assembled into the autonomy stack rather than studied in isolation. Runnable work lives in dedicated project repositories; this repository explains what to learn, when to learn it, and what proof unlocks the next gate.
 
 ## Current status
 
@@ -13,7 +13,7 @@
 | Active model | Course-driven calendar, foundations-weighted |
 | Date authority | Aegis Nexus `_Phase Config`, reconciled 2026-06-22 |
 
-Foundations—Python, Rust, Linux, and Git—receive the primary weekly weight. A light OpenCV on-ramp may run in parallel, but advanced CV, ROS 2, edge, and agent work cannot displace foundation evidence.
+Foundations—Python, Rust, Linux, and Git—receive the primary weekly weight. They are the base layer of the autonomy stack: every capability above them—perception, edge inference, ROS 2 middleware, distributed telemetry, multi-agent coordination, mission planning, and human-machine teaming—is ultimately built and debugged in these tools. A light OpenCV on-ramp may run in parallel, but advanced CV, ROS 2, edge, and agent work cannot displace foundation evidence.
 
 ## Repository map
 
@@ -43,6 +43,22 @@ Foundations—Python, Rust, Linux, and Git—receive the primary weekly weight. 
 
 The [Agent Engineering Sprint](curriculum/modules/agent-engineering-sprint/README.md) is a bounded specialization module, not a numbered phase.
 
+## Autonomy capability map
+
+The phase numbers above are an execution order; this map is the *capability* order they assemble into. Each layer is load-bearing for the one above it, which is why foundations gate the ramp. The goal of the whole curriculum is the capstone layer: an integrated autonomous system, not a stack of isolated models.
+
+| Layer | Capabilities | Where it is built |
+|---|---|---|
+| **Foundation** | Python, Rust, Linux, Git | [P0](curriculum/phases/00-foundations/README.md)–[P1](curriculum/phases/01-math-linux-git/README.md) |
+| **Systems** | C++, networking, distributed systems, telemetry | [P4](curriculum/phases/04-rust-systems/README.md) · [C/C++ support](learning-materials/14-interview-support/README.md) |
+| **Perception** | Computer vision, tracking, sensor fusion | [P2](curriculum/phases/02-core-ml/README.md)–[P3](curriculum/phases/03-computer-vision-deep-learning/README.md) · [P6](curriculum/phases/06-edge-ai-deployment/README.md) · [P8](curriculum/phases/08-ros2-sensor-fusion/README.md) |
+| **Agents** | Tool use, planning, memory, orchestration | [Agent Engineering Sprint](curriculum/modules/agent-engineering-sprint/README.md) |
+| **Robotics** | ROS 2, simulation, navigation, embodiment | [P5](curriculum/phases/05-robotics-embedded/README.md) · [P8](curriculum/phases/08-ros2-sensor-fusion/README.md) |
+| **Autonomy** | Mission planning, human-machine teaming, multi-agent systems | [P9](curriculum/phases/09-multi-agent-swarm/README.md)–[P10](curriculum/phases/10-gaze-hmt/README.md) |
+| **Capstone** | Integrated autonomous system | [P12](curriculum/phases/12-research-capstone/README.md) |
+
+ROS 2 sits at the center of this stack, not at its edge: it is the middleware that carries perception into navigation, distributed telemetry into mission logic, and agent decisions back out to embodied actuators. Distributed systems and mission planning are not support skills below the autonomy layer—they *are* the autonomy layer once more than one platform is in the field.
+
 ## Operating rules
 
 1. **Evidence over completion claims.** A course block counts only when it produces an artifact, measurement, note, or reproducible result in the appropriate project repository.
@@ -51,6 +67,8 @@ The [Agent Engineering Sprint](curriculum/modules/agent-engineering-sprint/READM
 4. **No code belongs here.** This repository contains curriculum and study documentation only.
 5. **Dates are not invented.** P0 and career milestones use hard dates; later phases remain duration- and evidence-gated until formally scheduled.
 6. **Defense framing stays honest.** Report false positives, latency, resource budgets, failure modes, and limitations.
+7. **Autonomy Systems Integration.** Every major portfolio artifact integrates at least two domains—perception, edge AI, robotics/ROS 2, distributed systems, agents, mission planning, or human-machine teaming. A model in a notebook is not the unit of work; an integrated system is. This rule exists to prevent isolated projects and to force systems thinking, because that is what the target role and a future founder actually need. See [Portfolio integration](#portfolio-integration).
+8. **Evidence is interview-grade.** Prefer deployed systems, benchmarks, simulations, telemetry, evaluation frameworks, design documents, and demo videos over course completion, paper summaries, or one-off notebooks. The bar is defined in [Progress](progress/README.md#interview-grade-evidence).
 
 ## Project evidence lives elsewhere
 
@@ -62,6 +80,19 @@ The [Agent Engineering Sprint](curriculum/modules/agent-engineering-sprint/READM
 | `computer-vision` | CV experiments and exercises |
 | `hello-stats` | Early Rust/statistics reps |
 | `rustlings` | Rust fundamentals drills |
+
+### Portfolio integration
+
+Per operating rule 7, each flagship artifact is judged by the domains it joins, not the single model inside it. These are the integration targets the portfolio builds toward; a project earns its place by crossing at least two of them.
+
+| Artifact | Integrated domains | Status |
+|---|---|---|
+| `CASEset` | Computer vision + human-machine teaming | existing |
+| `project-aegis` | Computer vision + edge AI | existing |
+| Distributed Mesh Telemetry Fabric | Distributed systems + robotics | target |
+| Mission Planning Console | Agents + human-machine teaming + mission planning | target |
+| ROS 2 Recon Platform | Robotics + perception | target |
+| ISR Assistant | Agents + computer vision + mission planning | target |
 
 ---
 

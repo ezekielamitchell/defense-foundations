@@ -2,6 +2,8 @@
 
 **Primary phase:** P8
 
+ROS 2 is the autonomy middleware that ties the whole stack together—perception, navigation, sensor fusion, and telemetry running as one real-time graph—and a ROS 2-class system is what the target defense-autonomy companies actually field. Treat this as core infrastructure fluency, not a robotics elective.
+
 ## Materials
 
 - [ROS 2 for Beginners](ros2-beginners/README.md) — Catalog #7.

@@ -5,7 +5,7 @@
 
 ## Focus
 
-Move from Rust that compiles to services suitable for a fielded system.
+Move from Rust that compiles to services suitable for a fielded system. This is the distributed-systems layer of the autonomy stack: the networking, async services, and telemetry that move sensor data, health, and commands reliably between autonomous platforms. A perception model is only useful once its outputs survive an unreliable network and reach a mission decision—that path is built here, and it is what later turns single robots into sensor networks and coordinated fleets.
 
 ## Topics
 

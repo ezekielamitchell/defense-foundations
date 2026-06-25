@@ -5,7 +5,7 @@
 
 ## Focus
 
-Build and debug complete ROS 2 systems, autonomous navigation, SLAM, and sensor fusion—including one Rust ROS 2 node.
+ROS 2 is the autonomy middleware at the center of the stack, not just another robotics tool: it is the real-time message fabric that carries perception into navigation, fuses sensors, and connects distributed telemetry to mission logic across a robot or a fleet of them. Every defense-autonomy company in the target set runs on a ROS 2-class middleware, so fluency here is a load-bearing skill, not an elective. Build and debug complete ROS 2 systems, autonomous navigation, SLAM, and sensor fusion—including one Rust ROS 2 node so the middleware is understood at the systems level, not only through `rclpy`.
 
 ## Topics
 

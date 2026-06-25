@@ -3,6 +3,8 @@
 **Activation:** thin overlay from P4+; full one-week sprint only by explicit scheduling decision  
 **Important:** LLM agents are distinct from P9 MARL and do not replace deterministic state machines or behavior trees.
 
+This is the agent layer of mission planning: tool use, planning, memory, and orchestration are how an autonomous system turns operator intent into a sequence of executed actions—an ISR assistant or mission-planning console, with a human approving the consequential ones. The skills here connect upward to human-machine teaming and outward to the perception and ROS 2 layers they coordinate; they are not a general-chatbot exercise.
+
 ## Catalog courses
 
 - [#5 Agentic AI Bootcamp](agentic-ai-bootcamp-naik/README.md) — long-running P4+ overlay.
