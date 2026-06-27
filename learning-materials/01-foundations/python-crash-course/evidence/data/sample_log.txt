@@ -1,0 +1,8 @@
+INFO: service started
+WARN: disk usage at 82%
+INFO: request handled in 12ms
+ERROR: failed to reach sensor node 7
+this line is missing a level
+INFO: request handled in 9ms
+ERROR: timeout talking to sensor node 7
+DEBUG: cache warmed

@@ -18,3 +18,10 @@
 ## Evidence
 
 Turn the concepts into a file-processing script. Do not treat chapter exercises alone as completion; the output must read a path, handle malformed input, and produce useful results.
+
+## Practice layout
+
+- [`exercises/`](exercises/README.md) — one folder per chapter (1–8) for the "Try It Yourself" work.
+- [`evidence/`](evidence/README.md) — the file-processing script that satisfies the bar above.
+
+Standard library only; run files directly, e.g. `python3 exercises/ch01_getting_started/hello_world.py`.
