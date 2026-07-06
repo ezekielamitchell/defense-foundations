@@ -1,19 +1,19 @@
-# Defense AI & Autonomy Curriculum
+# Defense Foundations
 
-> A README-only curriculum index for an evidence-driven transition into autonomous defense systems engineering: perception, edge AI, robotics middleware (ROS 2), distributed systems and telemetry, multi-agent coordination, mission planning, and human-machine teaming, assembled into the autonomy stack rather than studied in isolation. Runnable work lives in dedicated project repositories; this repository explains what to learn, when to learn it, and what proof unlocks the next gate.
+> The single educational-code and curriculum repo for Phase 0 foundations: Python, Rust, Linux, Git, README quality, tests, and small runnable CLIs. This repo holds the active curriculum map, learning materials, Rustlings work, and current foundation code.
 
 ## Current status
 
 | Field | Value |
 |---|---|
 | Active phase | **P0 — Foundations** |
-| Phase start (P0 Day 1) | **2026-06-22** |
-| Six-week checkpoint | **2026-08-02** |
-| Eight-week maximum gate | **2026-08-16** |
+| Phase start (P0 Day 0/1) | **2026-07-03** |
+| Six-week checkpoint | **2026-08-14** |
+| Eight-week maximum gate | **2026-08-28** |
 | Active model | Course-driven calendar, foundations-weighted |
-| Date authority | Aegis Nexus `_Phase Config`, reconciled 2026-06-22 |
+| Date authority | Aegis Nexus `_Phase Config`, reconciled 2026-07-05 |
 
-Foundations—Python, Rust, Linux, and Git—receive the primary weekly weight. They are the base layer of the autonomy stack: every capability above them—perception, edge inference, ROS 2 middleware, distributed telemetry, multi-agent coordination, mission planning, and human-machine teaming—is ultimately built and debugged in these tools. A light OpenCV on-ramp may run in parallel, but advanced CV, ROS 2, edge, and agent work cannot displace foundation evidence.
+Foundations—Python, Rust, Linux, and Git—receive the primary weekly weight. They are the base layer of the autonomy stack: every capability above them—perception, edge inference, ROS 2 middleware, distributed telemetry, multi-agent coordination, mission planning, and human-machine teaming—is ultimately built and debugged in these tools. During P0 there is no parallel CV/robotics/agent lane; advanced CV, ROS 2, edge, and agent work cannot displace foundation evidence.
 
 ## Repository map
 
@@ -22,6 +22,8 @@ Foundations—Python, Rust, Linux, and Git—receive the primary weekly weight. 
 - [Learning materials](learning-materials/README.md) — individual course/resource folders grouped by learning focus.
 - [Research queue](research/README.md) — paper backlogs grouped by technical domain.
 - [Progress](progress/README.md) — status and evidence conventions for maintaining this index.
+- [hello-stats](hello-stats/) — Rust CLI for Project 0: file/stdin line·word·byte stats (runnable, unit-tested).
+- [file_stats.py](file_stats.py) — Python CLI for Project 0: file/stdin line·word·byte stats (runnable, pytest-tested).
 
 ## Phase map
 
@@ -64,22 +66,22 @@ ROS 2 sits at the center of this stack, not at its edge: it is the middleware th
 1. **Evidence over completion claims.** A course block counts only when it produces an artifact, measurement, note, or reproducible result in the appropriate project repository.
 2. **Foundations gate the ramp.** Advanced material can slip; foundation confidence cannot be hand-waved.
 3. **One primary source per week.** Finish or deliberately stop one source before adding another.
-4. **No code belongs here.** This repository contains curriculum and study documentation only.
+4. **Educational code belongs here.** Phase 0 CLIs, Rustlings work, and course exercises live in this repo unless a project graduates into its own portfolio repository.
 5. **Dates are not invented.** P0 and career milestones use hard dates; later phases remain duration- and evidence-gated until formally scheduled.
 6. **Defense framing stays honest.** Report false positives, latency, resource budgets, failure modes, and limitations.
 7. **Autonomy Systems Integration.** Every major portfolio artifact integrates at least two domains—perception, edge AI, robotics/ROS 2, distributed systems, agents, mission planning, or human-machine teaming. A model in a notebook is not the unit of work; an integrated system is. This rule exists to prevent isolated projects and to force systems thinking, because that is what the target role and a future founder actually need. See [Portfolio integration](#portfolio-integration).
 8. **Evidence is interview-grade.** Prefer deployed systems, benchmarks, simulations, telemetry, evaluation frameworks, design documents, and demo videos over course completion, paper summaries, or one-off notebooks. The bar is defined in [Progress](progress/README.md#interview-grade-evidence).
 
-## Project evidence lives elsewhere
+## Project evidence lives here
 
-| Repository | Curriculum role |
+| Path | Curriculum role |
 |---|---|
-| `project-aegis` | Flagship low-false-positive edge perception / GDARS lineage |
-| `CASEset` | Gaze-estimation dataset and pipeline |
-| `GUARDEN` | Distributed IoT and on-device detection |
-| `computer-vision` | CV experiments and exercises |
-| `hello-stats` | Early Rust/statistics reps |
-| `rustlings` | Rust fundamentals drills |
+| `hello-stats/` | Rust half of Project 0: file/stdin line·word·byte CLI — runnable, `cargo test` green. |
+| `file_stats.py` | Python half of Project 0: file/stdin line·word·byte CLI — runnable, `pytest` green. |
+| `learning-materials/01-foundations/rustlings/` | Rust fundamentals drills and local Rustlings state. |
+| `learning-materials/` | Course exercises and support materials by phase. |
+
+Separate portfolio repositories such as `project-aegis`, `CASEset`, `GUARDEN`, and `computer-vision` remain their own repos. `defense-foundations-lab` is retired; current foundation curriculum/code work routes here.
 
 ### Portfolio integration
 
@@ -93,6 +95,73 @@ Per operating rule 7, each flagship artifact is judged by the domains it joins, 
 | Mission Planning Console | Agents + human-machine teaming + mission planning | target |
 | ROS 2 Recon Platform | Robotics + perception | target |
 | ISR Assistant | Agents + computer vision + mission planning | target |
+
+## Project 0 — `hello-stats` (Rust) + `file_stats.py` (Python)
+
+The first paired deliverable of Phase 0: the same small problem — count the lines, words, and bytes of a file or of stdin — solved twice, once as a Rust systems binary and once as a Python script. The counting is trivial on purpose; the deliverable is the foundation loop done end to end — argument parsing, file **and** stdin I/O, error handling that fails cleanly instead of panicking, tests, and a documented runnable interface.
+
+### Python — `file_stats.py`
+
+```sh
+python file_stats.py README.md          # count a file
+cat README.md | python file_stats.py    # count stdin
+python file_stats.py missing.txt        # clean error, exit code 1
+pytest                                   # run the tests
+```
+
+Uses `argparse` + `pathlib`; reads stdin when no path is given; a missing file prints one stderr line and exits `1` (no traceback).
+
+### Rust — `hello-stats`
+
+```sh
+cd hello-stats
+cargo run -- ../README.md               # count a file
+cat ../README.md | cargo run            # count stdin
+cargo run -- ../missing.txt             # clean error, exit code 1
+cargo test                              # run the tests
+```
+
+`Result`-based error handling, no `unwrap()` on user input or file I/O; a bad path prints one stderr line and exits `1`.
+
+### Example output (real)
+
+Both CLIs print the same shape and the same numbers for the same input.
+
+```text
+$ printf 'hello world\nsecond line\n' | python file_stats.py
+   lines    words    bytes  source
+       2        4       24  <stdin>
+
+$ printf 'hello world\nsecond line\n' | (cd hello-stats && cargo run -q)
+   lines    words    bytes  source
+       2        4       24  <stdin>
+
+$ python file_stats.py README.md
+   lines    words    bytes  source
+     101     1116     8728  README.md
+
+$ python file_stats.py missing.txt
+file_stats: cannot open 'missing.txt': No such file or directory   (exit 1)
+```
+
+(The `README.md` counts reflect this file's size at the time of writing and grow as it does; the two-line example is the stable reference.)
+
+### Python vs Rust — the same tool, two languages
+
+| Dimension | Python (`file_stats.py`) | Rust (`hello-stats`) |
+|---|---|---|
+| Role | scripting, glue, fast iteration | systems binary, predictable runtime |
+| Error handling | exception caught at the boundary (`except OSError`) | `Result` propagated with `?`, no `unwrap()` on I/O |
+| I/O | `pathlib.Path.read_bytes()`, `sys.stdin.buffer` | `File::open`, `BufReader`, `io::stdin().lock()` |
+| Failure mode | one stderr line + exit 1 | one stderr line + exit 1 |
+| Distribution | needs a Python interpreter | single compiled binary |
+| Tests | `pytest` (3 tests) | `cargo test` (2 tests) |
+
+Python is faster to write and change; Rust compiles to a dependency-free binary with the error paths enforced at compile time. Real autonomy stacks use both — Python for training, tooling, and orchestration; Rust and C++ for the parts that must run predictably on an edge device or in a flight-critical loop.
+
+### Why this matters for the foundation
+
+Every layer above the foundation — perception, edge inference, ROS 2 nodes, telemetry, multi-agent coordination — is written, tested, and debugged in exactly these primitives: parse input, read a stream, handle the error, prove it with a test, document the interface. Project 0 is deliberately small so the *engineering habits* are the deliverable, not the algorithm. Getting file/stdin handling, `Result`-style error discipline, and a green test suite right here is what makes the low-false-positive, edge-deployed systems later in the curriculum credible rather than hand-waved.
 
 ---
 
