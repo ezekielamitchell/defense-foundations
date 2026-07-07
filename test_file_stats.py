@@ -17,6 +17,10 @@ def test_count_bytes_empty():
     assert file_stats.count_bytes(b"") == (0, 0, 0)
 
 
+def test_count_bytes_invalid_utf8_replaces_for_text_counts():
+    assert file_stats.count_bytes(b"\xff a\n") == (1, 2, 4)
+
+
 def test_missing_file_returns_1(capsys):
     rc = file_stats.main(["definitely_not_a_real_file_xyz.txt"])
     assert rc == 1

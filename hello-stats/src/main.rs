@@ -12,7 +12,7 @@
 use std::env;
 use std::error::Error;
 use std::fs::File;
-use std::io::{self, BufRead, BufReader, Read};
+use std::io::{self, Read};
 use std::process;
 
 /// Line / word / byte counts for a single input.
@@ -24,21 +24,22 @@ struct Stats {
 
 /// Count lines, words, and bytes from any reader. Propagates I/O errors instead
 /// of panicking, so the caller can report them cleanly.
-fn count<R: Read>(reader: R) -> io::Result<Stats> {
-    let mut buf = BufReader::new(reader);
-    let mut stats = Stats { lines: 0, words: 0, bytes: 0 };
-    let mut line = String::new();
-    loop {
-        line.clear();
-        let n = buf.read_line(&mut line)?;
-        if n == 0 {
-            break; // EOF
-        }
-        stats.bytes += n;
-        stats.lines += 1;
-        stats.words += line.split_whitespace().count();
+fn count<R: Read>(mut reader: R) -> io::Result<Stats> {
+    let mut data = Vec::new();
+    reader.read_to_end(&mut data)?;
+    Ok(count_bytes(&data))
+}
+
+/// Count raw bytes, while treating undecodable UTF-8 bytes as replacement
+/// characters for line/word counting. This matches the Python implementation's
+/// `errors="replace"` behavior.
+fn count_bytes(data: &[u8]) -> Stats {
+    let text = String::from_utf8_lossy(data);
+    Stats {
+        lines: text.lines().count(),
+        words: text.split_whitespace().count(),
+        bytes: data.len(),
     }
-    Ok(stats)
 }
 
 /// Real work. Returns `Err` on bad args or unreadable input; `main` turns that
@@ -48,8 +49,8 @@ fn run() -> Result<(), Box<dyn Error>> {
 
     let (stats, source) = if args.len() > 1 {
         let path = &args[1];
-        let file = File::open(path)
-            .map_err(|e| format!("hello-stats: cannot open '{path}': {e}"))?;
+        let file =
+            File::open(path).map_err(|e| format!("hello-stats: cannot open '{path}': {e}"))?;
         (count(file)?, path.clone())
     } else {
         let stdin = io::stdin();
@@ -79,7 +80,8 @@ mod tests {
     #[test]
     fn counts_lines_words_bytes() {
         let input = b"hello world\nsecond line\n";
-        let s = count(Cursor::new(&input[..])).expect("counting an in-memory buffer should not fail");
+        let s =
+            count(Cursor::new(&input[..])).expect("counting an in-memory buffer should not fail");
         assert_eq!(s.lines, 2);
         assert_eq!(s.words, 4);
         assert_eq!(s.bytes, 24);
@@ -89,5 +91,13 @@ mod tests {
     fn empty_input_is_all_zero() {
         let s = count(Cursor::new(&b""[..])).expect("counting empty input should not fail");
         assert_eq!((s.lines, s.words, s.bytes), (0, 0, 0));
+    }
+
+    #[test]
+    fn invalid_utf8_is_replaced_for_text_counts() {
+        let input = [0xff, b' ', b'a', b'\n'];
+        let s = count(Cursor::new(&input[..]))
+            .expect("invalid utf-8 should not break raw byte counting");
+        assert_eq!((s.lines, s.words, s.bytes), (1, 2, 4));
     }
 }
