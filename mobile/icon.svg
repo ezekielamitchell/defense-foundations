@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Defense Foundations icon">
+  <rect width="512" height="512" rx="96" fill="#0f8b6d"/>
+  <path d="M104 144h304v224H104z" fill="#ffffff" opacity="0.13"/>
+  <path d="M136 184h108v36H136zm0 72h240v32H136zm0 64h180v32H136z" fill="#ffffff"/>
+  <path d="M300 162l76 38v72c0 56-31 95-76 118-45-23-76-62-76-118v-72z" fill="#dff4ec"/>
+  <path d="M300 198l42 21v48c0 31-16 52-42 67-26-15-42-36-42-67v-48z" fill="#0f8b6d"/>
+</svg>

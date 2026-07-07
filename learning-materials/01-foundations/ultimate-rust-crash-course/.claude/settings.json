@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cargo run *)",
+      "Bash(mkdir -p ch01_introduction ch02_fundamentals ch03_primitives_and_control_flow ch04_ownership_and_borrowing ch05_structs_traits_and_enums ch06_closures_and_threads ch07_invaders_project ch08_final_words && ls)",
+      "Bash(git -C /Users/house/Developer/defense-foundations status --porcelain -- learning-materials/01-foundations/ultimate-rust-crash-course/ch01_introduction/)"
+    ],
+    "additionalDirectories": [
+      "/Users/house/Developer/defense-foundations/learning-materials/01-foundations/ultimate-rust-crash-course"
+    ]
+  }
+}

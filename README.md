@@ -22,6 +22,7 @@ Foundations—Python, Rust, Linux, and Git—receive the primary weekly weight. 
 - [Learning materials](learning-materials/README.md) — individual course/resource folders grouped by learning focus.
 - [Research queue](research/README.md) — paper backlogs grouped by technical domain.
 - [Progress](progress/README.md) — status and evidence conventions for maintaining this index.
+- [Mobile PWA](mobile/) — phone-friendly dashboard for P0 status, weekly tasks, evidence links, and quick capture notes.
 - [hello-stats](hello-stats/) — Rust CLI for Project 0: file/stdin line·word·byte stats (runnable, unit-tested).
 - [file_stats.py](file_stats.py) — Python CLI for Project 0: file/stdin line·word·byte stats (runnable, pytest-tested).
 

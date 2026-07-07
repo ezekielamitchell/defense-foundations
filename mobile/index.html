@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#0f8b6d">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Foundations">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <title>Defense Foundations Mobile</title>
+    <link rel="manifest" href="./manifest.webmanifest">
+    <link rel="icon" href="./icon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="./icon.svg">
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <a class="brand" href="#dashboard" aria-label="Defense Foundations mobile home">
+          <span class="brand-mark" aria-hidden="true">DF</span>
+          <span>
+            <span class="brand-title">Defense Foundations</span>
+            <span class="brand-subtitle">Mobile field board</span>
+          </span>
+        </a>
+        <button class="install-button" id="install-button" type="button" hidden>Install</button>
+      </header>
+
+      <main>
+        <section class="hero" id="dashboard" data-view="dashboard">
+          <div class="hero-copy">
+            <span class="status-pill">P0 in progress</span>
+            <h1>Stay on the foundation track while you are away from the desk.</h1>
+            <p>
+              A phone-first view of the current phase, weekly plan, evidence targets,
+              and quick capture notes. Works offline after the first load.
+            </p>
+          </div>
+          <div class="hero-panel" aria-label="Current phase summary">
+            <div>
+              <span class="eyebrow">Current focus</span>
+              <strong>Python, Rust, Linux, Git</strong>
+            </div>
+            <div class="phase-meter" aria-label="Phase progress">
+              <span id="phase-progress">0%</span>
+            </div>
+            <p id="phase-message">Loading current week...</p>
+          </div>
+        </section>
+
+        <nav class="view-tabs" aria-label="Mobile app sections">
+          <button class="tab active" type="button" data-target="dashboard-view">Dashboard</button>
+          <button class="tab" type="button" data-target="tasks-view">Tasks</button>
+          <button class="tab" type="button" data-target="phases-view">Phases</button>
+          <button class="tab" type="button" data-target="evidence-view">Evidence</button>
+          <button class="tab" type="button" data-target="notes-view">Notes</button>
+        </nav>
+
+        <section class="view active" id="dashboard-view">
+          <div class="metric-grid">
+            <article class="metric">
+              <span>Current week</span>
+              <strong id="current-week">W28</strong>
+              <small id="current-week-dates">Jul 6-12</small>
+            </article>
+            <article class="metric">
+              <span>Six-week gate</span>
+              <strong>Aug 2</strong>
+              <small>2026 confidence checkpoint</small>
+            </article>
+            <article class="metric">
+              <span>Maximum gate</span>
+              <strong>Aug 16</strong>
+              <small>2026 pass or extend</small>
+            </article>
+          </div>
+
+          <div class="dashboard-grid">
+            <article class="panel">
+              <div class="panel-heading">
+                <span class="eyebrow">This week</span>
+                <h2 id="week-title">Week plan</h2>
+              </div>
+              <p id="week-primary"></p>
+              <div class="callout">
+                <span>Evidence target</span>
+                <p id="week-evidence"></p>
+              </div>
+            </article>
+
+            <article class="panel">
+              <div class="panel-heading">
+                <span class="eyebrow">Next actions</span>
+                <h2>Desk-to-phone loop</h2>
+              </div>
+              <ul class="action-list">
+                <li>Read the current week before leaving your desk.</li>
+                <li>Capture quick notes on your phone during gaps.</li>
+                <li>When back at the desk, promote useful notes into repo evidence.</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <section class="view" id="tasks-view" hidden>
+          <div class="section-heading">
+            <span class="eyebrow">Phase 0 weekly plan</span>
+            <h2>Track the eight-week foundation run</h2>
+          </div>
+          <div class="week-list" id="week-list"></div>
+        </section>
+
+        <section class="view" id="phases-view" hidden>
+          <div class="section-heading">
+            <span class="eyebrow">Curriculum map</span>
+            <h2>The autonomy stack in order</h2>
+          </div>
+          <div class="phase-list" id="phase-list"></div>
+        </section>
+
+        <section class="view" id="evidence-view" hidden>
+          <div class="section-heading">
+            <span class="eyebrow">Evidence</span>
+            <h2>Open the source material fast</h2>
+          </div>
+          <div class="link-grid">
+            <a class="resource-link" href="../TIMELINE.md">
+              <span>Timeline</span>
+              <strong>Hard dates and weekly plan</strong>
+            </a>
+            <a class="resource-link" href="../curriculum/phases/00-foundations/README.md">
+              <span>P0 phase README</span>
+              <strong>Focus, topics, and exit gate</strong>
+            </a>
+            <a class="resource-link" href="../progress/README.md">
+              <span>Progress standard</span>
+              <strong>Evidence vocabulary and quality bar</strong>
+            </a>
+            <a class="resource-link" href="../file_stats.py">
+              <span>Python CLI</span>
+              <strong>Project 0 file/stdin stats</strong>
+            </a>
+            <a class="resource-link" href="../hello-stats/">
+              <span>Rust CLI</span>
+              <strong>Project 0 Cargo implementation</strong>
+            </a>
+            <a class="resource-link" href="../learning-materials/01-foundations/README.md">
+              <span>Foundations materials</span>
+              <strong>Python, Rust, Linux, and Git resources</strong>
+            </a>
+          </div>
+        </section>
+
+        <section class="view" id="notes-view" hidden>
+          <div class="section-heading">
+            <span class="eyebrow">Quick capture</span>
+            <h2>Notes for later promotion</h2>
+            <p>
+              These notes stay in this browser. Use them as scratch space, then move
+              durable evidence into the repo when you are back at the keyboard.
+            </p>
+          </div>
+          <label class="note-box">
+            <span>Mobile notes</span>
+            <textarea id="mobile-notes" rows="12" placeholder="Example: Finished Missing Semester lecture 2. Need to write terminal workflow note."></textarea>
+          </label>
+          <div class="button-row">
+            <button class="primary-action" id="copy-notes" type="button">Copy notes</button>
+            <button class="secondary-action" id="clear-notes" type="button">Clear</button>
+          </div>
+          <p class="save-state" id="save-state" aria-live="polite">Notes autosave locally.</p>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <span>Mobile PWA for the Defense Foundations repo.</span>
+        <a href="../README.md">Repository README</a>
+      </footer>
+    </div>
+
+    <script src="./app.js" defer></script>
+  </body>
+</html>
