@@ -67,5 +67,4 @@ fn main() {
         None => println!("No cat in the zoo"),
     }
 
-
 }
