@@ -1,114 +1,128 @@
 const weeks = [
   {
-    id: "w26",
-    label: "W26 - Week 1",
-    dates: "Jun 22-28",
-    start: "2026-06-22",
-    end: "2026-06-28",
-    primary: "Toolchains, repo setup, Missing Semester lecture 1, Python Crash Course ch. 1-8, MIT 6.0001 lectures 1-4, and Rustlings batch 1.",
-    evidence: "Clean environment, repo and README committed, first runnable Python scripts, and file-processing script.",
-    tasks: [
-      "Confirm Python, Rust, shell, and Git toolchains.",
-      "Run first Python scripts from the crash course.",
-      "Capture file-processing evidence in the repo."
-    ]
-  },
-  {
-    id: "w27",
-    label: "W27 - Week 2",
-    dates: "Jun 29-Jul 5",
-    start: "2026-06-29",
-    end: "2026-07-05",
-    primary: "Rust Book ch. 1-6 and Rustlings batches 1-3.",
-    evidence: "Rustlings batch and small Cargo program.",
-    tasks: [
-      "Work through Rust Book ch. 1-6.",
-      "Advance Rustlings batches 1-3.",
-      "Keep a small Cargo program runnable."
-    ]
-  },
-  {
-    id: "w28",
-    label: "W28 - Week 3",
-    dates: "Jul 6-12",
-    start: "2026-07-06",
-    end: "2026-07-12",
-    primary: "Missing Semester lectures 2-5 and Pro Git ch. 1-3.",
-    evidence: "Terminal workflow note, clean commits, and PR practice.",
-    tasks: [
-      "Write a terminal workflow note.",
-      "Practice clean commits with readable diffs.",
-      "Run through a basic PR review loop."
-    ]
-  },
-  {
-    id: "w29",
-    label: "W29 - Week 4",
-    dates: "Jul 13-19",
-    start: "2026-07-13",
+    id: "week0",
+    label: "Week 0",
+    dates: "Jul 14-19",
+    start: "2026-07-14",
     end: "2026-07-19",
-    primary: "argparse, pathlib, pytest, and uv.",
-    evidence: "csv_summary v0.",
+    primary: "Establish baseline truth, inspect current CLI stubs/WIP, continue Rustlings from if2, complete the next bounded foundations increment, and review Rust ownership.",
+    evidence: "Verified baseline plus a real foundations artifact. Reset administration and planning do not count.",
     tasks: [
-      "Build argparse and pathlib reps.",
-      "Add pytest coverage around a small CLI.",
-      "Produce csv_summary v0 evidence."
+      "Confirm the active CLI paths are stubs/WIP.",
+      "Resume Rustlings from if2; do not restart batch 1.",
+      "Verify one bounded foundations increment."
     ]
   },
   {
-    id: "w30",
-    label: "W30 - Week 5",
+    id: "week1",
+    label: "Week 1",
     dates: "Jul 20-26",
     start: "2026-07-20",
     end: "2026-07-26",
-    primary: "Rust Book ch. 7-10, clap v4, and Rustlings batches 4-5.",
-    evidence: "wc-rs v0.",
+    primary: "Continue from actual Rustlings state, implement and test a bounded Project 0 slice, study Rust structs/enums, and read Command-Line Rust ch. 1-3.",
+    evidence: "Runnable bounded slice with tests or reproducible output; resume and LinkedIn refreshed by Jul 26.",
     tasks: [
-      "Study modules, collections, error handling, and generics.",
-      "Build a clap v4 CLI rep.",
-      "Produce wc-rs v0 evidence."
+      "Continue Rustlings from the recorded state.",
+      "Implement one bounded Project 0 slice.",
+      "Refresh resume and LinkedIn by Jul 26."
     ]
   },
   {
-    id: "w31",
-    label: "W31 - Week 6",
+    id: "week2",
+    label: "Week 2",
     dates: "Jul 27-Aug 2",
     start: "2026-07-27",
     end: "2026-08-02",
-    primary: "README discipline, pytest, Cargo tests, and six-week gate on Sun Aug 2.",
-    evidence: "Paired comparison note and tests, plus six-week review.",
+    primary: "Shell workflow, development tools, editor workflow, Pro Git ch. 1-3, and branch/PR practice.",
+    evidence: "Terminal and Git workflow proof; GitHub profile aligned by Aug 2.",
     tasks: [
-      "Run pytest and Cargo tests.",
-      "Write the Python vs Rust comparison note.",
-      "Complete the six-week confidence review."
+      "Write a terminal workflow note.",
+      "Practice clean commits with readable diffs.",
+      "Align the GitHub profile by Aug 2."
     ]
   },
   {
-    id: "w32",
-    label: "W32 - Week 7",
+    id: "week3",
+    label: "Week 3",
     dates: "Aug 3-9",
     start: "2026-08-03",
     end: "2026-08-09",
-    primary: "Hardening and exit-gate review.",
-    evidence: "Edge cases, README polish, and dependency cleanup.",
+    primary: "Build Python csv_summary v0 with argparse, pathlib, csv, pytest, and uv.",
+    evidence: "Runnable Python CLI, tests, example output, and a recorded Week 4 Rust decision by Aug 9.",
     tasks: [
-      "Add edge case checks.",
-      "Polish README run instructions.",
-      "Remove accidental dependencies or stale files."
+      "Build argparse and pathlib reps.",
+      "Add pytest coverage to csv_summary.",
+      "Decide the Week 4 Rust increment by Aug 9."
     ]
   },
   {
-    id: "w33",
-    label: "W33 - Week 8",
+    id: "week4",
+    label: "Week 4",
     dates: "Aug 10-16",
     start: "2026-08-10",
     end: "2026-08-16",
-    primary: "P0 retrospective and eight-week maximum gate on Sun Aug 16.",
-    evidence: "Pass or extend decision at maximum gate.",
+    primary: "Build csv-summary-rs or hello-stats v1 after the Aug 9 decision; study Rust Book ch. 7-10 and clap.",
+    evidence: "Runnable Rust CLI slice with explicit error behavior.",
+    tasks: [
+      "Study modules, collections, error handling, and generics.",
+      "Build the selected Rust CLI slice.",
+      "Document its failure behavior."
+    ]
+  },
+  {
+    id: "week5",
+    label: "Week 5",
+    dates: "Aug 17-23",
+    start: "2026-08-17",
+    end: "2026-08-23",
+    primary: "Compare Python and Rust implementations, deepen tests, run Clippy and rustfmt, and polish README proof.",
+    evidence: "Comparison note, test output, and reproducible README commands.",
+    tasks: [
+      "Write the Python vs Rust comparison note.",
+      "Run relevant test and lint commands.",
+      "Make README examples match observed output."
+    ]
+  },
+  {
+    id: "week6",
+    label: "Week 6",
+    dates: "Aug 24-30",
+    start: "2026-08-24",
+    end: "2026-08-30",
+    primary: "Harden error paths and edge cases, clean dependencies, verify reproducibility, and assess the six-week gate.",
+    evidence: "Gate assessment on Aug 30 plus an explicit GDARS/CASEset re-decision.",
+    tasks: [
+      "Add edge case checks.",
+      "Verify a cold reproducible run.",
+      "Record the Aug 30 gate decision."
+    ]
+  },
+  {
+    id: "week7",
+    label: "Week 7",
+    dates: "Aug 31-Sep 6",
+    start: "2026-08-31",
+    end: "2026-09-06",
+    primary: "Apply the gate outcome and open the gate-dependent application wave. Continue P0 hardening if the gate did not pass.",
+    evidence: "Application evidence only if the gate permits it; no automatic advanced-lane activation.",
+    tasks: [
+      "Apply the documented gate outcome.",
+      "Open Application Wave 1 only if permitted.",
+      "Keep advanced lanes unscheduled."
+    ]
+  },
+  {
+    id: "week8",
+    label: "Week 8",
+    dates: "Sep 7-13",
+    start: "2026-09-07",
+    end: "2026-09-13",
+    primary: "Use the contingency week for hardening, retrospective, and the pass-or-extend decision.",
+    evidence: "Eight-week maximum gate decision on Sep 13.",
     tasks: [
       "Review exit criteria honestly.",
-      "Write the retrospective.",
-      "Record a pass or extension decision."
+      "Write the P0 retrospective.",
+      "Record a pass or written extension by Sep 13."
     ]
   }
 ];
@@ -181,7 +195,7 @@ function updateProgress() {
 
 function renderDashboard() {
   const current = getCurrentWeek();
-  document.getElementById("current-week").textContent = current.label.split(" - ")[0];
+  document.getElementById("current-week").textContent = current.label;
   document.getElementById("current-week-dates").textContent = current.dates;
   document.getElementById("week-title").textContent = `${current.label}: ${current.dates}`;
   document.getElementById("week-primary").textContent = current.primary;

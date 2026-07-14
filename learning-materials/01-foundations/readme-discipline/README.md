@@ -1,6 +1,6 @@
 # README Discipline
 
-**Activation:** P0, W31 and every later phase
+**Activation:** P0 Weeks 5–6 and every later promoted phase
 
 ## Required sections
 

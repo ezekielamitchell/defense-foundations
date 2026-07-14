@@ -3,6 +3,7 @@
 **Source:** [Udemy](https://www.udemy.com/course/ultimate-rust-crash-course/) — Nathan Stocks  
 **Catalog:** course #3  
 **Activation:** P0-eligible, optional supplement
+**Schedule:** reference-only; use it to unblock the active Rust/Rustlings task, not as a second linear lane
 
 ## Pull these modules
 

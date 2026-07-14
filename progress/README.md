@@ -39,7 +39,11 @@ This is the same honesty required by README operating rule 6; the difference is 
 
 ## Current phase
 
-P0 began **2026-06-22** (Day 1 re-anchored from the 2026-06-21 Sunday kickoff that did not occur; start-only shift, gates held). Its six-week checkpoint is **2026-08-02** and its eight-week maximum gate is **2026-08-16**. See [the P0 phase README](../curriculum/phases/00-foundations/README.md) for the checklist.
+P0 Day 0/1 is **2026-07-14**. Week 0 runs through **2026-07-19** and is excluded from gate-week velocity. The gate clock and first full Monday–Sunday week begin **2026-07-20**. The six-week checkpoint is **2026-08-30** and the eight-week maximum gate is **2026-09-13**. Aegis Nexus `01_Daily/_Phase Config.md` is the sole hard-date authority; see [the P0 phase README](../curriculum/phases/00-foundations/README.md) for the checklist.
+
+Work from 2026-07-03 through 2026-07-13 remains audit-valid history but is excluded from the new denominator. Current `projects/file_stats` and `projects/hello-stats` artifacts are stubs/WIP and must be re-verified. Rustlings resumes from `.rustlings-state.txt`: `if2` is current and 15 exercises are recorded complete.
+
+Reset administration, planning, dashboard edits, and Calendar work are not curriculum evidence.
 
 ## Update routine
 
@@ -48,3 +52,4 @@ P0 began **2026-06-22** (Day 1 re-anchored from the 2026-06-21 Sunday kickoff th
 3. Change phase status only after a gate review.
 4. Link public evidence; do not copy sensitive vault notes into this repository.
 5. Record limitations and failed attempts alongside successful results.
+6. Keep later phases and specialization modules undated until explicit promotion.

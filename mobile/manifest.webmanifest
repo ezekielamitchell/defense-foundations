@@ -1,7 +1,7 @@
 {
   "name": "Defense Foundations Mobile",
   "short_name": "Foundations",
-  "description": "A mobile dashboard for the Defense Foundations curriculum repo.",
+  "description": "A mobile Week 0–8 dashboard for the active Phase 0 foundations plan.",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",

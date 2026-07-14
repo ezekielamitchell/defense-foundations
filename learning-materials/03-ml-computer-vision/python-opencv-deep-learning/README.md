@@ -2,7 +2,7 @@
 
 **Source:** [Udemy](https://www.udemy.com/course/python-for-computer-vision-with-opencv-and-deep-learning/) — Jose Portilla  
 **Catalog:** course #1  
-**Activation:** Gate → P3; camera-only on-ramp allowed from 2026-06-22
+**Activation:** P3 only after explicit promotion; no P0 camera on-ramp and no scheduled date
 
 ## Pull these modules
 

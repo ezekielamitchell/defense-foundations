@@ -2,7 +2,7 @@
 
 **Source:** [official online book](https://git-scm.com/book/en/v2)  
 **Cost:** free  
-**Activation:** P0, W28
+**Activation:** P0 Week 2
 
 ## Chapters
 

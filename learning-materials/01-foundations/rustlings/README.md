@@ -6,7 +6,9 @@
 
 ## Scope
 
-Complete the first 50 exercises, using the current Rustlings ordering rather than freezing this plan to version-specific exercise names. W27 targets batches 1–3; W30 targets batches 4–5.
+Complete the first 50 exercises using the current Rustlings ordering rather than a reset-era batch label. As of 2026-07-14, `.rustlings-state.txt` records `if2` as current and 15 completed exercises: `intro1`–`intro2`, `variables1`–`variables6`, `functions1`–`functions5`, `if1`, and `if3`.
+
+Continue from `if2`. Do not restart “batch 1” or infer completion from an old weekly plan.
 
 ## Method
 

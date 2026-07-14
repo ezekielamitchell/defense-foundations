@@ -2,7 +2,7 @@
 
 **Source:** [MIT course site](https://missing.csail.mit.edu/)  
 **Cost:** free  
-**Activation:** P0, W26 and W28
+**Activation:** P0 Week 2
 
 ## Focus
 
@@ -10,8 +10,7 @@ Use the current course’s shell, command-line environment, development tools, d
 
 ## Planned sequence
 
-- W26: course overview and shell fundamentals (kickoff-week lecture 1).
-- W28: command-line environment, development tools, debugging, and Git.
+- Week 2: shell fundamentals, command-line environment, development tools, debugging, and Git.
 
 ## Evidence
 

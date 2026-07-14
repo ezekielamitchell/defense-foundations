@@ -2,6 +2,10 @@
 
 The curriculum is organized into 13 evidence-gated phases. Its purpose is not to consume content in order; it is to build inspectable capability through projects, measurements, and written limitations. The phases are an execution order; the capability they assemble into is the [autonomy capability map](../README.md#autonomy-capability-map)—foundations, systems, perception, agents, robotics, autonomy, capstone—and the target is an integrated autonomous system, not a portfolio of isolated models.
 
+## Active execution
+
+P0 foundations is the only active curriculum lane. P1–P12 and the Agent Engineering Sprint are `not started`, have no hard dates, and receive dates only after an explicit gate promotion. Reference links to CV, edge, ROS 2, agents, or autonomy describe future curriculum content; they are not current schedule commitments.
+
 ## Category groups
 
 - **Foundations:** [P0](phases/00-foundations/README.md)–[P1](phases/01-math-linux-git/README.md)
@@ -27,4 +31,4 @@ These chains exist because the target role rewards integration over specializati
 
 ## Promotion rule
 
-A phase becomes active only after its prerequisites are demonstrated and a concrete output has been selected. Parallel exposure does not change phase status. Every phase README records the minimum proof required to move on.
+A phase becomes active only after its prerequisites are demonstrated, a concrete output is selected, and the promotion is explicitly authorized. Parallel exposure does not change phase status. Aegis Nexus `01_Daily/_Phase Config.md` is the sole hard-date authority; later phases remain undated until promotion. Every phase README records the minimum proof required to move on.

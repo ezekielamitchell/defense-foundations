@@ -1,7 +1,7 @@
 # Python CLI Tooling
 
 **Sources:** [argparse](https://docs.python.org/3/library/argparse.html), [pathlib](https://docs.python.org/3/library/pathlib.html), [pytest](https://docs.pytest.org/), and [uv](https://docs.astral.sh/uv/)  
-**Activation:** P0, W29–W31
+**Activation:** P0 Week 3; reused for testing and hardening in Weeks 5–6
 
 ## Focus
 

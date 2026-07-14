@@ -2,7 +2,7 @@
 
 **Source:** Eric Matthes, *Python Crash Course*  
 **Cost:** paid book  
-**Activation:** P0, W26 (kickoff week)
+**Activation:** P0 gap-fill reference; no fixed week
 
 ## Chapters
 

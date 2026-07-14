@@ -1,7 +1,7 @@
 # Rust CLI Tooling
 
 **Sources:** Cargo, [`clap`](https://docs.rs/clap/latest/clap/), and built-in Rust testing  
-**Activation:** P0, W30–W31
+**Activation:** P0 Weeks 4–6 after the 2026-08-09 Rust increment decision
 
 ## Focus
 

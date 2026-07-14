@@ -1,6 +1,7 @@
 # Machine Learning and Computer Vision
 
 **Primary phases:** P2–P3
+**Status:** not started; undated until explicit promotion
 
 ## Materials
 
@@ -8,4 +9,4 @@
 - [Python for Computer Vision with OpenCV & Deep Learning](python-opencv-deep-learning/README.md) — Catalog #1.
 - [PyTorch for Deep Learning Bootcamp](pytorch-deep-learning-bootcamp/README.md) — Catalog #2.
 
-The June 2026 OpenCV camera exercise is a light on-ramp only. Full depth remains P3-gated.
+These resources are future-phase references. P0 has no OpenCV, PyTorch, detector, or camera on-ramp; activation requires an explicit gate promotion.

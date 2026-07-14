@@ -2,7 +2,7 @@
 
 **Source:** [MIT OpenCourseWare](https://ocw.mit.edu/courses/6-0001-introduction-to-computer-science-and-programming-in-python-fall-2016/)  
 **Cost:** free  
-**Activation:** P0, W26
+**Activation:** P0 gap-fill reference; no fixed week
 
 ## Scope
 

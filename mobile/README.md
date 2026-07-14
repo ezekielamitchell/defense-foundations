@@ -4,6 +4,15 @@ This folder contains a static mobile-first Progressive Web App for the
 `defense-foundations` repo. It gives you a phone-friendly dashboard for the P0
 weekly plan, phase map, evidence links, and quick capture notes.
 
+The current projection starts with Week 0 on 2026-07-14 through 2026-07-19,
+then uses Monday–Sunday execution weeks from 2026-07-20. The six-week gate is
+2026-08-30 and the eight-week maximum gate is 2026-09-13. Aegis Nexus
+`01_Daily/_Phase Config.md` is the sole hard-date authority; this PWA is a
+read-only projection.
+
+The active `projects/file_stats` and `projects/hello-stats` paths are stubs/WIP.
+Mobile checkboxes and notes are planning aids, not curriculum evidence.
+
 ## Run locally
 
 From the repository root:

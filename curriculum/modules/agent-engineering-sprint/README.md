@@ -2,7 +2,7 @@
 
 **Status:** not started; explicit scheduling decision required  
 **Length:** one full-time week  
-**Default window:** Dec 2026+, unless a P0 gate review deliberately promotes it earlier
+**Schedule:** undated until explicit promotion; no automatic P0 or post-P0 window
 
 This is a specialization module, not a numbered curriculum phase. It trains bounded LLM-agent skills for the later defense-agent overlay and remains distinct from P9 MARL.
 
