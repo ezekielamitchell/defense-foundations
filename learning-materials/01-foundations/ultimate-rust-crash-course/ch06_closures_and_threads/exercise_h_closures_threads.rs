@@ -14,8 +14,7 @@ fn apply<F: Fn(i32) -> i32>(f: F, x: i32) -> i32 {
 }
 
 fn main() {
-    // TODO 1: define a closure `add_one` that takes an i32 and returns x + 1
-    let add_one = |x: i32| {x+1};
+    let add_one = |x: i32| x + 1;
     println!("apply(add_one, 5) = {}", apply(add_one, 5));
 
     let data = vec![1, 2, 3, 4, 5];
