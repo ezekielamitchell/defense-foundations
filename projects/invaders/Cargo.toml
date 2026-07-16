@@ -1,0 +1,10 @@
+[package]
+name = "invaders"
+version = "0.1.0"
+author = "Ezekiel A. Mitchell <ezekielmitchll@gmail.com>"
+edition = "2024"
+
+[dependencies]
+crossterm = "0.28"
+rusty_audio = "1.4.1"
+rusty_time = "1.1"
