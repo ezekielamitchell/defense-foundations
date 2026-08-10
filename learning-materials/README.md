@@ -15,7 +15,7 @@ Every named course or core resource has its own folder and README. Folders are g
 | [Autonomy and swarms](09-autonomy-swarms/README.md) | P9 | research-led |
 | [Gaze and HMT](10-gaze-hmt/README.md) | P10 | research-led |
 | [Doctrine and ethics](11-doctrine-ethics/README.md) | P11 | primary-source-led |
-| [Agent engineering](12-agent-engineering/README.md) | P4+ overlay / sprint | 6 |
+| [Agent engineering](12-agent-engineering/README.md) | bounded P0 overlay / later expansion | 7 |
 | [Research capstone](13-research-capstone/README.md) | P12 | niche-dependent |
 | [C/C++ interview support](14-interview-support/README.md) | optional | 1 |
 

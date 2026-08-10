@@ -1,7 +1,7 @@
 # Python CLI Tooling
 
 **Sources:** [argparse](https://docs.python.org/3/library/argparse.html), [pathlib](https://docs.python.org/3/library/pathlib.html), [pytest](https://docs.pytest.org/), and [uv](https://docs.astral.sh/uv/)  
-**Activation:** P0 Week 3; reused for testing and hardening in Weeks 5–6
+**Activation:** pulled on demand to unblock a named `P0-W*` Python issue; see [docs/ISSUES.md](../../../docs/ISSUES.md)
 
 ## Focus
 
@@ -9,4 +9,4 @@ Argument parsing, path-safe file access, useful exit behavior, environment/depen
 
 ## Evidence
 
-`csv_summary` v0 with help text, invalid-path handling, example output, tests, and a reproducible run command.
+`projects/file_stats` — the Python half of the paired file-statistics CLI — with help text, invalid-path handling, example output, a `tests/` suite, and a reproducible run command. (`csv_summary` belonged to a superseded plan and is not the current target.)

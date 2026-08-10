@@ -4,7 +4,7 @@ The curriculum is organized into 13 evidence-gated phases. Its purpose is not to
 
 ## Active execution
 
-P0 foundations is the only active curriculum lane. P1–P12 and the Agent Engineering Sprint are `not started`, have no hard dates, and receive dates only after an explicit gate promotion. Reference links to CV, edge, ROS 2, agents, or autonomy describe future curriculum content; they are not current schedule commitments.
+P0 foundations is the primary, gate-controlling curriculum lane. DD #85/#78 schedules the Hugging Face AI Agents Course as a bounded **non-gate** overlay through 2026-09-13 — at most two linked blocks per full week (90-minute COURSE + up to 120-minute LAB), consuming the deterministic-sampler allocation — while its A20 completion status remains `not started` until verified post-cutover work exists. P1–P12 remain `not started` and undated. Reference links to CV, edge, ROS 2, multi-agent systems, or autonomy describe future content, not current commitments.
 
 ## Category groups
 
@@ -23,7 +23,7 @@ P0 foundations is the only active curriculum lane. P1–P12 and the Agent Engine
 - Python multi-agent simulation → deterministic Rust simulation backend.
 - Transformer perception experiment → research capstone.
 - Gaze-directed control prototype → meaningful-human-control essay.
-- Agent sprint → bounded ISR-triage workflows during the later overlay.
+- Agent sprint → supervised Aegis Research Agent scaffold during the bounded P0 overlay → future ISR-triage workflows only after later promotion.
 - Rust telemetry service → ROS 2 telemetry bridge → distributed mesh telemetry across multiple platforms.
 - Nav2 behavior trees → task allocation across agents → a mission-planning console with a human in the loop.
 

@@ -4,14 +4,27 @@ This folder contains a static mobile-first Progressive Web App for the
 `defense-foundations` repo. It gives you a phone-friendly dashboard for the P0
 weekly plan, phase map, evidence links, and quick capture notes.
 
-The current projection starts with Week 0 on 2026-07-14 through 2026-07-19,
-then uses Monday–Sunday execution weeks from 2026-07-20. The six-week gate is
+The current projection starts with Day 0 at 16:00 on 2026-08-09; condensed
+Week 1 is that day only. Week 2 resumes the Monday–Sunday cadence on
+2026-08-10. The six-week minimum gate is
 2026-08-30 and the eight-week maximum gate is 2026-09-13. Aegis Nexus
 `01_Daily/_Phase Config.md` is the sole hard-date authority; this PWA is a
 read-only projection.
 
-The active `projects/file_stats` and `projects/hello-stats` paths are stubs/WIP.
-Mobile checkboxes and notes are planning aids, not curriculum evidence.
+DD #85/#78 schedules two bounded **non-gate** overlays through 2026-09-13: the
+Hugging Face AI Agents Course at a maximum of two linked blocks per full week
+(consuming the deterministic-sampler allocation, never a fifth lane), and a
+60-minute daily research paper at 08:00–09:00. The operating envelope is
+Monday–Friday 09:30–23:00, Saturday 09:30–18:15, and Sunday 09:30–18:00
+America/Los_Angeles, with 15-minute cross-domain transitions and protected personal
+commitments. Foundations still control the gate; overlay proof stays separate.
+Hugging Face, Udemy, projects, and foundation checklists all restart at zero.
+
+The Phase 0 artifact is the paired file-statistics CLI. The active
+`projects/file_stats` (Python) and `projects/hello-stats` (Rust) paths are stubs/WIP.
+Mobile checkboxes use a new reset namespace, so earlier local checks do not carry
+forward. They and mobile notes remain planning aids, not curriculum evidence.
+Scheduling an agent block does not mark it complete.
 
 ## Run locally
 

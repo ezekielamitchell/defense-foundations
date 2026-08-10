@@ -2,7 +2,7 @@
 
 **Source:** [Udemy](https://www.udemy.com/course/langgraph/) — Eden Marco  
 **Catalog:** course #13  
-**Activation:** Agent Engineering Sprint, Day 3 depth
+**Activation:** **pull-only / not independently schedulable** (Aegis DD #78). P8 LangGraph depth route, available only after a deterministic typed tool and replay harness exist. LangGraph is not active Phase 0 scope.
 
 ## Pull these modules
 

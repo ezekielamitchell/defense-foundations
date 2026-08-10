@@ -1,7 +1,7 @@
 {
   "name": "Defense Foundations Mobile",
   "short_name": "Foundations",
-  "description": "A mobile Week 0–8 dashboard for the active Phase 0 foundations plan.",
+  "description": "A mobile dashboard for the hard-reset Phase 0 foundations plan and bounded AI-agent overlay.",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",

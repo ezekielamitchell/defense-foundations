@@ -1,134 +1,93 @@
 const weeks = [
   {
-    id: "week0",
-    label: "Week 0",
-    dates: "Jul 14-19",
-    start: "2026-07-14",
-    end: "2026-07-19",
-    primary: "Establish baseline truth, inspect current CLI stubs/WIP, continue Rustlings from if2, complete the next bounded foundations increment, and review Rust ownership.",
-    evidence: "Verified baseline plus a real foundations artifact. Reset administration and planning do not count.",
-    tasks: [
-      "Confirm the active CLI paths are stubs/WIP.",
-      "Resume Rustlings from if2; do not restart batch 1.",
-      "Verify one bounded foundations increment."
-    ]
-  },
-  {
     id: "week1",
     label: "Week 1",
-    dates: "Jul 20-26",
-    start: "2026-07-20",
-    end: "2026-07-26",
-    primary: "Continue from actual Rustlings state, implement and test a bounded Project 0 slice, study Rust structs/enums, and read Command-Line Rust ch. 1-3.",
-    evidence: "Runnable bounded slice with tests or reproducible output; resume and LinkedIn refreshed by Jul 26.",
+    dates: "Aug 9",
+    start: "2026-08-09",
+    end: "2026-08-09",
+    primary: "Activate A20 at 16:00, preserve every zero denominator, and use only the separate 16:00-18:00 endr block.",
+    evidence: "No inherited credit and no curriculum backfill; Monday's exact diagnostic is fixed.",
     tasks: [
-      "Continue Rustlings from the recorded state.",
-      "Implement one bounded Project 0 slice.",
-      "Refresh resume and LinkedIn by Jul 26."
+      "Keep every A20 foundation and course denominator at zero.",
+      "Complete or honestly resume the endr-owned block.",
+      "Protect the 19:30 movie and stage Monday's diagnostic."
     ]
   },
   {
     id: "week2",
     label: "Week 2",
-    dates: "Jul 27-Aug 2",
-    start: "2026-07-27",
-    end: "2026-08-02",
-    primary: "Shell workflow, development tools, editor workflow, Pro Git ch. 1-3, and branch/PR practice.",
-    evidence: "Terminal and Git workflow proof; GitHub profile aligned by Aug 2.",
+    dates: "Aug 10-16",
+    start: "2026-08-10",
+    end: "2026-08-16",
+    primary: "Build the first tested file_stats slice, diagnose hello-stats honestly, and apply Linux/Git practice to the paired project.",
+    evidence: "Runnable Python increment, verified Rust state, tests, and exact command transcripts.",
     tasks: [
-      "Write a terminal workflow note.",
-      "Practice clean commits with readable diffs.",
-      "Align the GitHub profile by Aug 2."
+      "Build argparse/pathlib behavior and the first pytest case.",
+      "Run the Rust diagnostic and fresh Rustlings work through the active range.",
+      "Keep OpenCV, HF Agents, papers, and endr in separate non-gate routes."
     ]
   },
   {
     id: "week3",
     label: "Week 3",
-    dates: "Aug 3-9",
-    start: "2026-08-03",
-    end: "2026-08-09",
-    primary: "Build Python csv_summary v0 with argparse, pathlib, csv, pytest, and uv.",
-    evidence: "Runnable Python CLI, tests, example output, and a recorded Week 4 Rust decision by Aug 9.",
+    dates: "Aug 17-23",
+    start: "2026-08-17",
+    end: "2026-08-23",
+    primary: "Build the hello-stats Rust increment, deepen error cases, and reconcile shared fixtures.",
+    evidence: "Compiling, tested Rust slice plus paired output observations.",
     tasks: [
-      "Build argparse and pathlib reps.",
-      "Add pytest coverage to csv_summary.",
-      "Decide the Week 4 Rust increment by Aug 9."
+      "Use Result-based errors and focused cargo tests.",
+      "Advance Rustlings only through freshly passing exercises.",
+      "Record the Aug 23 reachability review without promoting P1."
     ]
   },
   {
     id: "week4",
     label: "Week 4",
-    dates: "Aug 10-16",
-    start: "2026-08-10",
-    end: "2026-08-16",
-    primary: "Build csv-summary-rs or hello-stats v1 after the Aug 9 decision; study Rust Book ch. 7-10 and clap.",
-    evidence: "Runnable Rust CLI slice with explicit error behavior.",
+    dates: "Aug 24-30",
+    start: "2026-08-24",
+    end: "2026-08-30",
+    primary: "Harden malformed inputs, add CI and cold-run documentation, and assemble the six-week gate decision.",
+    evidence: "Test/lint/format output, paired comparison, README proof, and the Aug 30 written gate decision.",
     tasks: [
-      "Study modules, collections, error handling, and generics.",
-      "Build the selected Rust CLI slice.",
-      "Document its failure behavior."
+      "Add failure fixtures and deterministic checks.",
+      "Make README examples match observed output.",
+      "Record PASS, PARTIAL PASS, or REMEDIATION REQUIRED on Aug 30."
     ]
   },
   {
     id: "week5",
     label: "Week 5",
-    dates: "Aug 17-23",
-    start: "2026-08-17",
-    end: "2026-08-23",
-    primary: "Compare Python and Rust implementations, deepen tests, run Clippy and rustfmt, and polish README proof.",
-    evidence: "Comparison note, test output, and reproducible README commands.",
+    dates: "Aug 31-Sep 6",
+    start: "2026-08-31",
+    end: "2026-09-06",
+    primary: "Apply the gate outcome, close documented gaps, and measure clean-environment recreation.",
+    evidence: "Gate-dependent application evidence only if authorized; no automatic advanced-lane activation.",
     tasks: [
-      "Write the Python vs Rust comparison note.",
-      "Run relevant test and lint commands.",
-      "Make README examples match observed output."
+      "Remediate only named gate gaps.",
+      "Verify cold reproducible runs and benchmarks.",
+      "Keep P1-P12 unscheduled without an explicit promotion."
     ]
   },
   {
     id: "week6",
     label: "Week 6",
-    dates: "Aug 24-30",
-    start: "2026-08-24",
-    end: "2026-08-30",
-    primary: "Harden error paths and edge cases, clean dependencies, verify reproducibility, and assess the six-week gate.",
-    evidence: "Gate assessment on Aug 30 plus an explicit GDARS/CASEset re-decision.",
-    tasks: [
-      "Add edge case checks.",
-      "Verify a cold reproducible run.",
-      "Record the Aug 30 gate decision."
-    ]
-  },
-  {
-    id: "week7",
-    label: "Week 7",
-    dates: "Aug 31-Sep 6",
-    start: "2026-08-31",
-    end: "2026-09-06",
-    primary: "Apply the gate outcome and open the gate-dependent application wave. Continue P0 hardening if the gate did not pass.",
-    evidence: "Application evidence only if the gate permits it; no automatic advanced-lane activation.",
-    tasks: [
-      "Apply the documented gate outcome.",
-      "Open Application Wave 1 only if permitted.",
-      "Keep advanced lanes unscheduled."
-    ]
-  },
-  {
-    id: "week8",
-    label: "Week 8",
     dates: "Sep 7-13",
     start: "2026-09-07",
     end: "2026-09-13",
-    primary: "Use the contingency week for hardening, retrospective, and the pass-or-extend decision.",
-    evidence: "Eight-week maximum gate decision on Sep 13.",
+    primary: "Finish maximum-gate remediation, preserve the Rustlings 0-50 cap, and write the pass/close/extend decision.",
+    evidence: "Eight-week maximum gate decision on Sep 13 with per-line evidence or remediation.",
     tasks: [
-      "Review exit criteria honestly.",
-      "Write the P0 retrospective.",
-      "Record a pass or written extension by Sep 13."
+      "Audit Rustlings only through exercise 50.",
+      "Re-run clean tests and cold-run instructions.",
+      "Record a pass, close, or written extension by Sep 13."
     ]
   }
 ];
 
 const phases = [
   ["P0", "Foundations", "Python, Rust, Linux, Git", "in progress"],
+  ["O0", "Bounded agent sampler", "HF tools, typed I/O, deterministic traces, evaluation", "non-gate; active credit 0"],
   ["P1", "Math and engineering discipline", "Math, Linux, and Git fluency", "not started"],
   ["P2", "Core ML", "Classical ML and honest evaluation", "not started"],
   ["P3", "Computer vision", "OpenCV, PyTorch, and CNNs", "not started"],
@@ -144,7 +103,7 @@ const phases = [
 ];
 
 const storageKeys = {
-  notes: "df-mobile-notes"
+  notes: "df-mobile-a20-notes"
 };
 
 function parseDate(value) {
@@ -164,7 +123,7 @@ function getCurrentWeek(today = new Date()) {
 }
 
 function taskKey(weekId, index) {
-  return `df-mobile-task-${weekId}-${index}`;
+  return `df-mobile-a20-task-${weekId}-${index}`;
 }
 
 function isTaskComplete(weekId, index) {

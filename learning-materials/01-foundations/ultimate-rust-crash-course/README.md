@@ -2,8 +2,24 @@
 
 **Source:** [Udemy](https://www.udemy.com/course/ultimate-rust-crash-course/) — Nathan Stocks  
 **Catalog:** course #3  
-**Activation:** P0-eligible, optional supplement
-**Schedule:** reference-only; use it to unblock the active Rust/Rustlings task, not as a second linear lane
+**Activation:** historical completion is preserved at `9a4baa0` (2026-07-15). Under Aegis DD #85, the **active A20 tracker restarts at Chapter 1, 0/8**. Historical completion grants no current-gate or future-phase credit; fresh Rust proof comes from post-cutover demonstrations, `projects/hello-stats`, and active Rustlings progression.
+
+**Status:** complete-historical; A20 active credit 0/8; scheduled only when the current Calendar manifest names a chapter block
+
+**Schedule:** begins again at Chapter 1 when the current Calendar manifest names the block. Preserved files remain references; no inherited checkbox or completion credit carries forward.
+
+## Preserved historical chapter record
+
+- Chapter 1 — Introduction + toolchain sanity
+- Chapter 2 — Fundamentals
+- Chapter 3 — Primitives and control flow
+- Chapter 4 — Ownership and borrowing
+- Chapter 5 — Structs, traits, collections, and enums
+- Chapter 6 — Closures and threads
+- Chapter 7 — Invaders project
+- Chapter 8 — Final review
+
+Historical completion and solution files remain available for audit. They do not pre-check this tracker.
 
 ## Pull these modules
 
@@ -11,7 +27,7 @@ Cargo workflow, ownership and borrowing, structs/enums, pattern matching, error 
 
 ## Role
 
-Use this course only when its explanation unblocks the Rust Book/Rustlings path. It must not become a second linear curriculum.
+Use a preserved example only when it unblocks the Rust Book/Rustlings path. It must not displace the gate-controlling Rust project.
 
 ## Evidence
 

@@ -2,7 +2,7 @@
 
 **Source:** [Udemy](https://www.udemy.com/course/complete-agentic-ai-bootcamp-with-langgraph-and-langchain/) — Krish Naik  
 **Catalog:** course #5  
-**Activation:** Gate → P4+ overlay, thin
+**Activation:** **archived / not schedulable** (Aegis DD #78). Reference only, P8 at the earliest. Multi-agent orchestration is not active Phase 0 scope.
 
 ## Pull these modules
 

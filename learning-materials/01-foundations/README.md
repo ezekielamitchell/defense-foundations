@@ -2,7 +2,7 @@
 
 **Primary phase:** P0
 
-Functional Python, Rust, Linux shell, and Git. These materials support the [Phase 0 Week 0–8 plan](../../TIMELINE.md#phase-0-week-08-plan). The plan starts from current artifact and Rustlings truth; it does not restart completed work.
+Functional Python, Rust, Linux shell, and Git. These materials support the [Phase 0 plan](../../TIMELINE.md#phase-0-plan--paired-file-statistics-cli). The A20 reset begins 2026-08-09 at 16:00 and gives zero active credit to projects, Rustlings, and courses while preserving their historical files for audit.
 
 ## Python
 
@@ -12,10 +12,10 @@ Functional Python, Rust, Linux shell, and Git. These materials support the [Phas
 
 ## Rust
 
-- [The Rust Programming Language](rust-book/README.md) — ownership in Week 0, structs/enums in Week 1, and ch. 7–10 in Week 4.
-- [Rustlings](rustlings/README.md) — continue from `if2`; 15 exercises are already recorded complete.
+- [The Rust Programming Language](rust-book/README.md) — ownership/borrowing review and structs/enums in Week 1, then ch. 7–10 in Week 4.
+- [Rustlings](rustlings/README.md) — historical file state is `if2` with 15 prior completions; active reset credit is 0/50.
 - [Rust CLI Tooling](rust-cli-tooling/README.md) — Cargo, `clap`, error handling, and tests in Weeks 4–6.
-- [Ultimate Rust Crash Course](ultimate-rust-crash-course/README.md) — Catalog #3, optional supplement.
+- [Ultimate Rust Crash Course](ultimate-rust-crash-course/README.md) — complete-historical at `9a4baa0`; A20 active tracker restarts at Chapter 1 (0/8) and grants no credit until freshly demonstrated.
 
 ## Linux and Git
 

@@ -5,6 +5,7 @@ The Aegis Nexus vault remains the day-to-day private evidence ledger. This repos
 ## Status vocabulary
 
 - `not started` — reference material only; no completion claim.
+- `scheduled overlay` — time is reserved for a bounded specialization, but no artifact or completion is implied.
 - `in progress` — explicitly promoted and receiving scheduled time.
 - `gate review` — planned material is paused while evidence is checked.
 - `complete` — exit criteria are backed by artifacts and measurements.
@@ -39,11 +40,17 @@ This is the same honesty required by README operating rule 6; the difference is 
 
 ## Current phase
 
-P0 Day 0/1 is **2026-07-14**. Week 0 runs through **2026-07-19** and is excluded from gate-week velocity. The gate clock and first full Monday–Sunday week begin **2026-07-20**. The six-week checkpoint is **2026-08-30** and the eight-week maximum gate is **2026-09-13**. Aegis Nexus `01_Daily/_Phase Config.md` is the sole hard-date authority; see [the P0 phase README](../curriculum/phases/00-foundations/README.md) for the checklist.
+P0 reset Day 0 and the gate clock begin **2026-08-09 at 16:00 America/Los_Angeles**. Week 1 is Aug 9 only; Week 2 begins Monday Aug 10. The six-week minimum gate remains **2026-08-30** and the eight-week maximum gate remains **2026-09-13**. Aegis Nexus `01_Daily/_Phase Config.md` is the sole hard-date authority; see [the P0 phase README](../curriculum/phases/00-foundations/README.md) for the checklist.
 
-Work from 2026-07-03 through 2026-07-13 remains audit-valid history but is excluded from the new denominator. Current `projects/file_stats` and `projects/hello-stats` artifacts are stubs/WIP and must be re-verified. Rustlings resumes from `.rustlings-state.txt`: `if2` is current and 15 exercises are recorded complete.
+Work before 2026-08-09 at 16:00 remains audit-valid history but is excluded from every restarted denominator. The Phase 0 artifact is the **paired file-statistics CLI**: `projects/file_stats` (Python) and `projects/hello-stats` (Rust). Both are currently stubs/WIP and must be re-verified. Rustlings state is preserved (`if2`, 15 historical completions), but active credit is 0/50. Hugging Face and every P0-authorized Udemy/O’Reilly course also restart at 0%.
 
 Reset administration, planning, dashboard edits, and Calendar work are not curriculum evidence.
+
+endr founder/company work is tracked in endr and Aegis, not in this ledger. It cannot satisfy or delay a P0 gate.
+
+DD #78's agent overlay has a separate evidence boundary: agent notes, course work, and bounded tool prototypes belong to the Agent Engineering Sprint tracker and never satisfy the P0 foundation gate. The same boundary applies to the daily research paper and the weekly OpenCV sampler.
+
+**Evidence source rule:** `.github/` does not exist in this repository yet. Until the CI workflow is created (a Week 4 task), cite **local check/test output** with the exact command line. A GitHub Actions run URL may only be cited once the workflow is committed.
 
 ## Update routine
 
@@ -52,4 +59,4 @@ Reset administration, planning, dashboard edits, and Calendar work are not curri
 3. Change phase status only after a gate review.
 4. Link public evidence; do not copy sensitive vault notes into this repository.
 5. Record limitations and failed attempts alongside successful results.
-6. Keep later phases and specialization modules undated until explicit promotion.
+6. Keep P1–P12 undated until explicit promotion; the only current specialization exceptions are DD #78's three non-gate overlays through 2026-09-13 — the weekly Hugging Face Agents block, the weekly OpenCV sampler, and the daily research paper.

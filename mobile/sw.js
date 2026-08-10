@@ -1,4 +1,4 @@
-const CACHE_NAME = "defense-foundations-mobile-v2";
+const CACHE_NAME = "defense-foundations-mobile-v7";
 const APP_SHELL = [
   "./",
   "./index.html",

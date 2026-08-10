@@ -2,7 +2,7 @@
 
 **Source:** [Udemy](https://www.udemy.com/course/production-ai-agents/) — Paulo Dichone  
 **Catalog:** course #14  
-**Activation:** Agent Engineering Sprint, Day 6 depth
+**Activation:** **archived / not schedulable** (Aegis DD #78). Reference only, P8 at the earliest. Production agent deployment is not active Phase 0 scope.
 
 ## Pull these modules
 
