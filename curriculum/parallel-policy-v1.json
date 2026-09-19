@@ -1,0 +1,25 @@
+{
+  "schema_version": "defense-foundations.parallel-policy.v1",
+  "status": "active-teaching-policy",
+  "active_phase": "P0",
+  "tracks": ["python", "rust", "agents", "defense-ai", "warfare"],
+  "primary_sources": {
+    "python": "udemy-100-days-of-code",
+    "rust": "udemy-ultimate-rust-crash-course",
+    "agents": "coursera-ai-agents-python",
+    "defense-ai": "coursera-ai-for-everyone",
+    "warfare": "coursera-international-humanitarian-law"
+  },
+  "source_count_per_track": 1,
+  "course_project_research_minutes": [120, 180],
+  "curriculum_reading_minutes": 60,
+  "rust_requires_python_completion": false,
+  "paired_work_requires": "independent-basic-file-handling-in-both-languages",
+  "instruction_percentage_cap": null,
+  "daily_paper_quota": 0,
+  "initial_learning_credit": 0,
+  "date_based_advancement": false,
+  "foundation_gate_lanes": ["python", "rust", "project-0", "linux-git-ci"],
+  "company_gates_independent": true,
+  "schedule_authority": "private-aegis-approved-manifest"
+}

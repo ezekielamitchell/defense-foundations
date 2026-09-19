@@ -1,236 +1,283 @@
-const weeks = [
-  {
-    id: "week1",
-    label: "Week 1",
-    dates: "Aug 9",
-    start: "2026-08-09",
-    end: "2026-08-09",
-    primary: "Activate A20 at 16:00, preserve every zero denominator, and use only the separate 16:00-18:00 endr block.",
-    evidence: "No inherited credit and no curriculum backfill; Monday's exact diagnostic is fixed.",
-    tasks: [
-      "Keep every A20 foundation and course denominator at zero.",
-      "Complete or honestly resume the endr-owned block.",
-      "Protect the 19:30 movie and stage Monday's diagnostic."
-    ]
-  },
-  {
-    id: "week2",
-    label: "Week 2",
-    dates: "Aug 10-16",
-    start: "2026-08-10",
-    end: "2026-08-16",
-    primary: "Build the first tested file_stats slice, diagnose hello-stats honestly, and apply Linux/Git practice to the paired project.",
-    evidence: "Runnable Python increment, verified Rust state, tests, and exact command transcripts.",
-    tasks: [
-      "Build argparse/pathlib behavior and the first pytest case.",
-      "Run the Rust diagnostic and fresh Rustlings work through the active range.",
-      "Keep OpenCV, HF Agents, papers, and endr in separate non-gate routes."
-    ]
-  },
-  {
-    id: "week3",
-    label: "Week 3",
-    dates: "Aug 17-23",
-    start: "2026-08-17",
-    end: "2026-08-23",
-    primary: "Build the hello-stats Rust increment, deepen error cases, and reconcile shared fixtures.",
-    evidence: "Compiling, tested Rust slice plus paired output observations.",
-    tasks: [
-      "Use Result-based errors and focused cargo tests.",
-      "Advance Rustlings only through freshly passing exercises.",
-      "Record the Aug 23 reachability review without promoting P1."
-    ]
-  },
-  {
-    id: "week4",
-    label: "Week 4",
-    dates: "Aug 24-30",
-    start: "2026-08-24",
-    end: "2026-08-30",
-    primary: "Harden malformed inputs, add CI and cold-run documentation, and assemble the six-week gate decision.",
-    evidence: "Test/lint/format output, paired comparison, README proof, and the Aug 30 written gate decision.",
-    tasks: [
-      "Add failure fixtures and deterministic checks.",
-      "Make README examples match observed output.",
-      "Record PASS, PARTIAL PASS, or REMEDIATION REQUIRED on Aug 30."
-    ]
-  },
-  {
-    id: "week5",
-    label: "Week 5",
-    dates: "Aug 31-Sep 6",
-    start: "2026-08-31",
-    end: "2026-09-06",
-    primary: "Apply the gate outcome, close documented gaps, and measure clean-environment recreation.",
-    evidence: "Gate-dependent application evidence only if authorized; no automatic advanced-lane activation.",
-    tasks: [
-      "Remediate only named gate gaps.",
-      "Verify cold reproducible runs and benchmarks.",
-      "Keep P1-P12 unscheduled without an explicit promotion."
-    ]
-  },
-  {
-    id: "week6",
-    label: "Week 6",
-    dates: "Sep 7-13",
-    start: "2026-09-07",
-    end: "2026-09-13",
-    primary: "Finish maximum-gate remediation, preserve the Rustlings 0-50 cap, and write the pass/close/extend decision.",
-    evidence: "Eight-week maximum gate decision on Sep 13 with per-line evidence or remediation.",
-    tasks: [
-      "Audit Rustlings only through exercise 50.",
-      "Re-run clean tests and cold-run instructions.",
-      "Record a pass, close, or written extension by Sep 13."
-    ]
-  }
-];
+// Read-only consumer of the generated Aegis authority. This app never writes
+// task completion or evidence. Local storage is used only for scratch notes;
+// legacy reset-scoped checkbox keys are deliberately left untouched.
+const PROJECTION_URL = "../docs/aegis-phase0-projection.json";
+const PROJECTION_SCHEMA = "aegis.phase0-projection.v1";
 
+// Curriculum labels only; generated dates and evidence remain separately authoritative.
 const phases = [
-  ["P0", "Foundations", "Python, Rust, Linux, Git", "in progress"],
-  ["O0", "Bounded agent sampler", "HF tools, typed I/O, deterministic traces, evaluation", "non-gate; active credit 0"],
-  ["P1", "Math and engineering discipline", "Math, Linux, and Git fluency", "not started"],
-  ["P2", "Core ML", "Classical ML and honest evaluation", "not started"],
-  ["P3", "Computer vision", "OpenCV, PyTorch, and CNNs", "not started"],
-  ["P4", "Rust systems", "Production Rust systems", "not started"],
-  ["P5", "Robotics and embedded", "Robotics and embedded systems", "not started"],
-  ["P6", "Edge AI", "Model optimization and deployment", "not started"],
-  ["P7", "Transformers", "Transformers and foundation models", "not started"],
-  ["P8", "ROS 2 sensor fusion", "ROS 2, SLAM, and sensor fusion", "not started"],
-  ["P9", "Multi-agent swarm", "RL, MARL, and swarms", "not started"],
-  ["P10", "Gaze HMT", "Gaze estimation and human-machine teaming", "not started"],
-  ["P11", "Doctrine ethics", "Doctrine, policy, and ethics", "not started"],
-  ["P12", "Research capstone", "Research specialization", "not started"]
+  [
+    "P0",
+    "Programming Foundations From Zero",
+    "Main route · start from zero · evidence-gated",
+    "scheduled; work unverified"
+  ],
+  [
+    "P1",
+    "Contracts, Measurement and Replay",
+    "Main route · after P0 · evidence-gated",
+    "not started"
+  ],
+  [
+    "P2",
+    "Quantitative Reasoning and Trustworthy Evaluation",
+    "Main route · after P1 · evidence-gated",
+    "not started"
+  ],
+  [
+    "P4",
+    "Reliable Rust Services and Distributed Systems",
+    "Main route · after P1, P2 · evidence-gated",
+    "not started"
+  ],
+  [
+    "P6",
+    "Deterministic Simulation and Adapter Integration",
+    "Main route · after P4 · evidence-gated",
+    "not started"
+  ],
+  [
+    "P8",
+    "Human Authority and Bounded Agent Interfaces",
+    "Main route · after P6 · evidence-gated",
+    "not started"
+  ],
+  [
+    "P10",
+    "Multi-Agent Coordination Under Degraded Communications",
+    "Main route · after P4, P6, P8 · evidence-gated",
+    "not started"
+  ],
+  [
+    "P11",
+    "Assurance, Security and Test Evaluation",
+    "Main route · after P10 · evidence-gated",
+    "not started"
+  ],
+  [
+    "P12",
+    "Integrated Capstone and Technical Communication",
+    "Main route · after P10, P11 · evidence-gated",
+    "not started"
+  ],
+  [
+    "P3",
+    "Computer Vision and Deep Learning",
+    "Optional depth · after P2 · evidence-gated",
+    "not started"
+  ],
+  [
+    "P5",
+    "Embedded and Physical Interfaces",
+    "Optional depth · after P4 · evidence-gated",
+    "not started"
+  ],
+  [
+    "P7",
+    "State Estimation and Navigation",
+    "Optional depth · after P6 · evidence-gated",
+    "not started"
+  ],
+  [
+    "P9",
+    "Reinforcement Learning and Decision Experiments",
+    "Optional depth · after P2, P6 · evidence-gated",
+    "not started"
+  ]
 ];
 
 const storageKeys = {
-  notes: "df-mobile-a20-notes"
+  // Keep the historical notes key so a projection refresh cannot erase real text.
+  notes: "df-mobile-final-20260901-0900-notes"
 };
 
-function parseDate(value) {
-  return new Date(`${value}T12:00:00`);
+let phase0Projection;
+let weeks = [];
+
+function parseDate(value, endOfDay = false) {
+  const [year, month, day] = value.split("-").map(Number);
+  return new Date(
+    year,
+    month - 1,
+    day,
+    endOfDay ? 23 : 0,
+    endOfDay ? 59 : 0,
+    endOfDay ? 59 : 0,
+    endOfDay ? 999 : 0
+  );
+}
+
+function shortDate(value) {
+  return parseDate(value).toLocaleDateString(undefined, { month: "short", day: "numeric" });
+}
+
+function timeFromIso(value) {
+  return value.slice(11, 16);
 }
 
 function getCurrentWeek(today = new Date()) {
   const time = today.getTime();
-  const active = weeks.find((week) => time >= parseDate(week.start) && time <= parseDate(week.end));
-  if (active) {
-    return active;
-  }
-  if (time < parseDate(weeks[0].start)) {
-    return weeks[0];
-  }
+  const active = weeks.find((week) => {
+    return time >= parseDate(week.start).getTime() && time <= parseDate(week.end, true).getTime();
+  });
+  if (active) return active;
+  if (time < parseDate(weeks[0].start).getTime()) return weeks[0];
   return weeks[weeks.length - 1];
 }
 
-function taskKey(weekId, index) {
-  return `df-mobile-a20-task-${weekId}-${index}`;
+function day0Actions(projection) {
+  const actionByLane = {
+    research: "Read the selected previous-local-day Hugging Face paper for 60 minutes; log it as research, never Foundation proof.",
+    python: "Inspect file_stats, define one shared fixture, and write the smallest Python test; capture observed output or one blocker.",
+    rust: "Mirror the same fixture and output contract in hello-stats; capture observed parity output or one blocker.",
+    endr: "Use the separate endr block for one permitted G0 outcome or an exact blocker; never count it as Foundation evidence.",
+    admin: "Record observed proof or no-proof, one blocker, and the exact next command."
+  };
+  return projection.day0.events.map((event) => {
+    return `${timeFromIso(event.start)}–${timeFromIso(event.end)} · ${event.action || actionByLane[event.lane] || event.title}`;
+  });
 }
 
-function isTaskComplete(weekId, index) {
-  return localStorage.getItem(taskKey(weekId, index)) === "true";
+function buildWeeks(projection) {
+  const parallel = projection.course_routing?.mode === "parallel-defense-curriculum-v1";
+  return projection.capacity.weekly.map((week, index) => ({
+    ...week,
+    dates: `${week.start} → ${week.end}`,
+    evidence: "Resume the oldest unmet Python/Rust criterion. Record the actual command/result or one blocker; this read-only row is never Foundation evidence.",
+    actions: index === 0 ? day0Actions(projection) : parallel ? [
+      "Open the current Calendar action card and course map; Calendar owns time.",
+      "Learn Python, Rust, agents, battlefield AI and warfare in parallel, at the oldest unmet step in each track.",
+      "Use 2–3-hour studios and one-hour curriculum readings, with one primary course per track.",
+      "Prove each language independently before parity; agent and research work remain non-gate.",
+      "Save actual output or a blocker and the exact source resume point."
+    ] : [
+      "Open the dated Aegis note and exact Calendar action card before starting; the manifest owns timing.",
+      "Run the separate Python and Rust blocks on one shared fixture contract; preserve the weekly pair_cycle_id even when degree commitments split the languages across days.",
+      "Use an optional agent block only where the manifest permits it; max three read-only tools and three steps, cut first.",
+      "Keep source pulls issue-bound and immediately applied; save the exact course resume point.",
+      "Close with observed output or no-proof, one blocker, and one copyable next command."
+    ]
+  }));
 }
 
-function setTaskComplete(weekId, index, complete) {
-  localStorage.setItem(taskKey(weekId, index), String(complete));
-  updateProgress();
-}
-
-function updateProgress() {
-  const total = weeks.reduce((count, week) => count + week.tasks.length, 0);
-  const complete = weeks.reduce((count, week) => {
-    return count + week.tasks.filter((_, index) => isTaskComplete(week.id, index)).length;
-  }, 0);
-  const percent = total === 0 ? 0 : Math.round((complete / total) * 100);
-  const meter = document.querySelector(".phase-meter");
-  const progress = document.getElementById("phase-progress");
-
-  if (meter) {
-    meter.style.setProperty("--meter", `${percent}%`);
+async function loadProjection() {
+  const response = await fetch(PROJECTION_URL, { cache: "no-store" });
+  if (!response.ok) throw new Error(`projection request failed (${response.status})`);
+  const projection = await response.json();
+  if (projection.schema_version !== PROJECTION_SCHEMA) throw new Error("unsupported projection schema");
+  const required = ["authority", "period", "checkpoints", "capacity", "day0", "evidence"];
+  if (required.some((key) => !projection[key])) throw new Error("projection is incomplete");
+  if (projection.evidence.schedule_is_evidence !== false || projection.evidence.task_state_is_evidence !== false) {
+    throw new Error("projection weakens the evidence boundary");
   }
-  if (progress) {
-    progress.textContent = `${percent}%`;
-  }
+  return projection;
 }
 
 function renderDashboard() {
+  const parallel = phase0Projection.course_routing?.mode === "parallel-defense-curriculum-v1";
+  document.getElementById("current-focus").textContent = parallel ? "Python · Rust · AI agents · battlefield AI · warfare" : "Follow the current course map and exact Calendar plan";
+  document.getElementById("work-allocation").textContent = phase0Projection.capacity.normal_week_targets ? `${Object.entries(phase0Projection.capacity.normal_week_targets).filter(([key]) => key !== "unreserved").reduce((total, [, minutes]) => total + minutes, 0) / 60}h outside class · normal week` : "Follow exact weekly reservations";
   const current = getCurrentWeek();
+  const beforeStart = Date.now() < new Date(phase0Projection.authority.boundary).getTime();
+  document.getElementById("phase-status").textContent = beforeStart ? "P0 prelaunch · work unverified" : "P0 scheduled · evidence required";
   document.getElementById("current-week").textContent = current.label;
   document.getElementById("current-week-dates").textContent = current.dates;
   document.getElementById("week-title").textContent = `${current.label}: ${current.dates}`;
-  document.getElementById("week-primary").textContent = current.primary;
+  document.getElementById("week-primary").textContent = current.focus;
   document.getElementById("week-evidence").textContent = current.evidence;
-  document.getElementById("phase-message").textContent = `${current.label} is focused on ${current.primary}`;
+  document.getElementById("baseline-date").textContent = shortDate(phase0Projection.checkpoints.baseline);
+  document.getElementById("readiness-date").textContent = `readiness ${shortDate(phase0Projection.checkpoints.readiness)}`;
+  document.getElementById("final-date").textContent = shortDate(phase0Projection.checkpoints.final_capability);
+  document.getElementById("final-window").textContent = `review ${phase0Projection.checkpoints.final_review_window} · horizon ${timeFromIso(phase0Projection.checkpoints.horizon_cutoff)} PDT`;
+  document.getElementById("phase-progress").textContent = "pending";
+  document.querySelector(".phase-meter").setAttribute("aria-label", "Work unverified; this projection does not track completion");
+  document.getElementById("phase-message").textContent = `Read-only projection, not gate progress. ${current.label}: ${current.focus}. Authority: ${phase0Projection.authority.config_path}.`;
 }
 
 function renderWeeks() {
   const list = document.getElementById("week-list");
   const current = getCurrentWeek();
-  list.innerHTML = "";
+  list.replaceChildren();
 
   weeks.forEach((week) => {
     const card = document.createElement("article");
     card.className = `week-card${week.id === current.id ? " current" : ""}`;
-
     const header = document.createElement("div");
     header.className = "week-header";
-    header.innerHTML = `
-      <div>
-        <h3>${week.label}</h3>
-        <div class="week-date">${week.dates}</div>
-      </div>
-      ${week.id === current.id ? '<span class="week-badge">Current</span>' : ""}
-    `;
+    const heading = document.createElement("div");
+    const title = document.createElement("h3");
+    title.textContent = week.label;
+    const dates = document.createElement("div");
+    dates.className = "week-date";
+    dates.textContent = week.dates;
+    heading.append(title, dates);
+    header.appendChild(heading);
+    if (week.id === current.id) {
+      const badge = document.createElement("span");
+      badge.className = "week-badge";
+      badge.textContent = "Current";
+      header.appendChild(badge);
+    }
 
     const primary = document.createElement("p");
-    primary.textContent = week.primary;
-
+    primary.textContent = week.focus;
     const evidence = document.createElement("div");
     evidence.className = "callout";
-    evidence.innerHTML = `<span>Evidence</span><p>${week.evidence}</p>`;
+    const evidenceTitle = document.createElement("span");
+    evidenceTitle.textContent = "Evidence boundary";
+    const evidenceText = document.createElement("p");
+    evidenceText.textContent = week.evidence;
+    evidence.append(evidenceTitle, evidenceText);
 
-    const checks = document.createElement("div");
-    week.tasks.forEach((task, index) => {
-      const id = `${week.id}-${index}`;
-      const row = document.createElement("label");
-      row.className = "check-row";
-      row.setAttribute("for", id);
-      row.innerHTML = `
-        <input id="${id}" type="checkbox" ${isTaskComplete(week.id, index) ? "checked" : ""}>
-        <span>${task}</span>
-      `;
-      row.querySelector("input").addEventListener("change", (event) => {
-        setTaskComplete(week.id, index, event.currentTarget.checked);
-      });
-      checks.appendChild(row);
+    const actions = document.createElement("div");
+    week.actions.forEach((action) => {
+      const row = document.createElement("div");
+      row.className = "read-row";
+      const marker = document.createElement("span");
+      marker.setAttribute("aria-hidden", "true");
+      marker.textContent = "→";
+      const text = document.createElement("p");
+      text.textContent = action;
+      row.append(marker, text);
+      actions.appendChild(row);
     });
 
-    card.append(header, primary, evidence, checks);
+    card.append(header, primary, evidence, actions);
     list.appendChild(card);
   });
 }
 
 function renderPhases() {
   const list = document.getElementById("phase-list");
-  list.innerHTML = "";
-
+  list.replaceChildren();
   phases.forEach(([id, title, description, status]) => {
     const card = document.createElement("article");
     card.className = `phase-card${id === "P0" ? " active" : ""}`;
-    card.innerHTML = `
-      <div>
-        <h3>${id} - ${title}</h3>
-        <div class="phase-status">${status}</div>
-      </div>
-      <p>${description}</p>
-    `;
+    const heading = document.createElement("div");
+    const name = document.createElement("h3");
+    name.textContent = `${id} - ${title}`;
+    const state = document.createElement("div");
+    state.className = "phase-status";
+    state.textContent = status;
+    const detail = document.createElement("p");
+    detail.textContent = description;
+    heading.append(name, state);
+    card.append(heading, detail);
     list.appendChild(card);
   });
+}
+
+function renderProjectionFailure(error) {
+  document.getElementById("phase-status").textContent = "Projection unavailable";
+  document.getElementById("phase-progress").textContent = "stale";
+  document.getElementById("phase-message").textContent = `${error.message}. Use Aegis Nexus directly; no cached date or task state is treated as current.`;
+  document.getElementById("week-primary").textContent = "Generated authority could not be loaded.";
+  document.getElementById("week-evidence").textContent = "Fail closed: this screen makes no schedule or completion claim.";
 }
 
 function setupTabs() {
   const tabs = document.querySelectorAll(".tab");
   const views = document.querySelectorAll(".view");
-
   tabs.forEach((tab) => {
     tab.addEventListener("click", () => {
       tabs.forEach((item) => item.classList.remove("active"));
@@ -238,7 +285,6 @@ function setupTabs() {
         view.classList.remove("active");
         view.hidden = true;
       });
-
       const target = document.getElementById(tab.dataset.target);
       tab.classList.add("active");
       target.hidden = false;
@@ -255,52 +301,44 @@ function setupNotes() {
   let saveTimer;
 
   textarea.value = localStorage.getItem(storageKeys.notes) || "";
-
   textarea.addEventListener("input", () => {
     localStorage.setItem(storageKeys.notes, textarea.value);
-    saveState.textContent = "Saving...";
+    saveState.textContent = "Saving local scratch note...";
     clearTimeout(saveTimer);
     saveTimer = setTimeout(() => {
-      saveState.textContent = "Notes saved locally.";
+      saveState.textContent = "Scratch note saved locally; not evidence.";
     }, 350);
   });
-
   copyButton.addEventListener("click", async () => {
     if (!textarea.value.trim()) {
       saveState.textContent = "Nothing to copy yet.";
       return;
     }
-
     try {
       await navigator.clipboard.writeText(textarea.value);
-      saveState.textContent = "Notes copied.";
+      saveState.textContent = "Scratch note copied; verify it before promotion.";
     } catch {
       textarea.select();
-      saveState.textContent = "Select and copy the highlighted notes.";
+      saveState.textContent = "Select and copy the highlighted scratch note.";
     }
   });
-
   clearButton.addEventListener("click", () => {
     textarea.value = "";
     localStorage.removeItem(storageKeys.notes);
-    saveState.textContent = "Notes cleared.";
+    saveState.textContent = "Scratch note cleared.";
   });
 }
 
 function setupInstallPrompt() {
   const installButton = document.getElementById("install-button");
   let deferredPrompt;
-
   window.addEventListener("beforeinstallprompt", (event) => {
     event.preventDefault();
     deferredPrompt = event;
     installButton.hidden = false;
   });
-
   installButton.addEventListener("click", async () => {
-    if (!deferredPrompt) {
-      return;
-    }
+    if (!deferredPrompt) return;
     deferredPrompt.prompt();
     await deferredPrompt.userChoice;
     deferredPrompt = null;
@@ -310,17 +348,24 @@ function setupInstallPrompt() {
 
 function setupServiceWorker() {
   if ("serviceWorker" in navigator) {
-    window.addEventListener("load", () => {
-      navigator.serviceWorker.register("./sw.js");
-    });
+    window.addEventListener("load", () => navigator.serviceWorker.register("./sw.js"));
   }
 }
 
-renderDashboard();
-renderWeeks();
-renderPhases();
-setupTabs();
-setupNotes();
-setupInstallPrompt();
-setupServiceWorker();
-updateProgress();
+async function initialize() {
+  setupTabs();
+  setupNotes();
+  setupInstallPrompt();
+  setupServiceWorker();
+  renderPhases();
+  try {
+    phase0Projection = await loadProjection();
+    weeks = buildWeeks(phase0Projection);
+    renderDashboard();
+    renderWeeks();
+  } catch (error) {
+    renderProjectionFailure(error);
+  }
+}
+
+initialize();

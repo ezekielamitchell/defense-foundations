@@ -1,0 +1,193 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aegis.local/schemas/phase0-proof.v1.json",
+  "title": "Phase 0 observed proof receipt",
+  "description": "A Foundation evidence receipt. Scheduling, task state, generated projections, and elapsed time are explicitly non-evidentiary.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "reset_id",
+    "date",
+    "pair_slice_id",
+    "artifact_paths",
+    "command_results",
+    "observed_output_digest",
+    "test_count",
+    "changed_paths",
+    "verdict",
+    "blocker",
+    "course_resume_point",
+    "next_command",
+    "evidence_basis"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "phase0-proof.v1"
+    },
+    "reset_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "date": {
+      "type": "string",
+      "format": "date"
+    },
+    "pair_slice_id": {
+      "type": "string",
+      "pattern": "^P0-PAIR-[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+    },
+    "artifact_paths": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "command_results": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "command",
+          "working_directory",
+          "exit_code",
+          "expected_exit_code",
+          "output_digest"
+        ],
+        "properties": {
+          "command": {
+            "type": "string",
+            "minLength": 1
+          },
+          "working_directory": {
+            "type": "string",
+            "pattern": "^/"
+          },
+          "exit_code": {
+            "type": "integer"
+          },
+          "expected_exit_code": {
+            "type": "integer"
+          },
+          "output_digest": {
+            "type": "string",
+            "pattern": "^sha256:[0-9a-f]{64}$"
+          }
+        }
+      }
+    },
+    "observed_output_digest": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "pattern": "^sha256:[0-9a-f]{64}$"
+    },
+    "test_count": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "changed_paths": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "verdict": {
+      "enum": [
+        "verified",
+        "partial",
+        "blocked",
+        "unverified"
+      ]
+    },
+    "blocker": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "course_resume_point": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "next_command": {
+      "type": "string",
+      "minLength": 1
+    },
+    "evidence_basis": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "artifacts_observed",
+        "commands_observed",
+        "schedule_only",
+        "task_state_only"
+      ],
+      "properties": {
+        "artifacts_observed": {
+          "type": "boolean"
+        },
+        "commands_observed": {
+          "type": "boolean"
+        },
+        "schedule_only": {
+          "const": false
+        },
+        "task_state_only": {
+          "const": false
+        }
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "verdict": {
+            "const": "verified"
+          }
+        },
+        "required": [
+          "verdict"
+        ]
+      },
+      "then": {
+        "properties": {
+          "artifact_paths": {
+            "minItems": 1
+          },
+          "command_results": {
+            "minItems": 1
+          },
+          "observed_output_digest": {
+            "type": "string"
+          },
+          "test_count": {
+            "minimum": 1
+          },
+          "blocker": {
+            "type": "null"
+          },
+          "evidence_basis": {
+            "properties": {
+              "artifacts_observed": {
+                "const": true
+              },
+              "commands_observed": {
+                "const": true
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}

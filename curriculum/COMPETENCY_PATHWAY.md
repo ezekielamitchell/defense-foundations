@@ -34,7 +34,7 @@ the first coordination capstone. None is currently active.
 
 | ID | Competency | Entry proof | Role / status |
 |---|---|---|---|
-| P0 | Programming from zero: Python, then Rust, shell, Git, tests | None; start at Z0 | Main route; active phase, learner proof unverified |
+| P0 | Programming from zero: parallel Python/Rust, shell, Git, tests | None; start at Z0 | Main route; active phase, learner proof unverified |
 | P1 | Contracts, data handling, measurement and replay | P0 gate | Main route; not started |
 | P2 | Quantitative reasoning and trustworthy evaluation | P1; algebra/probability checkpoint | Main route; not started |
 | P3 | Computer vision and deep learning | P2; vectors/gradients checkpoint | Optional depth; not started |
@@ -98,7 +98,7 @@ integration requires it. It is not a third beginner language or a P1 blocker.
 
 ## Scope control and learning method
 
-One primary source at a time. Learn a concept, practice it, apply it to the
+One primary source per active track. Learn a concept, practice it, apply it to the
 current artifact, and return later for a recall check. A beginner may need guided
 examples before being able to name an engineering issue. That is legitimate
 instruction; passive viewing alone is not competency evidence.
@@ -122,7 +122,7 @@ A zero-start route can take longer, especially alongside degree and company work
 
 For the later reset, start from actual free capacity after degree obligations,
 company commitments and personal commitments. A provisional learning budget of
-**6–10 focused hours/week** is a planning hypothesis, not a reservation or quota.
+The former **6–10 focused hours/week** example is historical. Actual capacity and the parallel track allocation are defined by current Aegis authority, not this pathway.
 For example, four 60-minute sessions plus one 2-hour practice/review block is
 six hours. Expand only after two representative weeks show it is sustainable.
 

@@ -1,3 +1,7 @@
+# Historical Curriculum Preparation Review
+
+**Superseded where it conflicts with the active [Parallel Course Map](PARALLEL_COURSE_MAP.md) and [Reset Handoff](RESET_HANDOFF.md).** The findings below describe the earlier Python-only preparation; they are preserved as history.
+
 # Defense Foundations — Refresh Review
 
 Prepared September 19, 2026. Curriculum refreshed; a new reset has not run.

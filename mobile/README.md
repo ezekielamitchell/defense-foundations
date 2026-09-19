@@ -1,31 +1,5 @@
 # Defense Foundations Mobile PWA
 
-This folder contains a static mobile-first Progressive Web App for the
-`defense-foundations` repo. It gives you a phone-friendly dashboard for the P0
-weekly plan, phase map, evidence links, and quick capture notes.
-
-The current projection starts with Day 0 at 16:00 on 2026-08-09; condensed
-Week 1 is that day only. Week 2 resumes the Monday–Sunday cadence on
-2026-08-10. The six-week minimum gate is
-2026-08-30 and the eight-week maximum gate is 2026-09-13. Aegis Nexus
-`01_Daily/_Phase Config.md` is the sole hard-date authority; this PWA is a
-read-only projection.
-
-DD #85/#78 schedules two bounded **non-gate** overlays through 2026-09-13: the
-Hugging Face AI Agents Course at a maximum of two linked blocks per full week
-(consuming the deterministic-sampler allocation, never a fifth lane), and a
-60-minute daily research paper at 08:00–09:00. The operating envelope is
-Monday–Friday 09:30–23:00, Saturday 09:30–18:15, and Sunday 09:30–18:00
-America/Los_Angeles, with 15-minute cross-domain transitions and protected personal
-commitments. Foundations still control the gate; overlay proof stays separate.
-Hugging Face, Udemy, projects, and foundation checklists all restart at zero.
-
-The Phase 0 artifact is the paired file-statistics CLI. The active
-`projects/file_stats` (Python) and `projects/hello-stats` (Rust) paths are stubs/WIP.
-Mobile checkboxes use a new reset namespace, so earlier local checks do not carry
-forward. They and mobile notes remain planning aids, not curriculum evidence.
-Scheduling an agent block does not mark it complete.
-
 ## Run locally
 
 From the repository root:
@@ -52,9 +26,13 @@ http://YOUR_MAC_IP:4173/mobile/
 - iPhone Safari: open the URL, tap Share, then tap Add to Home Screen.
 - Android Chrome: open the URL and use the Install prompt or Add to Home screen.
 
-The app shell is cached for offline use after the first successful load. Source
-document links still need network or local server access unless the browser has
-already cached them.
+The app shell is cache-first for offline use after the first successful load.
+The generated projection is network-first so a changed Aegis authority is not
+hidden by an older cache; its last successful response remains available as an
+offline fallback. Source document links still need network or local server
+access unless the browser has already cached them.
+
+The Phases view follows the [competency dependency route](../curriculum/COMPETENCY_PATHWAY.md). Current dates and status come from the generated Aegis projection; only demonstrated evidence and an explicit gate decision advance a phase.
 
 ## Notes behavior
 
@@ -70,3 +48,11 @@ app will be available at:
 ```text
 https://YOUR_GITHUB_USERNAME.github.io/defense-foundations/mobile/
 ```
+
+
+## Active parallel curriculum — September 19, 2026
+
+Static module labels follow the core/optional dependency route. The generated projection now reflects the activated September 19 parallel curriculum reset. Course reservations do not earn learning credit.
+The app-shell cache version changes so a future served load can refresh labels;
+no deployment or installed-browser cache refresh is claimed by editing source.
+See [Start Here](../curriculum/START_HERE.md) and [Reset Handoff](../curriculum/RESET_HANDOFF.md).

@@ -1,15 +1,15 @@
 # Start Here — Programming From Zero
 
-**Prepared September 19, 2026 · curriculum v2 · no new reset activated**
+**Active September 19, 2026 · parallel beginner curriculum**
 
 You do not need to remember an earlier course, understand a paper, or already
 know how to code. Begin with the first unchecked competency below. Existing code
 and historical records remain reference material; they are not assumed knowledge.
 
 This is your learning guide. [The route](COMPETENCY_PATHWAY.md) explains later
-work. [The reset handoff](RESET_HANDOFF.md) separates this preparation from the
-still-active dated schedule. Do not use old calendar lesson titles to skip these
-prerequisites when the new reset is activated.
+work. [The current course map](PARALLEL_COURSE_MAP.md) defines the parallel tracks.
+The private Aegis authority owns the active schedule. Do not use calendar dates
+to skip an unmastered concept.
 
 ## Your first result
 
@@ -34,22 +34,17 @@ this first result. If Python cannot run, resolve that setup problem before
 adding another tool. macOS is fine for initial lessons; actual Linux execution
 is a later foundation check, not an installation obstacle on the first session.
 
-## One primary learning source
+## One primary source per track
 
-Use **Python Crash Course, 3rd Edition**, Part I, in the order below.
-The [publisher's contents](https://nostarch.com/python-crash-course-3rd-edition)
-verify its beginner scope. Confirm access before starting; no subscription
-purchase is required by this guide.
+Use the [parallel course map](PARALLEL_COURSE_MAP.md): Udemy Python and Rust,
+Coursera agents/AI/warfare, and selected O’Reilly readings. Python starts with
+Angela Yu’s Day 1. PCC chapter references below remain a concept crosswalk and
+reading aid, not a second full Python course obligation. CS50P can replace the
+Python course when access is unavailable. No purchase or certificate is required.
 
-If you cannot access it or strongly prefer video, substitute
-[CS50P](https://cs50.harvard.edu/python/). Start at Functions/Variables, then
-Conditionals, Loops, Exceptions, Libraries, Unit Tests, and File I/O. Follow its
-academic-honesty rules for submitted exercises. This is a replacement source,
-not a second simultaneous course; no paid certificate is required.
-
-Official docs answer exact language/tool questions. They need not be the
-teaching text: the Python tutorial and Rust Book assume some programming
-background. Testing references become useful after you can write a function.
+Rust starts in parallel with a guided bridge for programming vocabulary. Its
+course and the Rust Book assume general programming concepts, so pause for an
+explanation and a tiny exercise whenever an example assumes unfamiliar knowledge.
 
 ## Beginner checkpoints
 
@@ -74,12 +69,10 @@ PCC Chapter 9 (classes) is available when a concrete example needs it; no OOP
 architecture is required for this CLI. Its game, visualization and web projects
 are optional alternatives, not extra requirements.
 
-For the **next reset**, Python leads through Z5 before Rust becomes a second
-active learning language. After Z7, use weekly paired Python/Rust slices.
-The current sealed schedule still contains both language studios; only the
-later reset may replace those reservations. Historical Rustlings files are
-preserved; start the beginner concepts at variables rather than assuming the
-saved `if2` position proves current recall.
+Z0–Z6 describe Python competencies. Z7 describes the independent Rust skill set,
+which may start alongside Z0; the number is an identifier, not a waiting period.
+Z8 parity requires basic file handling in both languages. Preserve historical
+Rustlings files and recheck recall instead of assuming the saved pointer is proof.
 
 ## How to study a small slice
 
@@ -89,11 +82,10 @@ saved `if2` position proves current recall.
 4. Check: run it, inspect output, and test one edge case when tests are familiar.
 5. Close: record the source stop point, what ran, and one next action.
 
-A 45–60 minute session is a planning example, not a new calendar reservation.
-For the future beginner reset, allow enough guided instruction to understand
-the concept; alternate it with practice instead of enforcing an arbitrary
-reading percentage. Existing instruction caps remain attached to the current
-manifest until that reset is accepted.
+Current course and project studios last 2–3 hours, including short breaks.
+Curriculum reading blocks last one hour. Alternate explanations and practice;
+there is no inherited instruction-percentage cap. End with one small independently
+explained result, not a promise to finish a whole lesson or chapter.
 
 When stuck, reduce the example, read the last error, and try one hypothesis.
 After roughly 15–20 unproductive minutes, request a hint or worked explanation.
@@ -147,9 +139,10 @@ understanding, not perfect recall. If a gate fails, repeat the specific skill.
 The [progress record](../progress/README.md) records artifact, directory,
 command, exit, output, changes, verdict, blocker and next command.
 
-## What stays off your beginner desk
+## Parallel study without assumed mastery
 
-Advanced papers, computer vision frameworks, ROS 2, embedded boards, RL/MARL,
-LLM/agent courses, extra books, and company product implementation. They remain
-available later. Keep one learning source, one exercise/project slice, and one
-next action visible.
+AI agents, battlefield AI and warfare foundations now have their own introductory
+tracks. Use manual traces, public-source comparisons and small synthetic exercises.
+Advanced perception, ROS 2, embedded hardware and RL remain later material. Keep
+one primary source per track and one main Project 0 build. Research and agent work
+do not satisfy the Python/Rust gate. See [the course map](PARALLEL_COURSE_MAP.md).
