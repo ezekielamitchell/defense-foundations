@@ -1,24 +1,37 @@
-# P6 — Edge AI Deployment
+# P6 — Deterministic Simulation and Adapter Integration
 
-**Status:** not started  
-**Estimated duration:** 8–10 weeks at 10–15 hours/week
+**Curriculum v2 · prepared 2026-09-19**
+**Status:** not started
+**Route:** main route · **Prerequisites:** P4
 
-## Focus
+No new dates or phase promotion follow from this preparation. Numeric IDs are
+stable references; use prerequisites rather than completing every ID in order.
 
-Export, optimize, deploy, and profile trained models on constrained hardware.
+## Entry
 
-## Topics
+P4 recoverable worker with stable schemas and resource bounds.
 
-PTQ/QAT, pruning, distillation, ONNX, ONNX Runtime, TensorRT, OpenVINO, TFLite/LiteRT, Jetson workflows, ARM64 cross-compilation, and end-to-end latency budgets.
+## Learn
 
-## Materials
+Simulation time vs wall time, seeded scenarios, event ordering, task-state transitions, non-learning baselines, fault profiles, replay equivalence and separation of model/policy/adapter. For a ROS adapter learn topics/services/actions, QoS, lifecycle, timestamps and frames.
 
-See [Edge AI](../../../learning-materials/06-edge-ai/README.md).
+## Build
 
-## Evidence target
+A tiny Python discrete-event inspection simulation driving the Rust worker through a replaceable adapter. Compare an in-memory reference adapter with a second process/transport adapter. Add one ROS 2 adapter when the robotics integration goal warrants it.
 
-A camera-to-inference-to-telemetry pipeline with preprocessing, inference, and postprocessing latency separated, plus an accuracy/latency tradeoff table.
+## Acceptance evidence
 
-## Exit gate
+Same scenario/config/seed gives equivalent decisions; fault injection produces expected safe state; both adapters preserve contract behavior; latency/time semantics and nondeterministic fields are declared.
 
-Produce an optimized artifact for a target device and operate a long-lived RTSP → inference → MQTT service.
+## Source and scope
+
+Python standard-library reference first. ROS 2 tutorials for the chosen adapter. Choose one supported simulator/distro pairing at activation; no requirement to master Gazebo, Webots and PX4 together.
+
+**Defer:** SLAM, physical dynamics fidelity, photorealism and learned planning. A seeded run alone does not prove all behavior deterministic.
+
+## Next
+
+P8. P7 is an optional navigation specialization, not a coordination prerequisite.
+
+See [the route](../../COMPETENCY_PATHWAY.md), [beginner guide](../../START_HERE.md),
+[resource spine](../../RESOURCE_SPINE.md), and [reset handoff](../../RESET_HANDOFF.md).

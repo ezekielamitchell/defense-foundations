@@ -1,28 +1,37 @@
-# P12 — Research Capstone
+# P12 — Integrated Capstone and Technical Communication
 
-**Status:** not started  
-**Estimated duration:** ongoing; approximately six focused months
+**Curriculum v2 · prepared 2026-09-19**
+**Status:** not started
+**Route:** main route · **Prerequisites:** P10, P11
 
-## Focus
+No new dates or phase promotion follow from this preparation. Numeric IDs are
+stable references; use prerequisites rather than completing every ID in order.
 
-Choose one narrow defense-autonomy research problem and produce a research-quality artifact rather than a broad demonstration.
+## Entry
 
-## Candidate niches
+P10 coordination and P11 assurance; any elected model/navigation/RL component has its own evidence.
 
-1. Low-false-positive small-object detection for ISR.
-2. Edge visual-inertial odometry for GPS-denied environments.
-3. Gaze-directed multi-sensor prioritization for UGVs.
-4. Communication-robust MARL for swarm reconnaissance.
-5. Robust perception under domain shift.
+## Learn
 
-## Method
+One research question, baseline selection, experimental controls, ablations, limitations, reproduction, clear architecture and technical communication.
 
-Reproduce two strong papers, identify a limitation, propose a bounded improvement, run controlled baselines and ablations, and document failure modes and statistics.
+## Build
 
-## Evidence target
+Finish Flagship III as a runnable educational system. Example question: how does a bounded reassignment policy change task completion and conflicting execution under declared packet loss and partitions? Use a report whose length fits the evidence, a short demo and a clean reproduction guide.
 
-A heavyweight artifact plus a 15–25 page technical report suitable for an arXiv preprint, workshop submission, or polished portfolio release.
+## Acceptance evidence
 
-## Exit gate
+A second person or genuinely clean environment reproduces the central result; code/config/data/run IDs are attributable; charts trace to raw results; a failed case and unsupported claims are visible. Explain the core design and modify one small requirement independently.
 
-Ship the artifact and discuss the work, limitations, and next experiments for an hour without slides.
+## Source and scope
+
+Relevant primary papers and your own versioned evidence. No new unrelated project or course at this stage.
+
+**Defer:** A compulsory 15–25-page count, operational-readiness claims, and adding features to avoid closing the experiment.
+
+## Next
+
+Choose the next specialization, portfolio release or company contribution only from the evidence and applicable authorization.
+
+See [the route](../../COMPETENCY_PATHWAY.md), [beginner guide](../../START_HERE.md),
+[resource spine](../../RESOURCE_SPINE.md), and [reset handoff](../../RESET_HANDOFF.md).

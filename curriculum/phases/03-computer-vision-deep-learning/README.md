@@ -1,24 +1,37 @@
 # P3 — Computer Vision and Deep Learning
 
-**Status:** not started  
-**Estimated duration:** 10–12 weeks at 10–15 hours/week
+**Curriculum v2 · prepared 2026-09-19**
+**Status:** not started
+**Route:** optional depth · **Prerequisites:** P2
 
-## Focus
+No new dates or phase promotion follow from this preparation. Numeric IDs are
+stable references; use prerequisites rather than completing every ID in order.
 
-Working OpenCV and PyTorch fluency: build training loops, train CNNs, debug convergence, and report calibrated per-class false-positive rates.
+## Entry
 
-## Topics
+P2 evaluation gate plus vectors/matrices, derivatives/gradients and array-shape literacy.
 
-Backpropagation, SGD/Adam, ResNet/EfficientNet/MobileNet, augmentation, transfer learning, mixed precision, checkpoints, filters, HOG, ORB, geometry, experiment tracking, and dataset validation.
+## Learn
 
-## Materials
+Images/tensors, simple classical image baseline, datasets/loaders, one training loop, loss/optimizer, checkpointing, transfer learning, calibration and domain shift. Pick classification or detection, not every task.
 
-See [ML and computer vision](../../../learning-materials/03-ml-computer-vision/README.md).
+## Build
 
-## Evidence target
+An optional perception input for the shared harness/runtime. Use a small public licensed dataset, one classical baseline and one model. Prefer a CPU-feasible first experiment; document any justified GPU use.
 
-A classical CV baseline and a low-false-positive image classifier, each with error analysis and multiple operating points.
+## Acceptance evidence
 
-## Exit gate
+Dataset/split provenance, reproducible evaluation, leakage checks, measured operating point, latency, one controlled ablation, confidence/failure slices and explicit unsupported claims.
 
-Write a training loop from scratch, debug a non-converging model, and train at least three CNNs from scripts you authored.
+## Source and scope
+
+PyTorch Learn the Basics, OpenCV documentation and the selected model's primary paper/documentation.
+
+**Defer:** Tracking, foundation-model fine-tuning, VLA and large training runs unless the specific experiment needs them. No compulsory YOLO version.
+
+## Next
+
+Feed the measured adapter into P4/P6 when useful. This module does not gate the core runtime.
+
+See [the route](../../COMPETENCY_PATHWAY.md), [beginner guide](../../START_HERE.md),
+[resource spine](../../RESOURCE_SPINE.md), and [reset handoff](../../RESET_HANDOFF.md).

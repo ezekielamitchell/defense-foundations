@@ -1,0 +1,172 @@
+{
+  "schema_version": "defense-foundations.curriculum-route.v2",
+  "prepared_on": "2026-09-19",
+  "activation": "curriculum-prepared-reset-not-executed",
+  "active_phase": "P0",
+  "beginner_baseline": "assume-no-prior-fluency-preserve-history",
+  "core_order": [
+    0,
+    1,
+    2,
+    4,
+    6,
+    8,
+    10,
+    11,
+    12
+  ],
+  "optional_modules": [
+    3,
+    5,
+    7,
+    9
+  ],
+  "phases": [
+    {
+      "id": "P0",
+      "title": "Programming Foundations From Zero",
+      "role": "core",
+      "prerequisites": [],
+      "status": "active-proof-unverified",
+      "repository_path": "curriculum/phases/00-foundations/README.md",
+      "vault_path": "02_Knowledge/Defense AI Curriculum/Phase 0 — Foundations.md"
+    },
+    {
+      "id": "P1",
+      "title": "Contracts, Measurement and Replay",
+      "role": "core",
+      "prerequisites": [
+        "P0"
+      ],
+      "status": "not-started",
+      "repository_path": "curriculum/phases/01-math-linux-git/README.md",
+      "vault_path": "02_Knowledge/Defense AI Curriculum/Phase 1 — Math, Linux, Git.md"
+    },
+    {
+      "id": "P2",
+      "title": "Quantitative Reasoning and Trustworthy Evaluation",
+      "role": "core",
+      "prerequisites": [
+        "P1"
+      ],
+      "status": "not-started",
+      "repository_path": "curriculum/phases/02-core-ml/README.md",
+      "vault_path": "02_Knowledge/Defense AI Curriculum/Phase 2 — Core ML.md"
+    },
+    {
+      "id": "P3",
+      "title": "Computer Vision and Deep Learning",
+      "role": "optional",
+      "prerequisites": [
+        "P2"
+      ],
+      "status": "not-started",
+      "repository_path": "curriculum/phases/03-computer-vision-deep-learning/README.md",
+      "vault_path": "02_Knowledge/Defense AI Curriculum/Phase 3 — Computer Vision + Deep Learning.md"
+    },
+    {
+      "id": "P4",
+      "title": "Reliable Rust Services and Distributed Systems",
+      "role": "core",
+      "prerequisites": [
+        "P1",
+        "P2"
+      ],
+      "status": "not-started",
+      "repository_path": "curriculum/phases/04-rust-systems/README.md",
+      "vault_path": "02_Knowledge/Defense AI Curriculum/Phase 4 — Rust Systems and Edge Deployment.md"
+    },
+    {
+      "id": "P5",
+      "title": "Embedded and Physical Interfaces",
+      "role": "optional",
+      "prerequisites": [
+        "P4"
+      ],
+      "status": "not-started",
+      "repository_path": "curriculum/phases/05-robotics-embedded/README.md",
+      "vault_path": "02_Knowledge/Defense AI Curriculum/Phase 5 — Robotics + Embedded.md"
+    },
+    {
+      "id": "P6",
+      "title": "Deterministic Simulation and Adapter Integration",
+      "role": "core",
+      "prerequisites": [
+        "P4"
+      ],
+      "status": "not-started",
+      "repository_path": "curriculum/phases/06-edge-ai-deployment/README.md",
+      "vault_path": "02_Knowledge/Defense AI Curriculum/Phase 6 — ROS 2 and Simulation Integration.md"
+    },
+    {
+      "id": "P7",
+      "title": "State Estimation and Navigation",
+      "role": "optional",
+      "prerequisites": [
+        "P6"
+      ],
+      "status": "not-started",
+      "repository_path": "curriculum/phases/07-transformers/README.md",
+      "vault_path": "02_Knowledge/Defense AI Curriculum/Phase 7 — State Estimation, SLAM, and GPS-Denied Navigation.md"
+    },
+    {
+      "id": "P8",
+      "title": "Human Authority and Bounded Agent Interfaces",
+      "role": "core",
+      "prerequisites": [
+        "P6"
+      ],
+      "status": "not-started",
+      "repository_path": "curriculum/phases/08-ros2-sensor-fusion/README.md",
+      "vault_path": "02_Knowledge/Defense AI Curriculum/Phase 8 — Human-Machine Teaming and Reliable Edge Agents.md"
+    },
+    {
+      "id": "P9",
+      "title": "Reinforcement Learning and Decision Experiments",
+      "role": "optional",
+      "prerequisites": [
+        "P2",
+        "P6"
+      ],
+      "status": "not-started",
+      "repository_path": "curriculum/phases/09-multi-agent-swarm/README.md",
+      "vault_path": "02_Knowledge/Defense AI Curriculum/Phase 9 — RL and Decision-Making Under Uncertainty.md"
+    },
+    {
+      "id": "P10",
+      "title": "Multi-Agent Coordination Under Degraded Communications",
+      "role": "core",
+      "prerequisites": [
+        "P4",
+        "P6",
+        "P8"
+      ],
+      "status": "not-started",
+      "repository_path": "curriculum/phases/10-gaze-hmt/README.md",
+      "vault_path": "02_Knowledge/Defense AI Curriculum/Phase 10 — Multi-Agent and Degraded-Comms Autonomy.md"
+    },
+    {
+      "id": "P11",
+      "title": "Assurance, Security and Test Evaluation",
+      "role": "core",
+      "prerequisites": [
+        "P10"
+      ],
+      "status": "not-started",
+      "repository_path": "curriculum/phases/11-doctrine-ethics/README.md",
+      "vault_path": "02_Knowledge/Defense AI Curriculum/Phase 11 — Doctrine + Ethics.md"
+    },
+    {
+      "id": "P12",
+      "title": "Integrated Capstone and Technical Communication",
+      "role": "core",
+      "prerequisites": [
+        "P10",
+        "P11"
+      ],
+      "status": "not-started",
+      "repository_path": "curriculum/phases/12-research-capstone/README.md",
+      "vault_path": "02_Knowledge/Defense AI Curriculum/Phase 12 — Research Capstone.md"
+    }
+  ]
+}

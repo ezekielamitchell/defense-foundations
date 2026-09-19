@@ -1,0 +1,155 @@
+# Start Here — Programming From Zero
+
+**Prepared September 19, 2026 · curriculum v2 · no new reset activated**
+
+You do not need to remember an earlier course, understand a paper, or already
+know how to code. Begin with the first unchecked competency below. Existing code
+and historical records remain reference material; they are not assumed knowledge.
+
+This is your learning guide. [The route](COMPETENCY_PATHWAY.md) explains later
+work. [The reset handoff](RESET_HANDOFF.md) separates this preparation from the
+still-active dated schedule. Do not use old calendar lesson titles to skip these
+prerequisites when the new reset is activated.
+
+## Your first result
+
+Open your terminal, go to the existing repository, and inspect its state:
+
+```sh
+cd /path/to/defense-foundations
+pwd
+git status --short
+python3 --version
+python3 projects/file_stats/main.py
+```
+
+The inspected starter prints `Hello from file-stats!`. This only demonstrates
+that a script runs. Identify which file ran, what `print` does, and the
+difference between the terminal and the Python file. Then type a tiny change,
+predict its output, run it, and explain the result. Ask for a hint if you cannot
+identify the line to change. Do not restore, erase, or rewrite unrelated files.
+
+No new package, hardware, cloud account, agent framework, or paper is needed for
+this first result. If Python cannot run, resolve that setup problem before
+adding another tool. macOS is fine for initial lessons; actual Linux execution
+is a later foundation check, not an installation obstacle on the first session.
+
+## One primary learning source
+
+Use **Python Crash Course, 3rd Edition**, Part I, in the order below.
+The [publisher's contents](https://nostarch.com/python-crash-course-3rd-edition)
+verify its beginner scope. Confirm access before starting; no subscription
+purchase is required by this guide.
+
+If you cannot access it or strongly prefer video, substitute
+[CS50P](https://cs50.harvard.edu/python/). Start at Functions/Variables, then
+Conditionals, Loops, Exceptions, Libraries, Unit Tests, and File I/O. Follow its
+academic-honesty rules for submitted exercises. This is a replacement source,
+not a second simultaneous course; no paid certificate is required.
+
+Official docs answer exact language/tool questions. They need not be the
+teaching text: the Python tutorial and Rust Book assume some programming
+background. Testing references become useful after you can write a function.
+
+## Beginner checkpoints
+
+These are learning checkpoints, not dates or session quotas. Repeat or split
+any row. Early exercises stay in your own exercise area under the existing
+learning-materials tree; one small exercise is not another portfolio project.
+
+| Checkpoint | Learn | Do without copying the example | Ready to continue when |
+|---|---|---|---|
+| Z0 · Run and inspect | Editor, terminal, paths, save/run; PCC Chapter 1 | Change and run one small script | You can find the file and explain the observed output |
+| Z1 · Values | PCC Chapter 2: variables, strings, numbers | Format a short summary from three values | You can predict a changed input and fix a simple error |
+| Z2 · Collections and decisions | PCC Chapters 3–7: lists, loops, conditions, dictionaries, input | Count words in a literal string; summarize a small list | Empty and repeated values do not surprise you |
+| Z3 · Functions | PCC Chapter 8 | Write a count function that returns a result rather than printing inside it | You can call it with two inputs and explain arguments vs return values |
+| Z4 · Files and failures | PCC Chapter 10; `pathlib` as needed | Read a tiny file; handle a missing file deliberately | You can explain bytes vs decoded text and the failure path |
+| Z5 · First tests | PCC Chapter 11; pytest getting started | Write a passing test, deliberately break the function, see failure, repair it | You can explain what the test actually proves |
+| Z6 · Useful Python CLI | argparse docs; pytest temporary-file reference | Build the Project 0 file/stdin interface incrementally | The named success/error fixtures pass; README commands work |
+| Z7 · Rust introduction | Rust Book Chapters 1–3, then 4–6, 8–9 and 11 as needed | Rebuild small familiar Python ideas in Rust; learn ownership and Result | You can explain a borrow error and return an ordinary error without panic |
+| Z8 · Paired CLI | Rust Book Chapter 12; Command-Line Rust selected examples | Implement the same agreed contract in hello-stats | Both languages agree on counts, streams and exit status |
+| Z9 · Reproduce and explain | Git, shell, packaging, CI | Recreate a small slice without the tutorial; run in a clean environment | Every P0 gate has observed evidence or a named gap |
+
+PCC Chapter 9 (classes) is available when a concrete example needs it; no OOP
+architecture is required for this CLI. Its game, visualization and web projects
+are optional alternatives, not extra requirements.
+
+For the **next reset**, Python leads through Z5 before Rust becomes a second
+active learning language. After Z7, use weekly paired Python/Rust slices.
+The current sealed schedule still contains both language studios; only the
+later reset may replace those reservations. Historical Rustlings files are
+preserved; start the beginner concepts at variables rather than assuming the
+saved `if2` position proves current recall.
+
+## How to study a small slice
+
+1. Recall: explain yesterday's concept or predict a tiny example.
+2. Learn: read one short section or watch the matching explanation.
+3. Practice: type it, change an input, then solve one similar task yourself.
+4. Check: run it, inspect output, and test one edge case when tests are familiar.
+5. Close: record the source stop point, what ran, and one next action.
+
+A 45–60 minute session is a planning example, not a new calendar reservation.
+For the future beginner reset, allow enough guided instruction to understand
+the concept; alternate it with practice instead of enforcing an arbitrary
+reading percentage. Existing instruction caps remain attached to the current
+manifest until that reset is accepted.
+
+When stuck, reduce the example, read the last error, and try one hypothesis.
+After roughly 15–20 unproductive minutes, request a hint or worked explanation.
+Do a similar problem independently afterward. AI may explain, quiz, review, and
+suggest a small test; a generated full solution does not prove your understanding.
+
+## Project 0 contract, introduced gradually
+
+Agree on this contract before comparing languages:
+
+- Input: one file path or `-` for stdin; no recursive scanning.
+- Decode UTF-8 strictly; invalid bytes produce a clean error.
+- Bytes: raw byte length. Lines: number of LF bytes (a trailing fragment adds
+  no line). Words: runs separated by ASCII whitespace (space, tab, LF, CR,
+  vertical tab, form feed). Non-ASCII whitespace stays inside a word.
+- Success: one line `lines=<n> words=<n> bytes=<n>\n` on stdout; exit 0.
+- Usage error: exit 2. Read/decode failure: exit 1, diagnostic on stderr and
+  no count result on stdout. Exact OS error wording need not match.
+- Streaming and clever optimizations wait until a measured need; state the
+  small-file memory limit honestly.
+
+| Fixture | Lines | Words | Bytes |
+|---|---:|---:|---:|
+| empty | 0 | 0 | 0 |
+| `alpha beta\n` | 1 | 2 | 11 |
+| `alpha` without final LF | 0 | 1 | 5 |
+| `a\r\nb\n` | 2 | 2 | 5 |
+| UTF-8 `café\n` | 1 | 1 | 6 |
+| ` \t\n` | 1 | 0 | 3 |
+
+Also test invalid UTF-8, nonexistent path, directory input, missing/extra
+arguments, file-versus-stdin parity, and non-ASCII whitespace. These are proposed
+acceptance fixtures, not tests that already exist. This educational contract
+uses explicit whitespace rules rather than claiming complete GNU wc equivalence.
+
+## P0 exit gate
+
+- Independently implement and explain both CLIs; all selected fixtures pass.
+- Python: meaningful pytest collection, type-aware code, Ruff, usable README.
+- Rust: meaningful tests, Clippy and formatting checks, usable README.
+- Compare both programs on identical inputs; explain each mismatch or resolve it.
+- Demonstrate basic shell/Git work and a Linux cold run; macOS is not Linux proof.
+- Show CI evidence when a workflow has actually run; local output is labeled local.
+- Retain the current first-50 Rustlings requirement; a drill count alone does
+  not prove ownership, error handling, or testing. Reverify rather than erase history.
+- Rebuild a small unfamiliar variation without copying. An oral explanation
+  and a failing-then-passing test matter more than memorizing syntax.
+
+You may consult API docs during normal engineering. The independence check tests
+understanding, not perfect recall. If a gate fails, repeat the specific skill.
+The [progress record](../progress/README.md) records artifact, directory,
+command, exit, output, changes, verdict, blocker and next command.
+
+## What stays off your beginner desk
+
+Advanced papers, computer vision frameworks, ROS 2, embedded boards, RL/MARL,
+LLM/agent courses, extra books, and company product implementation. They remain
+available later. Keep one learning source, one exercise/project slice, and one
+next action visible.

@@ -1,24 +1,37 @@
-# P10 — Gaze and Human-Machine Teaming
+# P10 — Multi-Agent Coordination Under Degraded Communications
 
-**Status:** not started  
-**Estimated duration:** 6–8 weeks at 10–15 hours/week
+**Curriculum v2 · prepared 2026-09-19**
+**Status:** not started
+**Route:** main route · **Prerequisites:** P4, P6, P8
 
-## Focus
+No new dates or phase promotion follow from this preparation. Numeric IDs are
+stable references; use prerequisites rather than completing every ID in order.
 
-Measured gaze estimation and operator-aware autonomy in which gaze changes system behavior rather than merely decorating a UI. Human-machine teaming is the layer where a human stays meaningfully in command of an autonomous system: supervisory control, mixed initiative, and trust calibration are how an operator directs mission execution without flying every waypoint. This is a first-class autonomy capability—every fielded defense-autonomy system answers to a human—and it ties the perception and mission-planning layers back to an accountable operator.
+## Entry
 
-## Topics
+P4 reliable runtime, P6 deterministic single-agent simulation and P8 authority tests. No RL prerequisite.
 
-MPIIGaze, Gaze360, EYEDIAP, head pose, attention models, supervisory control, mixed initiative, trust calibration, eye-tracker integration, and gaze-stream routing.
+## Learn
 
-## Materials
+Capability matching, task ownership, acknowledgements, retries/deduplication, deadlines, epochs/leases, causal ordering, partial views, bandwidth, partitions and reconciliation. Choose conservative stop/hold when authority or exclusive ownership is uncertain.
 
-See [Gaze and HMT](../../../learning-materials/10-gaze-hmt/README.md) and [gaze/HMT research](../../../research/gaze-hmt-policy/README.md).
+## Build
 
-## Evidence target
+Begin Flagship III with two to four simulated agents and two capability types in inspection-plus-relay. Compare static assignments, centralized greedy allocation and one bounded coordination alternative on identical scenarios.
 
-A gaze-directed sensor-control prototype with measured accuracy, latency, and an ablation comparing gaze-priority against a baseline.
+## Acceptance evidence
 
-## Exit gate
+Delay, drop, duplication, reordering, stale state, partition, reconnection and one node failure. Measure completed eligible tasks, duplicate/conflicting execution, policy violations, reassignment/recovery, bandwidth and resource use. Define exactly what can resume after recovery.
 
-Trust the measured gaze pipeline, defend the HMT framing, and report either a clear effect or an honest null result.
+## Source and scope
+
+Existing runtime contracts, DDIA sections and Lamport's event-ordering paper after prerequisite concepts. Algorithm libraries are optional.
+
+**Defer:** MAPPO/QMIX, physical swarms and Byzantine-tolerance claims. Do not promise progress and exclusive task ownership through every partition; state the chosen tradeoff.
+
+## Next
+
+P11 final assurance review, then P12. A simpler baseline winning is a useful documented result.
+
+See [the route](../../COMPETENCY_PATHWAY.md), [beginner guide](../../START_HERE.md),
+[resource spine](../../RESOURCE_SPINE.md), and [reset handoff](../../RESET_HANDOFF.md).

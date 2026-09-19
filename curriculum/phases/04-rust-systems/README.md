@@ -1,24 +1,37 @@
-# P4 — Rust Systems
+# P4 — Reliable Rust Services and Distributed Systems
 
-**Status:** not started  
-**Estimated duration:** 8–10 weeks at 10–15 hours/week
+**Curriculum v2 · prepared 2026-09-19**
+**Status:** not started
+**Route:** main route · **Prerequisites:** P1, P2
 
-## Focus
+No new dates or phase promotion follow from this preparation. Numeric IDs are
+stable references; use prerequisites rather than completing every ID in order.
 
-Move from Rust that compiles to services suitable for a fielded system. This is the distributed-systems layer of the autonomy stack: the networking, async services, and telemetry that move sensor data, health, and commands reliably between autonomous platforms. A perception model is only useful once its outputs survive an unreliable network and reach a mission decision—that path is built here, and it is what later turns single robots into sensor networks and coordinated fleets.
+## Entry
 
-## Topics
+P1 contract/replay and P2 evaluation; Rust errors/ownership/tests understood.
 
-Lifetimes, traits, async Tokio, channels, synchronization, TCP/UDP/HTTP, Serde, tracing, configuration, graceful shutdown, profiling, benchmarking, Axum/Actix, PyO3, and Maturin.
+## Learn
 
-## Materials
+Processes, TCP/UDP tradeoffs, async/tasks, channels, typed serialization, queue bounds, backpressure, deadlines, cancellation, retries, idempotency, event identity/order, stale state, persistence, restart and resource measurement.
 
-See [Rust systems](../../../learning-materials/04-rust-systems/README.md).
+## Build
 
-## Evidence target
+Begin Flagship II: a Rust worker accepting synthetic bounded tasks over a typed interface and emitting attributable events. Start in one process, then separate processes only when needed. A model is an optional input; P3 is not required.
 
-A dataset-validation or telemetry service with tests, structured logs, CI, graceful shutdown, and benchmarks.
+## Acceptance evidence
 
-## Exit gate
+Malformed/oversized input, duplicate task, delayed message, queue overflow, restart, disconnect and shutdown. Measure p50/p95/p99 under declared load plus CPU/memory. Explain what happens to acknowledged/in-flight work after failure.
 
-Design a Rust service without a template and ship an installable binary with a real README and CI.
+## Source and scope
+
+Tokio tutorial, Serde and standard-library docs. DDIA is a targeted reliability/distributed-data reference after the basic service works.
+
+**Defer:** Custom cryptography, consensus algorithms, Kubernetes, Python/Rust FFI and mandatory hardware. Local results are not edge-hardware benchmarks.
+
+## Next
+
+P6. Select P5 only for a named physical interface need.
+
+See [the route](../../COMPETENCY_PATHWAY.md), [beginner guide](../../START_HERE.md),
+[resource spine](../../RESOURCE_SPINE.md), and [reset handoff](../../RESET_HANDOFF.md).

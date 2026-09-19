@@ -1,24 +1,37 @@
-# P9 — Multi-Agent and Swarm Autonomy
+# P9 — Reinforcement Learning and Decision Experiments
 
-**Status:** not started  
-**Estimated duration:** 8–10 weeks at 10–15 hours/week
+**Curriculum v2 · prepared 2026-09-19**
+**Status:** not started
+**Route:** optional depth · **Prerequisites:** P2, P6
 
-## Focus
+No new dates or phase promotion follow from this preparation. Numeric IDs are
+stable references; use prerequisites rather than completing every ID in order.
 
-Reinforcement learning, MARL, decentralized control, consensus, and communication-constrained coordination. This is the multi-agent core of mission planning: task allocation, consensus, and coordination under degraded communications are exactly what a swarm reconnaissance or distributed ISR mission requires, and they connect directly to the mission-planning and human-machine-teaming layers above. This is distinct from LLM-agent orchestration—the agent sprint handles the latter—but both answer the same question of how multiple autonomous actors divide and execute a mission.
+## Entry
 
-## Topics
+P2 evaluation and P6 simulation; expectations, MDPs and reward/termination reasoning.
 
-MDPs, DQN, PPO, SAC, MAPPO, QMIX, MADDPG, decentralized POMDPs, flocking, communication graphs, Bellman equations, policy gradients, and game-theory basics.
+## Learn
 
-## Materials
+Observations/actions, partial observability, reward design, value/policy ideas, held-out scenarios, seed variation and reward hacking.
 
-See [Autonomy and swarms](../../../learning-materials/09-autonomy-swarms/README.md) and [RL/MARL research](../../../research/rl-marl-swarms/README.md).
+## Build
 
-## Evidence target
+One learned policy compared with the already-working scripted baseline on the same bounded scenario. Choose one algorithm for a stated limitation; stopping when learning adds no value is a valid result.
 
-A seeded multi-agent search simulation with baselines and ablations, plus a deterministic Rust backend for fast replay.
+## Acceptance evidence
 
-## Exit gate
+Separate training from evaluation; report multiple runs, uncertainty, resource cost, failure cases and baseline comparison. Exercise the same task/authority constraints.
 
-Select an appropriate algorithm, debug a non-learning policy, explain CTDE, and report results across seeds.
+## Source and scope
+
+Sutton and Barto concepts and the selected implementation's primary docs.
+
+**Defer:** Algorithm surveys and MARL before a demonstrated need. P9 is not an entry requirement for P10.
+
+## Next
+
+Integrate only if the result improves a named metric without breaking the runtime contract.
+
+See [the route](../../COMPETENCY_PATHWAY.md), [beginner guide](../../START_HERE.md),
+[resource spine](../../RESOURCE_SPINE.md), and [reset handoff](../../RESET_HANDOFF.md).

@@ -1,24 +1,37 @@
-# P8 — ROS 2 and Sensor Fusion
+# P8 — Human Authority and Bounded Agent Interfaces
 
-**Status:** not started  
-**Estimated duration:** 10–12 weeks at 10–15 hours/week
+**Curriculum v2 · prepared 2026-09-19**
+**Status:** not started
+**Route:** main route · **Prerequisites:** P6
 
-## Focus
+No new dates or phase promotion follow from this preparation. Numeric IDs are
+stable references; use prerequisites rather than completing every ID in order.
 
-ROS 2 is the autonomy middleware at the center of the stack, not just another robotics tool: it is the real-time message fabric that carries perception into navigation, fuses sensors, and connects distributed telemetry to mission logic across a robot or a fleet of them. Every defense-autonomy company in the target set runs on a ROS 2-class middleware, so fluency here is a load-bearing skill, not an elective. Build and debug complete ROS 2 systems, autonomous navigation, SLAM, and sensor fusion—including one Rust ROS 2 node so the middleware is understood at the systems level, not only through `rclpy`.
+## Entry
 
-## Topics
+P6 single-agent simulation and attributable task/event contract.
 
-Nodes, topics, services, actions, lifecycle, QoS, URDF, Nav2, tf2, EKF/UKF, factor graphs, visual-inertial SLAM, IMU preintegration, Gazebo/Webots/Isaac Sim, `rclpy`, and `rclrs`.
+## Learn
 
-## Materials
+Mission/task envelopes, capability limits, policy version/expiry, approval, acknowledgement, pause/cancel/abort, lost-link response, independent policy checks and clear operator feedback. Distinguish deterministic software agents from LLM agents.
 
-See [ROS 2 and sensor fusion](../../../learning-materials/08-ros2-sensor-fusion/README.md).
+## Build
 
-## Evidence target
+Complete Flagship II with a simple operator CLI/status view controlling only the simulated runtime. A rule-based planner is enough. Optional LLM suggestions use typed outputs and cannot alter the deterministic authority boundary.
 
-A launchable rover graph with perception in the loop, a Rust perception node, and a GPS-denied navigation failure analysis.
+## Acceptance evidence
 
-## Exit gate
+Missing/expired authority, stale approval, invalid peer, duplicate command, pause/resume/abort, lost link and malformed suggestions. Record accepted/refused commands, reason codes and the policy version. If an LLM is used, include prompt-injection/refusal tests.
 
-Design a ROS graph, debug tf, tune Nav2, explain SLAM failures, and ship one Rust ROS 2 node.
+## Source and scope
+
+The local interface/state-machine specification and chosen tool's docs. HMT measurements use a defined task; no human-study claim without actual study design and evidence.
+
+**Defer:** Gaze, RAG/MCP frameworks, multi-agent LLM orchestration, elaborate dashboards and consequential physical actions.
+
+## Next
+
+P10 with P4/P6 proof. Gaze and learned planners remain optional.
+
+See [the route](../../COMPETENCY_PATHWAY.md), [beginner guide](../../START_HERE.md),
+[resource spine](../../RESOURCE_SPINE.md), and [reset handoff](../../RESET_HANDOFF.md).
