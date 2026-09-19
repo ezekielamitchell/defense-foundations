@@ -112,3 +112,10 @@ That authorization does not establish current capacity or commitments. The
 repository snapshot automation was restored to its documented paused state;
 recent automation execution health remains a separate verification. The
 new schedule, horizon and external readback are still pending actual constraints.
+
+The approved teaching rules are also represented in
+[beginner-policy-v1.json](beginner-policy-v1.json). Run
+`python3 tools/validate_beginner_policy.py` to detect policy regressions. This
+check cannot activate a reset or verify capacity, external state or learner proof.
+The existing v4/v5 schedule contracts remain unchanged for their historical seals;
+the beginner successor still requires its explicit v6 runtime and readback.
