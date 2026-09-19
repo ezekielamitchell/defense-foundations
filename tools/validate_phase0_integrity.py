@@ -312,7 +312,9 @@ def validate_projection(projection: dict, projection_path: Path, vault: Path, re
             errors.append("v6 projection differs from validated beginner authority")
         if projection.get("pairing", {}).get("identity_model") != "beginner_checkpoint":
             errors.append("v6 projection introduced premature pair identity")
-        if any(w.get("research_calendar_minutes", 99999) > 3120 for w in projection["capacity"]["weekly"]):
+        daily_work = manifest.get("beginner_policy", {}).get("mode") == "parallel-defense-curriculum-v2"
+        maximum = 3600 if daily_work else 3120
+        if any(w.get("research_calendar_minutes", 99999) > maximum for w in projection["capacity"]["weekly"]):
             errors.append("v6 projection consumes the reserved weekly margin")
 
     projection_digest = sha256(projection_path)
