@@ -108,3 +108,8 @@ completion; parity still requires independent basic file handling in both.
 P0 remains the only active phase; agent and research study earns no Foundation
 credit. Current timing and capacity come from the active Aegis manifest. The
 retained beginner-policy-v1.json is historical preparation, not current policy.
+
+
+## Seven-day language introduction amendment — September 19
+
+The user reports very beginner Python knowledge and authorizes a seven-day Python/Rust introductory sweep. Follow `curriculum/FOUNDATIONS_FAST_TRACK.md`: diagnose and skip independently recalled basics; Python uses selected PCC 3e concepts/exercises, Rust selected Ultimate Rust Crash Course lessons. No Angela Yu Day 1 restart. After the introductory sweep, studios apply concepts through Project 0 and refresh gaps. The calendar does not establish mastery or waive gates. Exact dates and the authorized September 19 evening adjustment come only from the hash-verified private Aegis manifest. Other parallel tracks continue.

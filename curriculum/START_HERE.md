@@ -1,17 +1,18 @@
-# Start Here — Programming From Zero
+# Start Here — Programming Foundations
 
 **Active September 19, 2026 · parallel beginner curriculum**
 
-You do not need to remember an earlier course, understand a paper, or already
-know how to code. Begin with the first unchecked competency below. Existing code
-and historical records remain reference material; they are not assumed knowledge.
+Start with the [seven-day Python/Rust sprint](FOUNDATIONS_FAST_TRACK.md).
+You reported very beginner Python knowledge: use a short diagnostic to skip
+what you can independently explain and change. Existing code and historical
+records remain reference material; they are not automatically current proof.
 
 This is your learning guide. [The route](COMPETENCY_PATHWAY.md) explains later
 work. [The current course map](PARALLEL_COURSE_MAP.md) defines the parallel tracks.
 The private Aegis authority owns the active schedule. Do not use calendar dates
 to skip an unmastered concept.
 
-## Your first result
+## Setup check, only if needed
 
 Open your terminal, go to the existing repository, and inspect its state:
 
@@ -36,11 +37,13 @@ is a later foundation check, not an installation obstacle on the first session.
 
 ## One primary source per track
 
-Use the [parallel course map](PARALLEL_COURSE_MAP.md): Udemy Python and Rust,
-Coursera agents/AI/warfare, and selected O’Reilly readings. Python starts with
-Angela Yu’s Day 1. PCC chapter references below remain a concept crosswalk and
-reading aid, not a second full Python course obligation. CS50P can replace the
-Python course when access is unavailable. No purchase or certificate is required.
+Use the [parallel course map](PARALLEL_COURSE_MAP.md): selected O’Reilly PCC
+concepts/exercises for Python, Udemy for Rust and Coursera for agents/AI/warfare.
+The introductory sweep fits the seven-day sprint; subsequent studios apply
+concepts to Project 0 and refresh specific gaps. PCC chapter references below
+are a concept crosswalk, not a requirement to read the whole book. Official
+documentation supplies a fallback when paid access is unavailable. No purchase
+or certificate is required, and there is no Angela Yu Day 1 restart.
 
 Rust starts in parallel with a guided bridge for programming vocabulary. Its
 course and the Rust Book assume general programming concepts, so pause for an

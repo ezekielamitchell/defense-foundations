@@ -4,13 +4,17 @@
   "active_phase": "P0",
   "tracks": ["python", "rust", "agents", "defense-ai", "warfare"],
   "primary_sources": {
-    "python": "udemy-100-days-of-code",
+    "python": "oreilly-python-crash-course-3e-targeted",
     "rust": "udemy-ultimate-rust-crash-course",
     "agents": "coursera-ai-agents-python",
     "defense-ai": "coursera-ai-for-everyone",
     "warfare": "coursera-international-humanitarian-law"
   },
   "source_count_per_track": 1,
+  "intro_sprint_days": 7,
+  "python_baseline": "self-reported-very-beginner-knowledge; verify with a short diagnostic",
+  "skip_rule": "independent explanation and changed-input check",
+  "after_intro": "Project 0 plus targeted prerequisite refreshers; no automatic mastery",
   "course_project_research_minutes": [120, 180],
   "curriculum_reading_minutes": 60,
   "rust_requires_python_completion": false,
