@@ -18,7 +18,9 @@ SPEC.loader.exec_module(integrity)
 class Phase0ProofTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        cls.projection = json.loads((ROOT / "docs/aegis-phase0-projection.json").read_text())
+        # Proof checks need private identities; the public JSON deliberately
+        # contains no dates, native IDs, or current-period pairing map.
+        cls.projection, _, _ = integrity.current_private_and_public_projection(integrity.DEFAULT_VAULT)
 
     def receipt(self):
         digest = "sha256:" + "a" * 64
@@ -51,7 +53,7 @@ class Phase0ProofTests(unittest.TestCase):
             "verdict": "verified",
             "blocker": None,
             "course_resume_point": None,
-            "next_command": 'cd "/Users/house/Developer/defense-foundations" && git status --short',
+            "next_command": f'cd "{ROOT}" && git status --short',
             "evidence_basis": {
                 "artifacts_observed": True,
                 "commands_observed": True,
@@ -134,6 +136,19 @@ class Phase0ProofTests(unittest.TestCase):
 
 
 class ProjectionMarkerTests(unittest.TestCase):
+    def test_current_public_projection_matches_private_authority_without_private_fields(self):
+        path = ROOT / "docs/aegis-phase0-projection.json"
+        projection = json.loads(path.read_text(encoding="utf-8"))
+        self.assertEqual(projection["schema_version"], integrity.PUBLIC_PROJECTION_SCHEMA)
+        self.assertEqual(integrity.validate_projection(projection, path, integrity.DEFAULT_VAULT, ROOT), [])
+
+        tampered = copy.deepcopy(projection)
+        tampered["source"]["schedule"] = "/Users/private/calendar"
+        self.assertIn(
+            "public projection differs from validated private authority's allowlist",
+            integrity.validate_projection(tampered, path, integrity.DEFAULT_VAULT, ROOT),
+        )
+
     def test_marker_hash_drift_is_detectable(self):
         payload = b'{"schema_version":"aegis.phase0-projection.v1"}\n'
         digest = integrity.hashlib.sha256(payload).hexdigest()
@@ -150,12 +165,12 @@ class ProjectionMarkerTests(unittest.TestCase):
             self.assertNotIn(f"projection-json-sha256: {integrity.sha256(projection)}", consumer.read_text())
 
     def test_real_v5_projection_source_passes_integrity_contract(self):
-        exporter_path = Path("/Users/house/aegis nexus/08_Assistant/scripts/export_defense_foundations_projection.py")
+        exporter_path = integrity.DEFAULT_VAULT / "08_Assistant/scripts/export_defense_foundations_projection.py"
         exporter_spec = importlib.util.spec_from_file_location("phase0_projection_export_test", exporter_path)
         assert exporter_spec and exporter_spec.loader
         exporter = importlib.util.module_from_spec(exporter_spec)
         exporter_spec.loader.exec_module(exporter)
-        manifest_path = Path("/Users/house/aegis nexus/08_Assistant/manifests/2026-09-05 0000 Phase 0 Full Reset Manifest.json")
+        manifest_path = integrity.DEFAULT_VAULT / "08_Assistant/manifests/2026-09-05 0000 Phase 0 Full Reset Manifest.json"
         manifest_bytes = manifest_path.read_bytes()
         manifest = json.loads(manifest_bytes)
         digest = integrity.hashlib.sha256(manifest_bytes).hexdigest()
@@ -340,31 +355,19 @@ class ProjectionScheduleAuthorityTests(unittest.TestCase):
         path = ROOT / "docs/aegis-phase0-projection.json"
         projection = integrity.load_json(path)
         self.assertEqual(integrity.validate_projection(projection, path, integrity.DEFAULT_VAULT, ROOT), [])
-        # A sealed successor may incorporate a prior overlay directly. Test the
-        # active authority shape rather than requiring a historical overlay.
-        binding_mutations = (
-            ("missing_binding", "wrong_binding")
-            if projection["authority"].get("schedule_exception")
-            else ("unexpected_binding",)
-        )
-        for mutation in (*binding_mutations, "wrong_count", "wrong_base_hash"):
+        # The public artifact has no binding, counts, native IDs, or dates. The
+        # validator derives it afresh from the validated private authority.
+        for mutation in ("phase", "evidence", "source"):
             changed = copy.deepcopy(projection)
-            expected = "projection schedule amendment/readback authority mismatch"
-            if mutation == "missing_binding":
-                changed["authority"].pop("schedule_exception")
-            elif mutation == "wrong_binding":
-                changed["authority"]["schedule_exception"]["readback_sha256"] = "0" * 64
-            elif mutation == "unexpected_binding":
-                changed["authority"]["schedule_exception"] = {"readback_sha256": "0" * 64}
-            elif mutation == "wrong_count":
-                changed["counts"]["events"] += 1
-                expected = "projection count drift: events"
+            if mutation == "phase":
+                changed["phase"]["active"] = "P1"
+            elif mutation == "evidence":
+                changed["evidence"]["verified_current_period_foundation_work"] = 1
             else:
-                changed["authority"]["manifest_sha256"] = "0" * 64
-                expected = "projection manifest hash does not match source bytes"
+                changed["source"]["schedule"] = "an invented public schedule"
             with self.subTest(mutation=mutation):
                 errors = integrity.validate_projection(changed, path, integrity.DEFAULT_VAULT, ROOT)
-                self.assertIn(expected, errors)
+                self.assertIn("public projection differs from validated private authority's allowlist", errors)
 
 
 if __name__ == "__main__":

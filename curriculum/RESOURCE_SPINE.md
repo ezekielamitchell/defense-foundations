@@ -1,6 +1,6 @@
 # Resource Spine — Active Parallel Route
 
-The [Parallel Course Map](PARALLEL_COURSE_MAP.md) is the current beginner source authority: Udemy Python/Rust, Coursera agents/AI/warfare, and selected O’Reilly/primary-source readings. One primary per track; 2–3-hour studios and one-hour readings. Python-only preparation and its single-source limit are superseded.
+The [Parallel Course Map](PARALLEL_COURSE_MAP.md) is the current beginner source authority: O’Reilly Python Crash Course, Udemy Rust, Coursera agents/AI/warfare, and selected official readings. One primary per track; 2–3-hour studios and one-hour readings. Python-only preparation and its single-source limit are superseded.
 
 ## Later main-route sources
 

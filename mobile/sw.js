@@ -1,4 +1,4 @@
-const CACHE_NAME = "defense-foundations-mobile-shell-v5";
+const CACHE_NAME = "defense-foundations-mobile-shell-v6";
 const PROJECTION_PATH = "/docs/aegis-phase0-projection.json";
 const APP_SHELL = [
   "./",

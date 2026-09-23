@@ -29,11 +29,11 @@
       <main>
         <section class="hero" id="dashboard" data-view="dashboard">
           <div class="hero-copy">
-            <span class="status-pill" id="phase-status">P0 scheduled · work unverified</span>
+            <span class="status-pill" id="phase-status">P0 active · work unverified</span>
             <h1>Build foundations and learn defense AI in parallel.</h1>
             <p>
-              A phone-first view of the current phase, weekly plan, separate evidence
-              targets, and quick capture notes. Static offline projection, not live sync.
+              A phone-first public view of the curriculum route, Project 0 proof
+              standards, and quick capture notes. The private plan owns scheduling.
             </p>
           </div>
           <div class="hero-panel" aria-label="Current phase summary">
@@ -44,7 +44,7 @@
             <div class="phase-meter" aria-label="Work unverified; this projection does not track completion">
               <span id="phase-progress">loading</span>
             </div>
-            <p id="phase-message">Loading current week...</p>
+            <p id="phase-message">Loading public curriculum summary...</p>
           </div>
         </section>
 
@@ -59,23 +59,23 @@
         <section class="view active" id="dashboard-view">
           <div class="metric-grid">
             <article class="metric">
-              <span>Current week</span>
-              <strong id="current-week">Launch window</strong>
-              <small id="current-week-dates">Loading generated projection...</small>
+              <span>Current phase</span>
+              <strong id="current-week">P0 Foundation</strong>
+              <small id="current-week-dates">Educational scope only</small>
             </article>
             <article class="metric">
-              <span>Baseline checkpoint</span>
+              <span>Proof checkpoint</span>
               <strong id="baseline-date">Loading</strong>
               <small id="readiness-date">Loading readiness review</small>
             </article>
             <article class="metric">
-              <span>Final decision</span>
+              <span>Phase promotion</span>
               <strong id="final-date">Loading</strong>
               <small id="final-window">Loading final review</small>
             </article>
             <article class="metric">
-              <span>Work window</span>
-              <strong id="work-allocation">Loading current allocation...</strong>
+              <span>Current schedule</span>
+              <strong id="work-allocation">Private Aegis plan and Calendar</strong>
               <small>Calendar owns exact times and protected commitments.</small>
             </article>
           </div>
@@ -83,8 +83,8 @@
           <div class="dashboard-grid">
             <article class="panel">
               <div class="panel-heading">
-                <span class="eyebrow">This week</span>
-                <h2 id="week-title">Week plan</h2>
+                <span class="eyebrow">Current build</span>
+                <h2 id="week-title">Project 0</h2>
               </div>
               <p id="week-primary"></p>
               <div class="callout">
@@ -99,7 +99,7 @@
                 <h2>Desk-to-phone loop</h2>
               </div>
               <ul class="action-list">
-                <li>Read the current week before leaving your desk.</li>
+                <li>Read the private plan before starting a scheduled block.</li>
                 <li>Capture quick notes on your phone during gaps.</li>
                 <li>When back at the desk, route foundation and agent proof to their separate trackers.</li>
               </ul>
@@ -109,8 +109,8 @@
 
         <section class="view" id="tasks-view" hidden>
           <div class="section-heading">
-            <span class="eyebrow">Phase 0 read-only plan</span>
-            <h2>See the current Phase 0 horizon</h2>
+            <span class="eyebrow">Phase 0 educational route</span>
+            <h2>See the current learning tracks</h2>
           </div>
           <div class="week-list" id="week-list"></div>
         </section>
@@ -131,7 +131,7 @@
           <div class="link-grid">
             <a class="resource-link" href="../TIMELINE.md">
               <span>Timeline</span>
-              <strong>Hard dates and weekly plan</strong>
+              <strong>Competency route without personal dates</strong>
             </a>
             <a class="resource-link" href="../curriculum/phases/00-foundations/README.md">
               <span>P0 phase README</span>
@@ -167,7 +167,7 @@
             </a>
             <a class="resource-link" href="../docs/aegis-phase0-projection.json">
               <span>Generated authority</span>
-              <strong>Hash-linked Phase 0 projection</strong>
+              <strong>Privacy-filtered curriculum summary</strong>
             </a>
             <a class="resource-link" href="../docs/phase0-proof.schema.json">
               <span>Proof contract</span>

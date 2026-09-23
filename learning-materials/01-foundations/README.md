@@ -1,31 +1,44 @@
-# Foundations
+# Programming from zero
 
-**Primary phase:** P0
+**P0 active · beginner foundations.**
 
-Functional Python, Rust, Linux shell, and Git. These materials support the [Phase 0 plan](../../TIMELINE.md#phase-0-plan--paired-file-statistics-cli). The A20 reset begins 2026-08-09 at 16:00 and gives zero active credit to projects, Rustlings, and courses while preserving their historical files for audit.
+Study selected Python Crash Course and Ultimate Rust Crash Course concepts in
+parallel, then apply each to the paired CLI. Diagnose and skip independently
+recalled basics; no prior course fluency is assumed.
 
-## Python
+Read [Start Here](../../curriculum/START_HERE.md), [Resource Spine](../../curriculum/RESOURCE_SPINE.md)
+and [the full route](../../curriculum/COMPETENCY_PATHWAY.md). One primary source
+serves the current artifact; the retained resources below are a reference menu.
+They do not add courses, deadlines or completion credit.
 
-- [Python Crash Course](python-crash-course/README.md) — Eric Matthes; gap-fill reference when a Python fundamental blocks a build.
-- [MIT 6.0001 — Intro to CS and Programming in Python](mit-60001-python/README.md) — optional computational-thinking gap fill.
-- [Python CLI Tooling](python-cli-tooling/README.md) — `argparse`, `pathlib`, `pytest`, `uv`; primary in Week 3 and reused in Weeks 5–6.
+## Retained source folders
 
-## Rust
+- [missing-semester](missing-semester/README.md)
+- [mit-60001-python](mit-60001-python/README.md)
+- [pro-git](pro-git/README.md)
+- [python-cli-tooling](python-cli-tooling/README.md)
+- [python-crash-course](python-crash-course/README.md)
+- [readme-discipline](readme-discipline/README.md)
+- [rust-book](rust-book/README.md)
+- [rust-cli-tooling](rust-cli-tooling/README.md)
+- [rustlings](rustlings/README.md)
+- [ultimate-rust-crash-course](ultimate-rust-crash-course/README.md)
+- [uv](uv/README.md)
 
-- [The Rust Programming Language](rust-book/README.md) — ownership/borrowing review and structs/enums in Week 1, then ch. 7–10 in Week 4.
-- [Rustlings](rustlings/README.md) — historical file state is `if2` with 15 prior completions; active reset credit is 0/50.
-- [Rust CLI Tooling](rust-cli-tooling/README.md) — Cargo, `clap`, error handling, and tests in Weeks 4–6.
-- [Ultimate Rust Crash Course](ultimate-rust-crash-course/README.md) — complete-historical at `9a4baa0`; A20 active tracker restarts at Chapter 1 (0/8) and grants no credit until freshly demonstrated.
+## Current public curriculum projection
 
-## Linux and Git
+<!-- AEGIS:PHASE0_PROJECTION:START -->
+> **Generated public curriculum projection — do not hand-edit this block.** Schema `aegis.phase0-public-projection.v1`.
 
-- [The Missing Semester of Your CS Education](missing-semester/README.md) — shell and development tools in Week 2.
-- [Pro Git](pro-git/README.md) — chapters 1–3 and branch/PR practice in Week 2.
+**Current educational phase:** P0 is active; current-period work remains unverified. Later phases are not started. A course, reservation, checked task, or generated page is not implementation evidence.
 
-## Discipline
+**Core competency route:** P0 → P1 → P2 → P4 → P6 → P8 → P10 → P11 → P12. Optional depth: P3, P5, P7, P9. Python, Rust, AI agents, battlefield AI, and warfare are studied in parallel, with one primary teaching source per track.
 
-- [README Discipline](readme-discipline/README.md) — evidence-grade documentation in Weeks 5–6 and every later project.
+**Project 0:** Python `projects/file_stats` and Rust `projects/hello-stats` must independently prove the same file-statistics contract on identical fixtures. Record the artifact, working directory, command, exit code, observed output, changed paths, verdict, blocker, and next command.
 
-## Evidence target
+This public view contains no personal schedule. Use the private Aegis plan and Calendar for current reservations.
 
-A paired Python/Rust CLI solving the same small problem, with tests, install/run docs, example output, and comparison notes. See the [P0 phase exit gate](../../curriculum/phases/00-foundations/README.md#exit-gate).
+Use a source to resolve an observed gap and apply the lesson in code; attendance alone earns no credit.
+
+<!-- projection-json-sha256: cfccf5c07a3074f24d9f4ffa2770419619093b8b912c285a8afd19fb2af8cbcf -->
+<!-- AEGIS:PHASE0_PROJECTION:END -->

@@ -1,5 +1,10 @@
 # Progress and Evidence
 
+P0 is active; current-period Foundation work remains unverified. The private
+Aegis authority owns the reset boundary and evidence ledger. This public
+page describes proof standards and historical context only.
+
+
 The Aegis Nexus vault remains the day-to-day private evidence ledger. This repository records public curriculum status and durable links, not daily personal logs.
 
 ## Status vocabulary
@@ -40,17 +45,21 @@ This is the same honesty required by README operating rule 6; the difference is 
 
 ## Current phase
 
-P0 reset Day 0 and the gate clock begin **2026-08-09 at 16:00 America/Los_Angeles**. Week 1 is Aug 9 only; Week 2 begins Monday Aug 10. The six-week minimum gate remains **2026-08-30** and the eight-week maximum gate remains **2026-09-13**. Aegis Nexus `01_Daily/_Phase Config.md` is the sole hard-date authority; see [the P0 phase README](../curriculum/phases/00-foundations/README.md) for the checklist.
+<!-- AEGIS:PHASE0_PROJECTION:START -->
+> **Generated public curriculum projection — do not hand-edit this block.** Schema `aegis.phase0-public-projection.v1`.
 
-Work before 2026-08-09 at 16:00 remains audit-valid history but is excluded from every restarted denominator. The Phase 0 artifact is the **paired file-statistics CLI**: `projects/file_stats` (Python) and `projects/hello-stats` (Rust). Both are currently stubs/WIP and must be re-verified. Rustlings state is preserved (`if2`, 15 historical completions), but active credit is 0/50. Hugging Face and every P0-authorized Udemy/O’Reilly course also restart at 0%.
+**Current educational phase:** P0 is active; current-period work remains unverified. Later phases are not started. A course, reservation, checked task, or generated page is not implementation evidence.
 
-Reset administration, planning, dashboard edits, and Calendar work are not curriculum evidence.
+**Core competency route:** P0 → P1 → P2 → P4 → P6 → P8 → P10 → P11 → P12. Optional depth: P3, P5, P7, P9. Python, Rust, AI agents, battlefield AI, and warfare are studied in parallel, with one primary teaching source per track.
 
-endr founder/company work is tracked in endr and Aegis, not in this ledger. It cannot satisfy or delay a P0 gate.
+**Project 0:** Python `projects/file_stats` and Rust `projects/hello-stats` must independently prove the same file-statistics contract on identical fixtures. Record the artifact, working directory, command, exit code, observed output, changed paths, verdict, blocker, and next command.
 
-DD #78's agent overlay has a separate evidence boundary: agent notes, course work, and bounded tool prototypes belong to the Agent Engineering Sprint tracker and never satisfy the P0 foundation gate. The same boundary applies to the daily research paper and the weekly OpenCV sampler.
+This public view contains no personal schedule. Use the private Aegis plan and Calendar for current reservations.
 
-**Evidence source rule:** `.github/` does not exist in this repository yet. Until the CI workflow is created (a Week 4 task), cite **local check/test output** with the exact command line. A GitHub Actions run URL may only be cited once the workflow is committed.
+Historical work remains factual, but the current-period Foundation proof count is zero.
+
+<!-- projection-json-sha256: cfccf5c07a3074f24d9f4ffa2770419619093b8b912c285a8afd19fb2af8cbcf -->
+<!-- AEGIS:PHASE0_PROJECTION:END -->
 
 ## Update routine
 
@@ -59,4 +68,4 @@ DD #78's agent overlay has a separate evidence boundary: agent notes, course wor
 3. Change phase status only after a gate review.
 4. Link public evidence; do not copy sensitive vault notes into this repository.
 5. Record limitations and failed attempts alongside successful results.
-6. Keep P1–P12 undated until explicit promotion; the only current specialization exceptions are DD #78's three non-gate overlays through 2026-09-13 — the weekly Hugging Face Agents block, the weekly OpenCV sampler, and the daily research paper.
+6. Keep P1–P12 undated until explicit promotion. Optional bounded agent work and daily research remain non-gate through the current horizon; no generic sampler or standalone course event may be invented.

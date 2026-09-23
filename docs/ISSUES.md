@@ -1,830 +1,95 @@
-# Phase 0 — Local Issue Ledger
-
-Local issue ledger for Phase 0. **These are not GitHub issues** and no GitHub issue number is implied or invented. The IDs below are the exact `P0-W*` labels referenced by the validated Phase 0 calendar manifest, so an issue ID in a calendar block resolves here.
-
-| Field | Value |
-|---|---|
-| Repository | `defense-foundations`, branch `main` |
-| Phase | P0 — Engineering Foundation Gate |
-| Window | 2026-08-09 16:00 → 2026-09-13 |
-| Date authority | Aegis Nexus `01_Daily/_Phase Config.md` (DD #85) |
-| Source | `00_Inbox/2026-08-09 Phase 0 Hard Reset Calendar Manifest.json` |
-| Issue count | **57** |
-
-## Conventions
-
-- **ID format:** `P0-W<week>-<track>`. Track codes: `D0` Day 0 · `P`/`P2` Python · `R`/`R1`/`R2` Rust · `L`/`L1` Linux/Git/CI · `V` verification · `C` paired comparison · `CV` OpenCV sampler · `HF` Hugging Face agent sampler. A bare `P0-W<n>` is that week's operations/review issue.
-- **Sub-issues** may be numbered under a parent, e.g. `P0-W2-R-01`.
-- **Status values:** `not-started` · `in-progress` · `blocked` · `done` · `superseded-historical`.
-- **Gate credit:** only issues marked `yes` contribute to the P0 foundation gate. Sampler and operations issues never do.
-- **Evidence before CI exists:** `.github/` does not exist in this repository yet. Cite **local check/test output** with the exact command line. A GitHub Actions run URL may only be cited after the workflow is committed (`P0-W4-L`).
-- **Do not mark an issue `done` without its acceptance test passing.** A calendar block elapsing is not completion.
-
-## The Phase 0 artifact
-
-A paired **file-statistics** CLI:
-
-- **Python:** `projects/file_stats` — `pyproject.toml` exists and declares pytest + ruff with `testpaths = ["tests"]`; `tests/` does not exist yet and `main.py` is a greeting stub.
-- **Rust:** `projects/hello-stats` — `Cargo.toml` exists (edition 2024) with an empty `[dependencies]`; `src/main.rs` is greeting WIP with no tests.
-
-## Issues
-
-> **A20 boundary:** The five `P0-W1*` entries immediately below are retained only to resolve the five elapsed Research-calendar events preserved before the 2026-08-09 16:00 cutover. They are superseded history, earn zero A20 credit, and are not active work. Active foundation execution begins with `P0-W2*` on 2026-08-10.
-
-### `P0-W1-D0`
-
-| Field | Value |
-|---|---|
-| **Week** | 1 (A20 cutover 2026-08-09; first foundation build is Week 2 on 2026-08-10) |
-| **Class** | `[P0-PYTHON]` |
-| **Project** | `projects/file_stats` |
-| **Objective** | bootstrap the paired repository and the Python typed-CLI contract |
-| **Acceptance test** | `uv run pytest` collects and passes at least one test; valid-path and missing-path both run from the command line |
-| **Evidence** | commit hash, two fixtures, first passing test, and the exact command transcript |
-| **Dependencies** | P0 reset boundary at 18:00 and local Python toolchain |
-| **Counts toward P0 gate** | yes |
-| **Status** | `superseded-historical` |
-
-### `P0-W1-R1`
-
-| Field | Value |
-|---|---|
-| **Week** | 1 (first scheduled 2026-08-07) |
-| **Class** | `[P0-RUST]` |
-| **Project** | `projects/hello-stats` |
-| **Objective** | bootstrap the paired repository and the Python typed-CLI contract |
-| **Acceptance test** | `cargo build` and `cargo test` both succeed and `--help` prints the documented flags |
-| **Evidence** | commit hash, `cargo test` output, and the exact command transcript |
-| **Dependencies** | P0 repository baseline, local Python/Rust toolchains, versioned fixtures |
-| **Counts toward P0 gate** | yes |
-| **Status** | `superseded-historical` |
-
-### `P0-W1-L1`
-
-| Field | Value |
-|---|---|
-| **Week** | 1 (first scheduled 2026-08-07) |
-| **Class** | `[P0-LINUX/GIT/CI]` |
-| **Project** | `repo-wide` |
-| **Objective** | bootstrap the paired repository and the Python typed-CLI contract |
-| **Acceptance test** | the branch diff is reviewable and the shell transcript is saved in the repository |
-| **Evidence** | branch name, diff output, transcript file, and CI stub commit |
-| **Dependencies** | P0 repository baseline, local Python/Rust toolchains, versioned fixtures |
-| **Counts toward P0 gate** | yes |
-| **Status** | `superseded-historical` |
-
-### `P0-W1`
-
-| Field | Value |
-|---|---|
-| **Week** | 1 (first scheduled 2026-08-07) |
-| **Class** | `[OPS]` |
-| **Project** | `repo-wide` |
-| **Objective** | daily evidence closeout |
-| **Acceptance test** | the evidence row names a command/test result, a commit/diff, and an exact next action |
-| **Evidence** | dated evidence row and next-action note |
-| **Dependencies** | same-day build, verification, and sampler results |
-| **Counts toward P0 gate** | no — non-gate overlay/ops |
-| **Status** | `superseded-historical` |
-
-### `P0-W1-C`
-
-| Field | Value |
-|---|---|
-| **Week** | 1 (first scheduled 2026-08-08) |
-| **Class** | `[P0-COMPARE]` |
-| **Project** | `both projects` |
-| **Objective** | bootstrap the paired repository and the Python typed-CLI contract |
-| **Acceptance test** | the comparison note identifies one correct boundary for Python and one justified Rust ownership candidate, each backed by an observation rather than an opinion |
-| **Evidence** | comparison table, benchmark observations, cross-language fixtures, and README update |
-| **Dependencies** | passing or intentionally failing fixtures from the current week |
-| **Counts toward P0 gate** | yes |
-| **Status** | `superseded-historical` |
-
-### `P0-W2-R`
-
-| Field | Value |
-|---|---|
-| **Week** | 2 (first scheduled 2026-08-10) |
-| **Class** | `[P0-RUST]` |
-| **Project** | `projects/hello-stats` |
-| **Objective** | complete the Rust CLI happy path and the Python validation surface |
-| **Acceptance test** | `cargo test` passes and `clippy`/`rustfmt` report no new findings |
-| **Evidence** | commit hash, `cargo test` output, and the exact command transcript |
-| **Dependencies** | P0 repository baseline, local Python/Rust toolchains, versioned fixtures |
-| **Counts toward P0 gate** | yes |
-| **Status** | `not-started` |
-
-### `P0-W2`
-
-| Field | Value |
-|---|---|
-| **Week** | 2 (first scheduled 2026-08-10) |
-| **Class** | `[OPS]` |
-| **Project** | `repo-wide` |
-| **Objective** | daily evidence closeout |
-| **Acceptance test** | the evidence row names a command/test result, a commit/diff, and an exact next action |
-| **Evidence** | dated evidence row and next-action note |
-| **Dependencies** | same-day build, verification, and sampler results |
-| **Counts toward P0 gate** | no — non-gate overlay/ops |
-| **Status** | `not-started` |
-
-### `P0-W2-P`
-
-| Field | Value |
-|---|---|
-| **Week** | 2 (first scheduled 2026-08-11) |
-| **Class** | `[P0-PYTHON]` |
-| **Project** | `projects/file_stats` |
-| **Objective** | complete the Rust CLI happy path and the Python validation surface |
-| **Acceptance test** | `pytest` passes and `ruff` reports no new findings |
-| **Evidence** | commit hash, `pytest` output, and the exact command transcript |
-| **Dependencies** | P0 repository baseline, local Python/Rust toolchains, versioned fixtures |
-| **Counts toward P0 gate** | yes |
-| **Status** | `not-started` |
-
-### `P0-W2-CV`
-
-| Field | Value |
-|---|---|
-| **Week** | 2 (first scheduled 2026-08-11) |
-| **Class** | `[SAMPLER-CV]` |
-| **Project** | `sampler (non-gate)` |
-| **Objective** | complete the Rust CLI happy path and the Python validation surface |
-| **Acceptance test** | valid fixture round-trips and a non-image path is rejected with a typed error |
-| **Evidence** | small script, test fixture, timing note, and one limitations line |
-| **Dependencies** | P0 repository baseline, local Python/Rust toolchains, versioned fixtures |
-| **Counts toward P0 gate** | no — non-gate overlay/ops |
-| **Status** | `not-started` |
-
-### `P0-W2-R2`
-
-| Field | Value |
-|---|---|
-| **Week** | 2 (first scheduled 2026-08-12) |
-| **Class** | `[P0-RUST]` |
-| **Project** | `projects/hello-stats` |
-| **Objective** | complete the Rust CLI happy path and the Python validation surface |
-| **Acceptance test** | `cargo test` passes and the typed error path is covered by at least one test |
-| **Evidence** | commit hash, `cargo test` output, and the exact command transcript |
-| **Dependencies** | P0 repository baseline, local Python/Rust toolchains, versioned fixtures; Rustlings progress recorded separately from the historical course |
-| **Counts toward P0 gate** | yes |
-| **Status** | `not-started` |
-
-### `P0-W2-L`
-
-| Field | Value |
-|---|---|
-| **Week** | 2 (first scheduled 2026-08-12) |
-| **Class** | `[P0-LINUX/GIT/CI]` |
-| **Project** | `repo-wide` |
-| **Objective** | complete the Rust CLI happy path and the Python validation surface |
-| **Acceptance test** | the branch diff is reviewable and the CI/check command output is recorded |
-| **Evidence** | branch diff, local check output, and the shell transcript |
-| **Dependencies** | P0 repository baseline, local Python/Rust toolchains, versioned fixtures |
-| **Counts toward P0 gate** | yes |
-| **Status** | `not-started` |
-
-### `P0-W2-P2`
-
-| Field | Value |
-|---|---|
-| **Week** | 2 (first scheduled 2026-08-13) |
-| **Class** | `[P0-PYTHON]` |
-| **Project** | `projects/file_stats` |
-| **Objective** | complete the Rust CLI happy path and the Python validation surface |
-| **Acceptance test** | `pytest` passes for every malformed fixture and `ruff` reports no new findings |
-| **Evidence** | commit hash, `pytest` output, fixture list, and the exact command transcript |
-| **Dependencies** | P0 repository baseline, local Python/Rust toolchains, versioned fixtures |
-| **Counts toward P0 gate** | yes |
-| **Status** | `not-started` |
-
-### `P0-W2-HF`
-
-| Field | Value |
-|---|---|
-| **Week** | 2 (first scheduled 2026-08-13) |
-| **Class** | `[SAMPLER-HF-AGENT]` |
-| **Project** | `learning-materials/12-agent-engineering/hugging-face-agents-course` |
-| **Objective** | complete the Rust CLI happy path and the Python validation surface |
-| **Acceptance test** | tool returns a typed record for a valid note path, raises a typed error for a missing path, and its docstring states it performs no writes and no network access |
-| **Evidence** | tool source, typed signature, deterministic test input, malformed-input test, full trace file, and one line stating what the tool is NOT authorized to do |
-| **Dependencies** | Existing P0 Python toolchain; the tool operates on local Aegis notes, test logs, or telemetry fixtures only - never on consequential data |
-| **Counts toward P0 gate** | no — non-gate overlay/ops |
-| **Status** | `not-started` |
-
-### `P0-W2-V`
-
-| Field | Value |
-|---|---|
-| **Week** | 2 (first scheduled 2026-08-14) |
-| **Class** | `[P0-VERIFY]` |
-| **Project** | `both projects` |
-| **Objective** | complete the Rust CLI happy path and the Python validation surface |
-| **Acceptance test** | at least one targeted test or check is added or improved and its raw output is saved |
-| **Evidence** | test result, structured error/log sample, diff inspection, and the issue update |
-| **Dependencies** | P0 repository baseline, local Python/Rust toolchains, versioned fixtures |
-| **Counts toward P0 gate** | yes |
-| **Status** | `not-started` |
-
-### `P0-W2-C`
-
-| Field | Value |
-|---|---|
-| **Week** | 2 (first scheduled 2026-08-15) |
-| **Class** | `[P0-COMPARE]` |
-| **Project** | `both projects` |
-| **Objective** | complete the Rust CLI happy path and the Python validation surface |
-| **Acceptance test** | the comparison note identifies one correct boundary for Python and one justified Rust ownership candidate, each backed by an observation rather than an opinion |
-| **Evidence** | comparison table, benchmark observations, cross-language fixtures, and README update |
-| **Dependencies** | passing or intentionally failing fixtures from the current week |
-| **Counts toward P0 gate** | yes |
-| **Status** | `not-started` |
-
-### `P0-W3-R`
-
-| Field | Value |
-|---|---|
-| **Week** | 3 (first scheduled 2026-08-17) |
-| **Class** | `[P0-RUST]` |
-| **Project** | `projects/hello-stats` |
-| **Objective** | reconcile the Python/Rust output contract and add schema-validation cases |
-| **Acceptance test** | `cargo test` passes and `clippy`/`rustfmt` report no new findings |
-| **Evidence** | commit hash, `cargo test` output, and the exact command transcript |
-| **Dependencies** | P0 repository baseline, local Python/Rust toolchains, versioned fixtures |
-| **Counts toward P0 gate** | yes |
-| **Status** | `not-started` |
-
-### `P0-W3`
-
-| Field | Value |
-|---|---|
-| **Week** | 3 (first scheduled 2026-08-17) |
-| **Class** | `[OPS]` |
-| **Project** | `repo-wide` |
-| **Objective** | daily evidence closeout |
-| **Acceptance test** | the evidence row names a command/test result, a commit/diff, and an exact next action |
-| **Evidence** | dated evidence row and next-action note |
-| **Dependencies** | same-day build, verification, and sampler results |
-| **Counts toward P0 gate** | no — non-gate overlay/ops |
-| **Status** | `not-started` |
-
-### `P0-W3-P`
-
-| Field | Value |
-|---|---|
-| **Week** | 3 (first scheduled 2026-08-18) |
-| **Class** | `[P0-PYTHON]` |
-| **Project** | `projects/file_stats` |
-| **Objective** | reconcile the Python/Rust output contract and add schema-validation cases |
-| **Acceptance test** | `pytest` passes and `ruff` reports no new findings |
-| **Evidence** | commit hash, `pytest` output, and the exact command transcript |
-| **Dependencies** | P0 repository baseline, local Python/Rust toolchains, versioned fixtures |
-| **Counts toward P0 gate** | yes |
-| **Status** | `not-started` |
-
-### `P0-W3-CV`
-
-| Field | Value |
-|---|---|
-| **Week** | 3 (first scheduled 2026-08-18) |
-| **Class** | `[SAMPLER-CV]` |
-| **Project** | `sampler (non-gate)` |
-| **Objective** | reconcile the Python/Rust output contract and add schema-validation cases |
-| **Acceptance test** | frame count matches the source and the timing log has one row per frame |
-| **Evidence** | small script, test fixture, timing note, and one limitations line |
-| **Dependencies** | P0 repository baseline, local Python/Rust toolchains, versioned fixtures |
-| **Counts toward P0 gate** | no — non-gate overlay/ops |
-| **Status** | `not-started` |
-
-### `P0-W3-R2`
-
-| Field | Value |
-|---|---|
-| **Week** | 3 (first scheduled 2026-08-19) |
-| **Class** | `[P0-RUST]` |
-| **Project** | `projects/hello-stats` |
-| **Objective** | reconcile the Python/Rust output contract and add schema-validation cases |
-| **Acceptance test** | `cargo test` passes and the typed error path is covered by at least one test |
-| **Evidence** | commit hash, `cargo test` output, and the exact command transcript |
-| **Dependencies** | P0 repository baseline, local Python/Rust toolchains, versioned fixtures; Rustlings progress recorded separately from the historical course |
-| **Counts toward P0 gate** | yes |
-| **Status** | `not-started` |
-
-### `P0-W3-L`
-
-| Field | Value |
-|---|---|
-| **Week** | 3 (first scheduled 2026-08-19) |
-| **Class** | `[P0-LINUX/GIT/CI]` |
-| **Project** | `repo-wide` |
-| **Objective** | reconcile the Python/Rust output contract and add schema-validation cases |
-| **Acceptance test** | the branch diff is reviewable and the CI/check command output is recorded |
-| **Evidence** | branch diff, local check output, and the shell transcript |
-| **Dependencies** | P0 repository baseline, local Python/Rust toolchains, versioned fixtures |
-| **Counts toward P0 gate** | yes |
-| **Status** | `not-started` |
-
-### `P0-W3-P2`
-
-| Field | Value |
-|---|---|
-| **Week** | 3 (first scheduled 2026-08-20) |
-| **Class** | `[P0-PYTHON]` |
-| **Project** | `projects/file_stats` |
-| **Objective** | reconcile the Python/Rust output contract and add schema-validation cases |
-| **Acceptance test** | `pytest` passes for every malformed fixture and `ruff` reports no new findings |
-| **Evidence** | commit hash, `pytest` output, fixture list, and the exact command transcript |
-| **Dependencies** | P0 repository baseline, local Python/Rust toolchains, versioned fixtures |
-| **Counts toward P0 gate** | yes |
-| **Status** | `not-started` |
-
-### `P0-W3-HF`
-
-| Field | Value |
-|---|---|
-| **Week** | 3 (first scheduled 2026-08-20) |
-| **Class** | `[SAMPLER-HF-AGENT]` |
-| **Project** | `learning-materials/12-agent-engineering/hugging-face-agents-course` |
-| **Objective** | reconcile the Python/Rust output contract and add schema-validation cases |
-| **Acceptance test** | a fixed input produces a byte-identical trace across two runs and the loop halts at the documented maximum step count |
-| **Evidence** | tool source, typed signature, deterministic test input, malformed-input test, full trace file, and one line stating what the tool is NOT authorized to do |
-| **Dependencies** | Existing P0 Python toolchain; the tool operates on local Aegis notes, test logs, or telemetry fixtures only - never on consequential data |
-| **Counts toward P0 gate** | no — non-gate overlay/ops |
-| **Status** | `not-started` |
-
-### `P0-W3-V`
-
-| Field | Value |
-|---|---|
-| **Week** | 3 (first scheduled 2026-08-21) |
-| **Class** | `[P0-VERIFY]` |
-| **Project** | `both projects` |
-| **Objective** | reconcile the Python/Rust output contract and add schema-validation cases |
-| **Acceptance test** | at least one targeted test or check is added or improved and its raw output is saved |
-| **Evidence** | test result, structured error/log sample, diff inspection, and the issue update |
-| **Dependencies** | P0 repository baseline, local Python/Rust toolchains, versioned fixtures |
-| **Counts toward P0 gate** | yes |
-| **Status** | `not-started` |
-
-### `P0-W3-C`
-
-| Field | Value |
-|---|---|
-| **Week** | 3 (first scheduled 2026-08-22) |
-| **Class** | `[P0-COMPARE]` |
-| **Project** | `both projects` |
-| **Objective** | reconcile the Python/Rust output contract and add schema-validation cases |
-| **Acceptance test** | the comparison note identifies one correct boundary for Python and one justified Rust ownership candidate, each backed by an observation rather than an opinion |
-| **Evidence** | comparison table, benchmark observations, cross-language fixtures, and README update |
-| **Dependencies** | passing or intentionally failing fixtures from the current week |
-| **Counts toward P0 gate** | yes |
-| **Status** | `not-started` |
-
-### `P0-W4-R`
-
-| Field | Value |
-|---|---|
-| **Week** | 4 (first scheduled 2026-08-24) |
-| **Class** | `[P0-RUST]` |
-| **Project** | `projects/hello-stats` |
-| **Objective** | harden malformed-input behavior, CI checks, and deterministic replay |
-| **Acceptance test** | `cargo test` passes and `clippy`/`rustfmt` report no new findings |
-| **Evidence** | commit hash, `cargo test` output, and the exact command transcript |
-| **Dependencies** | P0 repository baseline, local Python/Rust toolchains, versioned fixtures |
-| **Counts toward P0 gate** | yes |
-| **Status** | `not-started` |
-
-### `P0-W4`
-
-| Field | Value |
-|---|---|
-| **Week** | 4 (first scheduled 2026-08-24) |
-| **Class** | `[OPS]` |
-| **Project** | `repo-wide` |
-| **Objective** | daily evidence closeout |
-| **Acceptance test** | the evidence row names a command/test result, a commit/diff, and an exact next action |
-| **Evidence** | dated evidence row and next-action note |
-| **Dependencies** | same-day build, verification, and sampler results |
-| **Counts toward P0 gate** | no — non-gate overlay/ops |
-| **Status** | `not-started` |
-
-### `P0-W4-P`
-
-| Field | Value |
-|---|---|
-| **Week** | 4 (first scheduled 2026-08-25) |
-| **Class** | `[P0-PYTHON]` |
-| **Project** | `projects/file_stats` |
-| **Objective** | harden malformed-input behavior, CI checks, and deterministic replay |
-| **Acceptance test** | `pytest` passes and `ruff` reports no new findings |
-| **Evidence** | commit hash, `pytest` output, and the exact command transcript |
-| **Dependencies** | P0 repository baseline, local Python/Rust toolchains, versioned fixtures |
-| **Counts toward P0 gate** | yes |
-| **Status** | `not-started` |
-
-### `P0-W4-CV`
-
-| Field | Value |
-|---|---|
-| **Week** | 4 (first scheduled 2026-08-25) |
-| **Class** | `[SAMPLER-CV]` |
-| **Project** | `sampler (non-gate)` |
-| **Objective** | harden malformed-input behavior, CI checks, and deterministic replay |
-| **Acceptance test** | the emitted record is deterministic for a fixed fixture and is explicitly marked non-gate sampler output |
-| **Evidence** | small script, test fixture, timing note, and one limitations line |
-| **Dependencies** | P0 repository baseline, local Python/Rust toolchains, versioned fixtures |
-| **Counts toward P0 gate** | no — non-gate overlay/ops |
-| **Status** | `not-started` |
-
-### `P0-W4-R2`
-
-| Field | Value |
-|---|---|
-| **Week** | 4 (first scheduled 2026-08-26) |
-| **Class** | `[P0-RUST]` |
-| **Project** | `projects/hello-stats` |
-| **Objective** | harden malformed-input behavior, CI checks, and deterministic replay |
-| **Acceptance test** | `cargo test` passes and the typed error path is covered by at least one test |
-| **Evidence** | commit hash, `cargo test` output, and the exact command transcript |
-| **Dependencies** | P0 repository baseline, local Python/Rust toolchains, versioned fixtures; Rustlings progress recorded separately from the historical course |
-| **Counts toward P0 gate** | yes |
-| **Status** | `not-started` |
-
-### `P0-W4-L`
-
-| Field | Value |
-|---|---|
-| **Week** | 4 (first scheduled 2026-08-26) |
-| **Class** | `[P0-LINUX/GIT/CI]` |
-| **Project** | `repo-wide` |
-| **Objective** | harden malformed-input behavior, CI checks, and deterministic replay |
-| **Acceptance test** | the branch diff is reviewable and the CI/check command output is recorded |
-| **Evidence** | branch diff, GitHub Actions run URL, and the shell transcript |
-| **Dependencies** | P0 repository baseline, local Python/Rust toolchains, versioned fixtures |
-| **Counts toward P0 gate** | yes |
-| **Status** | `not-started` |
-
-### `P0-W4-P2`
-
-| Field | Value |
-|---|---|
-| **Week** | 4 (first scheduled 2026-08-27) |
-| **Class** | `[P0-PYTHON]` |
-| **Project** | `projects/file_stats` |
-| **Objective** | harden malformed-input behavior, CI checks, and deterministic replay |
-| **Acceptance test** | `pytest` passes for every malformed fixture and `ruff` reports no new findings |
-| **Evidence** | commit hash, `pytest` output, fixture list, and the exact command transcript |
-| **Dependencies** | P0 repository baseline, local Python/Rust toolchains, versioned fixtures |
-| **Counts toward P0 gate** | yes |
-| **Status** | `not-started` |
-
-### `P0-W4-HF`
-
-| Field | Value |
-|---|---|
-| **Week** | 4 (first scheduled 2026-08-27) |
-| **Class** | `[SAMPLER-HF-AGENT]` |
-| **Project** | `learning-materials/12-agent-engineering/hugging-face-agents-course` |
-| **Objective** | harden malformed-input behavior, CI checks, and deterministic replay |
-| **Acceptance test** | replaying a saved trace reproduces every observation, and a malformed trace record is rejected with a typed error rather than being partially applied |
-| **Evidence** | tool source, typed signature, deterministic test input, malformed-input test, full trace file, and one line stating what the tool is NOT authorized to do |
-| **Dependencies** | Existing P0 Python toolchain; the tool operates on local Aegis notes, test logs, or telemetry fixtures only - never on consequential data |
-| **Counts toward P0 gate** | no — non-gate overlay/ops |
-| **Status** | `not-started` |
-
-### `P0-W4-V`
-
-| Field | Value |
-|---|---|
-| **Week** | 4 (first scheduled 2026-08-28) |
-| **Class** | `[P0-VERIFY]` |
-| **Project** | `both projects` |
-| **Objective** | harden malformed-input behavior, CI checks, and deterministic replay |
-| **Acceptance test** | at least one targeted test or check is added or improved and its raw output is saved |
-| **Evidence** | test result, structured error/log sample, diff inspection, and the issue update |
-| **Dependencies** | P0 repository baseline, local Python/Rust toolchains, versioned fixtures |
-| **Counts toward P0 gate** | yes |
-| **Status** | `not-started` |
-
-### `P0-W4-C`
-
-| Field | Value |
-|---|---|
-| **Week** | 4 (first scheduled 2026-08-29) |
-| **Class** | `[P0-COMPARE]` |
-| **Project** | `both projects` |
-| **Objective** | harden malformed-input behavior, CI checks, and deterministic replay |
-| **Acceptance test** | the comparison note identifies one correct boundary for Python and one justified Rust ownership candidate, each backed by an observation rather than an opinion |
-| **Evidence** | comparison table, benchmark observations, cross-language fixtures, and README update |
-| **Dependencies** | passing or intentionally failing fixtures from the current week |
-| **Counts toward P0 gate** | yes |
-| **Status** | `not-started` |
-
-### `P0-W5-R`
-
-| Field | Value |
-|---|---|
-| **Week** | 5 (first scheduled 2026-08-31) |
-| **Class** | `[P0-RUST]` |
-| **Project** | `projects/hello-stats` |
-| **Objective** | prove cold-run recreation, benchmark both CLIs, and close minimum-gate gaps |
-| **Acceptance test** | `cargo test` passes and `clippy`/`rustfmt` report no new findings |
-| **Evidence** | commit hash, `cargo test` output, and the exact command transcript |
-| **Dependencies** | P0 repository baseline, local Python/Rust toolchains, versioned fixtures |
-| **Counts toward P0 gate** | yes |
-| **Status** | `not-started` |
-
-### `P0-W5`
-
-| Field | Value |
-|---|---|
-| **Week** | 5 (first scheduled 2026-08-31) |
-| **Class** | `[OPS]` |
-| **Project** | `repo-wide` |
-| **Objective** | daily evidence closeout |
-| **Acceptance test** | the evidence row names a command/test result, a commit/diff, and an exact next action |
-| **Evidence** | dated evidence row and next-action note |
-| **Dependencies** | same-day build, verification, and sampler results |
-| **Counts toward P0 gate** | no — non-gate overlay/ops |
-| **Status** | `not-started` |
-
-### `P0-W5-P`
-
-| Field | Value |
-|---|---|
-| **Week** | 5 (first scheduled 2026-09-01) |
-| **Class** | `[P0-PYTHON]` |
-| **Project** | `projects/file_stats` |
-| **Objective** | prove cold-run recreation, benchmark both CLIs, and close minimum-gate gaps |
-| **Acceptance test** | `pytest` passes and `ruff` reports no new findings |
-| **Evidence** | commit hash, `pytest` output, and the exact command transcript |
-| **Dependencies** | P0 repository baseline, local Python/Rust toolchains, versioned fixtures |
-| **Counts toward P0 gate** | yes |
-| **Status** | `not-started` |
-
-### `P0-W5-CV`
-
-| Field | Value |
-|---|---|
-| **Week** | 5 (first scheduled 2026-09-01) |
-| **Class** | `[SAMPLER-CV]` |
-| **Project** | `sampler (non-gate)` |
-| **Objective** | prove cold-run recreation, benchmark both CLIs, and close minimum-gate gaps |
-| **Acceptance test** | the pipeline is deterministic on a fixed fixture and the timing note records p50 over 10 runs |
-| **Evidence** | small script, test fixture, timing note, and one limitations line |
-| **Dependencies** | P0 repository baseline, local Python/Rust toolchains, versioned fixtures |
-| **Counts toward P0 gate** | no — non-gate overlay/ops |
-| **Status** | `not-started` |
-
-### `P0-W5-R2`
-
-| Field | Value |
-|---|---|
-| **Week** | 5 (first scheduled 2026-09-02) |
-| **Class** | `[P0-RUST]` |
-| **Project** | `projects/hello-stats` |
-| **Objective** | prove cold-run recreation, benchmark both CLIs, and close minimum-gate gaps |
-| **Acceptance test** | `cargo test` passes and the typed error path is covered by at least one test |
-| **Evidence** | commit hash, `cargo test` output, and the exact command transcript |
-| **Dependencies** | P0 repository baseline, local Python/Rust toolchains, versioned fixtures; Rustlings progress recorded separately from the historical course |
-| **Counts toward P0 gate** | yes |
-| **Status** | `not-started` |
-
-### `P0-W5-L`
-
-| Field | Value |
-|---|---|
-| **Week** | 5 (first scheduled 2026-09-02) |
-| **Class** | `[P0-LINUX/GIT/CI]` |
-| **Project** | `repo-wide` |
-| **Objective** | prove cold-run recreation, benchmark both CLIs, and close minimum-gate gaps |
-| **Acceptance test** | the branch diff is reviewable and the CI/check command output is recorded |
-| **Evidence** | branch diff, GitHub Actions run URL, and the shell transcript |
-| **Dependencies** | P0 repository baseline, local Python/Rust toolchains, versioned fixtures |
-| **Counts toward P0 gate** | yes |
-| **Status** | `not-started` |
-
-### `P0-W5-P2`
-
-| Field | Value |
-|---|---|
-| **Week** | 5 (first scheduled 2026-09-03) |
-| **Class** | `[P0-PYTHON]` |
-| **Project** | `projects/file_stats` |
-| **Objective** | prove cold-run recreation, benchmark both CLIs, and close minimum-gate gaps |
-| **Acceptance test** | `pytest` passes for every malformed fixture and `ruff` reports no new findings |
-| **Evidence** | commit hash, `pytest` output, fixture list, and the exact command transcript |
-| **Dependencies** | P0 repository baseline, local Python/Rust toolchains, versioned fixtures |
-| **Counts toward P0 gate** | yes |
-| **Status** | `not-started` |
-
-### `P0-W5-HF`
-
-| Field | Value |
-|---|---|
-| **Week** | 5 (first scheduled 2026-09-03) |
-| **Class** | `[SAMPLER-HF-AGENT]` |
-| **Project** | `learning-materials/12-agent-engineering/hugging-face-agents-course` |
-| **Objective** | prove cold-run recreation, benchmark both CLIs, and close minimum-gate gaps |
-| **Acceptance test** | the run completes within the documented step budget, the saved trace names every tool call, and the permission list contains no write or network capability |
-| **Evidence** | tool source, typed signature, deterministic test input, malformed-input test, full trace file, and one line stating what the tool is NOT authorized to do |
-| **Dependencies** | Existing P0 Python toolchain; the tool operates on local Aegis notes, test logs, or telemetry fixtures only - never on consequential data |
-| **Counts toward P0 gate** | no — non-gate overlay/ops |
-| **Status** | `not-started` |
-
-### `P0-W5-V`
-
-| Field | Value |
-|---|---|
-| **Week** | 5 (first scheduled 2026-09-04) |
-| **Class** | `[P0-VERIFY]` |
-| **Project** | `both projects` |
-| **Objective** | prove cold-run recreation, benchmark both CLIs, and close minimum-gate gaps |
-| **Acceptance test** | at least one targeted test or check is added or improved and its raw output is saved |
-| **Evidence** | test result, structured error/log sample, diff inspection, and the issue update |
-| **Dependencies** | P0 repository baseline, local Python/Rust toolchains, versioned fixtures |
-| **Counts toward P0 gate** | yes |
-| **Status** | `not-started` |
-
-### `P0-W5-C`
-
-| Field | Value |
-|---|---|
-| **Week** | 5 (first scheduled 2026-09-05) |
-| **Class** | `[P0-COMPARE]` |
-| **Project** | `both projects` |
-| **Objective** | prove cold-run recreation, benchmark both CLIs, and close minimum-gate gaps |
-| **Acceptance test** | the comparison note identifies one correct boundary for Python and one justified Rust ownership candidate, each backed by an observation rather than an opinion |
-| **Evidence** | comparison table, benchmark observations, cross-language fixtures, and README update |
-| **Dependencies** | passing or intentionally failing fixtures from the current week |
-| **Counts toward P0 gate** | yes |
-| **Status** | `not-started` |
-
-### `P0-W6-R`
-
-| Field | Value |
-|---|---|
-| **Week** | 6 (first scheduled 2026-09-07) |
-| **Class** | `[P0-RUST]` |
-| **Project** | `projects/hello-stats` |
-| **Objective** | remediate remaining gate evidence and assemble the maximum-gate decision package |
-| **Acceptance test** | `cargo test` passes and `clippy`/`rustfmt` report no new findings |
-| **Evidence** | commit hash, `cargo test` output, and the exact command transcript |
-| **Dependencies** | P0 repository baseline, local Python/Rust toolchains, versioned fixtures |
-| **Counts toward P0 gate** | yes |
-| **Status** | `not-started` |
-
-### `P0-W6`
-
-| Field | Value |
-|---|---|
-| **Week** | 6 (first scheduled 2026-09-07) |
-| **Class** | `[OPS]` |
-| **Project** | `repo-wide` |
-| **Objective** | daily evidence closeout |
-| **Acceptance test** | the evidence row names a command/test result, a commit/diff, and an exact next action |
-| **Evidence** | dated evidence row and next-action note |
-| **Dependencies** | same-day build, verification, and sampler results |
-| **Counts toward P0 gate** | no — non-gate overlay/ops |
-| **Status** | `not-started` |
-
-### `P0-W6-P`
-
-| Field | Value |
-|---|---|
-| **Week** | 6 (first scheduled 2026-09-08) |
-| **Class** | `[P0-PYTHON]` |
-| **Project** | `projects/file_stats` |
-| **Objective** | remediate remaining gate evidence and assemble the maximum-gate decision package |
-| **Acceptance test** | `pytest` passes and `ruff` reports no new findings |
-| **Evidence** | commit hash, `pytest` output, and the exact command transcript |
-| **Dependencies** | P0 repository baseline, local Python/Rust toolchains, versioned fixtures |
-| **Counts toward P0 gate** | yes |
-| **Status** | `not-started` |
-
-### `P0-W6-CV`
-
-| Field | Value |
-|---|---|
-| **Week** | 6 (first scheduled 2026-09-08) |
-| **Class** | `[SAMPLER-CV]` |
-| **Project** | `sampler (non-gate)` |
-| **Objective** | remediate remaining gate evidence and assemble the maximum-gate decision package |
-| **Acceptance test** | both malformed fixtures are rejected and the limitations line is written into the sampler README |
-| **Evidence** | small script, test fixture, timing note, and one limitations line |
-| **Dependencies** | P0 repository baseline, local Python/Rust toolchains, versioned fixtures |
-| **Counts toward P0 gate** | no — non-gate overlay/ops |
-| **Status** | `not-started` |
-
-### `P0-W6-R2`
-
-| Field | Value |
-|---|---|
-| **Week** | 6 (first scheduled 2026-09-09) |
-| **Class** | `[P0-RUST]` |
-| **Project** | `projects/hello-stats` |
-| **Objective** | remediate remaining gate evidence and assemble the maximum-gate decision package |
-| **Acceptance test** | `cargo test` passes and the typed error path is covered by at least one test |
-| **Evidence** | commit hash, `cargo test` output, and the exact command transcript |
-| **Dependencies** | P0 repository baseline, local Python/Rust toolchains, versioned fixtures; Rustlings progress recorded separately from the historical course |
-| **Counts toward P0 gate** | yes |
-| **Status** | `not-started` |
-
-### `P0-W6-L`
-
-| Field | Value |
-|---|---|
-| **Week** | 6 (first scheduled 2026-09-09) |
-| **Class** | `[P0-LINUX/GIT/CI]` |
-| **Project** | `repo-wide` |
-| **Objective** | remediate remaining gate evidence and assemble the maximum-gate decision package |
-| **Acceptance test** | the branch diff is reviewable and the CI/check command output is recorded |
-| **Evidence** | branch diff, GitHub Actions run URL, and the shell transcript |
-| **Dependencies** | P0 repository baseline, local Python/Rust toolchains, versioned fixtures |
-| **Counts toward P0 gate** | yes |
-| **Status** | `not-started` |
-
-### `P0-W6-P2`
-
-| Field | Value |
-|---|---|
-| **Week** | 6 (first scheduled 2026-09-10) |
-| **Class** | `[P0-PYTHON]` |
-| **Project** | `projects/file_stats` |
-| **Objective** | remediate remaining gate evidence and assemble the maximum-gate decision package |
-| **Acceptance test** | `pytest` passes for every malformed fixture and `ruff` reports no new findings |
-| **Evidence** | commit hash, `pytest` output, fixture list, and the exact command transcript |
-| **Dependencies** | P0 repository baseline, local Python/Rust toolchains, versioned fixtures |
-| **Counts toward P0 gate** | yes |
-| **Status** | `not-started` |
-
-### `P0-W6-HF`
-
-| Field | Value |
-|---|---|
-| **Week** | 6 (first scheduled 2026-09-10) |
-| **Class** | `[SAMPLER-HF-AGENT]` |
-| **Project** | `learning-materials/12-agent-engineering/hugging-face-agents-course` |
-| **Objective** | remediate remaining gate evidence and assemble the maximum-gate decision package |
-| **Acceptance test** | the harness reports a completeness rate, a violation count of zero on the clean fixture, and a non-zero violation count on the adversarial fixture |
-| **Evidence** | tool source, typed signature, deterministic test input, malformed-input test, full trace file, and one line stating what the tool is NOT authorized to do |
-| **Dependencies** | Existing P0 Python toolchain; the tool operates on local Aegis notes, test logs, or telemetry fixtures only - never on consequential data |
-| **Counts toward P0 gate** | no — non-gate overlay/ops |
-| **Status** | `not-started` |
-
-### `P0-W6-V`
-
-| Field | Value |
-|---|---|
-| **Week** | 6 (first scheduled 2026-09-11) |
-| **Class** | `[P0-VERIFY]` |
-| **Project** | `both projects` |
-| **Objective** | remediate remaining gate evidence and assemble the maximum-gate decision package |
-| **Acceptance test** | at least one targeted test or check is added or improved and its raw output is saved |
-| **Evidence** | test result, structured error/log sample, diff inspection, and the issue update |
-| **Dependencies** | P0 repository baseline, local Python/Rust toolchains, versioned fixtures |
-| **Counts toward P0 gate** | yes |
-| **Status** | `not-started` |
-
-### `P0-W6-C`
-
-| Field | Value |
-|---|---|
-| **Week** | 6 (first scheduled 2026-09-12) |
-| **Class** | `[P0-COMPARE]` |
-| **Project** | `both projects` |
-| **Objective** | remediate remaining gate evidence and assemble the maximum-gate decision package |
-| **Acceptance test** | the comparison note identifies one correct boundary for Python and one justified Rust ownership candidate, each backed by an observation rather than an opinion |
-| **Evidence** | comparison table, benchmark observations, cross-language fixtures, and README update |
-| **Dependencies** | passing or intentionally failing fixtures from the current week |
-| **Counts toward P0 gate** | yes |
-| **Status** | `not-started` |
-
-### `P0-GATE-6W`
-
-| Field | Value |
-|---|---|
-| **Date** | 2026-08-30 |
-| **Class** | `[P0][GATE]` |
-| **Project** | `repo-wide` |
-| **Objective** | issue the written minimum-gate decision without promoting P1 automatically |
-| **Acceptance test** | every Phase 0 exit-gate line has `PASS`, `PARTIAL PASS`, or `REMEDIATION REQUIRED`, with an evidence path or named recovery block |
-| **Evidence** | dated decision entry and per-line evidence paths in the Aegis Phase 0 evidence package |
-| **Dependencies** | only fresh A20 proof; Rustlings first-50 state recorded; sampler, agent, endr, and research evidence excluded |
-| **Counts toward P0 gate** | no — evaluates the gate rather than supplying artifact credit |
-| **Status** | `not-started` |
-
-### `P0-GATE-8W`
-
-| Field | Value |
-|---|---|
-| **Date** | 2026-09-13 |
-| **Class** | `[P0][GATE]` |
-| **Project** | `repo-wide` |
-| **Objective** | issue the maximum-gate decision and a separately authorized promotion or extension record |
-| **Acceptance test** | the record says `P0 PASSED` or `P0 EXTENDED`, identifies all evidence or remaining lines, and does not activate P1 by date alone |
-| **Evidence** | maximum-gate decision, evidence-package index, and separate promotion or extension record |
-| **Dependencies** | independently recreatable A20 artifacts and an explicit decision; sampler, agent, endr, and research evidence excluded |
-| **Counts toward P0 gate** | no — evaluates the gate rather than supplying artifact credit |
-| **Status** | `not-started` |
+# Phase 0 Local Issue Ledger
+
+P0 is active. These stable issue IDs are a historical criterion catalog, not
+a public schedule or proof of completion. Use [Start Here](../curriculum/START_HERE.md)
+and the private Aegis plan for current work.
+
+
+<!-- AEGIS:PHASE0_PROJECTION:START -->
+> **Generated public curriculum projection — do not hand-edit this block.** Schema `aegis.phase0-public-projection.v1`.
+
+**Current educational phase:** P0 is active; current-period work remains unverified. Later phases are not started. A course, reservation, checked task, or generated page is not implementation evidence.
+
+**Core competency route:** P0 → P1 → P2 → P4 → P6 → P8 → P10 → P11 → P12. Optional depth: P3, P5, P7, P9. Python, Rust, AI agents, battlefield AI, and warfare are studied in parallel, with one primary teaching source per track.
+
+**Project 0:** Python `projects/file_stats` and Rust `projects/hello-stats` must independently prove the same file-statistics contract on identical fixtures. Record the artifact, working directory, command, exit code, observed output, changed paths, verdict, blocker, and next command.
+
+This public view contains no personal schedule. Use the private Aegis plan and Calendar for current reservations.
+
+Existing issue tokens name acceptance criteria, not a live schedule. Resume the oldest unmet criterion.
+
+<!-- projection-json-sha256: cfccf5c07a3074f24d9f4ffa2770419619093b8b912c285a8afd19fb2af8cbcf -->
+<!-- AEGIS:PHASE0_PROJECTION:END -->
+
+## Adaptive issue routing
+
+Private action cards own daily dates. Reuse the oldest unmet criterion below
+instead of advancing because a date changed. Only observed Foundation evidence
+and an explicit review can change gate state.
+
+## Ground-zero launch issues (`P0-W1-*` stable identifiers)
+
+| Issue | Status | Objective | Acceptance |
+|---|---|---|---|
+| `P0-W1-R` | not-started | Establish the Rust `hello-stats` CLI contract and first compiling slice. | `cargo test`/narrow run observed; `Result` error path and exact output contract recorded. |
+| `P0-W1-P` | not-started | Complete Python core input/count/error behavior. | Valid, stdin, missing-path, and malformed fixtures have observed `pytest`/CLI results. |
+| `P0-W1-R2` | not-started | Extend Rust behavior toward Python parity. | Same fixtures produce documented matching output/error semantics. |
+| `P0-W1-L` | not-started | Add the first minimal CI workflow and save local shell/Git proof. | Workflow committed; local commands pass; only then may a real Actions URL be cited. |
+| `P0-W1-P2` | not-started | Close remaining Python contract/test gaps. | Narrow tests and lint/check output observed and recorded. |
+| `P0-W1-V` | not-started | Verify both implementations and documentation honestly. | Tests/checks run; failures named; no stale or elapsed-time claim. |
+| `P0-W1-C` | not-started | Compare Python and Rust outputs and cold-run instructions. | Parity transcript plus README install/run/test/example output exists. |
+| `P0-W1-AGENT` | not-started | Historical criterion for a bounded, non-gate AI-agent exercise; use the current private action card for an actual assignment. | Artifact-bound policy/test or typed trace; at most three allowlisted read-only repo/fixture tools and three Action → Observation → Stop steps; explicit stop/refusal result; no gate credit or external/consequential capability. |
+| `P0-W1` | not-started | Daily closeout and Sunday integration/documentation chain. | Each day ends with observed verdict, blocker, and exact next command; Sunday gate review is written. |
+| `P0-BASELINE-0830` | not-started | Legacy-stable diagnostic criterion; not a current scheduled date. | Evidence-backed diagnosis and exact next Foundation slice; checkpoints follow current authority. |
+
+## Contract hardening (`P0-W2-*` stable criterion identifiers)
+
+| Issue | Status | Objective | Acceptance |
+|---|---|---|---|
+| `P0-W2-R` | not-started | Harden Rust malformed-input/error behavior. | Deterministic results on the shared fixture suite. |
+| `P0-W2-P` | not-started | Harden Python malformed-input/error behavior. | Deterministic results on the shared fixture suite. |
+| `P0-W2-R2` | not-started | Close Rust parity and test gaps. | `cargo test`, `clippy`, and `rustfmt --check` observed. |
+| `P0-W2-L` | not-started | Stabilize CI and repository hygiene. | Local and committed workflow contract agree; failures are reproducible. |
+| `P0-W2-P2` | not-started | Close Python test/lint gaps. | `pytest` and the configured check/lint path observed. |
+| `P0-W2-V` | not-started | Run clean verification and documentation checks. | No unverified green state; every gap has one owner and next command. |
+| `P0-W2-C` | not-started | Cold-run the pair and compare performance/behavior. | Fresh instructions reproduce both CLIs and the parity result. |
+| `P0-W2-HF` | not-started | Stable legacy token now owning one artifact-bound AI-agent evaluation stage; it is not a course-viewing assignment. | Max three allowlisted read-only repo/fixture tools and three Action → Observation → Stop steps; explicit refusal/stop result; no gate credit. |
+| `P0-W2` | not-started | Daily closure and Sunday integration. | Evidence gaps carried explicitly, never silently. |
+
+## Reproducibility (`P0-W3-*` stable criterion identifiers)
+
+| Issue | Status | Objective | Acceptance |
+|---|---|---|---|
+| `P0-W3-R` | not-started | Remediate remaining Rust gate gaps. | Fresh observed verification on the active artifact. |
+| `P0-W3-P` | not-started | Remediate remaining Python gate gaps. | Fresh observed verification on the active artifact. |
+| `P0-W3-R2` | not-started | Final Rust integration and parity pass. | Shared fixtures and toolchain checks pass or exact blockers are written. |
+| `P0-W3-L` | not-started | Fresh-run CI/shell/Git verification. | Reproduction transcript and real workflow state are linked. |
+| `P0-W3-P2` | not-started | Final Python integration/test pass. | Full narrow suite and checks observed. |
+| `P0-W3-V` | not-started | Assemble the evidence-backed gate package. | Every claim resolves to an artifact and command result. |
+| `P0-W3` | not-started | Daily closure and Week 3 review. | Named gaps and the next exact command are carried without a premature phase decision. |
+| `P0-W3-CV` | not-started | Bounded OpenCV sampler. | Malformed-input/robustness artifact saved; no gate credit. |
+
+## Integration (`P0-W4-*` stable criterion identifiers)
+
+| Issue | Status | Objective | Acceptance |
+|---|---|---|---|
+| `P0-W4-R` | not-started | Close remaining Rust integration and reproducibility gaps. | Fresh `cargo test`, `clippy`, `rustfmt --check`, and cold-run results or exact blockers. |
+| `P0-W4-P` | not-started | Close remaining Python integration and reproducibility gaps. | Fresh `pytest`, configured lint/check, and cold-run results or exact blockers. |
+| `P0-W4-L` | not-started | Verify Linux/Git/CI proof against the paired artifact. | Reproducible transcript and real workflow state are linked without false green claims. |
+| `P0-W4-HF` | not-started | Stable legacy token now owning one artifact-bound AI-agent hardening stage; it is not a course-viewing assignment. | Deterministic and malformed fixtures, path containment, max-three-step stop, and explicit no-authority statement; no gate credit. |
+| `P0-W4` | not-started | Assemble the evidence-backed final package. | Every proposed claim resolves to an artifact and observed command result. |
+
+## Final verification (`P0-W5-*` stable criterion identifiers)
+
+| Issue | Status | Objective | Acceptance |
+|---|---|---|---|
+| `P0-W5-R` | not-started | Run final Rust verification from the documented route. | Current toolchain output is observed and recorded. |
+| `P0-W5-P` | not-started | Run final Python verification from the documented route. | Current test/check output is observed and recorded. |
+| `P0-W5-C` | not-started | Cold-run the paired CLI comparison and README instructions. | Shared fixtures and expected error behavior agree or exact gaps are named. |
+| `P0-W5-CV` | not-started | Run a bounded OpenCV sampler only if the active manifest authorizes it and capacity remains. | One bounded artifact or an explicit scope cut; no gate credit. |
+| `P0-FINAL-0926` | not-started | Legacy-stable gate-review criterion; the dated token is not active date authority. | Written decision based only on current proof at the private plan's review checkpoint; no automatic P1. |
+
+## Other work
+
+Research and independently governed work have separate private records. Neither
+can satisfy a Foundation gate. This public issue catalog is not their schedule.
