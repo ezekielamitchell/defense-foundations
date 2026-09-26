@@ -1,3 +1,7 @@
+Superseded where it conflicts by Operating Rules v2 and the Q4 2026 plan (2026-09-26).
+
+This banner applies to endr company authority only. [Operating Rules v2](<../../endr/[endr][strategy][00]/[endr][strategy][operating-rules-v2].md>) and the [Q4 plan](<../../endr/[endr][operations][04]/[endr][operations][plan-2026-q4].md>) control company work; curriculum controls remain unchanged.
+
 # defense-foundations agent contract
 
 This repository is the educational implementation surface for Aegis Nexus. It
