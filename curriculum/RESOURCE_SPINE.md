@@ -1,6 +1,22 @@
 # Resource Spine — Active Parallel Route
 
-The [Parallel Course Map](PARALLEL_COURSE_MAP.md) is the current beginner source authority: O’Reilly Python Crash Course, Udemy Rust, Coursera agents/AI/warfare, and selected official readings. One primary per track; 2–3-hour studios and one-hour readings. Python-only preparation and its single-source limit are superseded.
+The [Parallel Course Map](PARALLEL_COURSE_MAP.md) is the current beginner source authority: selected O’Reilly Python, Udemy Rust and Coursera agent/AI/law lessons, with official references for specific gaps. The [first learning week](FOUNDATIONS_FAST_TRACK.md) starts Python, Rust and agent basics together. One primary course at a time per track; 2–3-hour studios and one-hour readings. Exact reservations live in private Aegis authority.
+
+## P0 source ladder and artifact
+
+| Need now | Primary or support | Use it to produce |
+|---|---|---|
+| Python functions, collections, files and tests | [Python Crash Course, 3e — O’Reilly](https://www.oreilly.com/library/view/python-crash-course/9781098156664/) as the selected primary; [Python tutorial](https://docs.python.org/3/tutorial/) for a specific syntax gap | One changed-input function, then a real file/error case and collected test in Project 0 |
+| Rust tooling, borrowing, errors and tests | [Ultimate Rust Crash Course — Udemy](https://www.udemy.com/course/ultimate-rust-crash-course/) as the selected primary; [Rust Book](https://doc.rust-lang.org/book/) for current behavior | A tiny compiler experiment, a file/error case and a collected test independently of Python |
+| Agent-loop vocabulary | [Vanderbilt AI Agents — Coursera](https://www.coursera.org/learn/ai-agents-python) introductory lessons; no API/framework requirement in the first week | A synthetic trace with goal, observation, allowed action, result and stop rule; no Foundation gate credit |
+| AI and armed-conflict context | [AI For Everyone — Coursera](https://www.coursera.org/learn/ai-for-everyone/) for general limits; [ICRC human-centred AI paper](https://www.icrc.org/en/document/artificial-intelligence-and-machine-learning-armed-conflict-human-centred-approach) for domain-specific concerns | A sourced claim, limitation and human-control question in a research note |
+| Warfare and legal vocabulary | [Leiden IHL — Coursera](https://www.coursera.org/learn/international-humanitarian-law) as the current primary; [MCDP 1 — official doctrine](https://www.marines.mil/News/Publications/MCPEL/Electronic-Library-Display/Article/899837/mcdp-1/) for a bounded conceptual comparison | Distinguish a legal rule, doctrine claim, historical example and unsupported assumption |
+
+An [MIT OpenCourseWare Python lecture on YouTube](https://www.youtube.com/watch?v=xAcTmDO6NTI)
+is optional support inside an existing Python studio: pause, predict one code
+change and run it. A privately selected research paper belongs in its existing
+reading block; record question, method, result and limitation without treating
+the reading as Project 0 evidence. Do not add either as an extra weekly course.
 
 ## Later main-route sources
 
@@ -41,12 +57,10 @@ enrollment, purchase or completion is inferred from a catalog listing.
 
 ## Source verification and version rules
 
-Public primary pages for PCC, CS50P, the Rust Book, Missing Semester, Pro Git,
-Tokio, scikit-learn and PyTorch were checked on September 19. NIST and Lamport
-were also inspected during this route review. This verifies teaching scope, not
-paid access, completion, or future compatibility. Some ROS documentation pages
-were blocked to automated access; search results confirmed the tutorial route.
-Later reference links are pointers to recheck when their modules activate.
+The P0 provider and official source pages above were checked for this route
+update. This verifies teaching scope, not paid access, completion or future
+compatibility. Later-module references are pointers to recheck when those
+modules become eligible; a link in this document does not activate a phase.
 
 Use the installed project version's documentation. Preserve the existing Python
 minimum and Rust edition until a real implementation issue requires a change.

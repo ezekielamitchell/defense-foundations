@@ -2,8 +2,9 @@
 
 **P0 active · complete-beginner route.**
 
-Begin with [Start Here](START_HERE.md), then consult [the full route](COMPETENCY_PATHWAY.md),
-[parallel course map](PARALLEL_COURSE_MAP.md), and [resource spine](RESOURCE_SPINE.md).
+Begin with [Start Here](START_HERE.md) and the [first learning week](FOUNDATIONS_FAST_TRACK.md),
+then consult [relative weekly outcomes](COMPETENCY_PATHWAY.md#relative-weekly-outcomes-within-the-current-learning-period),
+the [parallel course map](PARALLEL_COURSE_MAP.md), and [resource spine](RESOURCE_SPINE.md).
 [Reset Handoff](RESET_HANDOFF.md) preserves earlier preparation history.
 
 ## Main route
