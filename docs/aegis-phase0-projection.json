@@ -1,0 +1,53 @@
+{
+  "schema_version": "aegis.phase0-public-projection.v1",
+  "audience": "public educational summary",
+  "phase": {
+    "active": "P0",
+    "status": "active; current-period work unverified",
+    "later_phases": "not started"
+  },
+  "curriculum": {
+    "core_route": [
+      "P0",
+      "P1",
+      "P2",
+      "P4",
+      "P6",
+      "P8",
+      "P10",
+      "P11",
+      "P12"
+    ],
+    "optional_depth": [
+      "P3",
+      "P5",
+      "P7",
+      "P9"
+    ],
+    "parallel_topics": [
+      "Python",
+      "Rust",
+      "AI agents",
+      "battlefield AI",
+      "warfare"
+    ],
+    "source_policy": "One primary teaching source per track; use official documentation for reference.",
+    "intro_policy": "Diagnose recalled basics, practice the missing concepts, then apply them to Project 0."
+  },
+  "project0": {
+    "python": "projects/file_stats",
+    "rust": "projects/hello-stats",
+    "contract": "Independently prove the same file-statistics behavior on identical fixtures.",
+    "proof": "Record the artifact, working directory, command, exit code, observed output, changed paths, verdict, blocker, and next command."
+  },
+  "evidence": {
+    "verified_current_period_foundation_work": 0,
+    "schedule_is_evidence": false,
+    "task_state_is_evidence": false,
+    "later_phase_promotion": "none"
+  },
+  "source": {
+    "kind": "privacy-filtered projection of validated private authority",
+    "schedule": "Consult the private calendar and Aegis plan for current reservations."
+  }
+}

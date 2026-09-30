@@ -1,26 +1,52 @@
 # Agent Engineering Sprint
 
-**Status:** the full sprint is **deferred to P8**. Only a bounded slice runs during P0, reset to 0% under Aegis Nexus DD #85 on 2026-08-09 at 16:00 — scheduled ≠ complete
-**Length in P0:** at most **two linked blocks per full week** (90-minute COURSE + up to 120-minute LAB), consuming the deterministic-sampler allocation — not a weekly percentage, not a lane
-**Schedule:** calendared 2026-08-09 16:00 → 2026-09-13 on the Research calendar; Hugging Face restarts at Unit 0, foundations remain the controlling gate lane, and overlay evidence never satisfies the P0 exit gate
+> **P0 scope:** AI-agent concepts are a parallel non-gate learning track.
+> Bounded manual exercises may support an artifact, but course attendance is
+> not Foundation proof. P8 covers deeper interfaces after its prerequisites.
+> See [the route](../../COMPETENCY_PATHWAY.md).
 
-This is a specialization module, not a numbered curriculum phase. It trains bounded LLM-agent skills for the later defense-agent overlay and remains distinct from P9 MARL.
+<!-- AEGIS:PHASE0_PROJECTION:START -->
+> **Generated public curriculum projection — do not hand-edit this block.** Schema `aegis.phase0-public-projection.v1`.
+
+**Current educational phase:** P0 is active; current-period work remains unverified. Later phases are not started. A course, reservation, checked task, or generated page is not implementation evidence.
+
+**Core competency route:** P0 → P1 → P2 → P4 → P6 → P8 → P10 → P11 → P12. Optional depth: P3, P5, P7, P9. Python, Rust, AI agents, battlefield AI, and warfare are studied in parallel, with one primary teaching source per track.
+
+**Project 0:** Python `projects/file_stats` and Rust `projects/hello-stats` must independently prove the same file-statistics contract on identical fixtures. Record the artifact, working directory, command, exit code, observed output, changed paths, verdict, blocker, and next command.
+
+This public view contains no personal schedule. Use the private Aegis plan and Calendar for current reservations.
+
+Agent study is non-gate. A bounded educational exercise never grants autonomous or consequential authority.
+
+<!-- projection-json-sha256: cfccf5c07a3074f24d9f4ffa2770419619093b8b912c285a8afd19fb2af8cbcf -->
+<!-- AEGIS:PHASE0_PROJECTION:END -->
 
 ## Prerequisites
 
 Python scripting and environments, Git/README discipline, safe API-key handling, and enough foundation confidence that the sprint will not displace P0.
 
-## What runs during P0 — bounded slice only
+## What P0 permits — bounded slice only
 
-The Hugging Face AI Agents Course is the sole P0 agent route. Eligible scope:
+The private Aegis plan owns study reservations. A manual Python-harness
+exercise may attach to Project 0 after the relevant concepts are understood;
+it never requires Python and Rust to execute on the same day. Use the
+smallest relevant Unit 0/1 concept to define the allowlist and explicit stop
+policy. Course consumption is not the exercise, and generic course watching
+does not satisfy an acceptance test. Eligible scope:
 
-1. Agent vs. workflow concepts; tools, actions, observations, messages.
-2. Thought → Action → Observation loops and ReAct concepts.
-3. Typed tool inputs and outputs; simple Python tools; basic `smolagents` usage.
-4. Deterministic or bounded loops, structured traces, failure handling, read-only tools.
-5. Observability and evaluation concepts.
+1. Typed Python inputs/outputs around the current file-statistics contract.
+2. At most three allowlisted read-only repository/fixture tools.
+3. At most three Action → Observation → Stop steps and one explicit stop reason.
+4. Path containment, deterministic refusal, malformed-input handling, and local evaluation.
 
-Each block must produce one bounded artifact — typed tool, FSM, trace, evaluation harness, read-only project tool, or structured workflow — with a stated capability boundary, a deterministic test input, a malformed-input test, and an explicit statement of what the tool is not authorized to do. **No standalone "watch course" block may be scheduled.**
+An exercise must produce one bounded artifact — policy/test, typed trace,
+refusal result, or evaluation harness — with a deterministic test input,
+malformed-input test, and explicit capability boundary. The exercise is
+non-gate and yields to Foundation proof when capacity is constrained. The
+harness has no shell, network, browser, connectors, Git writes, deletion,
+installation, secrets, persistence, self-modification, scheduling,
+autonomous execution, multi-agent/swarm behavior, MCP, RAG, LangGraph, or
+consequential action.
 
 ## Deferred to P8 — not active P0 scope
 
@@ -41,7 +67,10 @@ See [Agent engineering](../../../learning-materials/12-agent-engineering/README.
 
 ## Completion evidence
 
-**P0 (bounded):** one small artifact per scheduled weekly block — typed read-only tool, deterministic router, replay harness, bounded `smolagents` run, or tool-use evaluation harness — each with typed I/O, a full trace, a deterministic test, a malformed-input test, and a written capability boundary. None of it counts toward the P0 foundation gate.
+**P0 (bounded):** one policy/test, typed trace, refusal result, or evaluation
+artifact per attempted exercise, with typed I/O, no more than three Action →
+Observation → Stop steps, deterministic and malformed inputs, and a written
+capability boundary. None of it counts toward the P0 Foundation gate.
 
 **P8 (full sprint):** a local-first research assistant over at least ten documents, with typed outputs, visible state, evaluation, citations, and honest failure modes.
 

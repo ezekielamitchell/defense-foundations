@@ -1,4 +1,4 @@
-const CACHE_NAME = "defense-foundations-mobile-shell-v5";
+const CACHE_NAME = "defense-foundations-mobile-shell-v6";
 const PROJECTION_PATH = "/docs/aegis-phase0-projection.json";
 const APP_SHELL = [
   "./",
@@ -75,6 +75,9 @@ self.addEventListener("fetch", (event) => {
   }
 
   const url = new URL(event.request.url);
+  if (!['http:', 'https:'].includes(url.protocol) || url.origin !== self.location.origin) {
+    return;
+  }
   if (url.pathname.endsWith(PROJECTION_PATH)) {
     event.respondWith(networkFirstProjection(event.request));
     return;

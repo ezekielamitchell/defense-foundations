@@ -1,53 +1,64 @@
-# P0 — Foundations
+# P0 — Programming Foundations From Zero
 
-**Status:** in progress  
-**Dates:** reset Day 0 + gate clock 2026-08-09 at 16:00 → six-week minimum gate 2026-08-30 → eight-week maximum gate 2026-09-13
-**Time:** scheduled inside the governed day envelopes; Calendar time is capacity, not completion
+**Status:** active phase; implementation proof unverified
+**Route:** main route · **Prerequisites:** none
 
-Condensed Week 1 is Sunday 2026-08-09 from the 16:00 cutover. Week 2 resumes the Monday–Sunday cadence on 2026-08-10. Aegis Nexus `01_Daily/_Phase Config.md` is the sole hard-date authority.
+Numeric IDs are stable references; use prerequisites and observed proof rather
+than completing every ID in numerical order. Exact dates live in the private
+Aegis plan.
 
-**Operating envelope (DD #85):** Monday–Friday 09:30–23:00, Saturday 09:30–18:15, Sunday 09:30–18:00, with 15-minute cross-domain transitions. Closeout is 22:15–22:35 Monday–Thursday and 22:15–22:50 Friday. Protected daily: sleep 00:00–04:30, gym 05:00–06:15, breakfast 07:00–08:00, lunch 12:00–13:00, dinner 18:30–20:00.
+<!-- AEGIS:PHASE0_PROJECTION:START -->
+> **Generated public curriculum projection — do not hand-edit this block.** Schema `aegis.phase0-public-projection.v1`.
 
-**Daily model:** Primary Build → Support Work → Research → Weekly Sampler. One dominant artifact per day; no per-topic daily lanes.
+**Current educational phase:** P0 is active; current-period work remains unverified. Later phases are not started. A course, reservation, checked task, or generated page is not implementation evidence.
 
-**Non-gate overlays:** the Hugging Face AI Agents Course runs at most **two linked blocks per full week** (90-minute COURSE + up to 120-minute LAB), consuming the deterministic-sampler allocation (no fifth lane, no new bucket). A daily research paper runs 60 minutes at 08:00–09:00. Neither substitutes for Python/Rust/Linux/Git gate evidence. Gates unchanged: 2026-08-30 six-week minimum, 2026-09-13 eight-week maximum.
+**Core competency route:** P0 → P1 → P2 → P4 → P6 → P8 → P10 → P11 → P12. Optional depth: P3, P5, P7, P9. Python, Rust, AI agents, battlefield AI, and warfare are studied in parallel, with one primary teaching source per track.
 
-## Focus
+**Project 0:** Python `projects/file_stats` and Rust `projects/hello-stats` must independently prove the same file-statistics contract on identical fixtures. Record the artifact, working directory, command, exit code, observed output, changed paths, verdict, blocker, and next command.
 
-Functional Python, Rust, Linux shell, and Git. Build the ability to write 100–200 line programs without keeping a tutorial open.
+This public view contains no personal schedule. Use the private Aegis plan and Calendar for current reservations.
 
-Foundations is the gate-controlling curriculum lane. The bounded DD #78 overlays — one weekly Hugging Face Agents block, one weekly OpenCV sampler, and the daily research paper — are active but evidence-separated and non-gate. PyTorch, YOLO, ROS 2, LangGraph, RAG, MCP, autonomous consequential agents, swarms, and other later-phase material remain unscheduled until explicit promotion.
+Start from the oldest unmet beginner concept; test it in the corresponding Project 0 implementation.
 
-## Topics
+<!-- projection-json-sha256: cfccf5c07a3074f24d9f4ffa2770419619093b8b912c285a8afd19fb2af8cbcf -->
+<!-- AEGIS:PHASE0_PROJECTION:END -->
 
-- Python environments, types, control flow, functions, modules, file I/O, `argparse`, `pathlib`, and basic tests.
-- Rust ownership, borrowing, Cargo, structs, enums, pattern matching, `Result`, and `Option`.
-- Shell navigation, search, pipes, environment variables, SSH, and tmux.
-- Git status, diff, branches, commits, pushes, and basic conflict resolution.
+## Entry
 
-## Materials
+No prior knowledge. Start at Z0 in the beginner guide.
 
-See [Foundations](../../../learning-materials/01-foundations/README.md) and the [weekly schedule](../../../TIMELINE.md#phase-0-compressed-reset-plan).
+## Learn
 
-## Evidence target
+Editor/terminal distinction; Python values, collections, control flow,
+functions, files, exceptions and tests; Rust ownership, borrowing,
+structs/enums, Result and tests. Both language introductions run in parallel;
+shell, Git and documentation attach to the same work.
 
-A paired Python/Rust CLI solving the same small problem, with tests, install/run documentation, example output, and comparison notes.
+## Build
 
-## Current baseline
+Project 0: Python `file_stats` and Rust `hello-stats` using one explicit
+line/word/byte contract. Diagnose recalled basics, then apply the missing
+concepts in each language. Each implementation needs independent proof before
+the shared parity claim.
 
-- `projects/file_stats` is a greeting stub with no test suite found.
-- `projects/hello-stats` is user WIP and does not yet implement file statistics; no Rust tests were found.
-- Rustlings currently points to `if2` with 15 historical exercises; active reset credit is 0/50.
-- Earlier CLIs and course completions remain historical evidence, not active reset completion.
-- Hugging Face, Ultimate Rust, and every P0-authorized Udemy/O’Reilly course restart at 0%.
-- Work before 2026-08-09 at 16:00 remains audit-valid history but is excluded from every active denominator.
+## Acceptance evidence
 
-Reset administration is not curriculum evidence.
+Identical valid/empty/Unicode/invalid-byte/missing-file/stdin fixtures; meaningful test collection; Python lint and Rust Clippy/formatting; README cold run; first 50 freshly observed Rustlings exercises; Linux/Git/CI proof; independently recreate a variation.
 
-## Exit gate
+## Source and scope
 
-- Python CLI and Rust CLI built from a problem statement.
-- First 50 Rustlings exercises complete.
-- Basic shell and Git workflows performed without notes.
-- At least one repository meets the README evidence standard.
-- FizzBuzz, file I/O, and a basic CLI can be implemented without a tutorial.
+Use selected *Python Crash Course* 3rd edition concepts and the selected
+*Ultimate Rust Crash Course* introduction; CS50P may replace the Python
+primary source. Official documentation is the implementation reference.
+Testing and CLI books are gap-driven support.
+
+**Scope:** AI-agent, battlefield AI, warfare, and paper study are parallel
+non-gate tracks. Advanced frameworks, ROS, hardware, and unrelated builds do
+not become P0 proof.
+
+## Next
+
+P1 follows only an evidence-backed written P0 gate decision.
+
+See [the route](../../COMPETENCY_PATHWAY.md), [beginner guide](../../START_HERE.md),
+[resource spine](../../RESOURCE_SPINE.md), and [reset handoff](../../RESET_HANDOFF.md).

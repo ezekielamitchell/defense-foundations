@@ -1,28 +1,36 @@
 # Learning Materials
 
-Every named course or core resource has its own folder and README. Folders are grouped by learning focus rather than purchase source or calendar month.
+**Complete-beginner curriculum v2.** [Start Here](../curriculum/START_HERE.md)
+tells you what to open first. [Resource Spine](../curriculum/RESOURCE_SPINE.md)
+selects one primary teaching source per competency. This directory preserves
+exercises and resource history; it is not a checklist of everything to finish.
 
-| Focus group | Main phases | Named materials |
-|---|---|---:|
-| [Foundations](01-foundations/README.md) | P0 | 10 |
-| [Math and engineering discipline](02-math-engineering/README.md) | P1–P2 | guided topic map |
-| [ML and computer vision](03-ml-computer-vision/README.md) | P2–P3 | 2 |
-| [Rust systems](04-rust-systems/README.md) | P4 | 1 |
-| [Robotics and embedded](05-robotics-embedded/README.md) | P5 | 2 |
-| [Edge AI](06-edge-ai/README.md) | P6 | 1 |
-| [Transformers](07-transformers/README.md) | P7 | research-led |
-| [ROS 2 and sensor fusion](08-ros2-sensor-fusion/README.md) | P8 | 2 |
-| [Autonomy and swarms](09-autonomy-swarms/README.md) | P9 | research-led |
-| [Gaze and HMT](10-gaze-hmt/README.md) | P10 | research-led |
-| [Doctrine and ethics](11-doctrine-ethics/README.md) | P11 | primary-source-led |
-| [Agent engineering](12-agent-engineering/README.md) | bounded P0 overlay / later expansion | 7 |
-| [Research capstone](13-research-capstone/README.md) | P12 | niche-dependent |
-| [C/C++ interview support](14-interview-support/README.md) | optional | 1 |
+| Group | Route role |
+|---|---|
+| [Programming from zero](01-foundations/README.md) | P0 |
+| [Contracts, measurement and quantitative prerequisites](02-math-engineering/README.md) | P1–P2 |
+| [Evaluation and optional perception](03-ml-computer-vision/README.md) | P2 core; P3 optional |
+| [Reliable Rust services](04-rust-systems/README.md) | P4 |
+| [Optional physical interfaces](05-robotics-embedded/README.md) | P5 optional |
+| [Optional inference deployment inside the runtime](06-edge-ai/README.md) | P4 with P3 when selected |
+| [Optional model depth](07-transformers/README.md) | P3 optional |
+| [Simulation, adapters and optional navigation](08-ros2-sensor-fusion/README.md) | P6 core; P7 optional |
+| [Coordination first; optional learned policies](09-autonomy-swarms/README.md) | P10 core; P9 optional |
+| [Human authority; optional gaze](10-gaze-hmt/README.md) | P8 core; gaze optional |
+| [Assurance and test evaluation](11-doctrine-ethics/README.md) | P11 integrated review; practices from P1 |
+| [Optional bounded language-model interfaces](12-agent-engineering/README.md) | P8 optional LLM component |
+| [Integrated capstone](13-research-capstone/README.md) | P12 |
+| [Career and native integration support](14-interview-support/README.md) | P1 onward, issue-selected |
 
-## Course rules
+## Use
 
-- A course activates only when its phase gate or explicit sprint decision allows it.
-- Use the named focus modules; do not watch every course linearly by default.
-- Every study block must produce an artifact in a project repo or a useful technical note.
-- Avoid duplicate instruction. Skim and skip overlap.
-- Course completion is not phase completion.
+Read a small teaching section, do an exercise, apply it and test/explain a small
+variation. A beginner is allowed to learn a concept before diagnosing issues.
+Do not stack equivalent books/courses. Keep exact source resume points without
+creating passive-viewing credit or catch-up debt.
+
+[Paid catalog](PAID_CATALOG.md) lists the current parallel teaching choices and
+preserves older selections as history. Follow the first learning week and the
+active course map; exact reservations remain in private Aegis authority. No
+subscription, certificate or purchase is required beyond an accessible chosen
+teaching source.

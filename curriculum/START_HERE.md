@@ -1,17 +1,21 @@
-# Start Here — Programming From Zero
+# Start Here — Programming Foundations
 
-**Active September 19, 2026 · parallel beginner curriculum**
+**P0 active · parallel beginner curriculum.** Exact dates and current-period
+credit come from private Aegis authority.
 
-You do not need to remember an earlier course, understand a paper, or already
-know how to code. Begin with the first unchecked competency below. Existing code
-and historical records remain reference material; they are not assumed knowledge.
+Start with the [first learning week](FOUNDATIONS_FAST_TRACK.md): Python, Rust
+and AI-agent basics all begin, while existing research/reading blocks supply
+bounded battlefield-AI and warfare/law context.
+You reported very beginner Python knowledge: use a short diagnostic to skip
+what you can independently explain and change. Existing code and historical
+records remain reference material; they are not automatically current proof.
 
 This is your learning guide. [The route](COMPETENCY_PATHWAY.md) explains later
 work. [The current course map](PARALLEL_COURSE_MAP.md) defines the parallel tracks.
 The private Aegis authority owns the active schedule. Do not use calendar dates
 to skip an unmastered concept.
 
-## Your first result
+## Day 0 orientation, only if needed
 
 Open your terminal, go to the existing repository, and inspect its state:
 
@@ -29,6 +33,20 @@ difference between the terminal and the Python file. Then type a tiny change,
 predict its output, run it, and explain the result. Ask for a hint if you cannot
 identify the line to change. Do not restore, erase, or rewrite unrelated files.
 
+During the first available studio for each track, get one small result:
+
+| Track | First action | What counts as an explanation |
+|---|---|---|
+| Python | Run the existing `file_stats` starter, predict a small output change, make it and rerun. | Identify the file, input, changed line and observed output. |
+| Rust | Run the existing `hello-stats` starter with Cargo; change a tiny function input and inspect one compiler message. | Explain the changed output or error in your own words. |
+| Agents | On paper, trace a synthetic helper's goal, observation, allowed action and stop rule. | State who authorizes an action and what happens when it is unavailable. |
+
+These may happen on different days within the first week. The present Project 0
+starters are orientation, not finished file-statistics CLIs: the inspected Python
+project collects no tests and the Rust project's passing test command currently
+runs zero tests. Collecting and explaining meaningful tests is a later check,
+not credit granted by a green command with zero tests.
+
 No new package, hardware, cloud account, agent framework, or paper is needed for
 this first result. If Python cannot run, resolve that setup problem before
 adding another tool. macOS is fine for initial lessons; actual Linux execution
@@ -36,11 +54,14 @@ is a later foundation check, not an installation obstacle on the first session.
 
 ## One primary source per track
 
-Use the [parallel course map](PARALLEL_COURSE_MAP.md): Udemy Python and Rust,
-Coursera agents/AI/warfare, and selected O’Reilly readings. Python starts with
-Angela Yu’s Day 1. PCC chapter references below remain a concept crosswalk and
-reading aid, not a second full Python course obligation. CS50P can replace the
-Python course when access is unavailable. No purchase or certificate is required.
+Use the [parallel course map](PARALLEL_COURSE_MAP.md): selected O’Reilly PCC
+concepts/exercises for Python, Udemy for Rust and Coursera for agents,
+general AI literacy and humanitarian law. The first week introduces all three
+technical tracks; subsequent studios apply
+concepts to Project 0 and refresh specific gaps. PCC chapter references below
+are a concept crosswalk, not a requirement to read the whole book. Official
+documentation supplies a fallback when paid access is unavailable. No purchase
+or certificate is required, and there is no Angela Yu Day 1 restart.
 
 Rust starts in parallel with a guided bridge for programming vocabulary. Its
 course and the Rust Book assume general programming concepts, so pause for an
@@ -141,8 +162,8 @@ command, exit, output, changes, verdict, blocker and next command.
 
 ## Parallel study without assumed mastery
 
-AI agents, battlefield AI and warfare foundations now have their own introductory
-tracks. Use manual traces, public-source comparisons and small synthetic exercises.
+AI agents, battlefield-AI context and warfare/law have separate introductory
+lanes. Use manual traces, public-source comparisons and small synthetic exercises.
 Advanced perception, ROS 2, embedded hardware and RL remain later material. Keep
 one primary source per track and one main Project 0 build. Research and agent work
 do not satisfy the Python/Rust gate. See [the course map](PARALLEL_COURSE_MAP.md).

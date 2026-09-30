@@ -11,6 +11,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import os
 import re
 import sys
 from datetime import date
@@ -18,8 +19,9 @@ from pathlib import Path
 
 REPOSITORY = Path(__file__).resolve().parent.parent
 DEFAULT_PROJECTION = REPOSITORY / "docs/aegis-phase0-projection.json"
-DEFAULT_VAULT = Path("/Users/house/aegis nexus")
+DEFAULT_VAULT = Path(os.environ.get("AEGIS_VAULT", str(Path.home() / "aegis nexus")))
 PROJECTION_SCHEMA = "aegis.phase0-projection.v1"
+PUBLIC_PROJECTION_SCHEMA = "aegis.phase0-public-projection.v1"
 PROOF_SCHEMA = "phase0-proof.v1"
 MANIFEST_SCHEMA_V5 = "AEGIS-PHASE0-FULL-RESET-5.0"
 MARKER_START = "<!-- AEGIS:PHASE0_PROJECTION:START -->"
@@ -129,8 +131,84 @@ def effective_projection_source(vault: Path, config: dict, manifest: dict) -> tu
     return effective, authority
 
 
+def current_private_and_public_projection(vault: Path) -> tuple[dict, dict, object]:
+    """Validate private authority locally, then derive its small public allowlist."""
+    scripts = str(vault / "08_Assistant/scripts")
+    sys.path.insert(0, scripts)
+    try:
+        from export_defense_foundations_projection import (
+            build_projection,
+            build_public_projection,
+            read_frontmatter,
+        )
+        import export_defense_foundations_projection as exporter
+    finally:
+        sys.path.remove(scripts)
+    config = read_frontmatter(vault / "01_Daily/_Phase Config.md")
+    source = Path(str(config["active_calendar_manifest"]))
+    manifest_path = source if source.is_absolute() else vault / source
+    manifest_bytes = manifest_path.read_bytes()
+    digest = hashlib.sha256(manifest_bytes).hexdigest()
+    if config.get("active_calendar_manifest_sha256") != digest:
+        raise ValueError("active private manifest hash mismatch")
+    private = build_projection(config, json.loads(manifest_bytes), digest, root=vault)
+    return private, build_public_projection(private), exporter
+
+
+def validate_public_projection(projection: dict, projection_path: Path, vault: Path, repository: Path) -> list[str]:
+    errors: list[str] = []
+    try:
+        _, expected, exporter = current_private_and_public_projection(vault)
+    except (ImportError, KeyError, TypeError, ValueError, OSError, json.JSONDecodeError) as exc:
+        return [f"private source/public projection validation failed: {exc}"]
+    if projection != expected:
+        errors.append("public projection differs from validated private authority's allowlist")
+    payload = projection_path.read_text(encoding="utf-8")
+    digest = sha256(projection_path)
+    regions = {relative: style for relative, (_, _, style) in exporter.PUBLIC_REGIONS.items()}
+    private_pattern = re.compile(
+        r"/Users/|/home/|@group\.calendar|manifest_event_id|calendar_event_id|"
+        r"todoist|\bendr\b|company_boundary|calendar_id|task_id|event_id|"
+        r"20\d{2}-\d{2}-\d{2}", re.IGNORECASE
+    )
+    if private_pattern.search(payload):
+        errors.append("public projection contains private operating detail")
+    for relative, style in regions.items():
+        path = repository / relative
+        try:
+            text = path.read_text(encoding="utf-8")
+            if text.count(MARKER_START) != 1 or text.count(MARKER_END) != 1:
+                errors.append(f"public projection marker count invalid: {relative}")
+                continue
+            start = text.index(MARKER_START)
+            end = text.index(MARKER_END, start) + len(MARKER_END)
+            actual = text[start:end]
+            expected_block = (exporter.marker_block(style, expected, digest)
+                              if style is not None else exporter.html_marker(expected, digest)).rstrip("\n")
+            if actual != expected_block:
+                errors.append(f"public projection marker drift: {relative}")
+            if private_pattern.search(actual):
+                errors.append(f"public projection marker contains private operating detail: {relative}")
+        except OSError as exc:
+            errors.append(f"public projection consumer unavailable: {relative}: {exc}")
+    app = (repository / "mobile/app.js").read_text(encoding="utf-8")
+    if PUBLIC_PROJECTION_SCHEMA not in app or "../docs/aegis-phase0-projection.json" not in app or "fetch(" not in app:
+        errors.append("mobile app does not read the public projection schema")
+    if "localStorage.removeItem(storageKeys.notes)" not in app:
+        errors.append("mobile quick-capture behavior is unavailable")
+    sw = (repository / "mobile/sw.js").read_text(encoding="utf-8")
+    if "networkFirstProjection" not in sw or "await cache.put(request, response.clone())" not in sw:
+        errors.append("mobile projection freshness contract is missing")
+    for relative in PWA_FILES:
+        if private_pattern.search((repository / relative).read_text(encoding="utf-8")):
+            errors.append(f"mobile public view contains private operating detail: {relative}")
+    return errors
+
+
 def validate_projection(projection: dict, projection_path: Path, vault: Path, repository: Path) -> list[str]:
     errors: list[str] = []
+    if projection.get("schema_version") == PUBLIC_PROJECTION_SCHEMA:
+        return validate_public_projection(projection, projection_path, vault, repository)
     if projection.get("schema_version") != PROJECTION_SCHEMA:
         errors.append("unsupported projection schema")
         return errors
@@ -520,7 +598,14 @@ def main() -> int:
     projection = load_json(args.projection)
     errors = validate_projection(projection, args.projection, args.vault, args.repository)
     if args.proof:
-        errors.extend(validate_proof(load_json(args.proof), projection, args.repository))
+        proof_projection = projection
+        if projection.get("schema_version") == PUBLIC_PROJECTION_SCHEMA:
+            try:
+                proof_projection, _, _ = current_private_and_public_projection(args.vault)
+            except (ImportError, KeyError, TypeError, ValueError, OSError, json.JSONDecodeError) as exc:
+                errors.append(f"proof authority unavailable: {exc}")
+        if not any(error.startswith("proof authority unavailable:") for error in errors):
+            errors.extend(validate_proof(load_json(args.proof), proof_projection, args.repository))
     print(json.dumps({"status": "PASS" if not errors else "FAIL", "errors": errors}, indent=2))
     return 0 if not errors else 1
 
