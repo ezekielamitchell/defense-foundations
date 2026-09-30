@@ -69,16 +69,11 @@ textarea {
 }
 
 .brand-mark {
-  display: grid;
+  display: block;
+  flex: 0 0 42px;
   width: 42px;
   height: 42px;
-  place-items: center;
-  border-radius: var(--radius);
-  background: var(--accent);
-  color: #ffffff;
-  font-size: 0.82rem;
-  font-weight: 800;
-  letter-spacing: 0.08em;
+  object-fit: contain;
 }
 
 .brand-title,

@@ -73,3 +73,9 @@ public projection omits personal scheduling and contains no completion claim.
 Course reservations do not earn learning credit. See
 [Start Here](../curriculum/START_HERE.md) and the
 [parallel course map](../curriculum/PARALLEL_COURSE_MAP.md).
+
+## Personal identity
+
+The header, browser icon and installable-app icons use the owner-selected
+[Four Horses personal mark](assets/personal-brand/README.md). The source master
+is preserved byte-for-byte alongside its existing presentation exports.

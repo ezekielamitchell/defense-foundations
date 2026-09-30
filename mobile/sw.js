@@ -1,4 +1,4 @@
-const CACHE_NAME = "defense-foundations-mobile-shell-v6";
+const CACHE_NAME = "defense-foundations-mobile-shell-v7";
 const PROJECTION_PATH = "/docs/aegis-phase0-projection.json";
 const APP_SHELL = [
   "./",
@@ -6,7 +6,13 @@ const APP_SHELL = [
   "./styles.css",
   "./app.js",
   "./manifest.webmanifest",
-  "./icon.svg",
+  "./assets/personal-brand/four-horses-header.png",
+  "./assets/personal-brand/favicon.ico",
+  "./assets/personal-brand/favicon-32.png",
+  "./assets/personal-brand/apple-touch-icon.png",
+  "./assets/personal-brand/icon-192.png",
+  "./assets/personal-brand/icon-512.png",
+  "./assets/personal-brand/icon-maskable-512.png",
   "../docs/aegis-phase0-projection.json"
 ];
 
