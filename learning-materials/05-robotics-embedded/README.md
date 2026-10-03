@@ -1,12 +1,15 @@
-# Robotics and Embedded Systems
+# Optional physical interfaces
 
-**Primary phase:** P5
+**Curriculum v2 · prepared 2026-09-19 · P5 optional.**
 
-## Materials
+Choose one justified sensor/transport and vendor documentation. A simulation or bench-safe substitute is valid; no hardware purchase is a prerequisite.
 
-- [Embedded Rust with STM32](embedded-rust-stm32/README.md) — Catalog #9.
-- [Embedded Systems on ARM Cortex-M3/M4](embedded-arm-cortex/README.md) — Catalog #11, optional C/ARM depth.
+Read [Start Here](../../curriculum/START_HERE.md), [Resource Spine](../../curriculum/RESOURCE_SPINE.md)
+and [the full route](../../curriculum/COMPETENCY_PATHWAY.md). One primary source
+serves the current artifact; the retained resources below are a reference menu.
+They do not add courses, deadlines or completion credit.
 
-## Supporting topics
+## Retained source folders
 
-Kinematics, PID, rotations/quaternions, I²C/SPI/UART/CAN, real-time behavior, electronics safety, Embassy, ESP/RP ecosystems, and telemetry.
+- [embedded-arm-cortex](embedded-arm-cortex/README.md)
+- [embedded-rust-stm32](embedded-rust-stm32/README.md)

@@ -1,17 +1,21 @@
-# Start Here — Programming From Zero
+# Start Here — Programming Foundations
 
-**Active September 19, 2026 · parallel beginner curriculum**
+**P0 active · parallel beginner curriculum.** Exact dates and current-period
+credit come from private Aegis authority.
 
-You do not need to remember an earlier course, understand a paper, or already
-know how to code. Begin with the first unchecked competency below. Existing code
-and historical records remain reference material; they are not assumed knowledge.
+Start with the [first learning week](FOUNDATIONS_FAST_TRACK.md): Python, Rust
+and AI-agent basics all begin, while existing research/reading blocks supply
+bounded battlefield-AI and warfare/law context.
+You reported very beginner Python knowledge: use a short diagnostic to skip
+what you can independently explain and change. Existing code and historical
+records remain reference material; they are not automatically current proof.
 
 This is your learning guide. [The route](COMPETENCY_PATHWAY.md) explains later
 work. [The current course map](PARALLEL_COURSE_MAP.md) defines the parallel tracks.
 The private Aegis authority owns the active schedule. Do not use calendar dates
 to skip an unmastered concept.
 
-## Your first result
+## Day 0 orientation, only if needed
 
 Open your terminal, go to the existing repository, and inspect its state:
 
@@ -29,6 +33,20 @@ difference between the terminal and the Python file. Then type a tiny change,
 predict its output, run it, and explain the result. Ask for a hint if you cannot
 identify the line to change. Do not restore, erase, or rewrite unrelated files.
 
+During the first available studio for each track, get one small result:
+
+| Track | First action | What counts as an explanation |
+|---|---|---|
+| Python | Run the existing `file_stats` starter, predict a small output change, make it and rerun. | Identify the file, input, changed line and observed output. |
+| Rust | Run the existing `hello-stats` starter with Cargo; change a tiny function input and inspect one compiler message. | Explain the changed output or error in your own words. |
+| Agents | On paper, trace a synthetic helper's goal, observation, allowed action and stop rule. | State who authorizes an action and what happens when it is unavailable. |
+
+These may happen on different days within the first week. The present Project 0
+starters are orientation, not finished file-statistics CLIs: the inspected Python
+project collects no tests and the Rust project's passing test command currently
+runs zero tests. Collecting and explaining meaningful tests is a later check,
+not credit granted by a green command with zero tests.
+
 No new package, hardware, cloud account, agent framework, or paper is needed for
 this first result. If Python cannot run, resolve that setup problem before
 adding another tool. macOS is fine for initial lessons; actual Linux execution
@@ -36,15 +54,21 @@ is a later foundation check, not an installation obstacle on the first session.
 
 ## One primary source per track
 
-Use the [parallel course map](PARALLEL_COURSE_MAP.md): Udemy Python and Rust,
-Coursera agents/AI/warfare, and selected O’Reilly readings. Python starts with
-Angela Yu’s Day 1. PCC chapter references below remain a concept crosswalk and
-reading aid, not a second full Python course obligation. CS50P can replace the
-Python course when access is unavailable. No purchase or certificate is required.
+Use the [parallel course map](PARALLEL_COURSE_MAP.md): selected O’Reilly PCC
+concepts/exercises for Python, Duke's Coursera course for Rust and Coursera for agents,
+general AI literacy and humanitarian law. The first week introduces all three
+technical tracks; subsequent studios apply
+concepts to Project 0 and refresh specific gaps. PCC chapter references below
+are a concept crosswalk, not a requirement to read the whole book. Official
+documentation supplies reference help when a selected source is unavailable;
+it is not a replacement course. No purchase or certificate is required, and
+there is no Angela Yu Day 1 restart.
 
-Rust starts in parallel with a guided bridge for programming vocabulary. Its
-course and the Rust Book assume general programming concepts, so pause for an
-explanation and a tiny exercise whenever an example assumes unfamiliar knowledge.
+Rust starts in parallel with a guided bridge for programming vocabulary. Duke's
+Rust Fundamentals welcomes coding beginners; pause for an explanation and a
+tiny exercise whenever a course or Rust Book example assumes unfamiliar knowledge.
+Active courses use O'Reilly or Coursera only. Earlier Udemy work remains history
+and receives no automatic current-period credit.
 
 ## Beginner checkpoints
 
@@ -121,6 +145,38 @@ arguments, file-versus-stdin parity, and non-ASCII whitespace. These are propose
 acceptance fixtures, not tests that already exist. This educational contract
 uses explicit whitespace rules rather than claiming complete GNU wc equivalence.
 
+Synthetic M.A.L.-style run logs may be additional fixtures for the same
+line/word/byte contract. They do not replace the acceptance cases above or
+create another project, phase promotion or company implementation commitment.
+
+## Project 0 and the company project
+
+Project 0 is the foundation build: two independently explained file-statistics
+CLIs teach input/output contracts, error handling, testing and reproducible
+runs. These skills transfer to M.A.L., while the required fixtures and P0 gate
+remain unchanged. Synthetic M.A.L.-style logs are optional extra inputs.
+
+M.A.L. is the primary company product experiment, in its own repository under
+company authority. Its current Python/scripted supply-scheduling v0.2 scope
+does not change because Rust is the priority learning language. Personal
+learning evidence and company acceptance remain separate.
+
+After v0.2 acceptance, company decision DEC-018 adds synthetic virtual data-center
+maintenance as scenario two. Reuse the evaluator, event ledger, comparison
+report and replay; prove the second scenario reproducibly before expanding it.
+This is not a new parallel product. A standalone evaluation service remains a
+hypothesis until technical evidence and discovery establish a repeated costly
+workflow, an engaged engineering owner, a credible budget owner and bounded
+delivery effort. The existing company decision register owns that review.
+
+The regular agent track applies the same course concept during two guided hours
+and four bounded practice hours, reusing one educational toy or fixture harness.
+Those practice hours come from existing endr morning reservations. First-week
+setup exceptions, exact dates and capacity are private active-schedule matters;
+the compressed introduction closes October 11 under the latest teaching amendment; the reset boundary is unchanged. Actual
+classes, examinations and assessment deadlines remain protected, with no
+blanket finals reduction.
+
 ## P0 exit gate
 
 - Independently implement and explain both CLIs; all selected fixtures pass.
@@ -141,8 +197,8 @@ command, exit, output, changes, verdict, blocker and next command.
 
 ## Parallel study without assumed mastery
 
-AI agents, battlefield AI and warfare foundations now have their own introductory
-tracks. Use manual traces, public-source comparisons and small synthetic exercises.
+AI agents, battlefield-AI context and warfare/law have separate introductory
+lanes. Use manual traces, public-source comparisons and small synthetic exercises.
 Advanced perception, ROS 2, embedded hardware and RL remain later material. Keep
 one primary source per track and one main Project 0 build. Research and agent work
 do not satisfy the Python/Rust gate. See [the course map](PARALLEL_COURSE_MAP.md).

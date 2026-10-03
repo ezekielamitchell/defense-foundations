@@ -1,5 +1,8 @@
 # Edge AI and Compression Research
 
+> **Prepared beginner route:** Research is a later, question-driven reference. No paper or topic here is a prerequisite for beginning P0. The existing paper schedule is unchanged until the separate reset; [the revised route](../../curriculum/COMPETENCY_PATHWAY.md) proposes optional beginner research and keeps advanced topics gated.
+
+
 ## Queue
 
 | Work | Why it matters |
@@ -13,4 +16,4 @@
 
 ## Curriculum connection
 
-P6 deployment experiments. Extract the actual hardware, batch size, precision, latency definition, and accuracy loss before comparing results.
+P4 Flagship II deployment experiments. Extract the actual hardware, batch size, precision, latency definition, resource budget, and accuracy loss before comparing results.

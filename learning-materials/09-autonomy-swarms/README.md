@@ -1,13 +1,14 @@
-# Autonomy, RL, and Swarms
+# Coordination first; optional learned policies
 
-**Primary phase:** P9
+**Curriculum v2 · prepared 2026-09-19 · P10 core; P9 optional.**
 
-This group is currently research- and framework-documentation-led. Use Gymnasium, PettingZoo, Stable-Baselines3, and RLlib only after the MDP and baseline are written down.
+P10 uses scripted and centralized baselines before a coordination alternative. P9 reinforcement learning is not a prerequisite. Test delay, loss, duplication, stale state, partition and recovery.
 
-## Sequence
+Read [Start Here](../../curriculum/START_HERE.md), [Resource Spine](../../curriculum/RESOURCE_SPINE.md)
+and [the full route](../../curriculum/COMPETENCY_PATHWAY.md). One primary source
+serves the current artifact; the retained resources below are a reference menu.
+They do not add courses, deadlines or completion credit.
 
-MDPs/Bellman equations → DQN/PPO/SAC → multi-agent environments → IPPO/MAPPO/QMIX/MADDPG → communication constraints → deterministic Rust rollouts.
+## Retained source folders
 
-## Evidence
-
-Seeded baselines, learning curves with uncertainty, ablations, non-learning-policy debugging notes, and deterministic replay. See [RL/MARL research](../../research/rl-marl-swarms/README.md).
+Use the selected primary documentation in Resource Spine; no extra course is required.

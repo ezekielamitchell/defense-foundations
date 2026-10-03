@@ -1,15 +1,15 @@
-# ROS 2 and Sensor Fusion
+# Simulation, adapters and optional navigation
 
-**Primary phase:** P8
+**Curriculum v2 · prepared 2026-09-19 · P6 core; P7 optional.**
 
-ROS 2 is the autonomy middleware that ties the whole stack together—perception, navigation, sensor fusion, and telemetry running as one real-time graph—and a ROS 2-class system is what the target defense-autonomy companies actually field. Treat this as core infrastructure fluency, not a robotics elective.
+Start with a small deterministic simulator and portable task contract. Select ROS 2 as an adapter where useful; estimation/SLAM/navigation depth is a separate elective.
 
-## Materials
+Read [Start Here](../../curriculum/START_HERE.md), [Resource Spine](../../curriculum/RESOURCE_SPINE.md)
+and [the full route](../../curriculum/COMPETENCY_PATHWAY.md). One primary source
+serves the current artifact; the retained resources below are a reference menu.
+They do not add courses, deadlines or completion credit.
 
-- [ROS 2 for Beginners](ros2-beginners/README.md) — Catalog #7.
-- [ROS 2 Nav2 + SLAM](ros2-nav2-slam/README.md) — Catalog #8.
-- ROS 2, Nav2, tf2, robot_localization, Gazebo, and `ros2_rust` documentation.
+## Retained source folders
 
-## Evidence theme
-
-A launchable graph, deliberate QoS choices, tf debugging, bag-based analysis, navigation tuning, and one Rust ROS 2 node.
+- [ros2-beginners](ros2-beginners/README.md)
+- [ros2-nav2-slam](ros2-nav2-slam/README.md)

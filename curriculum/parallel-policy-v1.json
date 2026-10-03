@@ -2,16 +2,39 @@
   "schema_version": "defense-foundations.parallel-policy.v1",
   "status": "active-teaching-policy",
   "active_phase": "P0",
-  "tracks": ["python", "rust", "agents", "defense-ai", "warfare"],
+  "tracks": [
+    "python",
+    "rust",
+    "agents",
+    "defense-ai",
+    "warfare"
+  ],
+  "first_full_week_foundation_tracks": [
+    "python",
+    "rust",
+    "agents"
+  ],
+  "first_full_week_agent_mode": "manual-bounded-synthetic-traces-no-paid-api",
+  "domain_context_uses_existing_reading_or_research_blocks": true,
   "primary_sources": {
-    "python": "udemy-100-days-of-code",
-    "rust": "udemy-ultimate-rust-crash-course",
+    "python": "oreilly-python-crash-course-3e-targeted",
+    "rust": "coursera-rust-fundamentals",
     "agents": "coursera-ai-agents-python",
-    "defense-ai": "coursera-ai-for-everyone",
-    "warfare": "coursera-international-humanitarian-law"
+    "defense-ai": "coursera-ibm-introduction-to-ai",
+    "warfare": "coursera-suny-cyber-conflicts"
   },
   "source_count_per_track": 1,
-  "course_project_research_minutes": [120, 180],
+  "intro_sprint_days": 7,
+  "python_baseline": "No prior fluency assumed; PCC selected Part I essentials and immediate exercises.",
+  "skip_rule": "Curated essentials and selected exercises are authorized; independent changed-input checks guide targeted practice. Historical completion grants no current-period credit.",
+  "after_intro": "From October 12, project-led practice inside existing reservations: attempt the next unproved behavior; use a focused 20–30 minute explanation when blocked, apply it immediately, then record the exact gap. Do not stretch introductory course consumption across a month. P0 gates remain evidence-based.",
+  "relative_week_outcomes": "RUST_FIRST_STUDIO_PLAN.json",
+  "later_phases_undated": true,
+  "phase_promotion_requires_explicit_evidence_backed_authorization": true,
+  "course_project_research_minutes": [
+    120,
+    180
+  ],
   "curriculum_reading_minutes": 60,
   "rust_requires_python_completion": false,
   "paired_work_requires": "independent-basic-file-handling-in-both-languages",
@@ -19,7 +42,122 @@
   "daily_paper_quota": 0,
   "initial_learning_credit": 0,
   "date_based_advancement": false,
-  "foundation_gate_lanes": ["python", "rust", "project-0", "linux-git-ci"],
+  "foundation_gate_lanes": [
+    "python",
+    "rust",
+    "project-0",
+    "linux-git-ci"
+  ],
   "company_gates_independent": true,
-  "schedule_authority": "private-aegis-approved-manifest"
+  "schedule_authority": "private-aegis-approved-manifest-and-current-authorized-calendar-amendment",
+  "teaching_amendment_date": "2026-10-02",
+  "priority_programming_language": "rust",
+  "rust_priority_changes_company_implementation_language": false,
+  "studio_plan": "RUST_FIRST_STUDIO_PLAN.json",
+  "regular_week_minutes": {
+    "rust": {
+      "course_guided_practice": 360,
+      "project_0": 120,
+      "total": 480
+    },
+    "python": {
+      "course_guided_practice": 180,
+      "project_0": 180,
+      "total": 360
+    },
+    "agents": 360,
+    "warfare": 120,
+    "defense-ai": 120,
+    "technical-reading": 60,
+    "daily-papers": 420
+  },
+  "language_totals_include_project_0": true,
+  "rustlings_inside_rust_allocation": true,
+  "first_intro_week_changes_reset_counter_boundary": false,
+  "native_calendar_owns_current_reservations": true,
+  "finals_period_policy": "No blanket finals-period reduction. Preserve actual classes, examinations and assessment deadlines under private active authority; retain exact resume points and create no catch-up debt.",
+  "roadmap_navigation": "Use roadmap.sh Rust/Python/AI agents maps only inside the existing weekly review; no extra mandatory syllabus.",
+  "provider_amendment_date": "2026-10-02",
+  "active_course_providers": [
+    "oreilly",
+    "coursera"
+  ],
+  "retired_course_providers": [
+    "udemy"
+  ],
+  "official_documentation_support_allowed": true,
+  "source_access_verified": false,
+  "subscription_confirmation": {
+    "date": "2026-10-02",
+    "source": "user",
+    "active_providers": [
+      "oreilly",
+      "coursera"
+    ],
+    "item_entitlement_verified": false,
+    "enrollment_verified": false,
+    "verified_primary_enrollments": [
+      "coursera-rust-fundamentals",
+      "coursera-ai-agents-python",
+      "coursera-ibm-introduction-to-ai",
+      "coursera-suny-cyber-conflicts"
+    ]
+  },
+  "agent_allocation": {
+    "guided_course": 120,
+    "bounded_practice": 240,
+    "total": 360,
+    "practice_sessions": 2,
+    "practice_session_minutes": 120,
+    "funding": "Reassigned from existing endr morning reservations; not added workload. First-week company setup exceptions follow private active authority."
+  },
+  "introductory_sweep_activation": "Selected beginner essentials end Sunday October 11, 2026. October 3 is the existing on-ramp; October 5–11 is the main sprint. Begin with orientation, then use the curated prerequisite sequence and immediate exercises, without requiring every lesson or repeated drill. No inherited credit or assumed mastery. From October 12, start each studio with a project behavior and use focused lessons for specific gaps; no whole-course restart.",
+  "official_documentation_role": "Implementation reference, not an assigned course. All assigned courses, paid or free, use O'Reilly or Coursera.",
+  "agent_practice_protocol": {
+    "shared_artifact": "Reuse one bounded synthetic toy or existing fixture harness, not a new weekly project.",
+    "guided_course_minutes": 120,
+    "practice_one": {
+      "minutes": 120,
+      "action": "Reproduce the current guided concept from a manual trace or local stub; explain goal, observation, allowed action and stop condition on changed input."
+    },
+    "practice_two": {
+      "minutes": 120,
+      "action": "Exercise one refusal/failure case and one allowed case; compare expected and observed trace, then record a blocker and exact next action."
+    },
+    "first_week": "Manual traces are sufficient; company setup exceptions and exact reservations come only from private active authority.",
+    "implementation_gate": "Use code only after its Python prerequisites are demonstrated. No paid API, external action, new framework or third project is required.",
+    "foundation_credit": false
+  },
+  "project_learning_strategy": {
+    "foundation": "Project 0 remains the single paired curriculum build: independent Python and Rust file-statistics CLIs. Transferable skills are explicit input/output contracts, error handling, meaningful tests, CLI use and reproducible runs; required acceptance fixtures remain unchanged.",
+    "company": "M.A.L. remains the primary company product experiment in its separate technical repository and company governance. Educational Rust priority does not change the current Python/scripted v0.2 implementation or company evidence.",
+    "second_scenario": "After synthetic supply-scheduling v0.2 acceptance, add synthetic virtual data-center maintenance as M.A.L. scenario two, reusing evaluator, event ledger, comparison report and replay. This is not a new parallel product.",
+    "service_decision": "A standalone evaluation service remains a hypothesis until reproducible technical evidence and discovery establish a repeated costly workflow, engaged engineering owner, credible budget owner and bounded delivery effort. Use existing company decisions; no new curriculum gate.",
+    "company_decision": "DEC-018, 2026-10-02"
+  },
+  "zero_start_policy": {
+    "date": "2026-10-02",
+    "rule": "Selected beginner essentials end Sunday October 11, 2026. October 3 is the existing on-ramp; October 5–11 is the main sprint. Begin with orientation, then use the curated prerequisite sequence and immediate exercises, without requiring every lesson or repeated drill. No inherited credit or assumed mastery. From October 12, start each studio with a project behavior and use focused lessons for specific gaps; no whole-course restart.",
+    "initial_credit": 0,
+    "provider_progress_reset_verified": false,
+    "historical_artifacts_preserved": true,
+    "degree_assessments_preserved": true
+  },
+  "compressed_intro_amendment": {
+    "date": "2026-10-02",
+    "main_week_start": "2026-10-05",
+    "existing_on_ramp": "2026-10-03",
+    "checkpoint": "2026-10-11",
+    "rule": "Selected beginner essentials end Sunday October 11, 2026. October 3 is the existing on-ramp; October 5–11 is the main sprint. Begin with orientation, then use the curated prerequisite sequence and immediate exercises, without requiring every lesson or repeated drill. No inherited credit or assumed mastery. From October 12, start each studio with a project behavior and use focused lessons for specific gaps; no whole-course restart.",
+    "after_intro": "From October 12, project-led practice inside existing reservations: attempt the next unproved behavior; use a focused 20–30 minute explanation when blocked, apply it immediately, then record the exact gap. Do not stretch introductory course consumption across a month. P0 gates remain evidence-based.",
+    "learning_hours": {
+      "rust": 14.5,
+      "python": 7.5,
+      "ai": 4
+    },
+    "adds_reserved_hours": false,
+    "automatic_completion": false,
+    "changes_reset_boundary": false
+  },
+  "provider_decision_confirmed": "2026-10-02: user keeps OReilly/Coursera; no Udemy subscription or source change. SCSP recommendations remain unassigned."
 }

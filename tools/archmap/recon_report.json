@@ -1,0 +1,1954 @@
+{
+  "phase": 1,
+  "status": "blocked",
+  "reason": "Section 14.1 requires stopping on a wrong maturity claim. Seed route and routeval cannot retain tested under section 6.4 and the exact bindings/commands in section 6.6.",
+  "scope": "Recon only; v3 extraction, layout, rendering and live server have not been implemented.",
+  "baseline": {
+    "status": " M AGENTS.md\n M README.md\n M TIMELINE.md\n M curriculum/PARALLEL_COURSE_MAP.md\n M curriculum/README.md\n M curriculum/START_HERE.md\n M curriculum/modules/agent-engineering-sprint/README.md\n M curriculum/parallel-policy-v1.json\n M curriculum/phases/00-foundations/README.md\n M docs/ISSUES.md\n M learning-materials/01-foundations/README.md\n M learning-materials/01-foundations/missing-semester/README.md\n M learning-materials/01-foundations/mit-60001-python/README.md\n M learning-materials/01-foundations/pro-git/README.md\n M learning-materials/01-foundations/python-cli-tooling/README.md\n M learning-materials/01-foundations/python-crash-course/README.md\n M learning-materials/01-foundations/python-crash-course/evidence/README.md\n M learning-materials/01-foundations/readme-discipline/README.md\n M learning-materials/01-foundations/rust-book/README.md\n M learning-materials/01-foundations/rust-cli-tooling/README.md\n M learning-materials/01-foundations/rustlings/README.md\n M learning-materials/01-foundations/ultimate-rust-crash-course/README.md\n M learning-materials/01-foundations/uv/README.md\n M learning-materials/02-math-engineering/README.md\n M learning-materials/03-ml-computer-vision/README.md\n M learning-materials/03-ml-computer-vision/core-ml-study-map/README.md\n M learning-materials/03-ml-computer-vision/python-opencv-deep-learning/README.md\n M learning-materials/03-ml-computer-vision/pytorch-deep-learning-bootcamp/README.md\n M learning-materials/04-rust-systems/README.md\n M learning-materials/04-rust-systems/learn-rust-real-applications/README.md\n M learning-materials/05-robotics-embedded/README.md\n M learning-materials/05-robotics-embedded/embedded-arm-cortex/README.md\n M learning-materials/05-robotics-embedded/embedded-rust-stm32/README.md\n M learning-materials/06-edge-ai/README.md\n M learning-materials/06-edge-ai/yolov12-detection-tracking/README.md\n M learning-materials/07-transformers/README.md\n M learning-materials/08-ros2-sensor-fusion/README.md\n M learning-materials/08-ros2-sensor-fusion/ros2-beginners/README.md\n M learning-materials/08-ros2-sensor-fusion/ros2-nav2-slam/README.md\n M learning-materials/09-autonomy-swarms/README.md\n M learning-materials/10-gaze-hmt/README.md\n M learning-materials/11-doctrine-ethics/README.md\n M learning-materials/12-agent-engineering/README.md\n M learning-materials/12-agent-engineering/agentic-ai-bootcamp-naik/README.md\n M learning-materials/12-agent-engineering/ai-agents-bootcamp/README.md\n M learning-materials/12-agent-engineering/complete-agent-mcp/README.md\n M learning-materials/12-agent-engineering/hugging-face-agents-course/README.md\n M learning-materials/12-agent-engineering/langchain-agentic-ai/README.md\n M learning-materials/12-agent-engineering/langgraph-agents/README.md\n M learning-materials/12-agent-engineering/production-ai-agents/README.md\n M learning-materials/13-research-capstone/README.md\n M learning-materials/14-interview-support/README.md\n M learning-materials/14-interview-support/dsa-c-cpp/README.md\n M learning-materials/README.md\n M mobile/README.md\n M mobile/styles.css\n M progress/README.md\n M projects/file_stats/pyproject.toml\n M projects/file_stats/uv.lock\n D projects/invaders/audio/contributions/startupDoMiSoDo/explode.wav\n D projects/invaders/audio/contributions/startupDoMiSoDo/lose.wav\n D projects/invaders/audio/contributions/startupDoMiSoDo/move.wav\n D projects/invaders/audio/contributions/startupDoMiSoDo/pew.wav\n D projects/invaders/audio/contributions/startupDoMiSoDo/win.wav\n M research/README.md\n M research/detection-tracking/README.md\n M research/edge-compression/README.md\n M research/foundation-models-vision/README.md\n M research/gaze-hmt-policy/README.md\n M research/rl-marl-swarms/README.md\n M research/robotics-slam-sim-to-real/README.md\n?? CLAUDE.md\n?? curriculum/FOUNDATIONS_FAST_TRACK.md\n?? docs/aegis-phase0-projection.json\n?? docs/architecture.html\n?? docs/architecture/\n?? learning-materials/01-foundations/command-line-rust/\n?? learning-materials/01-foundations/python-testing-with-pytest/\n?? learning-materials/PAID_CATALOG.md\n?? progress/proofs/\n",
+    "protected": {
+      "docs/architecture.html": "5e123fb04cfd38257598930f6cec4fd16f6582b644cb658bdbf62cc0d10e90b7",
+      "docs/architecture/CODEX_PROMPT.md": "6e3057fdab888f1ae83a728f90fe3efeda08ce3c41f8a82a4feebbae18f84dc8",
+      "docs/architecture/index.html": "5d7e6136556dbd4a73fe9ececb6c9fccb778bc88a02ca293a9636c6f5a483c8f",
+      "docs/aegis-phase0-projection.json": "e96b35ec9d43329a8f465facadca664e4576b21816a8404df9040c4e57bf0516"
+    },
+    "branch": "codex/aegis-beginner-reset-2026-09-19",
+    "dirtyCount": 80
+  },
+  "citationAudit": {
+    "references": [
+      {
+        "owner": "authority",
+        "citation": "AGENTS.md:8-16",
+        "path": "AGENTS.md",
+        "status": "ok",
+        "anchorCandidate": "## Authority and precedence",
+        "span": 9,
+        "matches": 1
+      },
+      {
+        "owner": "authority",
+        "citation": "docs/aegis-phase0-projection.json:3-14",
+        "path": "docs/aegis-phase0-projection.json",
+        "status": "ok",
+        "anchorCandidate": "  \"authority\": {",
+        "span": 12,
+        "matches": 1
+      },
+      {
+        "owner": "authority",
+        "citation": "tools/validate_phase0_integrity.py:145-168",
+        "path": "tools/validate_phase0_integrity.py",
+        "status": "ok",
+        "anchorCandidate": "        config = parse_frontmatter(vault / authority[\"config_path\"])",
+        "span": 24,
+        "matches": 1
+      },
+      {
+        "owner": "exporter",
+        "citation": "tools/validate_phase0_integrity.py:96-105",
+        "path": "tools/validate_phase0_integrity.py",
+        "status": "ok",
+        "anchorCandidate": "    scripts = str(DEFAULT_VAULT / \"08_Assistant/scripts\")",
+        "span": 10,
+        "matches": 1
+      },
+      {
+        "owner": "exporter",
+        "citation": "tools/validate_phase0_integrity.py:308-312",
+        "path": "tools/validate_phase0_integrity.py",
+        "status": "ok",
+        "anchorCandidate": "    if manifest.get(\"schema_version\") == \"AEGIS-PHASE0-FULL-RESET-6.0\":",
+        "span": 5,
+        "matches": 1
+      },
+      {
+        "owner": "exporter",
+        "citation": "AGENTS.md:18-21",
+        "path": "AGENTS.md",
+        "status": "ok",
+        "anchorCandidate": "Generated `AEGIS:PHASE0_PROJECTION` regions and",
+        "span": 4,
+        "matches": 1
+      },
+      {
+        "owner": "exporter",
+        "citation": "curriculum/RESET_HANDOFF.md:27",
+        "path": "curriculum/RESET_HANDOFF.md",
+        "status": "ok",
+        "anchorCandidate": "Generated projections must come from the publisher. Course access and actual",
+        "span": 1,
+        "matches": 1
+      },
+      {
+        "owner": "calendar",
+        "citation": "curriculum/RESET_HANDOFF.md:3-7",
+        "path": "curriculum/RESET_HANDOFF.md",
+        "status": "ok",
+        "anchorCandidate": "The September 19 reset and its later parallel-curriculum amendment are activated",
+        "span": 5,
+        "matches": 1
+      },
+      {
+        "owner": "calendar",
+        "citation": "progress/proofs/README.md:9",
+        "path": "progress/proofs/README.md",
+        "status": "ok",
+        "anchorCandidate": "A receipt is a compact pointer to observed repository evidence, not a replacement for code, tests, output, or the private Aegis evidence ledger. Calendar reservations, Todoist state, generated documentation, elapsed time, paper reading, agent exercises, and endr activity cannot populate a verified Foundation receipt.",
+        "span": 1,
+        "matches": 1
+      },
+      {
+        "owner": "calendar",
+        "citation": "docs/aegis-phase0-projection.json:37",
+        "path": "docs/aegis-phase0-projection.json",
+        "status": "ok",
+        "anchorCandidate": "    \"events\": 526,",
+        "span": 1,
+        "matches": 1
+      },
+      {
+        "owner": "projection",
+        "citation": "docs/aegis-phase0-projection.json:1-677",
+        "path": "docs/aegis-phase0-projection.json",
+        "status": "ok",
+        "anchorCandidate": "{",
+        "span": 677,
+        "matches": 35
+      },
+      {
+        "owner": "projection",
+        "citation": "AGENTS.md:18-21",
+        "path": "AGENTS.md",
+        "status": "ok",
+        "anchorCandidate": "Generated `AEGIS:PHASE0_PROJECTION` regions and",
+        "span": 4,
+        "matches": 1
+      },
+      {
+        "owner": "projection",
+        "citation": "tests/test_phase0_integrity.py:339-367",
+        "path": "tests/test_phase0_integrity.py",
+        "status": "ok",
+        "anchorCandidate": "    def test_active_projection_retains_all_integrity_checks(self):",
+        "span": 29,
+        "matches": 1
+      },
+      {
+        "owner": "markers",
+        "citation": "docs/aegis-phase0-projection.json:654-676",
+        "path": "docs/aegis-phase0-projection.json",
+        "status": "ok",
+        "anchorCandidate": "  \"consumer_contract\": {",
+        "span": 23,
+        "matches": 1
+      },
+      {
+        "owner": "markers",
+        "citation": "README.md:66-80",
+        "path": "README.md",
+        "status": "ok",
+        "anchorCandidate": "<!-- AEGIS:PHASE0_PROJECTION:START -->",
+        "span": 15,
+        "matches": 1
+      },
+      {
+        "owner": "markers",
+        "citation": "tools/validate_phase0_integrity.py:320-338",
+        "path": "tools/validate_phase0_integrity.py",
+        "status": "ok",
+        "anchorCandidate": "    projection_digest = sha256(projection_path)",
+        "span": 19,
+        "matches": 1
+      },
+      {
+        "owner": "courses",
+        "citation": "curriculum/PARALLEL_COURSE_MAP.md:5-14",
+        "path": "curriculum/PARALLEL_COURSE_MAP.md",
+        "status": "ok",
+        "anchorCandidate": "Public course pages were checked on September 19. These are selected fits for the current beginner baseline and assurance-first goals, not a guarantee of mastery. Account access, subscription coverage, enrollment and prices are unverified; no purchase was made.",
+        "span": 10,
+        "matches": 1
+      },
+      {
+        "owner": "courses",
+        "citation": "curriculum/parallel-policy-v1.json:6-12",
+        "path": "curriculum/parallel-policy-v1.json",
+        "status": "ok",
+        "anchorCandidate": "  \"primary_sources\": {",
+        "span": 7,
+        "matches": 1
+      },
+      {
+        "owner": "endr",
+        "citation": "AGENTS.md:60-68",
+        "path": "AGENTS.md",
+        "status": "ok",
+        "anchorCandidate": "command. Use `phase0-proof.v1` receipts where applicable. Agent overlays,",
+        "span": 9,
+        "matches": 1
+      },
+      {
+        "owner": "endr",
+        "citation": "docs/aegis-phase0-projection.json:647-653",
+        "path": "docs/aegis-phase0-projection.json",
+        "status": "ok",
+        "anchorCandidate": "  \"company_boundary\": {",
+        "span": 7,
+        "matches": 1
+      },
+      {
+        "owner": "endr",
+        "citation": "docs/aegis-phase0-projection.json:58-61",
+        "path": "docs/aegis-phase0-projection.json",
+        "status": "ok",
+        "anchorCandidate": "    \"normal_week_targets\": {",
+        "span": 4,
+        "matches": 1
+      },
+      {
+        "owner": "endr",
+        "citation": "docs/ISSUES.md:99",
+        "path": "docs/ISSUES.md",
+        "status": "ok",
+        "anchorCandidate": "- `ENDR`: company operating blocks. Evidence stays in the endr lane and never enters this gate ledger.",
+        "span": 1,
+        "matches": 1
+      },
+      {
+        "owner": "agents",
+        "citation": "AGENTS.md:8-21",
+        "path": "AGENTS.md",
+        "status": "ok",
+        "anchorCandidate": "## Authority and precedence",
+        "span": 14,
+        "matches": 1
+      },
+      {
+        "owner": "agents",
+        "citation": "AGENTS.md:83-115",
+        "path": "AGENTS.md",
+        "status": "ok",
+        "anchorCandidate": "## Complete-beginner curriculum amendment — 2026-09-19",
+        "span": 33,
+        "matches": 1
+      },
+      {
+        "owner": "route",
+        "citation": "curriculum/route-v2.json:1-173",
+        "path": "curriculum/route-v2.json",
+        "status": "ok",
+        "anchorCandidate": "{",
+        "span": 173,
+        "matches": 14
+      },
+      {
+        "owner": "route",
+        "citation": "tools/validate_curriculum_route.py:15-83",
+        "path": "tools/validate_curriculum_route.py",
+        "status": "ok",
+        "anchorCandidate": "def validate(data: dict, check_files: bool = True) -> list[str]:",
+        "span": 69,
+        "matches": 1
+      },
+      {
+        "owner": "policy",
+        "citation": "curriculum/parallel-policy-v1.json:1-29",
+        "path": "curriculum/parallel-policy-v1.json",
+        "status": "ok",
+        "anchorCandidate": "{",
+        "span": 29,
+        "matches": 2
+      },
+      {
+        "owner": "policy",
+        "citation": "curriculum/route-v2.json:172",
+        "path": "curriculum/route-v2.json",
+        "status": "ok",
+        "anchorCandidate": "  \"learning_policy\": \"parallel-policy-v1.json\"",
+        "span": 1,
+        "matches": 1
+      },
+      {
+        "owner": "policy",
+        "citation": "AGENTS.md:100-110",
+        "path": "AGENTS.md",
+        "status": "ok",
+        "anchorCandidate": "## Active parallel curriculum amendment — September 19",
+        "span": 11,
+        "matches": 1
+      },
+      {
+        "owner": "beginner",
+        "citation": "curriculum/beginner-policy-v1.json:1-29",
+        "path": "curriculum/beginner-policy-v1.json",
+        "status": "ok",
+        "anchorCandidate": "{",
+        "span": 29,
+        "matches": 1
+      },
+      {
+        "owner": "beginner",
+        "citation": "curriculum/RESET_HANDOFF.md:12-14",
+        "path": "curriculum/RESET_HANDOFF.md",
+        "status": "ok",
+        "anchorCandidate": "[parallel-policy-v1.json](parallel-policy-v1.json). The retained",
+        "span": 3,
+        "matches": 1
+      },
+      {
+        "owner": "beginner",
+        "citation": "AGENTS.md:109-110",
+        "path": "AGENTS.md",
+        "status": "ok",
+        "anchorCandidate": "credit. Current timing and capacity come from the active Aegis manifest. The",
+        "span": 2,
+        "matches": 1
+      },
+      {
+        "owner": "starthere",
+        "citation": "curriculum/START_HERE.md:52-78",
+        "path": "curriculum/START_HERE.md",
+        "status": "ok",
+        "anchorCandidate": "## Beginner checkpoints",
+        "span": 27,
+        "matches": 1
+      },
+      {
+        "owner": "starthere",
+        "citation": "curriculum/START_HERE.md:98-138",
+        "path": "curriculum/START_HERE.md",
+        "status": "ok",
+        "anchorCandidate": "## Project 0 contract, introduced gradually",
+        "span": 41,
+        "matches": 1
+      },
+      {
+        "owner": "starthere",
+        "citation": "curriculum/FOUNDATIONS_FAST_TRACK.md:13-21",
+        "path": "curriculum/FOUNDATIONS_FAST_TRACK.md",
+        "status": "ok",
+        "anchorCandidate": "| Sprint day | Reserved programming focus | Independent check |",
+        "span": 9,
+        "matches": 1
+      },
+      {
+        "owner": "coursemap",
+        "citation": "curriculum/PARALLEL_COURSE_MAP.md:7-16",
+        "path": "curriculum/PARALLEL_COURSE_MAP.md",
+        "status": "ok",
+        "anchorCandidate": "| Track | Primary course | Start and practice | Session |",
+        "span": 10,
+        "matches": 1
+      },
+      {
+        "owner": "coursemap",
+        "citation": "curriculum/PARALLEL_COURSE_MAP.md:31-35",
+        "path": "curriculum/PARALLEL_COURSE_MAP.md",
+        "status": "ok",
+        "anchorCandidate": "## Evidence and progression",
+        "span": 5,
+        "matches": 1
+      },
+      {
+        "owner": "issues",
+        "citation": "docs/ISSUES.md:31-95",
+        "path": "docs/ISSUES.md",
+        "status": "ok",
+        "anchorCandidate": "## Adaptive issue routing",
+        "span": 65,
+        "matches": 1
+      },
+      {
+        "owner": "mobile",
+        "citation": "mobile/app.js:4-5",
+        "path": "mobile/app.js",
+        "status": "ok",
+        "anchorCandidate": "const PROJECTION_URL = \"../docs/aegis-phase0-projection.json\";",
+        "span": 2,
+        "matches": 1
+      },
+      {
+        "owner": "mobile",
+        "citation": "mobile/app.js:163-174",
+        "path": "mobile/app.js",
+        "status": "ok",
+        "anchorCandidate": "async function loadProjection() {",
+        "span": 12,
+        "matches": 1
+      },
+      {
+        "owner": "mobile",
+        "citation": "mobile/sw.js:35-56",
+        "path": "mobile/sw.js",
+        "status": "ok",
+        "anchorCandidate": "async function networkFirstProjection(request) {",
+        "span": 22,
+        "matches": 1
+      },
+      {
+        "owner": "mobile",
+        "citation": "mobile/app.js:142",
+        "path": "mobile/app.js",
+        "status": "ok",
+        "anchorCandidate": "  const parallel = projection.course_routing?.mode === \"parallel-defense-curriculum-v1\";",
+        "span": 1,
+        "matches": 1
+      },
+      {
+        "owner": "archpage",
+        "citation": "tools/validate_phase0_integrity.py:325",
+        "path": "tools/validate_phase0_integrity.py",
+        "status": "ok",
+        "anchorCandidate": "    for relative in [*documents, \"docs/architecture.html\"]:",
+        "span": 1,
+        "matches": 1
+      },
+      {
+        "owner": "archpage",
+        "citation": "docs/architecture.html:193-196",
+        "path": "docs/architecture.html",
+        "status": "ok",
+        "anchorCandidate": "<!-- AEGIS:PHASE0_PROJECTION:START -->",
+        "span": 4,
+        "matches": 1
+      },
+      {
+        "owner": "learner",
+        "citation": "curriculum/START_HERE.md:5-13",
+        "path": "curriculum/START_HERE.md",
+        "status": "ok",
+        "anchorCandidate": "Start with the [seven-day Python/Rust sprint](FOUNDATIONS_FAST_TRACK.md).",
+        "span": 9,
+        "matches": 1
+      },
+      {
+        "owner": "learner",
+        "citation": "curriculum/START_HERE.md:80-96",
+        "path": "curriculum/START_HERE.md",
+        "status": "ok",
+        "anchorCandidate": "## How to study a small slice",
+        "span": 17,
+        "matches": 1
+      },
+      {
+        "owner": "learner",
+        "citation": "AGENTS.md:10",
+        "path": "AGENTS.md",
+        "status": "ok",
+        "anchorCandidate": "1. Explicit current user direction.",
+        "span": 1,
+        "matches": 1
+      },
+      {
+        "owner": "contract",
+        "citation": "curriculum/START_HERE.md:98-125",
+        "path": "curriculum/START_HERE.md",
+        "status": "ok",
+        "anchorCandidate": "## Project 0 contract, introduced gradually",
+        "span": 28,
+        "matches": 1
+      },
+      {
+        "owner": "filestats",
+        "citation": "projects/file_stats/main.py:1-6",
+        "path": "projects/file_stats/main.py",
+        "status": "ok",
+        "anchorCandidate": "def main():",
+        "span": 6,
+        "matches": 1
+      },
+      {
+        "owner": "filestats",
+        "citation": "projects/file_stats/pyproject.toml:4",
+        "path": "projects/file_stats/pyproject.toml",
+        "status": "ok",
+        "anchorCandidate": "description = \"Count lines, words, and bytes in files or stdin — a small wc-style CLI.\"",
+        "span": 1,
+        "matches": 1
+      },
+      {
+        "owner": "filestats",
+        "citation": "projects/file_stats/pyproject.toml:15-17",
+        "path": "projects/file_stats/pyproject.toml",
+        "status": "ok",
+        "anchorCandidate": "[tool.pytest.ini_options]",
+        "span": 3,
+        "matches": 1
+      },
+      {
+        "owner": "hellostats",
+        "citation": "projects/hello-stats/src/main.rs:1-13",
+        "path": "projects/hello-stats/src/main.rs",
+        "status": "ok",
+        "anchorCandidate": "#![allow(dead_code)]",
+        "span": 13,
+        "matches": 1
+      },
+      {
+        "owner": "hellostats",
+        "citation": "README.md:49-52",
+        "path": "README.md",
+        "status": "ok",
+        "anchorCandidate": "Current source inspection shows a Python greeting starter and Rust greeting/",
+        "span": 4,
+        "matches": 1
+      },
+      {
+        "owner": "parity",
+        "citation": "curriculum/START_HERE.md:68",
+        "path": "curriculum/START_HERE.md",
+        "status": "ok",
+        "anchorCandidate": "| Z8 · Paired CLI | Rust Book Chapter 12; Command-Line Rust selected examples | Implement the same agreed contract in hello-stats | Both languages agree on counts, streams and exit status |",
+        "span": 1,
+        "matches": 1
+      },
+      {
+        "owner": "parity",
+        "citation": "docs/ISSUES.md:45",
+        "path": "docs/ISSUES.md",
+        "status": "ok",
+        "anchorCandidate": "| `P0-W1-C` | not-started | Compare Python and Rust outputs and cold-run instructions. | Parity transcript plus README install/run/test/example output exists. |",
+        "span": 1,
+        "matches": 1
+      },
+      {
+        "owner": "parity",
+        "citation": "docs/aegis-phase0-projection.json:461-466",
+        "path": "docs/aegis-phase0-projection.json",
+        "status": "ok",
+        "anchorCandidate": "  \"pairing\": {",
+        "span": 6,
+        "matches": 1
+      },
+      {
+        "owner": "exercises",
+        "citation": "learning-materials/01-foundations/python-crash-course/evidence/process_log.py:1-73",
+        "path": "learning-materials/01-foundations/python-crash-course/evidence/process_log.py",
+        "status": "ok",
+        "anchorCandidate": "\"\"\"Evidence — file-processing script for Python Crash Course (Part I).",
+        "span": 73,
+        "matches": 1
+      },
+      {
+        "owner": "exercises",
+        "citation": "AGENTS.md:29-31",
+        "path": "AGENTS.md",
+        "status": "ok",
+        "anchorCandidate": "- Existing paths, Git history, course work, and historical evidence remain",
+        "span": 3,
+        "matches": 1
+      },
+      {
+        "owner": "exercises",
+        "citation": "curriculum/START_HERE.md:54-56",
+        "path": "curriculum/START_HERE.md",
+        "status": "ok",
+        "anchorCandidate": "These are learning checkpoints, not dates or session quotas. Repeat or split",
+        "span": 3,
+        "matches": 1
+      },
+      {
+        "owner": "invaders",
+        "citation": "projects/invaders/src/main.rs:4-8",
+        "path": "projects/invaders/src/main.rs",
+        "status": "ok",
+        "anchorCandidate": "fn main() -> Result<(), Box<dyn Error>> {",
+        "span": 5,
+        "matches": 1
+      },
+      {
+        "owner": "invaders",
+        "citation": "AGENTS.md:34-36",
+        "path": "AGENTS.md",
+        "status": "ok",
+        "anchorCandidate": "Preserve all pre-existing dirty work. In particular, do not restore, replace,",
+        "span": 3,
+        "matches": 1
+      },
+      {
+        "owner": "commands",
+        "citation": "README.md:47-60",
+        "path": "README.md",
+        "status": "ok",
+        "anchorCandidate": "## Project 0 baseline",
+        "span": 14,
+        "matches": 1
+      },
+      {
+        "owner": "commands",
+        "citation": "AGENTS.md:56-62",
+        "path": "AGENTS.md",
+        "status": "ok",
+        "anchorCandidate": "## Evidence and safety boundaries",
+        "span": 7,
+        "matches": 1
+      },
+      {
+        "owner": "commands",
+        "citation": "curriculum/FOUNDATIONS_FAST_TRACK.md:42-45",
+        "path": "curriculum/FOUNDATIONS_FAST_TRACK.md",
+        "status": "ok",
+        "anchorCandidate": "For every code check, save the artifact, exact working directory, command,",
+        "span": 4,
+        "matches": 1
+      },
+      {
+        "owner": "receipts",
+        "citation": "progress/proofs/README.md:1-11",
+        "path": "progress/proofs/README.md",
+        "status": "ok",
+        "anchorCandidate": "# Phase 0 proof receipts",
+        "span": 11,
+        "matches": 1
+      },
+      {
+        "owner": "receipts",
+        "citation": "docs/phase0-proof.schema.json:8-22",
+        "path": "docs/phase0-proof.schema.json",
+        "status": "ok",
+        "anchorCandidate": "  \"required\": [",
+        "span": 15,
+        "matches": 4
+      },
+      {
+        "owner": "ledger",
+        "citation": "progress/README.md:6",
+        "path": "progress/README.md",
+        "status": "ok",
+        "anchorCandidate": "The Aegis Nexus vault remains the day-to-day private evidence ledger. This repository records public curriculum status and durable links, not daily personal logs.",
+        "span": 1,
+        "matches": 1
+      },
+      {
+        "owner": "ledger",
+        "citation": "progress/proofs/README.md:9-11",
+        "path": "progress/proofs/README.md",
+        "status": "ok",
+        "anchorCandidate": "A receipt is a compact pointer to observed repository evidence, not a replacement for code, tests, output, or the private Aegis evidence ledger. Calendar reservations, Todoist state, generated documentation, elapsed time, paper reading, agent exercises, and endr activity cannot populate a verified Foundation receipt.",
+        "span": 3,
+        "matches": 1
+      },
+      {
+        "owner": "schema",
+        "citation": "docs/phase0-proof.schema.json:1-22",
+        "path": "docs/phase0-proof.schema.json",
+        "status": "ok",
+        "anchorCandidate": "{",
+        "span": 22,
+        "matches": 50
+      },
+      {
+        "owner": "policyval",
+        "citation": "tools/validate_beginner_policy.py:14-61",
+        "path": "tools/validate_beginner_policy.py",
+        "status": "ok",
+        "anchorCandidate": "POLICY_PATH = ROOT / \"curriculum/beginner-policy-v1.json\"",
+        "span": 48,
+        "matches": 1
+      },
+      {
+        "owner": "policyval",
+        "citation": "tests/test_beginner_policy.py:25-72",
+        "path": "tests/test_beginner_policy.py",
+        "status": "ok",
+        "anchorCandidate": "    def test_current_policy_and_initial_card_pass(self):",
+        "span": 48,
+        "matches": 1
+      },
+      {
+        "owner": "routeval",
+        "citation": "tools/validate_curriculum_route.py:15-83",
+        "path": "tools/validate_curriculum_route.py",
+        "status": "ok",
+        "anchorCandidate": "def validate(data: dict, check_files: bool = True) -> list[str]:",
+        "span": 69,
+        "matches": 1
+      },
+      {
+        "owner": "routeval",
+        "citation": "tools/validate_curriculum_route.py:86-99",
+        "path": "tools/validate_curriculum_route.py",
+        "status": "ok",
+        "anchorCandidate": "def self_test(data: dict) -> None:",
+        "span": 14,
+        "matches": 1
+      },
+      {
+        "owner": "syntax",
+        "citation": "AGENTS.md:70-79",
+        "path": "AGENTS.md",
+        "status": "ok",
+        "anchorCandidate": "## Safe checks",
+        "span": 10,
+        "matches": 1
+      },
+      {
+        "owner": "syntax",
+        "citation": "README.md:96-104",
+        "path": "README.md",
+        "status": "ok",
+        "anchorCandidate": "## Verification",
+        "span": 9,
+        "matches": 1
+      },
+      {
+        "owner": "ci",
+        "citation": "docs/ISSUES.md:42",
+        "path": "docs/ISSUES.md",
+        "status": "ok",
+        "anchorCandidate": "| `P0-W1-L` | not-started | Add the first minimal CI workflow and save local shell/Git proof. | Workflow committed; local commands pass; only then may a real Actions URL be cited. |",
+        "span": 1,
+        "matches": 1
+      },
+      {
+        "owner": "ci",
+        "citation": "curriculum/START_HERE.md:134",
+        "path": "curriculum/START_HERE.md",
+        "status": "ok",
+        "anchorCandidate": "- Show CI evidence when a workflow has actually run; local output is labeled local.",
+        "span": 1,
+        "matches": 1
+      },
+      {
+        "owner": "integrity",
+        "citation": "tools/validate_phase0_integrity.py:132-364",
+        "path": "tools/validate_phase0_integrity.py",
+        "status": "ok",
+        "anchorCandidate": "def validate_projection(projection: dict, projection_path: Path, vault: Path, repository: Path) -> list[str]:",
+        "span": 233,
+        "matches": 1
+      },
+      {
+        "owner": "integrity",
+        "citation": "tools/validate_phase0_integrity.py:375-509",
+        "path": "tools/validate_phase0_integrity.py",
+        "status": "ok",
+        "anchorCandidate": "def validate_proof(receipt: dict, projection: dict, repository: Path) -> list[str]:",
+        "span": 135,
+        "matches": 1
+      },
+      {
+        "owner": "integrity",
+        "citation": "tools/validate_phase0_integrity.py:512-525",
+        "path": "tools/validate_phase0_integrity.py",
+        "status": "ok",
+        "anchorCandidate": "def main() -> int:",
+        "span": 14,
+        "matches": 1
+      },
+      {
+        "owner": "gate",
+        "citation": "curriculum/START_HERE.md:127-138",
+        "path": "curriculum/START_HERE.md",
+        "status": "ok",
+        "anchorCandidate": "## P0 exit gate",
+        "span": 12,
+        "matches": 1
+      },
+      {
+        "owner": "gate",
+        "citation": "docs/aegis-phase0-projection.json:29-35",
+        "path": "docs/aegis-phase0-projection.json",
+        "status": "ok",
+        "anchorCandidate": "  \"checkpoints\": {",
+        "span": 7,
+        "matches": 1
+      },
+      {
+        "owner": "gate",
+        "citation": "progress/README.md:64-66",
+        "path": "progress/README.md",
+        "status": "ok",
+        "anchorCandidate": "1. Update hard dates in Aegis Nexus `_Phase Config` first.",
+        "span": 3,
+        "matches": 1
+      },
+      {
+        "owner": "later",
+        "citation": "curriculum/COMPETENCY_PATHWAY.md:35-61",
+        "path": "curriculum/COMPETENCY_PATHWAY.md",
+        "status": "ok",
+        "anchorCandidate": "| ID | Competency | Entry proof | Role / status |",
+        "span": 27,
+        "matches": 1
+      },
+      {
+        "owner": "later",
+        "citation": "curriculum/route-v2.json:34-170",
+        "path": "curriculum/route-v2.json",
+        "status": "ok",
+        "anchorCandidate": "    {",
+        "span": 137,
+        "matches": 13
+      },
+      {
+        "owner": "later",
+        "citation": "AGENTS.md:40-41",
+        "path": "AGENTS.md",
+        "status": "ok",
+        "anchorCandidate": "- P0 is the only active phase. P1–P12 remain `not started` and undated until an",
+        "span": 2,
+        "matches": 1
+      },
+      {
+        "owner": "e-auth-exp",
+        "citation": "tools/validate_phase0_integrity.py:145-147",
+        "path": "tools/validate_phase0_integrity.py",
+        "status": "ok",
+        "anchorCandidate": "        config = parse_frontmatter(vault / authority[\"config_path\"])",
+        "span": 3,
+        "matches": 1
+      },
+      {
+        "owner": "e-auth-exp",
+        "citation": "tools/validate_phase0_integrity.py:309-310",
+        "path": "tools/validate_phase0_integrity.py",
+        "status": "ok",
+        "anchorCandidate": "        from export_defense_foundations_projection import build_projection, read_frontmatter",
+        "span": 2,
+        "matches": 1
+      },
+      {
+        "owner": "e-exp-proj",
+        "citation": "AGENTS.md:18-21",
+        "path": "AGENTS.md",
+        "status": "ok",
+        "anchorCandidate": "Generated `AEGIS:PHASE0_PROJECTION` regions and",
+        "span": 4,
+        "matches": 1
+      },
+      {
+        "owner": "e-exp-proj",
+        "citation": "curriculum/RESET_HANDOFF.md:27",
+        "path": "curriculum/RESET_HANDOFF.md",
+        "status": "ok",
+        "anchorCandidate": "Generated projections must come from the publisher. Course access and actual",
+        "span": 1,
+        "matches": 1
+      },
+      {
+        "owner": "e-exp-mark",
+        "citation": "AGENTS.md:18-21",
+        "path": "AGENTS.md",
+        "status": "ok",
+        "anchorCandidate": "Generated `AEGIS:PHASE0_PROJECTION` regions and",
+        "span": 4,
+        "matches": 1
+      },
+      {
+        "owner": "e-exp-mark",
+        "citation": "README.md:66-80",
+        "path": "README.md",
+        "status": "ok",
+        "anchorCandidate": "<!-- AEGIS:PHASE0_PROJECTION:START -->",
+        "span": 15,
+        "matches": 1
+      },
+      {
+        "owner": "e-proj-mark",
+        "citation": "tools/validate_phase0_integrity.py:320-335",
+        "path": "tools/validate_phase0_integrity.py",
+        "status": "ok",
+        "anchorCandidate": "    projection_digest = sha256(projection_path)",
+        "span": 16,
+        "matches": 1
+      },
+      {
+        "owner": "e-auth-cal",
+        "citation": "curriculum/RESET_HANDOFF.md:3-5",
+        "path": "curriculum/RESET_HANDOFF.md",
+        "status": "ok",
+        "anchorCandidate": "The September 19 reset and its later parallel-curriculum amendment are activated",
+        "span": 3,
+        "matches": 1
+      },
+      {
+        "owner": "e-proj-mob",
+        "citation": "mobile/app.js:4",
+        "path": "mobile/app.js",
+        "status": "ok",
+        "anchorCandidate": "const PROJECTION_URL = \"../docs/aegis-phase0-projection.json\";",
+        "span": 1,
+        "matches": 1
+      },
+      {
+        "owner": "e-proj-mob",
+        "citation": "mobile/app.js:163-174",
+        "path": "mobile/app.js",
+        "status": "ok",
+        "anchorCandidate": "async function loadProjection() {",
+        "span": 12,
+        "matches": 1
+      },
+      {
+        "owner": "e-proj-mob",
+        "citation": "mobile/sw.js:35-56",
+        "path": "mobile/sw.js",
+        "status": "ok",
+        "anchorCandidate": "async function networkFirstProjection(request) {",
+        "span": 22,
+        "matches": 1
+      },
+      {
+        "owner": "e-mark-arch",
+        "citation": "docs/architecture.html:193-196",
+        "path": "docs/architecture.html",
+        "status": "ok",
+        "anchorCandidate": "<!-- AEGIS:PHASE0_PROJECTION:START -->",
+        "span": 4,
+        "matches": 1
+      },
+      {
+        "owner": "e-mark-arch",
+        "citation": "tools/validate_phase0_integrity.py:325",
+        "path": "tools/validate_phase0_integrity.py",
+        "status": "ok",
+        "anchorCandidate": "    for relative in [*documents, \"docs/architecture.html\"]:",
+        "span": 1,
+        "matches": 1
+      },
+      {
+        "owner": "e-mark-lrn",
+        "citation": "README.md:66-80",
+        "path": "README.md",
+        "status": "ok",
+        "anchorCandidate": "<!-- AEGIS:PHASE0_PROJECTION:START -->",
+        "span": 15,
+        "matches": 1
+      },
+      {
+        "owner": "e-mark-lrn",
+        "citation": "curriculum/START_HERE.md:10-13",
+        "path": "curriculum/START_HERE.md",
+        "status": "ok",
+        "anchorCandidate": "This is your learning guide. [The route](COMPETENCY_PATHWAY.md) explains later",
+        "span": 4,
+        "matches": 1
+      },
+      {
+        "owner": "e-mob-lrn",
+        "citation": "mobile/app.js:176-195",
+        "path": "mobile/app.js",
+        "status": "ok",
+        "anchorCandidate": "function renderDashboard() {",
+        "span": 20,
+        "matches": 1
+      },
+      {
+        "owner": "e-cal-lrn",
+        "citation": "curriculum/PARALLEL_COURSE_MAP.md:35",
+        "path": "curriculum/PARALLEL_COURSE_MAP.md",
+        "status": "ok",
+        "anchorCandidate": "Project 0 remains the main curriculum build. Separate toy agent exercises do not authorize weapons, targeting, live systems or company deployment. The [competency pathway](COMPETENCY_PATHWAY.md) still governs later dependencies. Personal timing and capacity come only from the current private Aegis authority and its generated projection.",
+        "span": 1,
+        "matches": 1
+      },
+      {
+        "owner": "e-cal-lrn",
+        "citation": "curriculum/FOUNDATIONS_FAST_TRACK.md:6",
+        "path": "curriculum/FOUNDATIONS_FAST_TRACK.md",
+        "status": "ok",
+        "anchorCandidate": "The private Aegis schedule owns the dates and exact reservations.",
+        "span": 1,
+        "matches": 1
+      },
+      {
+        "owner": "e-agt-route",
+        "citation": "AGENTS.md:83-92",
+        "path": "AGENTS.md",
+        "status": "ok",
+        "anchorCandidate": "## Complete-beginner curriculum amendment — 2026-09-19",
+        "span": 10,
+        "matches": 1
+      },
+      {
+        "owner": "e-agt-start",
+        "citation": "AGENTS.md:83-86",
+        "path": "AGENTS.md",
+        "status": "ok",
+        "anchorCandidate": "## Complete-beginner curriculum amendment — 2026-09-19",
+        "span": 4,
+        "matches": 1
+      },
+      {
+        "owner": "e-agt-start",
+        "citation": "CLAUDE.md:34",
+        "path": "CLAUDE.md",
+        "status": "ok",
+        "anchorCandidate": "Curriculum refresh prepared September 19, 2026: follow AGENTS.md's complete-beginner amendment and curriculum/START_HERE.md. The later reset is not executed by this preparation.",
+        "span": 1,
+        "matches": 1
+      },
+      {
+        "owner": "e-route-pol",
+        "citation": "curriculum/route-v2.json:172",
+        "path": "curriculum/route-v2.json",
+        "status": "ok",
+        "anchorCandidate": "  \"learning_policy\": \"parallel-policy-v1.json\"",
+        "span": 1,
+        "matches": 1
+      },
+      {
+        "owner": "e-pol-map",
+        "citation": "AGENTS.md:104-106",
+        "path": "AGENTS.md",
+        "status": "ok",
+        "anchorCandidate": "introductory tracks run in parallel, with one primary course per track. Follow",
+        "span": 3,
+        "matches": 1
+      },
+      {
+        "owner": "e-map-lrn",
+        "citation": "curriculum/PARALLEL_COURSE_MAP.md:7-16",
+        "path": "curriculum/PARALLEL_COURSE_MAP.md",
+        "status": "ok",
+        "anchorCandidate": "| Track | Primary course | Start and practice | Session |",
+        "span": 10,
+        "matches": 1
+      },
+      {
+        "owner": "e-start-lrn",
+        "citation": "curriculum/START_HERE.md:52-78",
+        "path": "curriculum/START_HERE.md",
+        "status": "ok",
+        "anchorCandidate": "## Beginner checkpoints",
+        "span": 27,
+        "matches": 1
+      },
+      {
+        "owner": "e-start-ctr",
+        "citation": "curriculum/START_HERE.md:98-125",
+        "path": "curriculum/START_HERE.md",
+        "status": "ok",
+        "anchorCandidate": "## Project 0 contract, introduced gradually",
+        "span": 28,
+        "matches": 1
+      },
+      {
+        "owner": "e-iss-lrn",
+        "citation": "docs/ISSUES.md:31-33",
+        "path": "docs/ISSUES.md",
+        "status": "ok",
+        "anchorCandidate": "## Adaptive issue routing",
+        "span": 3,
+        "matches": 1
+      },
+      {
+        "owner": "e-crs-lrn",
+        "citation": "curriculum/PARALLEL_COURSE_MAP.md:9-13",
+        "path": "curriculum/PARALLEL_COURSE_MAP.md",
+        "status": "ok",
+        "anchorCandidate": "| Python | [Python Crash Course, 3rd Edition — O’Reilly](https://learning.oreilly.com/library/view/python-crash-course/9781098156664/) | Begin with a 25-minute skill check; skip independently recalled basics. Use selected functions, collections, files, errors and testing sections during the [seven-day sprint](FOUNDATIONS_FAST_TRACK.md), then learn through Project 0. No 100 Days of Code restart. | 2–3 hours |",
+        "span": 5,
+        "matches": 1
+      },
+      {
+        "owner": "e-lrn-py",
+        "citation": "curriculum/START_HERE.md:27-31",
+        "path": "curriculum/START_HERE.md",
+        "status": "ok",
+        "anchorCandidate": "The inspected starter prints `Hello from file-stats!`. This only demonstrates",
+        "span": 5,
+        "matches": 1
+      },
+      {
+        "owner": "e-lrn-py",
+        "citation": "AGENTS.md:25-26",
+        "path": "AGENTS.md",
+        "status": "ok",
+        "anchorCandidate": "- `projects/file_stats` is the Python half of Project 0. Inspect and test the",
+        "span": 2,
+        "matches": 1
+      },
+      {
+        "owner": "e-lrn-rs",
+        "citation": "curriculum/START_HERE.md:67-68",
+        "path": "curriculum/START_HERE.md",
+        "status": "ok",
+        "anchorCandidate": "| Z7 · Rust introduction | Rust Book Chapters 1–3, then 4–6, 8–9 and 11 as needed | Rebuild small familiar Python ideas in Rust; learn ownership and Result | You can explain a borrow error and return an ordinary error without panic |",
+        "span": 2,
+        "matches": 1
+      },
+      {
+        "owner": "e-lrn-rs",
+        "citation": "AGENTS.md:27-28",
+        "path": "AGENTS.md",
+        "status": "ok",
+        "anchorCandidate": "- `projects/hello-stats` is the Rust half. Inspect and test the current files",
+        "span": 2,
+        "matches": 1
+      },
+      {
+        "owner": "e-lrn-ex",
+        "citation": "curriculum/START_HERE.md:54-56",
+        "path": "curriculum/START_HERE.md",
+        "status": "ok",
+        "anchorCandidate": "These are learning checkpoints, not dates or session quotas. Repeat or split",
+        "span": 3,
+        "matches": 1
+      },
+      {
+        "owner": "e-lrn-inv",
+        "citation": "learning-materials/01-foundations/ultimate-rust-crash-course/ch07_invaders_project/notes.md",
+        "path": "learning-materials/01-foundations/ultimate-rust-crash-course/ch07_invaders_project/notes.md",
+        "status": "missing-line-range"
+      },
+      {
+        "owner": "e-lrn-inv",
+        "citation": "projects/invaders/Cargo.toml:1-4",
+        "path": "projects/invaders/Cargo.toml",
+        "status": "ok",
+        "anchorCandidate": "[package]",
+        "span": 4,
+        "matches": 1
+      },
+      {
+        "owner": "e-ctr-py",
+        "citation": "curriculum/START_HERE.md:100-121",
+        "path": "curriculum/START_HERE.md",
+        "status": "ok",
+        "anchorCandidate": "Agree on this contract before comparing languages:",
+        "span": 22,
+        "matches": 1
+      },
+      {
+        "owner": "e-ctr-rs",
+        "citation": "curriculum/START_HERE.md:100-121",
+        "path": "curriculum/START_HERE.md",
+        "status": "ok",
+        "anchorCandidate": "Agree on this contract before comparing languages:",
+        "span": 22,
+        "matches": 1
+      },
+      {
+        "owner": "e-ctr-par",
+        "citation": "curriculum/START_HERE.md:132",
+        "path": "curriculum/START_HERE.md",
+        "status": "ok",
+        "anchorCandidate": "- Compare both programs on identical inputs; explain each mismatch or resolve it.",
+        "span": 1,
+        "matches": 1
+      },
+      {
+        "owner": "e-py-cmd",
+        "citation": "README.md:54-58",
+        "path": "README.md",
+        "status": "ok",
+        "anchorCandidate": "```sh",
+        "span": 5,
+        "matches": 2
+      },
+      {
+        "owner": "e-py-cmd",
+        "citation": "projects/file_stats/pyproject.toml:15-18",
+        "path": "projects/file_stats/pyproject.toml",
+        "status": "ok",
+        "anchorCandidate": "[tool.pytest.ini_options]",
+        "span": 4,
+        "matches": 1
+      },
+      {
+        "owner": "e-rs-cmd",
+        "citation": "README.md:57",
+        "path": "README.md",
+        "status": "ok",
+        "anchorCandidate": "cargo test --locked --manifest-path projects/hello-stats/Cargo.toml",
+        "span": 1,
+        "matches": 1
+      },
+      {
+        "owner": "e-py-par",
+        "citation": "curriculum/START_HERE.md:68",
+        "path": "curriculum/START_HERE.md",
+        "status": "ok",
+        "anchorCandidate": "| Z8 · Paired CLI | Rust Book Chapter 12; Command-Line Rust selected examples | Implement the same agreed contract in hello-stats | Both languages agree on counts, streams and exit status |",
+        "span": 1,
+        "matches": 1
+      },
+      {
+        "owner": "e-rs-par",
+        "citation": "curriculum/START_HERE.md:68",
+        "path": "curriculum/START_HERE.md",
+        "status": "ok",
+        "anchorCandidate": "| Z8 · Paired CLI | Rust Book Chapter 12; Command-Line Rust selected examples | Implement the same agreed contract in hello-stats | Both languages agree on counts, streams and exit status |",
+        "span": 1,
+        "matches": 1
+      },
+      {
+        "owner": "e-py-ci",
+        "citation": "docs/ISSUES.md:42",
+        "path": "docs/ISSUES.md",
+        "status": "ok",
+        "anchorCandidate": "| `P0-W1-L` | not-started | Add the first minimal CI workflow and save local shell/Git proof. | Workflow committed; local commands pass; only then may a real Actions URL be cited. |",
+        "span": 1,
+        "matches": 1
+      },
+      {
+        "owner": "e-rs-ci",
+        "citation": "docs/ISSUES.md:42",
+        "path": "docs/ISSUES.md",
+        "status": "ok",
+        "anchorCandidate": "| `P0-W1-L` | not-started | Add the first minimal CI workflow and save local shell/Git proof. | Workflow committed; local commands pass; only then may a real Actions URL be cited. |",
+        "span": 1,
+        "matches": 1
+      },
+      {
+        "owner": "e-cmd-rcpt",
+        "citation": "tools/validate_phase0_integrity.py:446-472",
+        "path": "tools/validate_phase0_integrity.py",
+        "status": "ok",
+        "anchorCandidate": "    if not isinstance(commands, list):",
+        "span": 27,
+        "matches": 1
+      },
+      {
+        "owner": "e-cmd-rcpt",
+        "citation": "progress/proofs/README.md:3-7",
+        "path": "progress/proofs/README.md",
+        "status": "ok",
+        "anchorCandidate": "Store observed Foundation receipts here as `YYYY-MM-DD.json` only after the cited commands have actually run. Each file must conform to [`phase0-proof.v1`](../../docs/phase0-proof.schema.json) and pass:",
+        "span": 5,
+        "matches": 1
+      },
+      {
+        "owner": "e-par-rcpt",
+        "citation": "docs/ISSUES.md:45",
+        "path": "docs/ISSUES.md",
+        "status": "ok",
+        "anchorCandidate": "| `P0-W1-C` | not-started | Compare Python and Rust outputs and cold-run instructions. | Parity transcript plus README install/run/test/example output exists. |",
+        "span": 1,
+        "matches": 1
+      },
+      {
+        "owner": "e-sch-rcpt",
+        "citation": "progress/proofs/README.md:3",
+        "path": "progress/proofs/README.md",
+        "status": "ok",
+        "anchorCandidate": "Store observed Foundation receipts here as `YYYY-MM-DD.json` only after the cited commands have actually run. Each file must conform to [`phase0-proof.v1`](../../docs/phase0-proof.schema.json) and pass:",
+        "span": 1,
+        "matches": 1
+      },
+      {
+        "owner": "e-rcpt-int",
+        "citation": "tools/validate_phase0_integrity.py:375-509",
+        "path": "tools/validate_phase0_integrity.py",
+        "status": "ok",
+        "anchorCandidate": "def validate_proof(receipt: dict, projection: dict, repository: Path) -> list[str]:",
+        "span": 135,
+        "matches": 1
+      },
+      {
+        "owner": "e-rcpt-int",
+        "citation": "tools/validate_phase0_integrity.py:522-523",
+        "path": "tools/validate_phase0_integrity.py",
+        "status": "ok",
+        "anchorCandidate": "    if args.proof:",
+        "span": 2,
+        "matches": 1
+      },
+      {
+        "owner": "e-rcpt-led",
+        "citation": "progress/proofs/README.md:9-11",
+        "path": "progress/proofs/README.md",
+        "status": "ok",
+        "anchorCandidate": "A receipt is a compact pointer to observed repository evidence, not a replacement for code, tests, output, or the private Aegis evidence ledger. Calendar reservations, Todoist state, generated documentation, elapsed time, paper reading, agent exercises, and endr activity cannot populate a verified Foundation receipt.",
+        "span": 3,
+        "matches": 1
+      },
+      {
+        "owner": "e-proj-int",
+        "citation": "tools/validate_phase0_integrity.py:401-425",
+        "path": "tools/validate_phase0_integrity.py",
+        "status": "ok",
+        "anchorCandidate": "    if receipt.get(\"reset_id\") != projection.get(\"authority\", {}).get(\"reset_id\"):",
+        "span": 25,
+        "matches": 1
+      },
+      {
+        "owner": "e-proj-int",
+        "citation": "tools/validate_phase0_integrity.py:520-521",
+        "path": "tools/validate_phase0_integrity.py",
+        "status": "ok",
+        "anchorCandidate": "    projection = load_json(args.projection)",
+        "span": 2,
+        "matches": 1
+      },
+      {
+        "owner": "e-auth-int",
+        "citation": "tools/validate_phase0_integrity.py:145-168",
+        "path": "tools/validate_phase0_integrity.py",
+        "status": "ok",
+        "anchorCandidate": "        config = parse_frontmatter(vault / authority[\"config_path\"])",
+        "span": 24,
+        "matches": 1
+      },
+      {
+        "owner": "e-exp-int",
+        "citation": "tools/validate_phase0_integrity.py:96-105",
+        "path": "tools/validate_phase0_integrity.py",
+        "status": "ok",
+        "anchorCandidate": "    scripts = str(DEFAULT_VAULT / \"08_Assistant/scripts\")",
+        "span": 10,
+        "matches": 1
+      },
+      {
+        "owner": "e-exp-int",
+        "citation": "tools/validate_phase0_integrity.py:309",
+        "path": "tools/validate_phase0_integrity.py",
+        "status": "ok",
+        "anchorCandidate": "        from export_defense_foundations_projection import build_projection, read_frontmatter",
+        "span": 1,
+        "matches": 1
+      },
+      {
+        "owner": "e-mark-int",
+        "citation": "tools/validate_phase0_integrity.py:320-338",
+        "path": "tools/validate_phase0_integrity.py",
+        "status": "ok",
+        "anchorCandidate": "    projection_digest = sha256(projection_path)",
+        "span": 19,
+        "matches": 1
+      },
+      {
+        "owner": "e-mob-int",
+        "citation": "tools/validate_phase0_integrity.py:340-363",
+        "path": "tools/validate_phase0_integrity.py",
+        "status": "ok",
+        "anchorCandidate": "    for relative in PWA_FILES:",
+        "span": 24,
+        "matches": 1
+      },
+      {
+        "owner": "e-mob-syn",
+        "citation": "AGENTS.md:75-78",
+        "path": "AGENTS.md",
+        "status": "ok",
+        "anchorCandidate": "python3 tools/validate_phase0_integrity.py",
+        "span": 4,
+        "matches": 1
+      },
+      {
+        "owner": "e-route-val",
+        "citation": "tools/validate_curriculum_route.py:106-109",
+        "path": "tools/validate_curriculum_route.py",
+        "status": "ok",
+        "anchorCandidate": "    route = json.loads((ROOT / 'curriculum/route-v2.json').read_text())",
+        "span": 4,
+        "matches": 1
+      },
+      {
+        "owner": "e-beg-val",
+        "citation": "tools/validate_beginner_policy.py:14",
+        "path": "tools/validate_beginner_policy.py",
+        "status": "ok",
+        "anchorCandidate": "POLICY_PATH = ROOT / \"curriculum/beginner-policy-v1.json\"",
+        "span": 1,
+        "matches": 1
+      },
+      {
+        "owner": "e-beg-val",
+        "citation": "tools/validate_beginner_policy.py:102",
+        "path": "tools/validate_beginner_policy.py",
+        "status": "ok",
+        "anchorCandidate": "        policy = json.loads(args.policy.read_text())",
+        "span": 1,
+        "matches": 1
+      },
+      {
+        "owner": "e-int-gate",
+        "citation": "tools/validate_phase0_integrity.py:524-525",
+        "path": "tools/validate_phase0_integrity.py",
+        "status": "ok",
+        "anchorCandidate": "    print(json.dumps({\"status\": \"PASS\" if not errors else \"FAIL\", \"errors\": errors}, indent=2))",
+        "span": 2,
+        "matches": 1
+      },
+      {
+        "owner": "e-int-gate",
+        "citation": "progress/proofs/README.md:3-7",
+        "path": "progress/proofs/README.md",
+        "status": "ok",
+        "anchorCandidate": "Store observed Foundation receipts here as `YYYY-MM-DD.json` only after the cited commands have actually run. Each file must conform to [`phase0-proof.v1`](../../docs/phase0-proof.schema.json) and pass:",
+        "span": 5,
+        "matches": 1
+      },
+      {
+        "owner": "e-ci-gate",
+        "citation": "curriculum/START_HERE.md:134",
+        "path": "curriculum/START_HERE.md",
+        "status": "ok",
+        "anchorCandidate": "- Show CI evidence when a workflow has actually run; local output is labeled local.",
+        "span": 1,
+        "matches": 1
+      },
+      {
+        "owner": "e-gate-later",
+        "citation": "curriculum/START_HERE.md:127-141",
+        "path": "curriculum/START_HERE.md",
+        "status": "ok",
+        "anchorCandidate": "## P0 exit gate",
+        "span": 15,
+        "matches": 1
+      },
+      {
+        "owner": "e-gate-later",
+        "citation": "AGENTS.md:40-41",
+        "path": "AGENTS.md",
+        "status": "ok",
+        "anchorCandidate": "- P0 is the only active phase. P1–P12 remain `not started` and undated until an",
+        "span": 2,
+        "matches": 1
+      },
+      {
+        "owner": "e-route-later",
+        "citation": "curriculum/route-v2.json:34-170",
+        "path": "curriculum/route-v2.json",
+        "status": "ok",
+        "anchorCandidate": "    {",
+        "span": 137,
+        "matches": 13
+      },
+      {
+        "owner": "e-gate-iss",
+        "citation": "progress/README.md:64-66",
+        "path": "progress/README.md",
+        "status": "ok",
+        "anchorCandidate": "1. Update hard dates in Aegis Nexus `_Phase Config` first.",
+        "span": 3,
+        "matches": 1
+      },
+      {
+        "owner": "x-cal-rcpt",
+        "citation": "tools/validate_phase0_integrity.py:486-487",
+        "path": "tools/validate_phase0_integrity.py",
+        "status": "ok",
+        "anchorCandidate": "    if basis.get(\"schedule_only\") is not False or basis.get(\"task_state_only\") is not False:",
+        "span": 2,
+        "matches": 1
+      },
+      {
+        "owner": "x-cal-rcpt",
+        "citation": "docs/aegis-phase0-projection.json:642-643",
+        "path": "docs/aegis-phase0-projection.json",
+        "status": "ok",
+        "anchorCandidate": "    \"schedule_is_evidence\": false,",
+        "span": 2,
+        "matches": 1
+      },
+      {
+        "owner": "x-endr-rcpt",
+        "citation": "AGENTS.md:60-62",
+        "path": "AGENTS.md",
+        "status": "ok",
+        "anchorCandidate": "command. Use `phase0-proof.v1` receipts where applicable. Agent overlays,",
+        "span": 3,
+        "matches": 1
+      },
+      {
+        "owner": "x-ex-rcpt",
+        "citation": "AGENTS.md:29-31",
+        "path": "AGENTS.md",
+        "status": "ok",
+        "anchorCandidate": "- Existing paths, Git history, course work, and historical evidence remain",
+        "span": 3,
+        "matches": 1
+      },
+      {
+        "owner": "x-rv-gate",
+        "citation": "README.md:106",
+        "path": "README.md",
+        "status": "ok",
+        "anchorCandidate": "A curriculum/document check is administrative validation, not learning proof.",
+        "span": 1,
+        "matches": 1
+      },
+      {
+        "owner": "p-config",
+        "citation": "tools/validate_phase0_integrity.py:145-190",
+        "path": "tools/validate_phase0_integrity.py",
+        "status": "ok",
+        "anchorCandidate": "        config = parse_frontmatter(vault / authority[\"config_path\"])",
+        "span": 46,
+        "matches": 1
+      },
+      {
+        "owner": "p-proj",
+        "citation": "docs/aegis-phase0-projection.json:1-44",
+        "path": "docs/aegis-phase0-projection.json",
+        "status": "ok",
+        "anchorCandidate": "{",
+        "span": 44,
+        "matches": 35
+      },
+      {
+        "owner": "p-marker",
+        "citation": "README.md:66-80",
+        "path": "README.md",
+        "status": "ok",
+        "anchorCandidate": "<!-- AEGIS:PHASE0_PROJECTION:START -->",
+        "span": 15,
+        "matches": 1
+      },
+      {
+        "owner": "p-digest",
+        "citation": "tools/validate_phase0_integrity.py:320-335",
+        "path": "tools/validate_phase0_integrity.py",
+        "status": "ok",
+        "anchorCandidate": "    projection_digest = sha256(projection_path)",
+        "span": 16,
+        "matches": 1
+      },
+      {
+        "owner": "p-resv",
+        "citation": "tools/validate_beginner_policy.py:88-89",
+        "path": "tools/validate_beginner_policy.py",
+        "status": "ok",
+        "anchorCandidate": "        if row.get(\"status\") != \"scheduled_unverified\" or row.get(\"gate_evidence\") is not False:",
+        "span": 2,
+        "matches": 1
+      },
+      {
+        "owner": "p-resv",
+        "citation": "docs/aegis-phase0-projection.json:626",
+        "path": "docs/aegis-phase0-projection.json",
+        "status": "ok",
+        "anchorCandidate": "    \"state\": \"scheduled_unverified\",",
+        "span": 1,
+        "matches": 1
+      },
+      {
+        "owner": "p-dash",
+        "citation": "mobile/app.js:141-160",
+        "path": "mobile/app.js",
+        "status": "ok",
+        "anchorCandidate": "function buildWeeks(projection) {",
+        "span": 20,
+        "matches": 1
+      },
+      {
+        "owner": "p-route",
+        "citation": "curriculum/route-v2.json:1-33",
+        "path": "curriculum/route-v2.json",
+        "status": "ok",
+        "anchorCandidate": "{",
+        "span": 33,
+        "matches": 14
+      },
+      {
+        "owner": "p-policy",
+        "citation": "curriculum/parallel-policy-v1.json:1-29",
+        "path": "curriculum/parallel-policy-v1.json",
+        "status": "ok",
+        "anchorCandidate": "{",
+        "span": 29,
+        "matches": 2
+      },
+      {
+        "owner": "p-session",
+        "citation": "curriculum/PARALLEL_COURSE_MAP.md:7-14",
+        "path": "curriculum/PARALLEL_COURSE_MAP.md",
+        "status": "ok",
+        "anchorCandidate": "| Track | Primary course | Start and practice | Session |",
+        "span": 8,
+        "matches": 1
+      },
+      {
+        "owner": "p-check",
+        "citation": "curriculum/START_HERE.md:58-69",
+        "path": "curriculum/START_HERE.md",
+        "status": "ok",
+        "anchorCandidate": "| Checkpoint | Learn | Do without copying the example | Ready to continue when |",
+        "span": 12,
+        "matches": 1
+      },
+      {
+        "owner": "p-issue",
+        "citation": "docs/ISSUES.md:37-48",
+        "path": "docs/ISSUES.md",
+        "status": "ok",
+        "anchorCandidate": "| Issue | Status | Objective | Acceptance |",
+        "span": 12,
+        "matches": 5
+      },
+      {
+        "owner": "p-lesson",
+        "citation": "curriculum/parallel-policy-v1.json:6-12",
+        "path": "curriculum/parallel-policy-v1.json",
+        "status": "ok",
+        "anchorCandidate": "  \"primary_sources\": {",
+        "span": 7,
+        "matches": 1
+      },
+      {
+        "owner": "p-code",
+        "citation": "tools/validate_phase0_integrity.py:385-386",
+        "path": "tools/validate_phase0_integrity.py",
+        "status": "ok",
+        "anchorCandidate": "        \"test_count\",",
+        "span": 2,
+        "matches": 1
+      },
+      {
+        "owner": "p-fixture",
+        "citation": "curriculum/START_HERE.md:113-120",
+        "path": "curriculum/START_HERE.md",
+        "status": "ok",
+        "anchorCandidate": "| Fixture | Lines | Words | Bytes |",
+        "span": 8,
+        "matches": 1
+      },
+      {
+        "owner": "p-cli",
+        "citation": "curriculum/START_HERE.md:107-109",
+        "path": "curriculum/START_HERE.md",
+        "status": "ok",
+        "anchorCandidate": "- Success: one line `lines=<n> words=<n> bytes=<n>\\n` on stdout; exit 0.",
+        "span": 3,
+        "matches": 1
+      },
+      {
+        "owner": "p-cli",
+        "citation": "curriculum/START_HERE.md:119",
+        "path": "curriculum/START_HERE.md",
+        "status": "ok",
+        "anchorCandidate": "| UTF-8 `café\\n` | 1 | 1 | 6 |",
+        "span": 1,
+        "matches": 1
+      },
+      {
+        "owner": "p-cmd",
+        "citation": "tools/validate_phase0_integrity.py:453-472",
+        "path": "tools/validate_phase0_integrity.py",
+        "status": "ok",
+        "anchorCandidate": "        command_fields = {\"command\", \"working_directory\", \"exit_code\", \"expected_exit_code\", \"output_digest\"}",
+        "span": 20,
+        "matches": 1
+      },
+      {
+        "owner": "p-cmd",
+        "citation": "tests/test_phase0_integrity.py:39-47",
+        "path": "tests/test_phase0_integrity.py",
+        "status": "ok",
+        "anchorCandidate": "            \"command_results\": [",
+        "span": 9,
+        "matches": 1
+      },
+      {
+        "owner": "p-receipt",
+        "citation": "docs/phase0-proof.schema.json:8-22",
+        "path": "docs/phase0-proof.schema.json",
+        "status": "ok",
+        "anchorCandidate": "  \"required\": [",
+        "span": 15,
+        "matches": 4
+      },
+      {
+        "owner": "p-receipt",
+        "citation": "tests/test_phase0_integrity.py:33-60",
+        "path": "tests/test_phase0_integrity.py",
+        "status": "ok",
+        "anchorCandidate": "        return {",
+        "span": 28,
+        "matches": 2
+      },
+      {
+        "owner": "p-import",
+        "citation": "tools/validate_phase0_integrity.py:99-103",
+        "path": "tools/validate_phase0_integrity.py",
+        "status": "ok",
+        "anchorCandidate": "        from export_defense_foundations_projection import (",
+        "span": 5,
+        "matches": 1
+      },
+      {
+        "owner": "p-import",
+        "citation": "tools/validate_phase0_integrity.py:309",
+        "path": "tools/validate_phase0_integrity.py",
+        "status": "ok",
+        "anchorCandidate": "        from export_defense_foundations_projection import build_projection, read_frontmatter",
+        "span": 1,
+        "matches": 1
+      },
+      {
+        "owner": "p-pwa",
+        "citation": "tools/validate_phase0_integrity.py:346-363",
+        "path": "tools/validate_phase0_integrity.py",
+        "status": "ok",
+        "anchorCandidate": "    app = (repository / \"mobile/app.js\").read_text(encoding=\"utf-8\")",
+        "span": 18,
+        "matches": 1
+      },
+      {
+        "owner": "p-verdict",
+        "citation": "tools/validate_phase0_integrity.py:491-493",
+        "path": "tools/validate_phase0_integrity.py",
+        "status": "ok",
+        "anchorCandidate": "    if verdict == \"verified\":",
+        "span": 3,
+        "matches": 1
+      },
+      {
+        "owner": "p-verdict",
+        "citation": "tools/validate_phase0_integrity.py:524",
+        "path": "tools/validate_phase0_integrity.py",
+        "status": "ok",
+        "anchorCandidate": "    print(json.dumps({\"status\": \"PASS\" if not errors else \"FAIL\", \"errors\": errors}, indent=2))",
+        "span": 1,
+        "matches": 1
+      },
+      {
+        "owner": "p-gate",
+        "citation": "curriculum/START_HERE.md:127-141",
+        "path": "curriculum/START_HERE.md",
+        "status": "ok",
+        "anchorCandidate": "## P0 exit gate",
+        "span": 15,
+        "matches": 1
+      },
+      {
+        "owner": "p-gate",
+        "citation": "docs/ISSUES.md:95",
+        "path": "docs/ISSUES.md",
+        "status": "ok",
+        "anchorCandidate": "| `P0-FINAL-0926` | not-started | Legacy-stable gate-review criterion; the dated token is not active date authority. | Written decision based only on current proof at the September 26 baseline, October 15 readiness, or October 30 final review; no automatic P1. |",
+        "span": 1,
+        "matches": 1
+      }
+    ],
+    "uniqueCitations": 149,
+    "sourceBearingItems": {
+      "tiers": 0,
+      "zones": 0,
+      "nodes": 34,
+      "edges": 54,
+      "payloads": 21,
+      "tour": 0
+    },
+    "semanticReview": "Incomplete: stopped after confirmed maturity incompatibilities. Path/span checks do not prove semantic support.",
+    "rangeBearingReferences": 188,
+    "missingPaths": 0,
+    "invalidSpans": 0
+  },
+  "checks": [
+    {
+      "id": "beginner",
+      "command": [
+        "python3",
+        "tools/validate_beginner_policy.py"
+      ],
+      "ranAt": "2026-09-22T22:08:01.923325+00:00",
+      "exitCode": 0,
+      "collected": null,
+      "passed": null,
+      "failed": null,
+      "errored": null,
+      "firstFailure": null
+    },
+    {
+      "id": "unit-beginner",
+      "command": [
+        "python3",
+        "-m",
+        "unittest",
+        "-v",
+        "tests.test_beginner_policy"
+      ],
+      "ranAt": "2026-09-22T22:08:01.965275+00:00",
+      "exitCode": 0,
+      "collected": 7,
+      "passed": 7,
+      "failed": 0,
+      "errored": 0,
+      "firstFailure": null
+    },
+    {
+      "id": "node-app",
+      "command": [
+        "node",
+        "--check",
+        "mobile/app.js"
+      ],
+      "ranAt": "2026-09-22T22:08:01.989798+00:00",
+      "exitCode": 0,
+      "collected": null,
+      "passed": null,
+      "failed": null,
+      "errored": null,
+      "firstFailure": null
+    },
+    {
+      "id": "node-sw",
+      "command": [
+        "node",
+        "--check",
+        "mobile/sw.js"
+      ],
+      "ranAt": "2026-09-22T22:08:02.013106+00:00",
+      "exitCode": 0,
+      "collected": null,
+      "passed": null,
+      "failed": null,
+      "errored": null,
+      "firstFailure": null
+    },
+    {
+      "id": "diff-check",
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "ranAt": "2026-09-22T22:08:02.124668+00:00",
+      "exitCode": 0,
+      "collected": null,
+      "passed": null,
+      "failed": null,
+      "errored": null,
+      "firstFailure": null
+    }
+  ],
+  "excludedChecks": [
+    {
+      "id": "integrity",
+      "command": [
+        "python3",
+        "tools/validate_phase0_integrity.py"
+      ],
+      "status": "not-run",
+      "reason": "Reads private authority and imports private exporter code.",
+      "sources": [
+        "tools/validate_phase0_integrity.py:96-105",
+        "tools/validate_phase0_integrity.py:145-147",
+        "tools/validate_phase0_integrity.py:308-310"
+      ]
+    },
+    {
+      "id": "route",
+      "command": [
+        "python3",
+        "tools/validate_curriculum_route.py"
+      ],
+      "status": "not-run",
+      "reason": "Reads every phase's vault_path outside the repository.",
+      "sources": [
+        "tools/validate_curriculum_route.py:44-58"
+      ]
+    },
+    {
+      "id": "unit-integrity",
+      "command": [
+        "python3",
+        "-m",
+        "unittest",
+        "-v",
+        "tests.test_phase0_integrity"
+      ],
+      "status": "not-run",
+      "reason": "Reads/imports private vault files and writes temporary fixtures. Not permitted by the brief's source boundary and no-writes check rule.",
+      "sources": [
+        "tests/test_phase0_integrity.py:138-159",
+        "tests/test_phase0_integrity.py:236-252"
+      ]
+    }
+  ],
+  "discrepancies": [
+    {
+      "claim": "route and routeval are tested",
+      "status": "incompatible-with-v3-rules",
+      "evidence": "The seed cites six inline negative cases. They only execute with --self-test, absent from the exact whitelisted command. No unittest result is bound to either node.",
+      "sources": [
+        "tools/validate_curriculum_route.py:86-111",
+        "docs/architecture/CODEX_PROMPT.md:314",
+        "docs/architecture/CODEX_PROMPT.md:333-337"
+      ],
+      "resolution": "Derive implemented until an allowed bound check actually collects and passes tests, or display a sourced explicit override."
+    },
+    {
+      "claim": "beginner is tested",
+      "status": "binding-mismatch",
+      "evidence": "Seven beginner unit tests passed in this audit, but the fixed whitelist binds unit-beginner only to policyval. The bound standalone beginner check does not collect tests.",
+      "sources": [
+        "docs/architecture/CODEX_PROMPT.md:335-336",
+        "tests/test_beginner_policy.py:14-15"
+      ],
+      "resolution": "Use implemented under the exact bindings, or explicitly approve binding unit-beginner to beginner as well."
+    },
+    {
+      "claim": "projection and integrity are tested",
+      "status": "unverified-this-session",
+      "evidence": "Their bound unit-integrity check cannot be run within the repo-only/no-write check rules. Prior pass/error counts have not been reused.",
+      "sources": [
+        "docs/architecture/CODEX_PROMPT.md:337",
+        "tests/test_phase0_integrity.py:138-159",
+        "tests/test_phase0_integrity.py:236-252"
+      ],
+      "resolution": "Do not award tested from a cached result."
+    },
+    {
+      "claim": "syntax is implemented",
+      "status": "requires-ownership-or-override",
+      "evidence": "Seed owns no files and describes commands only. v3 rule 6 otherwise yields planned.",
+      "sources": [
+        "AGENTS.md:70-79",
+        "docs/architecture/CODEX_PROMPT.md:312-317"
+      ],
+      "resolution": "Define a sourced override if commands are to retain implemented."
+    },
+    {
+      "claim": "courses is outside the repo but not inferred",
+      "status": "inference-mismatch",
+      "evidence": "The seed places courses in z-outside with no owned files and inferred=false/absent; v3 requires every outside node to be inferred.",
+      "sources": [
+        "curriculum/PARALLEL_COURSE_MAP.md:5-14",
+        "docs/architecture/CODEX_PROMPT.md:319"
+      ],
+      "resolution": "Mark inferred."
+    },
+    {
+      "claim": "Six inputs converge on the learner",
+      "status": "incorrect-count",
+      "evidence": "The extracted graph contains seven incoming learner edges.",
+      "sources": [
+        "docs/architecture/index.html:562-563"
+      ],
+      "resolution": "Derive the count from edges."
+    },
+    {
+      "claim": "v2 already has orbit, Rotate and Plan view",
+      "status": "baseline-mismatch",
+      "evidence": "The current page has a flat 2D camera (scale and translation), and no Rotate or Plan view controls.",
+      "sources": [
+        "docs/architecture/index.html:29-36",
+        "docs/architecture/index.html:860"
+      ],
+      "resolution": "Treat 3D and view controls as new work."
+    },
+    {
+      "claim": "Every item is sourced",
+      "status": "missing-provenance",
+      "evidence": "All 34 nodes, 54 edges and 21 payloads have sources. No tour stop, tier or zone has a sources array. Risks are prose rather than independently sourced objects.",
+      "sources": [
+        "tools/archmap/seed_model.json"
+      ],
+      "resolution": "Add anchored sources during curation; do not count path/span validity as full claim verification."
+    }
+  ],
+  "observedCounts": {
+    "nodes": 34,
+    "edges": 54,
+    "payloads": 21,
+    "tourStops": 8,
+    "learnerInputs": 7,
+    "projectionConsumerDocuments": 14,
+    "technicalDates": 83,
+    "receiptFiles": 0,
+    "workflowFiles": 0
+  },
+  "precedenceNote": "The standing endr output-routing instructions supplied with AGENTS require reading the two endr governance/routing files before an endr-styled deliverable. Those two instruction files were read as the brief explicitly gives AGENTS precedence. No private Aegis vault contents were read. The user's explicit destinations remain tools/archmap and docs/architecture/index.html.",
+  "notRun": [
+    "Rust/Python Project 0 execution checks (stopped at recon checkpoint)",
+    "Full semantic citation/maturity audit",
+    "Build, strict extraction, layout, browser, performance and live tests"
+  ],
+  "next": "On explicit continuation, settle the check-boundary conflict without accessing the private vault, finish semantic source review, then create anchored curated.json and repo-contained checks.py."
+}

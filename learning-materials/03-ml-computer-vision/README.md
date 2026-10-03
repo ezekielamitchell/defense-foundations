@@ -1,12 +1,16 @@
-# Machine Learning and Computer Vision
+# Evaluation and optional perception
 
-**Primary phases:** P2–P3
-**Status:** not started; undated until explicit promotion
+**Curriculum v2 · prepared 2026-09-19 · P2 core; P3 optional.**
 
-## Materials
+P2 teaches a simple baseline and trustworthy measurement. P3 adds one perception model only when selected; detection, tracking and foundation models are not separate mandatory builds.
 
-- [Core ML study map](core-ml-study-map/README.md) — classical models, evaluation, and calibration.
-- [Python for Computer Vision with OpenCV & Deep Learning](python-opencv-deep-learning/README.md) — Catalog #1.
-- [PyTorch for Deep Learning Bootcamp](pytorch-deep-learning-bootcamp/README.md) — Catalog #2.
+Read [Start Here](../../curriculum/START_HERE.md), [Resource Spine](../../curriculum/RESOURCE_SPINE.md)
+and [the full route](../../curriculum/COMPETENCY_PATHWAY.md). One primary source
+serves the current artifact; the retained resources below are a reference menu.
+They do not add courses, deadlines or completion credit.
 
-These resources are future-phase references. P0 has no OpenCV, PyTorch, detector, or camera on-ramp; activation requires an explicit gate promotion.
+## Retained source folders
+
+- [core-ml-study-map](core-ml-study-map/README.md)
+- [python-opencv-deep-learning](python-opencv-deep-learning/README.md)
+- [pytorch-deep-learning-bootcamp](pytorch-deep-learning-bootcamp/README.md)

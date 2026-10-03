@@ -1,8 +1,8 @@
-// Read-only consumer of the generated Aegis authority. This app never writes
-// task completion or evidence. Local storage is used only for scratch notes;
-// legacy reset-scoped checkbox keys are deliberately left untouched.
+// Read-only consumer of the public educational projection. The private Aegis
+// schedule, protected commitments, and company work are never served here.
+// Local storage is used only for scratch notes.
 const PROJECTION_URL = "../docs/aegis-phase0-projection.json";
-const PROJECTION_SCHEMA = "aegis.phase0-projection.v1";
+const PROJECTION_SCHEMA = "aegis.phase0-public-projection.v1";
 
 // Curriculum labels only; generated dates and evidence remain separately authoritative.
 const phases = [
@@ -10,7 +10,7 @@ const phases = [
     "P0",
     "Programming Foundations From Zero",
     "Main route · start from zero · evidence-gated",
-    "scheduled; work unverified"
+    "active; work unverified"
   ],
   [
     "P1",
@@ -92,72 +92,41 @@ const storageKeys = {
 };
 
 let phase0Projection;
-let weeks = [];
+let topics = [];
 
-function parseDate(value, endOfDay = false) {
-  const [year, month, day] = value.split("-").map(Number);
-  return new Date(
-    year,
-    month - 1,
-    day,
-    endOfDay ? 23 : 0,
-    endOfDay ? 59 : 0,
-    endOfDay ? 59 : 0,
-    endOfDay ? 999 : 0
-  );
-}
-
-function shortDate(value) {
-  return parseDate(value).toLocaleDateString(undefined, { month: "short", day: "numeric" });
-}
-
-function timeFromIso(value) {
-  return value.slice(11, 16);
-}
-
-function getCurrentWeek(today = new Date()) {
-  const time = today.getTime();
-  const active = weeks.find((week) => {
-    return time >= parseDate(week.start).getTime() && time <= parseDate(week.end, true).getTime();
-  });
-  if (active) return active;
-  if (time < parseDate(weeks[0].start).getTime()) return weeks[0];
-  return weeks[weeks.length - 1];
-}
-
-function day0Actions(projection) {
-  const actionByLane = {
-    research: "Read the selected previous-local-day Hugging Face paper for 60 minutes; log it as research, never Foundation proof.",
-    python: "Inspect file_stats, define one shared fixture, and write the smallest Python test; capture observed output or one blocker.",
-    rust: "Mirror the same fixture and output contract in hello-stats; capture observed parity output or one blocker.",
-    endr: "Use the separate endr block for one permitted G0 outcome or an exact blocker; never count it as Foundation evidence.",
-    admin: "Record observed proof or no-proof, one blocker, and the exact next command."
-  };
-  return projection.day0.events.map((event) => {
-    return `${timeFromIso(event.start)}–${timeFromIso(event.end)} · ${event.action || actionByLane[event.lane] || event.title}`;
-  });
-}
-
-function buildWeeks(projection) {
-  const parallel = projection.course_routing?.mode === "parallel-defense-curriculum-v1";
-  return projection.capacity.weekly.map((week, index) => ({
-    ...week,
-    dates: `${week.start} → ${week.end}`,
-    evidence: "Resume the oldest unmet Python/Rust criterion. Record the actual command/result or one blocker; this read-only row is never Foundation evidence.",
-    actions: index === 0 ? day0Actions(projection) : parallel ? [
-      "Open the current Calendar action card and course map; Calendar owns time.",
-      "Learn Python, Rust, agents, battlefield AI and warfare in parallel, at the oldest unmet step in each track.",
-      "Use 2–3-hour studios and one-hour curriculum readings, with one primary course per track.",
-      "Prove each language independently before parity; agent and research work remain non-gate.",
-      "Save actual output or a blocker and the exact source resume point."
-    ] : [
-      "Open the dated Aegis note and exact Calendar action card before starting; the manifest owns timing.",
-      "Run the separate Python and Rust blocks on one shared fixture contract; preserve the weekly pair_cycle_id even when degree commitments split the languages across days.",
-      "Use an optional agent block only where the manifest permits it; max three read-only tools and three steps, cut first.",
-      "Keep source pulls issue-bound and immediately applied; save the exact course resume point.",
-      "Close with observed output or no-proof, one blocker, and one copyable next command."
-    ]
-  }));
+function buildTopics(projection) {
+  const project = projection.project0;
+  return [
+    {
+      id: "project0",
+      label: "Project 0 · Python and Rust",
+      focus: project.contract,
+      evidence: project.proof,
+      actions: [
+        `Inspect ${project.python} and ${project.rust}.`,
+        "Resume the oldest unmet behavior in each language.",
+        "Compare identical fixtures only after each implementation has independent proof."
+      ]
+    },
+    {
+      id: "parallel",
+      label: "Parallel learning tracks",
+      focus: projection.curriculum.parallel_topics.join(" · "),
+      evidence: "Study and course attendance are not Foundation proof.",
+      actions: [
+        projection.curriculum.source_policy,
+        projection.curriculum.intro_policy,
+        "Keep research and agent exercises separate from Project 0 gate evidence."
+      ]
+    },
+    {
+      id: "route",
+      label: "Competency route",
+      focus: projection.curriculum.core_route.join(" → "),
+      evidence: "Each phase requires observed proof and an explicit gate decision.",
+      actions: [`Optional depth: ${projection.curriculum.optional_depth.join(", ")}.`]
+    }
+  ];
 }
 
 async function loadProjection() {
@@ -165,7 +134,7 @@ async function loadProjection() {
   if (!response.ok) throw new Error(`projection request failed (${response.status})`);
   const projection = await response.json();
   if (projection.schema_version !== PROJECTION_SCHEMA) throw new Error("unsupported projection schema");
-  const required = ["authority", "period", "checkpoints", "capacity", "day0", "evidence"];
+  const required = ["phase", "curriculum", "project0", "evidence", "source"];
   if (required.some((key) => !projection[key])) throw new Error("projection is incomplete");
   if (projection.evidence.schedule_is_evidence !== false || projection.evidence.task_state_is_evidence !== false) {
     throw new Error("projection weakens the evidence boundary");
@@ -174,63 +143,57 @@ async function loadProjection() {
 }
 
 function renderDashboard() {
-  const parallel = phase0Projection.course_routing?.mode === "parallel-defense-curriculum-v1";
-  document.getElementById("current-focus").textContent = parallel ? "Python · Rust · AI agents · battlefield AI · warfare" : "Follow the current course map and exact Calendar plan";
-  document.getElementById("work-allocation").textContent = phase0Projection.capacity.normal_week_targets ? `${Object.entries(phase0Projection.capacity.normal_week_targets).filter(([key]) => key !== "unreserved").reduce((total, [, minutes]) => total + minutes, 0) / 60}h outside class · normal week` : "Follow exact weekly reservations";
-  const current = getCurrentWeek();
-  const beforeStart = Date.now() < new Date(phase0Projection.authority.boundary).getTime();
-  document.getElementById("phase-status").textContent = beforeStart ? "P0 prelaunch · work unverified" : "P0 scheduled · evidence required";
-  document.getElementById("current-week").textContent = current.label;
-  document.getElementById("current-week-dates").textContent = current.dates;
-  document.getElementById("week-title").textContent = `${current.label}: ${current.dates}`;
+  const current = topics[0];
+  document.getElementById("current-focus").textContent = phase0Projection.curriculum.parallel_topics.join(" · ");
+  document.getElementById("work-allocation").textContent = "Private Aegis plan and Calendar";
+  document.getElementById("phase-status").textContent = "P0 active · work unverified";
+  document.getElementById("current-week").textContent = "P0 Foundation";
+  document.getElementById("current-week-dates").textContent = "Educational scope only";
+  document.getElementById("week-title").textContent = current.label;
   document.getElementById("week-primary").textContent = current.focus;
   document.getElementById("week-evidence").textContent = current.evidence;
-  document.getElementById("baseline-date").textContent = shortDate(phase0Projection.checkpoints.baseline);
-  document.getElementById("readiness-date").textContent = `readiness ${shortDate(phase0Projection.checkpoints.readiness)}`;
-  document.getElementById("final-date").textContent = shortDate(phase0Projection.checkpoints.final_capability);
-  document.getElementById("final-window").textContent = `review ${phase0Projection.checkpoints.final_review_window} · horizon ${timeFromIso(phase0Projection.checkpoints.horizon_cutoff)} PDT`;
+  document.getElementById("baseline-date").textContent = "Observed proof";
+  document.getElementById("readiness-date").textContent = "Check the private plan";
+  document.getElementById("final-date").textContent = "Explicit gate decision";
+  document.getElementById("final-window").textContent = "No automatic promotion";
   document.getElementById("phase-progress").textContent = "pending";
   document.querySelector(".phase-meter").setAttribute("aria-label", "Work unverified; this projection does not track completion");
-  document.getElementById("phase-message").textContent = `Read-only projection, not gate progress. ${current.label}: ${current.focus}. Authority: ${phase0Projection.authority.config_path}.`;
+  document.getElementById("phase-message").textContent = "Read-only public curriculum summary. Use the private Aegis plan for current dates and reservations.";
 }
 
-function renderWeeks() {
+function renderTopics() {
   const list = document.getElementById("week-list");
-  const current = getCurrentWeek();
   list.replaceChildren();
 
-  weeks.forEach((week) => {
+  topics.forEach((topic) => {
     const card = document.createElement("article");
-    card.className = `week-card${week.id === current.id ? " current" : ""}`;
+    card.className = `week-card${topic.id === "project0" ? " current" : ""}`;
     const header = document.createElement("div");
     header.className = "week-header";
     const heading = document.createElement("div");
     const title = document.createElement("h3");
-    title.textContent = week.label;
-    const dates = document.createElement("div");
-    dates.className = "week-date";
-    dates.textContent = week.dates;
-    heading.append(title, dates);
+    title.textContent = topic.label;
+    heading.append(title);
     header.appendChild(heading);
-    if (week.id === current.id) {
+    if (topic.id === "project0") {
       const badge = document.createElement("span");
       badge.className = "week-badge";
-      badge.textContent = "Current";
+      badge.textContent = "Active";
       header.appendChild(badge);
     }
 
     const primary = document.createElement("p");
-    primary.textContent = week.focus;
+    primary.textContent = topic.focus;
     const evidence = document.createElement("div");
     evidence.className = "callout";
     const evidenceTitle = document.createElement("span");
     evidenceTitle.textContent = "Evidence boundary";
     const evidenceText = document.createElement("p");
-    evidenceText.textContent = week.evidence;
+    evidenceText.textContent = topic.evidence;
     evidence.append(evidenceTitle, evidenceText);
 
     const actions = document.createElement("div");
-    week.actions.forEach((action) => {
+    topic.actions.forEach((action) => {
       const row = document.createElement("div");
       row.className = "read-row";
       const marker = document.createElement("span");
@@ -270,9 +233,9 @@ function renderPhases() {
 function renderProjectionFailure(error) {
   document.getElementById("phase-status").textContent = "Projection unavailable";
   document.getElementById("phase-progress").textContent = "stale";
-  document.getElementById("phase-message").textContent = `${error.message}. Use Aegis Nexus directly; no cached date or task state is treated as current.`;
-  document.getElementById("week-primary").textContent = "Generated authority could not be loaded.";
-  document.getElementById("week-evidence").textContent = "Fail closed: this screen makes no schedule or completion claim.";
+  document.getElementById("phase-message").textContent = `${error.message}. Use the private Aegis plan directly; this page makes no completion claim.`;
+  document.getElementById("week-primary").textContent = "Public curriculum projection could not be loaded.";
+  document.getElementById("week-evidence").textContent = "This screen is never the evidence authority.";
 }
 
 function setupTabs() {
@@ -360,9 +323,9 @@ async function initialize() {
   renderPhases();
   try {
     phase0Projection = await loadProjection();
-    weeks = buildWeeks(phase0Projection);
+    topics = buildTopics(phase0Projection);
     renderDashboard();
-    renderWeeks();
+    renderTopics();
   } catch (error) {
     renderProjectionFailure(error);
   }

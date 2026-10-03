@@ -25,7 +25,7 @@ Nominal and dropout cases, trajectory/estimation error, uncertainty interpretati
 
 ## Source and scope
 
-The chosen estimator/package's official documentation and original method; targeted MIT linear-algebra lessons as needed.
+The chosen estimator/package's official documentation and original method; targeted [Imperial College London linear-algebra lessons on Coursera](https://www.coursera.org/learn/linear-algebra-machine-learning) as needed after this module's prerequisites. Account access is unverified; this source adds no current P0 assignment.
 
 **Defer:** All EKF/UKF/VIO/SLAM methods at once; real-world GPS-denied performance claims.
 

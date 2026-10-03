@@ -1,0 +1,2601 @@
+{
+  "meta": {
+    "repo": "defense-foundations",
+    "branch": "codex/aegis-beginner-reset-2026-09-19",
+    "commit": "2e13798e4fdc3bc2e476ab6938e0c5cd261066b3",
+    "commitDate": "2026-09-19T15:44:35-07:00",
+    "worktree": "dirty: 79 changed paths at generation (git status --short)",
+    "generated": "2026-09-22T21:44:42Z",
+    "modeled": "The repository is a curriculum and governance repository, not runtime software. This map models the process that governs it: how private schedule authority, curriculum policy and learner work become (or fail to become) verified Phase 0 evidence.",
+    "thesis": "defense-foundations is a one-learner training pipeline with an evidence firewall. A private authority publishes a hash-stamped schedule projection into the repository; curriculum policy routes the learner through parallel Python, Rust, agent and warfare tracks; the learner builds Project 0, a paired Python/Rust file-statistics CLI; observed command output becomes phase0-proof.v1 receipts; and a fail-closed validator decides whether any receipt can reach the P0 gate review. Calendar state, endr work and historical coursework are blocked from counting. Today the firewall and validators are built and tested, while both Project 0 CLIs are stubs and no receipt exists.",
+    "metric": {
+      "name": "Lines in owned files",
+      "how": "wc -l over the files listed on each node (external or human nodes: not in repo, drawn flat)",
+      "scale": "box height = 4 + 6 · log10(1 + lines) world units"
+    },
+    "timing": "Particle speed is uniform and not to scale. The repository contains no latency or rate data."
+  },
+  "tiers": [
+    {
+      "id": "authority",
+      "label": "Authority",
+      "order": 1,
+      "hue": "#8C84A8"
+    },
+    {
+      "id": "publish",
+      "label": "Publish",
+      "order": 2,
+      "hue": "#6FA39A"
+    },
+    {
+      "id": "route",
+      "label": "Route",
+      "order": 3,
+      "hue": "#B3A27B"
+    },
+    {
+      "id": "operator",
+      "label": "Operator",
+      "order": 4,
+      "hue": "#7F9BB8"
+    },
+    {
+      "id": "build",
+      "label": "Build",
+      "order": 5,
+      "hue": "#93A876"
+    },
+    {
+      "id": "observe",
+      "label": "Observe",
+      "order": 6,
+      "hue": "#B28C84"
+    },
+    {
+      "id": "verify",
+      "label": "Verify",
+      "order": 7,
+      "hue": "#B28C84"
+    },
+    {
+      "id": "decide",
+      "label": "Decide",
+      "order": 8,
+      "hue": "#B28C84"
+    },
+    {
+      "id": "external",
+      "label": "External",
+      "order": 9,
+      "hue": "#8C84A8"
+    }
+  ],
+  "zones": [
+    {
+      "id": "z-outside",
+      "label": "Outside repo",
+      "tier": "authority",
+      "lane": 0,
+      "nodes": [
+        "authority",
+        "courses",
+        "endr",
+        "exporter",
+        "calendar"
+      ]
+    },
+    {
+      "id": "z-publish",
+      "label": "Published",
+      "tier": "publish",
+      "lane": 0,
+      "nodes": [
+        "projection",
+        "markers",
+        "mobile",
+        "archpage"
+      ]
+    },
+    {
+      "id": "z-hist",
+      "label": "Coursework",
+      "tier": "build",
+      "lane": 0,
+      "nodes": [
+        "exercises",
+        "invaders"
+      ]
+    },
+    {
+      "id": "z-route",
+      "label": "Policy",
+      "tier": "route",
+      "lane": 1,
+      "nodes": [
+        "agents",
+        "beginner",
+        "issues",
+        "route",
+        "starthere",
+        "policy",
+        "contract",
+        "coursemap"
+      ]
+    },
+    {
+      "id": "z-op",
+      "label": "Operator",
+      "tier": "operator",
+      "lane": 1,
+      "nodes": [
+        "learner"
+      ]
+    },
+    {
+      "id": "z-p0",
+      "label": "Project 0",
+      "tier": "build",
+      "lane": 1,
+      "nodes": [
+        "filestats",
+        "hellostats",
+        "parity",
+        "commands"
+      ]
+    },
+    {
+      "id": "z-proof",
+      "label": "Evidence",
+      "tier": "observe",
+      "lane": 1,
+      "nodes": [
+        "receipts",
+        "ledger"
+      ]
+    },
+    {
+      "id": "z-gate",
+      "label": "Gate",
+      "tier": "decide",
+      "lane": 1,
+      "nodes": [
+        "gate",
+        "later"
+      ]
+    },
+    {
+      "id": "z-verify",
+      "label": "Validators",
+      "tier": "verify",
+      "lane": 2,
+      "nodes": [
+        "schema",
+        "policyval",
+        "routeval",
+        "syntax",
+        "ci",
+        "integrity"
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "id": "authority",
+      "title": "Aegis phase authority",
+      "subtitle": "_Phase Config + sealed manifest",
+      "tier": "authority",
+      "zone": "z-outside",
+      "maturity": "implemented",
+      "inferred": true,
+      "role": "Private vault that owns Phase 0 dates, capacity, counters and the active reset manifest. The repository may only mirror it.",
+      "inputs": [
+        "user direction"
+      ],
+      "outputs": [
+        "config frontmatter",
+        "manifest events"
+      ],
+      "state": "Reset FINAL-2026-09-21-1730-PHASE0, manifest schema AEGIS-PHASE0-FULL-RESET-6.0",
+      "files": [
+        "/Users/house/aegis nexus/01_Daily/_Phase Config.md (outside repo)",
+        "/Users/house/aegis nexus/08_Assistant/manifests/2026-09-21 1730 Restart Manifest.json (outside repo)"
+      ],
+      "sources": [
+        "AGENTS.md:8-16",
+        "docs/aegis-phase0-projection.json:3-14",
+        "tools/validate_phase0_integrity.py:145-168"
+      ],
+      "risks": [
+        "Not in the repository: existence and contents are inferred from the projection's authority block and the validator's reads.",
+        "Single upstream for every schedule fact."
+      ],
+      "evidence": "Outside repo. Referenced by path and SHA-256 in the projection.",
+      "metric": {
+        "name": "lines",
+        "value": null,
+        "source": "outside repository"
+      }
+    },
+    {
+      "id": "exporter",
+      "title": "Projection exporter",
+      "subtitle": "export_defense_foundations_projection.py",
+      "tier": "authority",
+      "zone": "z-outside",
+      "maturity": "implemented",
+      "inferred": true,
+      "role": "Publisher script in the vault. Builds the projection JSON and the generated marker blocks. The in-repo validator also imports it to recompute the expected projection.",
+      "inputs": [
+        "config frontmatter",
+        "manifest events"
+      ],
+      "outputs": [
+        "projection v1",
+        "marker blocks",
+        "validator code"
+      ],
+      "state": "Stateless publisher (inferred)",
+      "files": [
+        "/Users/house/aegis nexus/08_Assistant/scripts/export_defense_foundations_projection.py (outside repo)"
+      ],
+      "sources": [
+        "tools/validate_phase0_integrity.py:96-105",
+        "tools/validate_phase0_integrity.py:308-312",
+        "AGENTS.md:18-21",
+        "curriculum/RESET_HANDOFF.md:27"
+      ],
+      "risks": [
+        "The in-repo validator executes this out-of-repo code (sys.path insert), so the gate's correctness depends on unversioned private code."
+      ],
+      "evidence": "Outside repo. Imported by tools/validate_phase0_integrity.py:99-103.",
+      "metric": {
+        "name": "lines",
+        "value": null,
+        "source": "outside repository"
+      }
+    },
+    {
+      "id": "calendar",
+      "title": "Calendar and Todoist",
+      "subtitle": "time reservations",
+      "tier": "authority",
+      "zone": "z-outside",
+      "maturity": "implemented",
+      "inferred": true,
+      "role": "Native calendar and task objects reconciled from the manifest. They reserve time; they are never evidence.",
+      "inputs": [
+        "manifest events"
+      ],
+      "outputs": [
+        "reservations"
+      ],
+      "state": "526 reservations scheduled and unverified (projection counts.events)",
+      "files": [
+        "(external services)"
+      ],
+      "sources": [
+        "curriculum/RESET_HANDOFF.md:3-7",
+        "progress/proofs/README.md:9",
+        "docs/aegis-phase0-projection.json:37"
+      ],
+      "risks": [
+        "Task state looks like progress; the firewall at tools/validate_phase0_integrity.py:486-487 is the only thing stopping it from counting."
+      ],
+      "evidence": "External. Readback reconciliation described in RESET_HANDOFF.md:4-5.",
+      "metric": {
+        "name": "lines",
+        "value": null,
+        "source": "external service"
+      }
+    },
+    {
+      "id": "projection",
+      "title": "Phase 0 projection",
+      "subtitle": "docs/aegis-phase0-projection.json",
+      "tier": "publish",
+      "zone": "z-publish",
+      "maturity": "tested",
+      "role": "Generated, publisher-owned JSON mirror of the authority: period, checkpoints, counts, capacity, pairing model, technical dates and the evidence firewall flags.",
+      "inputs": [
+        "projection v1 (from exporter)"
+      ],
+      "outputs": [
+        "projection v1"
+      ],
+      "state": "sha256 e96b35ec…0bf0516; counts.events 526; evidence.current_counters all 0",
+      "files": [
+        "docs/aegis-phase0-projection.json"
+      ],
+      "sources": [
+        "docs/aegis-phase0-projection.json:1-677",
+        "AGENTS.md:18-21",
+        "tests/test_phase0_integrity.py:339-367"
+      ],
+      "risks": [
+        "Generated narrative says \"no active Rust\" (README.md:71) while counts.rust is 38 (docs/aegis-phase0-projection.json:42)."
+      ],
+      "evidence": "Covered by tests/test_phase0_integrity.py:339 (needs the private vault to run).",
+      "metric": {
+        "name": "lines",
+        "value": 677,
+        "source": "wc -l docs/aegis-phase0-projection.json"
+      }
+    },
+    {
+      "id": "markers",
+      "title": "Generated marker blocks",
+      "subtitle": "14 docs, hash-stamped",
+      "tier": "publish",
+      "zone": "z-publish",
+      "maturity": "implemented",
+      "role": "AEGIS:PHASE0_PROJECTION regions embedded in 14 consumer documents plus docs/architecture.html, each carrying the projection's SHA-256.",
+      "inputs": [
+        "marker block",
+        "projection digest"
+      ],
+      "outputs": [
+        "rendered schedule text"
+      ],
+      "state": "All 15 consumers carry projection-json-sha256 e96b35ec…",
+      "files": [
+        "README.md",
+        "TIMELINE.md",
+        "progress/README.md",
+        "docs/ISSUES.md",
+        "curriculum/README.md",
+        "curriculum/phases/00-foundations/README.md",
+        "mobile/README.md",
+        "(+7 learning-materials READMEs)"
+      ],
+      "sources": [
+        "docs/aegis-phase0-projection.json:654-676",
+        "README.md:66-80",
+        "tools/validate_phase0_integrity.py:320-338"
+      ],
+      "risks": [
+        "Prose outside the blocks drifts: docs/ISSUES.md:33 still names Sept 26 / Oct 15 / Oct 30 checkpoints; the projection says 2026-09-27 / 2026-10-11 / 2027-01-10."
+      ],
+      "evidence": "Hash presence checked by validator; no test renders the prose.",
+      "metric": {
+        "name": "lines",
+        "value": 263,
+        "source": "sum of marker-block spans across the 14 documents"
+      }
+    },
+    {
+      "id": "courses",
+      "title": "Course platforms",
+      "subtitle": "O’Reilly · Udemy · Coursera",
+      "tier": "external",
+      "zone": "z-outside",
+      "maturity": "planned",
+      "role": "One primary course per track (Python, Rust, agents, battlefield AI, warfare).",
+      "inputs": [],
+      "outputs": [
+        "lessons"
+      ],
+      "state": "Access, subscription and enrollment unverified; no purchase made",
+      "files": [
+        "(external services)"
+      ],
+      "sources": [
+        "curriculum/PARALLEL_COURSE_MAP.md:5-14",
+        "curriculum/parallel-policy-v1.json:6-12"
+      ],
+      "risks": [
+        "Access unverified (PARALLEL_COURSE_MAP.md:5); fallback is official docs."
+      ],
+      "evidence": "Listed only; access not confirmed.",
+      "metric": {
+        "name": "lines",
+        "value": null,
+        "source": "external service"
+      }
+    },
+    {
+      "id": "endr",
+      "title": "endr company lane",
+      "subtitle": "separately governed",
+      "tier": "external",
+      "zone": "z-outside",
+      "maturity": "implemented",
+      "inferred": true,
+      "role": "Company work in its own lane. Gate G0 OPEN, execution authorization NO. Its activity never earns Foundation credit.",
+      "inputs": [],
+      "outputs": [
+        "company activity"
+      ],
+      "state": "gate G0 OPEN · execution_authorization NO",
+      "files": [
+        "(outside repo)"
+      ],
+      "sources": [
+        "AGENTS.md:60-68",
+        "docs/aegis-phase0-projection.json:647-653",
+        "docs/aegis-phase0-projection.json:58-61",
+        "docs/ISSUES.md:99"
+      ],
+      "risks": [
+        "Shares the learner's capacity (normal_week_targets.endr) but is firewalled from evidence."
+      ],
+      "evidence": "External; represented only by boundary fields.",
+      "metric": {
+        "name": "lines",
+        "value": null,
+        "source": "outside repository"
+      }
+    },
+    {
+      "id": "agents",
+      "title": "Repository contract",
+      "subtitle": "AGENTS.md precedence",
+      "tier": "route",
+      "zone": "z-route",
+      "maturity": "implemented",
+      "role": "Authority order, evidence rules and dated amendments (Sept 19 beginner, parallel and seven-day sprint).",
+      "inputs": [],
+      "outputs": [
+        "precedence rules"
+      ],
+      "state": "Three amendments appended; latest wins",
+      "files": [
+        "AGENTS.md",
+        "CLAUDE.md"
+      ],
+      "sources": [
+        "AGENTS.md:8-21",
+        "AGENTS.md:83-115"
+      ],
+      "risks": [
+        "Policy is layered by appended amendments; the reader must resolve precedence by date."
+      ],
+      "evidence": "Prose. No executable check.",
+      "metric": {
+        "name": "lines",
+        "value": 115,
+        "source": "wc -l AGENTS.md"
+      }
+    },
+    {
+      "id": "route",
+      "title": "Curriculum route v2",
+      "subtitle": "curriculum/route-v2.json",
+      "tier": "route",
+      "zone": "z-route",
+      "maturity": "tested",
+      "role": "P0–P12 phase DAG: core order, optional modules, prerequisites and status. Only P0 may be active.",
+      "inputs": [
+        "precedence rules"
+      ],
+      "outputs": [
+        "route",
+        "phase definitions"
+      ],
+      "state": "active_phase P0; P1–P12 not-started",
+      "files": [
+        "curriculum/route-v2.json"
+      ],
+      "sources": [
+        "curriculum/route-v2.json:1-173",
+        "tools/validate_curriculum_route.py:15-83"
+      ],
+      "risks": [
+        "Directory names disagree with titles: P7 \"State Estimation\" lives in phases/07-transformers, P10 \"Multi-Agent\" in phases/10-gaze-hmt (route-v2.json:109,145)."
+      ],
+      "evidence": "6 negative cases in validate_curriculum_route.py --self-test (lines 86-99). No unittest file.",
+      "metric": {
+        "name": "lines",
+        "value": 173,
+        "source": "wc -l curriculum/route-v2.json"
+      }
+    },
+    {
+      "id": "policy",
+      "title": "Parallel policy v1",
+      "subtitle": "active teaching policy",
+      "tier": "route",
+      "zone": "z-route",
+      "maturity": "implemented",
+      "role": "Active policy: five parallel tracks, one source each, Rust does not wait for Python, no paper quota.",
+      "inputs": [
+        "route"
+      ],
+      "outputs": [
+        "track rules"
+      ],
+      "state": "status active-teaching-policy",
+      "files": [
+        "curriculum/parallel-policy-v1.json"
+      ],
+      "sources": [
+        "curriculum/parallel-policy-v1.json:1-29",
+        "curriculum/route-v2.json:172",
+        "AGENTS.md:100-110"
+      ],
+      "risks": [
+        "No validator or test reads this file (only route-v2.json:172 names it).",
+        "Contradicted by generated text \"Rust requires observed Z0–Z5\" (README.md:71)."
+      ],
+      "evidence": "No tests found.",
+      "metric": {
+        "name": "lines",
+        "value": 29,
+        "source": "wc -l curriculum/parallel-policy-v1.json"
+      }
+    },
+    {
+      "id": "beginner",
+      "title": "Beginner policy v1",
+      "subtitle": "retired, still enforced",
+      "tier": "route",
+      "zone": "z-route",
+      "maturity": "tested",
+      "role": "Earlier Python-first preparation. Declared historical, not current routing.",
+      "inputs": [],
+      "outputs": [
+        "policy fields"
+      ],
+      "state": "status authorized-policy-awaiting-schedule",
+      "files": [
+        "curriculum/beginner-policy-v1.json"
+      ],
+      "sources": [
+        "curriculum/beginner-policy-v1.json:1-29",
+        "curriculum/RESET_HANDOFF.md:12-14",
+        "AGENTS.md:109-110"
+      ],
+      "risks": [
+        "The most-tested policy is the retired one: 7 tests guard it while the active policy has none."
+      ],
+      "evidence": "7 tests in tests/test_beginner_policy.py (observed 7/7 pass).",
+      "metric": {
+        "name": "lines",
+        "value": 29,
+        "source": "wc -l curriculum/beginner-policy-v1.json"
+      }
+    },
+    {
+      "id": "starthere",
+      "title": "Start Here + sprint",
+      "subtitle": "Z0–Z9 checkpoints",
+      "tier": "route",
+      "zone": "z-route",
+      "maturity": "implemented",
+      "role": "Learner guide: checkpoints Z0–Z9, the seven-day Python/Rust sprint, the Project 0 contract and the P0 exit gate.",
+      "inputs": [
+        "precedence rules"
+      ],
+      "outputs": [
+        "checkpoints",
+        "CLI contract"
+      ],
+      "state": "Active Sept 19, 2026",
+      "files": [
+        "curriculum/START_HERE.md",
+        "curriculum/FOUNDATIONS_FAST_TRACK.md"
+      ],
+      "sources": [
+        "curriculum/START_HERE.md:52-78",
+        "curriculum/START_HERE.md:98-138",
+        "curriculum/FOUNDATIONS_FAST_TRACK.md:13-21"
+      ],
+      "risks": [],
+      "evidence": "Prose.",
+      "metric": {
+        "name": "lines",
+        "value": 208,
+        "source": "wc -l START_HERE.md (151) + FOUNDATIONS_FAST_TRACK.md (57)"
+      }
+    },
+    {
+      "id": "coursemap",
+      "title": "Parallel course map",
+      "subtitle": "5 tracks, 1 source each",
+      "tier": "route",
+      "zone": "z-route",
+      "maturity": "implemented",
+      "role": "Maps each track to one primary course and a session length; sets the evidence close-out per session.",
+      "inputs": [
+        "track rules"
+      ],
+      "outputs": [
+        "session plan"
+      ],
+      "state": "Sessions 2–3 h; readings 1 h",
+      "files": [
+        "curriculum/PARALLEL_COURSE_MAP.md"
+      ],
+      "sources": [
+        "curriculum/PARALLEL_COURSE_MAP.md:7-16",
+        "curriculum/PARALLEL_COURSE_MAP.md:31-35"
+      ],
+      "risks": [],
+      "evidence": "Prose.",
+      "metric": {
+        "name": "lines",
+        "value": 37,
+        "source": "wc -l curriculum/PARALLEL_COURSE_MAP.md"
+      }
+    },
+    {
+      "id": "issues",
+      "title": "Issue ledger",
+      "subtitle": "docs/ISSUES.md stable IDs",
+      "tier": "route",
+      "zone": "z-route",
+      "maturity": "implemented",
+      "role": "Stable P0-W1…W5 criterion IDs and acceptance text; resume the oldest unmet one.",
+      "inputs": [
+        "gate decision (feedback)"
+      ],
+      "outputs": [
+        "issue IDs"
+      ],
+      "state": "Every issue not-started",
+      "files": [
+        "docs/ISSUES.md"
+      ],
+      "sources": [
+        "docs/ISSUES.md:31-95"
+      ],
+      "risks": [
+        "Stale dates outside the generated block (docs/ISSUES.md:33, :95).",
+        "Mandates a daily paper (docs/ISSUES.md:100) while parallel policy sets daily_paper_quota 0 (parallel-policy-v1.json:23)."
+      ],
+      "evidence": "Prose.",
+      "metric": {
+        "name": "lines",
+        "value": 100,
+        "source": "wc -l docs/ISSUES.md"
+      }
+    },
+    {
+      "id": "mobile",
+      "title": "Mobile PWA",
+      "subtitle": "read-only projection view",
+      "tier": "operator",
+      "zone": "z-publish",
+      "maturity": "implemented",
+      "role": "Offline-capable phone view. Fetches the projection network-first, renders weeks and phases, keeps a local scratch note that is never evidence.",
+      "inputs": [
+        "projection v1"
+      ],
+      "outputs": [
+        "dashboard"
+      ],
+      "state": "localStorage scratch note only; cache defense-foundations-mobile-shell-v5",
+      "files": [
+        "mobile/app.js",
+        "mobile/sw.js",
+        "mobile/index.html",
+        "mobile/styles.css",
+        "mobile/manifest.webmanifest"
+      ],
+      "sources": [
+        "mobile/app.js:4-5",
+        "mobile/app.js:163-174",
+        "mobile/sw.js:35-56",
+        "mobile/app.js:142"
+      ],
+      "risks": [
+        "Mode drift: app.js:142 and :177 test for \"parallel-defense-curriculum-v1\"; the projection says \"…-v2\" (docs/aegis-phase0-projection.json:389), so the parallel week actions never render.",
+        "Phase list is hard-coded (app.js:8-87), a second copy of route-v2.json."
+      ],
+      "evidence": "Static token checks only (validate_phase0_integrity.py:340-363); node --check passes. No behavioral tests.",
+      "metric": {
+        "name": "lines",
+        "value": 1301,
+        "source": "wc -l mobile/app.js sw.js index.html styles.css manifest.webmanifest"
+      }
+    },
+    {
+      "id": "archpage",
+      "title": "Architecture page",
+      "subtitle": "docs/architecture.html (prior)",
+      "tier": "operator",
+      "zone": "z-publish",
+      "maturity": "implemented",
+      "role": "Earlier single-page architecture view. Registered as a projection consumer the validator checks.",
+      "inputs": [
+        "marker block"
+      ],
+      "outputs": [],
+      "state": "Untracked in git (git status ??)",
+      "files": [
+        "docs/architecture.html"
+      ],
+      "sources": [
+        "tools/validate_phase0_integrity.py:325",
+        "docs/architecture.html:193-196"
+      ],
+      "risks": [
+        "Untracked but hard-coded into the validator's consumer list: a clean clone fails the integrity check."
+      ],
+      "evidence": "Marker hash checked by validator.",
+      "metric": {
+        "name": "lines",
+        "value": 1577,
+        "source": "wc -l docs/architecture.html"
+      }
+    },
+    {
+      "id": "learner",
+      "title": "Learner",
+      "subtitle": "the human operator",
+      "tier": "operator",
+      "zone": "z-op",
+      "maturity": "implemented",
+      "inferred": true,
+      "role": "Reads the guides and projection, studies, writes code, runs commands, records blockers. The only actor that can produce evidence.",
+      "inputs": [
+        "checkpoints",
+        "session plan",
+        "lessons",
+        "reservations",
+        "dashboard",
+        "issue IDs"
+      ],
+      "outputs": [
+        "code changes"
+      ],
+      "state": "Self-reported very beginner Python (parallel-policy-v1.json:15)",
+      "files": [
+        "(human)"
+      ],
+      "sources": [
+        "curriculum/START_HERE.md:5-13",
+        "curriculum/START_HERE.md:80-96",
+        "AGENTS.md:10"
+      ],
+      "risks": [],
+      "evidence": "Human actor; not a file.",
+      "metric": {
+        "name": "lines",
+        "value": null,
+        "source": "human"
+      }
+    },
+    {
+      "id": "contract",
+      "title": "CLI contract + fixtures",
+      "subtitle": "6 named fixtures, prose only",
+      "tier": "build",
+      "zone": "z-route",
+      "maturity": "planned",
+      "role": "Shared behavior both CLIs must meet: UTF-8 strict, LF line count, ASCII-whitespace words, one stdout line, exit 0/1/2.",
+      "inputs": [
+        "CLI contract"
+      ],
+      "outputs": [
+        "fixture set"
+      ],
+      "state": "\"proposed acceptance fixtures, not tests that already exist\"",
+      "files": [
+        "curriculum/START_HERE.md (section only)"
+      ],
+      "sources": [
+        "curriculum/START_HERE.md:98-125"
+      ],
+      "risks": [
+        "No fixture files exist on disk; parity has nothing shared to run against."
+      ],
+      "evidence": "No fixture files found.",
+      "metric": {
+        "name": "lines",
+        "value": 28,
+        "source": "START_HERE.md:98-125"
+      }
+    },
+    {
+      "id": "filestats",
+      "title": "file_stats (Python)",
+      "subtitle": "projects/file_stats",
+      "tier": "build",
+      "zone": "z-p0",
+      "maturity": "stub",
+      "role": "Python half of Project 0. Intended: a wc-style CLI. Actual: prints a greeting.",
+      "inputs": [
+        "code changes",
+        "fixture set"
+      ],
+      "outputs": [
+        "CLI output"
+      ],
+      "state": "main.py prints \"Hello from file-stats!\"",
+      "files": [
+        "projects/file_stats/main.py",
+        "projects/file_stats/pyproject.toml",
+        "projects/file_stats/README.md"
+      ],
+      "sources": [
+        "projects/file_stats/main.py:1-6",
+        "projects/file_stats/pyproject.toml:4",
+        "projects/file_stats/pyproject.toml:15-17"
+      ],
+      "risks": [
+        "pytest testpaths = [\"tests\"] but no tests/ directory exists.",
+        "README.md is empty (0 lines)."
+      ],
+      "evidence": "No tests found (pyproject.toml:16 points at a missing directory).",
+      "metric": {
+        "name": "lines",
+        "value": 31,
+        "source": "wc -l main.py (6) + pyproject.toml (25) + README.md (0)"
+      }
+    },
+    {
+      "id": "hellostats",
+      "title": "hello-stats (Rust)",
+      "subtitle": "projects/hello-stats",
+      "tier": "build",
+      "zone": "z-p0",
+      "maturity": "stub",
+      "role": "Rust half of Project 0. Actual: prints a greeting and a multiplication.",
+      "inputs": [
+        "code changes",
+        "fixture set"
+      ],
+      "outputs": [
+        "CLI output"
+      ],
+      "state": "println!(\"Hello, world! : {}\", multiply_this(5., 6.))",
+      "files": [
+        "projects/hello-stats/src/main.rs",
+        "projects/hello-stats/Cargo.toml"
+      ],
+      "sources": [
+        "projects/hello-stats/src/main.rs:1-13",
+        "README.md:49-52"
+      ],
+      "risks": [
+        "cargo test collects zero tests (README.md:51)."
+      ],
+      "evidence": "No tests found.",
+      "metric": {
+        "name": "lines",
+        "value": 19,
+        "source": "wc -l src/main.rs (13) + Cargo.toml (6)"
+      }
+    },
+    {
+      "id": "parity",
+      "title": "Parity comparison",
+      "subtitle": "same fixtures, both CLIs",
+      "tier": "build",
+      "zone": "z-p0",
+      "maturity": "planned",
+      "role": "Run both CLIs on identical fixtures and explain every mismatch (Z8).",
+      "inputs": [
+        "CLI output",
+        "fixture set"
+      ],
+      "outputs": [
+        "parity transcript"
+      ],
+      "state": "pairing.identity_model beginner_checkpoint; pair_cycles 0",
+      "files": [],
+      "sources": [
+        "curriculum/START_HERE.md:68",
+        "docs/ISSUES.md:45",
+        "docs/aegis-phase0-projection.json:461-466"
+      ],
+      "risks": [
+        "Blocked until both CLIs handle files."
+      ],
+      "evidence": "No script or transcript found.",
+      "metric": {
+        "name": "lines",
+        "value": 0,
+        "source": "no files"
+      }
+    },
+    {
+      "id": "exercises",
+      "title": "Course exercises",
+      "subtitle": "PCC · Rustlings · URCC",
+      "tier": "build",
+      "zone": "z-hist",
+      "maturity": "implemented",
+      "role": "Retained exercise work and one file-processing script. Historical fact, no current-period credit.",
+      "inputs": [
+        "code changes"
+      ],
+      "outputs": [
+        "historical artifacts"
+      ],
+      "state": "221 .py/.rs files; 10 compiled Mach-O binaries tracked in git",
+      "files": [
+        "learning-materials/01-foundations/python-crash-course/",
+        "learning-materials/01-foundations/rustlings/",
+        "learning-materials/01-foundations/ultimate-rust-crash-course/"
+      ],
+      "sources": [
+        "learning-materials/01-foundations/python-crash-course/evidence/process_log.py:1-73",
+        "AGENTS.md:29-31",
+        "curriculum/START_HERE.md:54-56"
+      ],
+      "risks": [
+        "Compiled binaries committed (e.g. ultimate-rust-crash-course/ch02_fundamentals/exercise_a_variables)."
+      ],
+      "evidence": "No tests found for process_log.py.",
+      "metric": {
+        "name": "lines",
+        "value": 4772,
+        "source": "wc -l over 221 .py/.rs files, excluding target/ and .venv/"
+      }
+    },
+    {
+      "id": "invaders",
+      "title": "invaders (Rust)",
+      "subtitle": "projects/invaders",
+      "tier": "build",
+      "zone": "z-hist",
+      "maturity": "stub",
+      "role": "Course project skeleton (URCC ch07). Not on the evidence path.",
+      "inputs": [
+        "code changes"
+      ],
+      "outputs": [],
+      "state": "Does not compile: `Ok();` in a fn returning Result",
+      "files": [
+        "projects/invaders/src/main.rs",
+        "projects/invaders/Cargo.toml"
+      ],
+      "sources": [
+        "projects/invaders/src/main.rs:4-8",
+        "AGENTS.md:34-36"
+      ],
+      "risks": [
+        "Compile error at src/main.rs:7.",
+        "Five deleted audio files must stay deleted (AGENTS.md:35)."
+      ],
+      "evidence": "No tests found.",
+      "metric": {
+        "name": "lines",
+        "value": 18,
+        "source": "wc -l src/main.rs (8) + Cargo.toml (10)"
+      }
+    },
+    {
+      "id": "commands",
+      "title": "Observed command runs",
+      "subtitle": "pytest · cargo test · CLI",
+      "tier": "observe",
+      "zone": "z-p0",
+      "maturity": "planned",
+      "role": "The learner runs the CLIs and their tests, capturing working directory, exit code and an output digest.",
+      "inputs": [
+        "CLI output"
+      ],
+      "outputs": [
+        "command result"
+      ],
+      "state": "Python test dir absent; Rust collects zero tests",
+      "files": [],
+      "sources": [
+        "README.md:47-60",
+        "AGENTS.md:56-62",
+        "curriculum/FOUNDATIONS_FAST_TRACK.md:42-45"
+      ],
+      "risks": [
+        "A passing command with zero collected tests is explicitly not evidence (AGENTS.md:31-32)."
+      ],
+      "evidence": "0 meaningful tests exist to run.",
+      "metric": {
+        "name": "lines",
+        "value": 0,
+        "source": "no files"
+      }
+    },
+    {
+      "id": "receipts",
+      "title": "Proof receipts",
+      "subtitle": "progress/proofs/*.json",
+      "tier": "observe",
+      "zone": "z-proof",
+      "maturity": "planned",
+      "role": "phase0-proof.v1 receipt per technical date: artifacts, commands, digests, test count, verdict, blocker, next command.",
+      "inputs": [
+        "command result",
+        "parity transcript",
+        "receipt schema"
+      ],
+      "outputs": [
+        "receipt"
+      ],
+      "state": "0 receipts (directory holds README.md only)",
+      "files": [
+        "progress/proofs/README.md"
+      ],
+      "sources": [
+        "progress/proofs/README.md:1-11",
+        "docs/phase0-proof.schema.json:8-22"
+      ],
+      "risks": [
+        "Empty: the gate has no input today."
+      ],
+      "evidence": "No receipt files found.",
+      "metric": {
+        "name": "lines",
+        "value": 11,
+        "source": "wc -l progress/proofs/README.md"
+      }
+    },
+    {
+      "id": "ledger",
+      "title": "Private ledger",
+      "subtitle": "Aegis evidence close-out",
+      "tier": "external",
+      "zone": "z-proof",
+      "maturity": "implemented",
+      "inferred": true,
+      "role": "Day-to-day private record of proof or no-proof, blocker and next command. Receipts point into it.",
+      "inputs": [
+        "receipt"
+      ],
+      "outputs": [],
+      "state": "Private",
+      "files": [
+        "(outside repo)"
+      ],
+      "sources": [
+        "progress/README.md:6",
+        "progress/proofs/README.md:9-11"
+      ],
+      "risks": [
+        "Two ledgers (private vault and repo receipts) for one fact."
+      ],
+      "evidence": "Outside repo.",
+      "metric": {
+        "name": "lines",
+        "value": null,
+        "source": "outside repository"
+      }
+    },
+    {
+      "id": "schema",
+      "title": "Proof schema v1",
+      "subtitle": "docs/phase0-proof.schema.json",
+      "tier": "verify",
+      "zone": "z-verify",
+      "maturity": "implemented",
+      "role": "JSON Schema for receipts: 14 required fields, additionalProperties false.",
+      "inputs": [],
+      "outputs": [
+        "receipt schema"
+      ],
+      "state": "$id https://aegis.local/schemas/phase0-proof.v1.json",
+      "files": [
+        "docs/phase0-proof.schema.json"
+      ],
+      "sources": [
+        "docs/phase0-proof.schema.json:1-22"
+      ],
+      "risks": [
+        "Not loaded by the validator: the same 14 fields are hand-coded again at tools/validate_phase0_integrity.py:377-392."
+      ],
+      "evidence": "Not referenced by any tool.",
+      "metric": {
+        "name": "lines",
+        "value": 193,
+        "source": "wc -l docs/phase0-proof.schema.json"
+      }
+    },
+    {
+      "id": "policyval",
+      "title": "Beginner policy check",
+      "subtitle": "tools/validate_beginner_policy.py",
+      "tier": "verify",
+      "zone": "z-verify",
+      "maturity": "tested",
+      "role": "Asserts every field of the retired beginner policy and validates Z0 session drafts.",
+      "inputs": [
+        "policy fields"
+      ],
+      "outputs": [
+        "PASS/FAIL"
+      ],
+      "state": "Observed PASS",
+      "files": [
+        "tools/validate_beginner_policy.py",
+        "tests/test_beginner_policy.py"
+      ],
+      "sources": [
+        "tools/validate_beginner_policy.py:14-61",
+        "tests/test_beginner_policy.py:25-72"
+      ],
+      "risks": [
+        "Validates a policy the repo calls historical (RESET_HANDOFF.md:13-14)."
+      ],
+      "evidence": "7 tests in tests/test_beginner_policy.py; observed 7/7 pass.",
+      "metric": {
+        "name": "lines",
+        "value": 113,
+        "source": "wc -l tools/validate_beginner_policy.py"
+      }
+    },
+    {
+      "id": "routeval",
+      "title": "Route validator",
+      "subtitle": "tools/validate_curriculum_route.py",
+      "tier": "verify",
+      "zone": "z-verify",
+      "maturity": "tested",
+      "role": "Checks P0–P12 IDs, single active phase, prerequisite order, no cycles, RL not gating coordination, and file presence in repo and vault.",
+      "inputs": [
+        "route"
+      ],
+      "outputs": [
+        "PASS/FAIL"
+      ],
+      "state": "Needs the vault for vault_path checks",
+      "files": [
+        "tools/validate_curriculum_route.py"
+      ],
+      "sources": [
+        "tools/validate_curriculum_route.py:15-83",
+        "tools/validate_curriculum_route.py:86-99"
+      ],
+      "risks": [
+        "Administrative check: README.md:106 says it is not learning proof."
+      ],
+      "evidence": "Inline --self-test with 6 negative cases.",
+      "metric": {
+        "name": "lines",
+        "value": 111,
+        "source": "wc -l tools/validate_curriculum_route.py"
+      }
+    },
+    {
+      "id": "syntax",
+      "title": "Syntax and diff checks",
+      "subtitle": "node --check · git diff --check",
+      "tier": "verify",
+      "zone": "z-verify",
+      "maturity": "implemented",
+      "role": "Safe checks named in the contract for the PWA scripts and whitespace.",
+      "inputs": [
+        "PWA scripts"
+      ],
+      "outputs": [
+        "exit code"
+      ],
+      "state": "Observed: node --check passes for app.js and sw.js",
+      "files": [],
+      "sources": [
+        "AGENTS.md:70-79",
+        "README.md:96-104"
+      ],
+      "risks": [],
+      "evidence": "Commands only; no script file.",
+      "metric": {
+        "name": "lines",
+        "value": 0,
+        "source": "commands only"
+      }
+    },
+    {
+      "id": "ci",
+      "title": "CI workflow",
+      "subtitle": "none committed",
+      "tier": "verify",
+      "zone": "z-verify",
+      "maturity": "planned",
+      "role": "First minimal workflow is issue P0-W1-L. The P0 exit gate requires CI evidence once a workflow has actually run.",
+      "inputs": [
+        "test suites (planned)"
+      ],
+      "outputs": [
+        "workflow run"
+      ],
+      "state": "No .github/ directory",
+      "files": [],
+      "sources": [
+        "docs/ISSUES.md:42",
+        "curriculum/START_HERE.md:134"
+      ],
+      "risks": [
+        "No automated run of any validator or test on push."
+      ],
+      "evidence": "No workflow files found.",
+      "metric": {
+        "name": "lines",
+        "value": 0,
+        "source": "no files"
+      }
+    },
+    {
+      "id": "integrity",
+      "title": "Integrity validator",
+      "subtitle": "tools/validate_phase0_integrity.py",
+      "tier": "verify",
+      "zone": "z-verify",
+      "maturity": "tested",
+      "role": "Fail-closed gatekeeper. Recomputes the projection from vault sources, checks marker hashes, PWA contract and, with --proof, every receipt rule.",
+      "inputs": [
+        "receipt",
+        "projection v1",
+        "config + manifest",
+        "validator code",
+        "marker digests",
+        "PWA tokens"
+      ],
+      "outputs": [
+        "verdict"
+      ],
+      "state": "Read-only; prints {status, errors}",
+      "files": [
+        "tools/validate_phase0_integrity.py",
+        "tests/test_phase0_integrity.py"
+      ],
+      "sources": [
+        "tools/validate_phase0_integrity.py:132-364",
+        "tools/validate_phase0_integrity.py:375-509",
+        "tools/validate_phase0_integrity.py:512-525"
+      ],
+      "risks": [
+        "Single point of failure for the gate.",
+        "10 of its 20 tests read the private vault by absolute path (tests/test_phase0_integrity.py:152-160, 233-252); they error on any other machine."
+      ],
+      "evidence": "20 tests in tests/test_phase0_integrity.py; observed 10 pass, 10 error without the vault.",
+      "metric": {
+        "name": "lines",
+        "value": 529,
+        "source": "wc -l tools/validate_phase0_integrity.py"
+      }
+    },
+    {
+      "id": "gate",
+      "title": "P0 gate review",
+      "subtitle": "evidence-only decision",
+      "tier": "decide",
+      "zone": "z-gate",
+      "maturity": "planned",
+      "role": "Written decision from observed proof only: both CLIs, fixtures, tests, lint, parity, Linux cold run, CI, Rustlings 50.",
+      "inputs": [
+        "verdict",
+        "workflow run"
+      ],
+      "outputs": [
+        "gate decision"
+      ],
+      "state": "Checkpoints 2026-09-27 · 2026-10-11 · 2027-01-10",
+      "files": [],
+      "sources": [
+        "curriculum/START_HERE.md:127-138",
+        "docs/aegis-phase0-projection.json:29-35",
+        "progress/README.md:64-66"
+      ],
+      "risks": [
+        "Every input is empty today."
+      ],
+      "evidence": "No decision records found.",
+      "metric": {
+        "name": "lines",
+        "value": 12,
+        "source": "START_HERE.md:127-138"
+      }
+    },
+    {
+      "id": "later",
+      "title": "P1–P12 phases",
+      "subtitle": "3 flagships, not started",
+      "tier": "decide",
+      "zone": "z-gate",
+      "maturity": "planned",
+      "role": "Later competencies: Scenario and Evidence Harness, Bounded Rust Runtime, Coordination and Assurance Testbed.",
+      "inputs": [
+        "gate decision",
+        "phase definitions"
+      ],
+      "outputs": [],
+      "state": "All not-started, undated",
+      "files": [
+        "curriculum/COMPETENCY_PATHWAY.md",
+        "curriculum/phases/01…12/README.md"
+      ],
+      "sources": [
+        "curriculum/COMPETENCY_PATHWAY.md:35-61",
+        "curriculum/route-v2.json:34-170",
+        "AGENTS.md:40-41"
+      ],
+      "risks": [],
+      "evidence": "Plans only.",
+      "metric": {
+        "name": "lines",
+        "value": 596,
+        "source": "wc -l COMPETENCY_PATHWAY.md (152) + 12 phase READMEs (444)"
+      }
+    }
+  ],
+  "edges": [
+    {
+      "id": "e-auth-exp",
+      "from": "authority",
+      "to": "exporter",
+      "kind": "config",
+      "payload": "p-config",
+      "sources": [
+        "tools/validate_phase0_integrity.py:145-147",
+        "tools/validate_phase0_integrity.py:309-310"
+      ],
+      "inferred": true
+    },
+    {
+      "id": "e-exp-proj",
+      "from": "exporter",
+      "to": "projection",
+      "kind": "data",
+      "payload": "p-proj",
+      "sources": [
+        "AGENTS.md:18-21",
+        "curriculum/RESET_HANDOFF.md:27"
+      ]
+    },
+    {
+      "id": "e-exp-mark",
+      "from": "exporter",
+      "to": "markers",
+      "kind": "data",
+      "payload": "p-marker",
+      "sources": [
+        "AGENTS.md:18-21",
+        "README.md:66-80"
+      ]
+    },
+    {
+      "id": "e-proj-mark",
+      "from": "projection",
+      "to": "markers",
+      "kind": "config",
+      "payload": "p-digest",
+      "sources": [
+        "tools/validate_phase0_integrity.py:320-335"
+      ]
+    },
+    {
+      "id": "e-auth-cal",
+      "from": "authority",
+      "to": "calendar",
+      "kind": "control",
+      "payload": "p-resv",
+      "sources": [
+        "curriculum/RESET_HANDOFF.md:3-5"
+      ],
+      "inferred": true
+    },
+    {
+      "id": "e-proj-mob",
+      "from": "projection",
+      "to": "mobile",
+      "kind": "data",
+      "payload": "p-proj",
+      "sources": [
+        "mobile/app.js:4",
+        "mobile/app.js:163-174",
+        "mobile/sw.js:35-56"
+      ]
+    },
+    {
+      "id": "e-mark-arch",
+      "from": "markers",
+      "to": "archpage",
+      "kind": "config",
+      "payload": "p-digest",
+      "sources": [
+        "docs/architecture.html:193-196",
+        "tools/validate_phase0_integrity.py:325"
+      ]
+    },
+    {
+      "id": "e-mark-lrn",
+      "from": "markers",
+      "to": "learner",
+      "kind": "data",
+      "payload": "p-marker",
+      "sources": [
+        "README.md:66-80",
+        "curriculum/START_HERE.md:10-13"
+      ]
+    },
+    {
+      "id": "e-mob-lrn",
+      "from": "mobile",
+      "to": "learner",
+      "kind": "data",
+      "payload": "p-dash",
+      "sources": [
+        "mobile/app.js:176-195"
+      ]
+    },
+    {
+      "id": "e-cal-lrn",
+      "from": "calendar",
+      "to": "learner",
+      "kind": "control",
+      "payload": "p-resv",
+      "sources": [
+        "curriculum/PARALLEL_COURSE_MAP.md:35",
+        "curriculum/FOUNDATIONS_FAST_TRACK.md:6"
+      ],
+      "inferred": true
+    },
+    {
+      "id": "e-agt-route",
+      "from": "agents",
+      "to": "route",
+      "kind": "config",
+      "payload": "p-route",
+      "sources": [
+        "AGENTS.md:83-92"
+      ]
+    },
+    {
+      "id": "e-agt-start",
+      "from": "agents",
+      "to": "starthere",
+      "kind": "config",
+      "payload": "p-route",
+      "sources": [
+        "AGENTS.md:83-86",
+        "CLAUDE.md:34"
+      ]
+    },
+    {
+      "id": "e-route-pol",
+      "from": "route",
+      "to": "policy",
+      "kind": "config",
+      "payload": "p-policy",
+      "sources": [
+        "curriculum/route-v2.json:172"
+      ]
+    },
+    {
+      "id": "e-pol-map",
+      "from": "policy",
+      "to": "coursemap",
+      "kind": "config",
+      "payload": "p-policy",
+      "sources": [
+        "AGENTS.md:104-106"
+      ]
+    },
+    {
+      "id": "e-map-lrn",
+      "from": "coursemap",
+      "to": "learner",
+      "kind": "control",
+      "payload": "p-session",
+      "sources": [
+        "curriculum/PARALLEL_COURSE_MAP.md:7-16"
+      ]
+    },
+    {
+      "id": "e-start-lrn",
+      "from": "starthere",
+      "to": "learner",
+      "kind": "control",
+      "payload": "p-check",
+      "sources": [
+        "curriculum/START_HERE.md:52-78"
+      ]
+    },
+    {
+      "id": "e-start-ctr",
+      "from": "starthere",
+      "to": "contract",
+      "kind": "config",
+      "payload": "p-fixture",
+      "sources": [
+        "curriculum/START_HERE.md:98-125"
+      ]
+    },
+    {
+      "id": "e-iss-lrn",
+      "from": "issues",
+      "to": "learner",
+      "kind": "control",
+      "payload": "p-issue",
+      "sources": [
+        "docs/ISSUES.md:31-33"
+      ]
+    },
+    {
+      "id": "e-crs-lrn",
+      "from": "courses",
+      "to": "learner",
+      "kind": "data",
+      "payload": "p-lesson",
+      "sources": [
+        "curriculum/PARALLEL_COURSE_MAP.md:9-13"
+      ]
+    },
+    {
+      "id": "e-lrn-py",
+      "from": "learner",
+      "to": "filestats",
+      "kind": "data",
+      "payload": "p-code",
+      "sources": [
+        "curriculum/START_HERE.md:27-31",
+        "AGENTS.md:25-26"
+      ]
+    },
+    {
+      "id": "e-lrn-rs",
+      "from": "learner",
+      "to": "hellostats",
+      "kind": "data",
+      "payload": "p-code",
+      "sources": [
+        "curriculum/START_HERE.md:67-68",
+        "AGENTS.md:27-28"
+      ]
+    },
+    {
+      "id": "e-lrn-ex",
+      "from": "learner",
+      "to": "exercises",
+      "kind": "data",
+      "payload": "p-code",
+      "sources": [
+        "curriculum/START_HERE.md:54-56"
+      ]
+    },
+    {
+      "id": "e-lrn-inv",
+      "from": "learner",
+      "to": "invaders",
+      "kind": "data",
+      "payload": "p-code",
+      "sources": [
+        "learning-materials/01-foundations/ultimate-rust-crash-course/ch07_invaders_project/notes.md",
+        "projects/invaders/Cargo.toml:1-4"
+      ],
+      "inferred": true
+    },
+    {
+      "id": "e-ctr-py",
+      "from": "contract",
+      "to": "filestats",
+      "kind": "config",
+      "payload": "p-fixture",
+      "sources": [
+        "curriculum/START_HERE.md:100-121"
+      ]
+    },
+    {
+      "id": "e-ctr-rs",
+      "from": "contract",
+      "to": "hellostats",
+      "kind": "config",
+      "payload": "p-fixture",
+      "sources": [
+        "curriculum/START_HERE.md:100-121"
+      ]
+    },
+    {
+      "id": "e-ctr-par",
+      "from": "contract",
+      "to": "parity",
+      "kind": "config",
+      "payload": "p-fixture",
+      "sources": [
+        "curriculum/START_HERE.md:132"
+      ]
+    },
+    {
+      "id": "e-py-cmd",
+      "from": "filestats",
+      "to": "commands",
+      "kind": "data",
+      "payload": "p-cli",
+      "sources": [
+        "README.md:54-58",
+        "projects/file_stats/pyproject.toml:15-18"
+      ]
+    },
+    {
+      "id": "e-rs-cmd",
+      "from": "hellostats",
+      "to": "commands",
+      "kind": "data",
+      "payload": "p-cli",
+      "sources": [
+        "README.md:57"
+      ]
+    },
+    {
+      "id": "e-py-par",
+      "from": "filestats",
+      "to": "parity",
+      "kind": "data",
+      "payload": "p-cli",
+      "sources": [
+        "curriculum/START_HERE.md:68"
+      ]
+    },
+    {
+      "id": "e-rs-par",
+      "from": "hellostats",
+      "to": "parity",
+      "kind": "data",
+      "payload": "p-cli",
+      "sources": [
+        "curriculum/START_HERE.md:68"
+      ]
+    },
+    {
+      "id": "e-py-ci",
+      "from": "filestats",
+      "to": "ci",
+      "kind": "data",
+      "payload": "p-cmd",
+      "sources": [
+        "docs/ISSUES.md:42"
+      ],
+      "inferred": true
+    },
+    {
+      "id": "e-rs-ci",
+      "from": "hellostats",
+      "to": "ci",
+      "kind": "data",
+      "payload": "p-cmd",
+      "sources": [
+        "docs/ISSUES.md:42"
+      ],
+      "inferred": true
+    },
+    {
+      "id": "e-cmd-rcpt",
+      "from": "commands",
+      "to": "receipts",
+      "kind": "data",
+      "payload": "p-cmd",
+      "sources": [
+        "tools/validate_phase0_integrity.py:446-472",
+        "progress/proofs/README.md:3-7"
+      ]
+    },
+    {
+      "id": "e-par-rcpt",
+      "from": "parity",
+      "to": "receipts",
+      "kind": "data",
+      "payload": "p-cmd",
+      "sources": [
+        "docs/ISSUES.md:45"
+      ]
+    },
+    {
+      "id": "e-sch-rcpt",
+      "from": "schema",
+      "to": "receipts",
+      "kind": "config",
+      "payload": "p-receipt",
+      "sources": [
+        "progress/proofs/README.md:3"
+      ]
+    },
+    {
+      "id": "e-rcpt-int",
+      "from": "receipts",
+      "to": "integrity",
+      "kind": "data",
+      "payload": "p-receipt",
+      "sources": [
+        "tools/validate_phase0_integrity.py:375-509",
+        "tools/validate_phase0_integrity.py:522-523"
+      ]
+    },
+    {
+      "id": "e-rcpt-led",
+      "from": "receipts",
+      "to": "ledger",
+      "kind": "data",
+      "payload": "p-receipt",
+      "sources": [
+        "progress/proofs/README.md:9-11"
+      ],
+      "inferred": true
+    },
+    {
+      "id": "e-proj-int",
+      "from": "projection",
+      "to": "integrity",
+      "kind": "config",
+      "payload": "p-proj",
+      "sources": [
+        "tools/validate_phase0_integrity.py:401-425",
+        "tools/validate_phase0_integrity.py:520-521"
+      ]
+    },
+    {
+      "id": "e-auth-int",
+      "from": "authority",
+      "to": "integrity",
+      "kind": "config",
+      "payload": "p-config",
+      "sources": [
+        "tools/validate_phase0_integrity.py:145-168"
+      ]
+    },
+    {
+      "id": "e-exp-int",
+      "from": "exporter",
+      "to": "integrity",
+      "kind": "control",
+      "payload": "p-import",
+      "sources": [
+        "tools/validate_phase0_integrity.py:96-105",
+        "tools/validate_phase0_integrity.py:309"
+      ]
+    },
+    {
+      "id": "e-mark-int",
+      "from": "markers",
+      "to": "integrity",
+      "kind": "config",
+      "payload": "p-digest",
+      "sources": [
+        "tools/validate_phase0_integrity.py:320-338"
+      ]
+    },
+    {
+      "id": "e-mob-int",
+      "from": "mobile",
+      "to": "integrity",
+      "kind": "config",
+      "payload": "p-pwa",
+      "sources": [
+        "tools/validate_phase0_integrity.py:340-363"
+      ]
+    },
+    {
+      "id": "e-mob-syn",
+      "from": "mobile",
+      "to": "syntax",
+      "kind": "config",
+      "payload": "p-pwa",
+      "sources": [
+        "AGENTS.md:75-78"
+      ]
+    },
+    {
+      "id": "e-route-val",
+      "from": "route",
+      "to": "routeval",
+      "kind": "config",
+      "payload": "p-route",
+      "sources": [
+        "tools/validate_curriculum_route.py:106-109"
+      ]
+    },
+    {
+      "id": "e-beg-val",
+      "from": "beginner",
+      "to": "policyval",
+      "kind": "config",
+      "payload": "p-policy",
+      "sources": [
+        "tools/validate_beginner_policy.py:14",
+        "tools/validate_beginner_policy.py:102"
+      ]
+    },
+    {
+      "id": "e-int-gate",
+      "from": "integrity",
+      "to": "gate",
+      "kind": "data",
+      "payload": "p-verdict",
+      "sources": [
+        "tools/validate_phase0_integrity.py:524-525",
+        "progress/proofs/README.md:3-7"
+      ]
+    },
+    {
+      "id": "e-ci-gate",
+      "from": "ci",
+      "to": "gate",
+      "kind": "telemetry",
+      "payload": "p-cmd",
+      "sources": [
+        "curriculum/START_HERE.md:134"
+      ]
+    },
+    {
+      "id": "e-gate-later",
+      "from": "gate",
+      "to": "later",
+      "kind": "control",
+      "payload": "p-gate",
+      "sources": [
+        "curriculum/START_HERE.md:127-141",
+        "AGENTS.md:40-41"
+      ]
+    },
+    {
+      "id": "e-route-later",
+      "from": "route",
+      "to": "later",
+      "kind": "config",
+      "payload": "p-route",
+      "sources": [
+        "curriculum/route-v2.json:34-170"
+      ]
+    },
+    {
+      "id": "e-gate-iss",
+      "from": "gate",
+      "to": "issues",
+      "kind": "config",
+      "payload": "p-gate",
+      "feedback": true,
+      "sources": [
+        "progress/README.md:64-66"
+      ]
+    },
+    {
+      "id": "x-cal-rcpt",
+      "from": "calendar",
+      "to": "receipts",
+      "kind": "data",
+      "payload": "p-resv",
+      "blocked": "Schedule and task state cannot be proof",
+      "short": "Schedule ≠ proof",
+      "sources": [
+        "tools/validate_phase0_integrity.py:486-487",
+        "docs/aegis-phase0-projection.json:642-643"
+      ]
+    },
+    {
+      "id": "x-endr-rcpt",
+      "from": "endr",
+      "to": "receipts",
+      "kind": "data",
+      "payload": "p-code",
+      "blocked": "endr never earns Foundation credit",
+      "short": "No company credit",
+      "sources": [
+        "AGENTS.md:60-62"
+      ]
+    },
+    {
+      "id": "x-ex-rcpt",
+      "from": "exercises",
+      "to": "receipts",
+      "kind": "data",
+      "payload": "p-code",
+      "blocked": "Historical: no duplicate current credit",
+      "short": "No duplicate credit",
+      "sources": [
+        "AGENTS.md:29-31"
+      ]
+    },
+    {
+      "id": "x-rv-gate",
+      "from": "routeval",
+      "to": "gate",
+      "kind": "telemetry",
+      "payload": "p-verdict",
+      "blocked": "Administrative check, not learning proof",
+      "short": "Admin ≠ proof",
+      "sources": [
+        "README.md:106"
+      ]
+    }
+  ],
+  "payloads": [
+    {
+      "id": "p-config",
+      "name": "Phase Config + manifest",
+      "kind": "config",
+      "fields": [
+        {
+          "name": "active_calendar_manifest",
+          "type": "path"
+        },
+        {
+          "name": "active_calendar_manifest_sha256",
+          "type": "hex64"
+        },
+        {
+          "name": "calendar_reset_id",
+          "type": "str"
+        },
+        {
+          "name": "reset_cutover",
+          "type": "iso8601"
+        },
+        {
+          "name": "manifest_horizon_cutoff",
+          "type": "iso8601"
+        },
+        {
+          "name": "events[].{lane,kind,active,date,load_bucket}",
+          "type": "rows"
+        }
+      ],
+      "example": null,
+      "sources": [
+        "tools/validate_phase0_integrity.py:145-190"
+      ]
+    },
+    {
+      "id": "p-proj",
+      "name": "aegis.phase0-projection.v1",
+      "kind": "data",
+      "fields": [
+        {
+          "name": "authority.reset_id",
+          "type": "str"
+        },
+        {
+          "name": "authority.manifest_sha256",
+          "type": "hex64"
+        },
+        {
+          "name": "period.{start,end}",
+          "type": "date"
+        },
+        {
+          "name": "checkpoints",
+          "type": "dates"
+        },
+        {
+          "name": "counts",
+          "type": "int map"
+        },
+        {
+          "name": "technical_dates",
+          "type": "date[83]"
+        },
+        {
+          "name": "evidence.schedule_is_evidence",
+          "type": "false"
+        },
+        {
+          "name": "consumer_contract.documents",
+          "type": "path[14]"
+        }
+      ],
+      "example": "{\"authority\":{\"reset_id\":\"FINAL-2026-09-21-1730-PHASE0\"},\"counts\":{\"events\":526,\"python\":37,\"rust\":38}}",
+      "sources": [
+        "docs/aegis-phase0-projection.json:1-44"
+      ]
+    },
+    {
+      "id": "p-marker",
+      "name": "Generated marker block",
+      "kind": "data",
+      "fields": [
+        {
+          "name": "marker_start",
+          "type": "<!-- AEGIS:PHASE0_PROJECTION:START -->"
+        },
+        {
+          "name": "body",
+          "type": "markdown"
+        },
+        {
+          "name": "projection-json-sha256",
+          "type": "hex64"
+        },
+        {
+          "name": "marker_end",
+          "type": "html comment"
+        }
+      ],
+      "example": "<!-- projection-json-sha256: e96b35ec9d43329a8f465facadca664e4576b21816a8404df9040c4e57bf0516 -->",
+      "sources": [
+        "README.md:66-80"
+      ]
+    },
+    {
+      "id": "p-digest",
+      "name": "Projection digest",
+      "kind": "config",
+      "fields": [
+        {
+          "name": "projection-json-sha256",
+          "type": "hex64"
+        }
+      ],
+      "example": "e96b35ec9d43329a8f465facadca664e4576b21816a8404df9040c4e57bf0516",
+      "sources": [
+        "tools/validate_phase0_integrity.py:320-335"
+      ]
+    },
+    {
+      "id": "p-resv",
+      "name": "Reservation",
+      "kind": "control",
+      "fields": [
+        {
+          "name": "status",
+          "type": "scheduled_unverified"
+        },
+        {
+          "name": "gate_evidence",
+          "type": "false"
+        },
+        {
+          "name": "lane",
+          "type": "python|rust|research|endr|…"
+        }
+      ],
+      "example": "{\"status\":\"scheduled_unverified\",\"gate_evidence\":false}",
+      "sources": [
+        "tools/validate_beginner_policy.py:88-89",
+        "docs/aegis-phase0-projection.json:626"
+      ]
+    },
+    {
+      "id": "p-dash",
+      "name": "Rendered week view",
+      "kind": "data",
+      "fields": [
+        {
+          "name": "label",
+          "type": "str"
+        },
+        {
+          "name": "dates",
+          "type": "str"
+        },
+        {
+          "name": "focus",
+          "type": "str"
+        },
+        {
+          "name": "actions",
+          "type": "str[]"
+        }
+      ],
+      "example": null,
+      "sources": [
+        "mobile/app.js:141-160"
+      ]
+    },
+    {
+      "id": "p-route",
+      "name": "Curriculum route v2",
+      "kind": "config",
+      "fields": [
+        {
+          "name": "active_phase",
+          "type": "\"P0\""
+        },
+        {
+          "name": "core_order",
+          "type": "int[9]"
+        },
+        {
+          "name": "optional_modules",
+          "type": "int[4]"
+        },
+        {
+          "name": "phases[].{id,title,role,prerequisites,status}",
+          "type": "row[13]"
+        }
+      ],
+      "example": "{\"id\":\"P0\",\"status\":\"active-proof-unverified\",\"prerequisites\":[]}",
+      "sources": [
+        "curriculum/route-v2.json:1-33"
+      ]
+    },
+    {
+      "id": "p-policy",
+      "name": "Learning policy",
+      "kind": "config",
+      "fields": [
+        {
+          "name": "tracks",
+          "type": "str[5]"
+        },
+        {
+          "name": "primary_sources",
+          "type": "map"
+        },
+        {
+          "name": "rust_requires_python_completion",
+          "type": "bool"
+        },
+        {
+          "name": "daily_paper_quota",
+          "type": "int"
+        },
+        {
+          "name": "foundation_gate_lanes",
+          "type": "str[4]"
+        }
+      ],
+      "example": "{\"rust_requires_python_completion\":false,\"daily_paper_quota\":0}",
+      "sources": [
+        "curriculum/parallel-policy-v1.json:1-29"
+      ]
+    },
+    {
+      "id": "p-session",
+      "name": "Session plan",
+      "kind": "control",
+      "fields": [
+        {
+          "name": "track",
+          "type": "str"
+        },
+        {
+          "name": "primary course",
+          "type": "str"
+        },
+        {
+          "name": "session length",
+          "type": "2–3 h"
+        }
+      ],
+      "example": null,
+      "sources": [
+        "curriculum/PARALLEL_COURSE_MAP.md:7-14"
+      ]
+    },
+    {
+      "id": "p-check",
+      "name": "Checkpoint Z0–Z9",
+      "kind": "control",
+      "fields": [
+        {
+          "name": "checkpoint",
+          "type": "Z0…Z9"
+        },
+        {
+          "name": "learn",
+          "type": "str"
+        },
+        {
+          "name": "do",
+          "type": "str"
+        },
+        {
+          "name": "ready when",
+          "type": "str"
+        }
+      ],
+      "example": "Z4 · Files and failures: read a tiny file; handle a missing file deliberately",
+      "sources": [
+        "curriculum/START_HERE.md:58-69"
+      ]
+    },
+    {
+      "id": "p-issue",
+      "name": "Issue ID",
+      "kind": "control",
+      "fields": [
+        {
+          "name": "id",
+          "type": "P0-Wn-X"
+        },
+        {
+          "name": "status",
+          "type": "not-started"
+        },
+        {
+          "name": "acceptance",
+          "type": "str"
+        }
+      ],
+      "example": "P0-W1-L · not-started · Add the first minimal CI workflow",
+      "sources": [
+        "docs/ISSUES.md:37-48"
+      ]
+    },
+    {
+      "id": "p-lesson",
+      "name": "Course lesson",
+      "kind": "data",
+      "fields": [
+        {
+          "name": "track",
+          "type": "python|rust|agents|defense-ai|warfare"
+        },
+        {
+          "name": "source",
+          "type": "course id"
+        }
+      ],
+      "example": "{\"rust\":\"udemy-ultimate-rust-crash-course\"}",
+      "sources": [
+        "curriculum/parallel-policy-v1.json:6-12"
+      ]
+    },
+    {
+      "id": "p-code",
+      "name": "Learner code change",
+      "kind": "data",
+      "fields": [
+        {
+          "name": "changed_paths",
+          "type": "path[]"
+        }
+      ],
+      "example": null,
+      "sources": [
+        "tools/validate_phase0_integrity.py:385-386"
+      ]
+    },
+    {
+      "id": "p-fixture",
+      "name": "Shared fixture",
+      "kind": "config",
+      "fields": [
+        {
+          "name": "input",
+          "type": "bytes"
+        },
+        {
+          "name": "lines",
+          "type": "int"
+        },
+        {
+          "name": "words",
+          "type": "int"
+        },
+        {
+          "name": "bytes",
+          "type": "int"
+        }
+      ],
+      "example": "`alpha beta\\n` → lines 1 · words 2 · bytes 11",
+      "sources": [
+        "curriculum/START_HERE.md:113-120"
+      ]
+    },
+    {
+      "id": "p-cli",
+      "name": "CLI result line",
+      "kind": "data",
+      "fields": [
+        {
+          "name": "stdout",
+          "type": "lines=<n> words=<n> bytes=<n>\\n"
+        },
+        {
+          "name": "exit",
+          "type": "0 ok · 1 read/decode · 2 usage"
+        },
+        {
+          "name": "stderr",
+          "type": "diagnostic on failure"
+        }
+      ],
+      "example": "lines=1 words=1 bytes=6   (fixture UTF-8 `café\\n`)",
+      "sources": [
+        "curriculum/START_HERE.md:107-109",
+        "curriculum/START_HERE.md:119"
+      ]
+    },
+    {
+      "id": "p-cmd",
+      "name": "Command result",
+      "kind": "data",
+      "fields": [
+        {
+          "name": "command",
+          "type": "str"
+        },
+        {
+          "name": "working_directory",
+          "type": "abs path"
+        },
+        {
+          "name": "exit_code",
+          "type": "int"
+        },
+        {
+          "name": "expected_exit_code",
+          "type": "int"
+        },
+        {
+          "name": "output_digest",
+          "type": "sha256:hex64"
+        }
+      ],
+      "example": "{\"command\":\"python3 -m unittest tests/test_phase0_integrity.py\",\"exit_code\":0,\"expected_exit_code\":0}  (test fixture)",
+      "sources": [
+        "tools/validate_phase0_integrity.py:453-472",
+        "tests/test_phase0_integrity.py:39-47"
+      ]
+    },
+    {
+      "id": "p-receipt",
+      "name": "phase0-proof.v1 receipt",
+      "kind": "data",
+      "fields": [
+        {
+          "name": "schema_version",
+          "type": "\"phase0-proof.v1\""
+        },
+        {
+          "name": "reset_id",
+          "type": "str"
+        },
+        {
+          "name": "date",
+          "type": "date"
+        },
+        {
+          "name": "artifact_paths",
+          "type": "path[]"
+        },
+        {
+          "name": "command_results",
+          "type": "CommandResult[]"
+        },
+        {
+          "name": "test_count",
+          "type": "int ≥ 0"
+        },
+        {
+          "name": "verdict",
+          "type": "verified|partial|blocked|unverified"
+        },
+        {
+          "name": "blocker",
+          "type": "str|null"
+        },
+        {
+          "name": "next_command",
+          "type": "str"
+        },
+        {
+          "name": "evidence_basis",
+          "type": "{artifacts_observed, commands_observed, schedule_only, task_state_only}"
+        }
+      ],
+      "example": "{\"verdict\":\"verified\",\"test_count\":1,\"blocker\":null}  (test fixture)",
+      "sources": [
+        "docs/phase0-proof.schema.json:8-22",
+        "tests/test_phase0_integrity.py:33-60"
+      ]
+    },
+    {
+      "id": "p-import",
+      "name": "Imported validator code",
+      "kind": "control",
+      "fields": [
+        {
+          "name": "effective_projection_source",
+          "type": "fn"
+        },
+        {
+          "name": "projection_manifest_contract",
+          "type": "fn"
+        },
+        {
+          "name": "load_effective_manifest",
+          "type": "fn"
+        },
+        {
+          "name": "build_projection",
+          "type": "fn (v6)"
+        }
+      ],
+      "example": null,
+      "sources": [
+        "tools/validate_phase0_integrity.py:99-103",
+        "tools/validate_phase0_integrity.py:309"
+      ]
+    },
+    {
+      "id": "p-pwa",
+      "name": "PWA contract tokens",
+      "kind": "config",
+      "fields": [
+        {
+          "name": "fetch of ../docs/aegis-phase0-projection.json",
+          "type": "required"
+        },
+        {
+          "name": "networkFirstProjection",
+          "type": "required"
+        },
+        {
+          "name": "setTaskComplete",
+          "type": "forbidden"
+        }
+      ],
+      "example": null,
+      "sources": [
+        "tools/validate_phase0_integrity.py:346-363"
+      ]
+    },
+    {
+      "id": "p-verdict",
+      "name": "Validator verdict",
+      "kind": "data",
+      "fields": [
+        {
+          "name": "status",
+          "type": "PASS|FAIL"
+        },
+        {
+          "name": "errors",
+          "type": "str[]"
+        }
+      ],
+      "example": "{\"status\":\"FAIL\",\"errors\":[\"verified proof requires at least one collected test\"]}",
+      "sources": [
+        "tools/validate_phase0_integrity.py:491-493",
+        "tools/validate_phase0_integrity.py:524"
+      ]
+    },
+    {
+      "id": "p-gate",
+      "name": "Gate decision",
+      "kind": "control",
+      "inferred": true,
+      "fields": [
+        {
+          "name": "decision",
+          "type": "written; evidence-only"
+        },
+        {
+          "name": "named gaps",
+          "type": "str[]"
+        }
+      ],
+      "example": null,
+      "sources": [
+        "curriculum/START_HERE.md:127-141",
+        "docs/ISSUES.md:95"
+      ]
+    }
+  ],
+  "tour": [
+    {
+      "id": "t1",
+      "title": "Authority lives outside the repo",
+      "focus": [
+        "authority",
+        "exporter",
+        "calendar"
+      ],
+      "edges": [
+        "e-auth-exp",
+        "e-auth-cal"
+      ],
+      "narration": "Every date, count and capacity figure starts in a private vault: a Phase Config and a sealed manifest. The repository never decides schedule facts. It receives them from a publisher script and must match them byte for byte."
+    },
+    {
+      "id": "t2",
+      "title": "A hash-stamped projection is published",
+      "focus": [
+        "projection",
+        "markers",
+        "archpage"
+      ],
+      "edges": [
+        "e-exp-proj",
+        "e-exp-mark",
+        "e-proj-mark",
+        "e-mark-arch"
+      ],
+      "narration": "The exporter writes one JSON projection and 14 generated blocks into repository docs. Each block carries the projection's SHA-256, so any drift between the copies is detectable."
+    },
+    {
+      "id": "t3",
+      "title": "Policy routes the learner",
+      "focus": [
+        "agents",
+        "route",
+        "policy",
+        "starthere",
+        "coursemap",
+        "issues"
+      ],
+      "edges": [
+        "e-agt-route",
+        "e-agt-start",
+        "e-route-pol",
+        "e-pol-map"
+      ],
+      "narration": "AGENTS.md sets precedence. route-v2 fixes the P0–P12 graph with only P0 active. The parallel policy runs five tracks at once, one course each. Start Here defines checkpoints Z0–Z9 and the Project 0 contract."
+    },
+    {
+      "id": "t4",
+      "title": "One human operator",
+      "focus": [
+        "learner",
+        "mobile",
+        "courses"
+      ],
+      "edges": [
+        "e-mark-lrn",
+        "e-mob-lrn",
+        "e-cal-lrn",
+        "e-map-lrn",
+        "e-start-lrn",
+        "e-iss-lrn",
+        "e-crs-lrn"
+      ],
+      "narration": "Six inputs converge on the learner, who is the only actor able to create evidence. The phone view renders the projection read-only; its scratch note is explicitly not evidence."
+    },
+    {
+      "id": "t5",
+      "title": "Project 0: the only product code",
+      "focus": [
+        "contract",
+        "filestats",
+        "hellostats",
+        "parity"
+      ],
+      "edges": [
+        "e-start-ctr",
+        "e-lrn-py",
+        "e-lrn-rs",
+        "e-ctr-py",
+        "e-ctr-rs",
+        "e-ctr-par"
+      ],
+      "narration": "A wc-style CLI in Python and Rust against six shared fixtures. Today file_stats prints a greeting in 6 lines and hello-stats multiplies two numbers in 13. The fixtures exist only as a table in prose."
+    },
+    {
+      "id": "t6",
+      "title": "The evidence firewall",
+      "focus": [
+        "commands",
+        "receipts",
+        "calendar",
+        "endr",
+        "exercises"
+      ],
+      "edges": [
+        "e-cmd-rcpt",
+        "e-par-rcpt",
+        "e-sch-rcpt",
+        "x-cal-rcpt",
+        "x-endr-rcpt",
+        "x-ex-rcpt"
+      ],
+      "narration": "Only observed commands become phase0-proof.v1 receipts. Calendar state, endr work and historical coursework are refused by rule. The receipts directory is empty: there are no tests to observe yet."
+    },
+    {
+      "id": "t7",
+      "title": "Fail-closed verification",
+      "focus": [
+        "integrity",
+        "schema",
+        "routeval",
+        "policyval"
+      ],
+      "edges": [
+        "e-rcpt-int",
+        "e-proj-int",
+        "e-auth-int",
+        "e-exp-int",
+        "e-mark-int",
+        "e-mob-int"
+      ],
+      "narration": "The integrity validator re-derives the projection from vault sources, checks marker hashes and the PWA contract, and rejects any receipt with zero tests or unobserved output. It imports code from the private vault to do so."
+    },
+    {
+      "id": "t8",
+      "title": "The gate is starved",
+      "focus": [
+        "gate",
+        "later",
+        "integrity",
+        "ci"
+      ],
+      "edges": [
+        "e-int-gate",
+        "e-ci-gate",
+        "e-gate-later",
+        "x-rv-gate"
+      ],
+      "narration": "The P0 gate accepts only verified receipts and CI evidence. None exist: no receipts, no workflow, no tests. About 1,200 lines of validator and test code guard 19 lines of Project 0 code. The next unit of value is one real test in file_stats."
+    }
+  ]
+}

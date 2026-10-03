@@ -1,15 +1,14 @@
-# Doctrine, Policy, and Ethics
+# Assurance and test evaluation
 
-**Primary phase:** P11, run in parallel with later technical phases
+**Curriculum v2 · prepared 2026-09-19 · P11 integrated review; practices from P1.**
 
-## Primary sources
+Link concrete requirements to controls and observed tests. Study primary doctrine/security guidance for actual questions; reading does not establish certification or authority.
 
-DoDD 3000.09, DoD AI Ethical Principles, the Responsible AI Strategy and Implementation Pathway, ICRC autonomous-weapons positions, UNIDIR analysis, and system-safety/test-and-evaluation guidance.
+Read [Start Here](../../curriculum/START_HERE.md), [Resource Spine](../../curriculum/RESOURCE_SPINE.md)
+and [the full route](../../curriculum/COMPETENCY_PATHWAY.md). One primary source
+serves the current artifact; the retained resources below are a reference menu.
+They do not add courses, deadlines or completion credit.
 
-## Books
+## Retained source folders
 
-*Army of None*, *Four Battlegrounds*, *The Kill Chain*, *Unit X*, and *Wired for War*.
-
-## Evidence
-
-A 3–5 page meaningful-human-control essay scoped to an actual gaze-directed reconnaissance system, with primary-source citations and concrete design consequences.
+Use the selected primary documentation in Resource Spine; no extra course is required.

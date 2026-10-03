@@ -1,10 +1,23 @@
-# Python Crash Course
+# Python Crash Course, 3rd Edition
 
-**Source:** Eric Matthes, *Python Crash Course*  
+> **Current parallel routing:** PCC 3e is the selected Python teaching source.
+> Use the [first learning week](../../../curriculum/FOUNDATIONS_FAST_TRACK.md)
+> and [Start Here](../../../curriculum/START_HERE.md), alongside Rust and agent
+> basics. Preserve historical exercise/completion facts without duplicate credit.
+
+
+**Source:** Eric Matthes, [Python Crash Course, 3rd Edition](https://learning.oreilly.com/library/view/python-crash-course/9781098156664/)
+
 **Cost:** paid book  
-**Activation:** P0 gap-fill reference; no fixed week
+**Activation:** P0 selected teaching source; exact dates come from private Aegis authority
 
-## Chapters
+## Issue-bound chapter map
+
+Begin with the short diagnostic and skip independently recalled basics. Use the
+selected section to learn a concept, change its example and explain the result.
+The current 2–3-hour studio includes teaching, practice and short breaks; the
+old instruction-percentage cap does not apply. Brian Okken's testing book is a
+later targeted reference when a concrete testing gap needs it.
 
 1. Getting started.
 2. Variables and simple data types.
@@ -15,9 +28,15 @@
 7. User input and `while` loops.
 8. Functions.
 
+Chapter 10 supplies the first-week file/error introduction and Chapter 11 the
+first meaningful test when their prerequisites are understood. The chapter
+numbers are concept pointers, not a required whole-book sequence. Skip the
+book's game, visualization and web-app projects during P0. Keep the existing
+project's Python 3.11 compatibility.
+
 ## Evidence
 
-Turn the concepts into a file-processing script. Do not treat chapter exercises alone as completion; the output must read a path, handle malformed input, and produce useful results.
+Apply the concept to the canonical `projects/file_stats` artifact. Do not treat chapter exercises alone as completion; record actual command/output for the oldest unmet criterion, plus the source resume point. The historical practice layout below is preserved, not a second active project or a source of duplicate current-period credit.
 
 ## Practice layout
 

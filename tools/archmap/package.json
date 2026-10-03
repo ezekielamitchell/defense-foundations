@@ -1,0 +1,1 @@
+{"name":"defense-foundations-archmap","private":true,"version":"3.0.0","type":"module","devDependencies":{"three":"0.186.0","esbuild":"0.28.2"},"scripts":{"bundle":"esbuild web/main.js --bundle --format=iife --minify --legal-comments=inline --target=es2020 --outfile=.artifacts/bundle.js"}}

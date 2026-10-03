@@ -1,13 +1,14 @@
-# Gaze and Human-Machine Teaming
+# Human authority; optional gaze
 
-**Primary phase:** P10
+**Curriculum v2 · prepared 2026-09-19 · P8 core; gaze optional.**
 
-This group builds on CASEset and GDARS rather than a single course.
+Prioritize approval, pause, abort, confidence, expiry and lost-link tests. Gaze and head pose are optional research signals, not prerequisites for human control.
 
-## Sequence
+Read [Start Here](../../curriculum/START_HERE.md), [Resource Spine](../../curriculum/RESOURCE_SPINE.md)
+and [the full route](../../curriculum/COMPETENCY_PATHWAY.md). One primary source
+serves the current artifact; the retained resources below are a reference menu.
+They do not add courses, deadlines or completion credit.
 
-Appearance-based gaze benchmarks → head pose and calibration → streaming inference → attention-priority routing → mixed-initiative interaction → trust calibration → with/without-gaze ablation.
+## Retained source folders
 
-## Evidence
-
-Measured angular error, latency, calibration behavior, and autonomy impact. See [gaze/HMT research](../../research/gaze-hmt-policy/README.md).
+Use the selected primary documentation in Resource Spine; no extra course is required.

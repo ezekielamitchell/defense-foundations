@@ -1,8 +1,11 @@
 # Mastering Data Structures and Algorithms in C/C++
 
+> **Curriculum v2 routing (2026-09-19):** This is a retained resource/exercise record. Use [Resource Spine](../../../curriculum/RESOURCE_SPINE.md) for current prepared teaching order and [Start Here](../../../curriculum/START_HERE.md) for the complete-beginner entry. Older course quotas, month bands and prior source priority below are reference history; existing sealed schedule rules persist only until the separate reset. Preserve historical exercise/completion facts.
+
+
 **Source:** [Udemy](https://www.udemy.com/course/datastructurescncpp/) — Abdul Bari  
 **Catalog:** course #10  
-**Activation:** optional all year; maximum one hour/week by default
+**Activation:** pull-only after P1 promotion or for a verified role-specific interview gap
 
 ## Pull these modules
 

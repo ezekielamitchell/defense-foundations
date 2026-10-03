@@ -1,14 +1,14 @@
-# Rust Systems
+# Reliable Rust services
 
-**Primary phase:** P4
+**Curriculum v2 · prepared 2026-09-19 · P4.**
 
-This is the distributed-systems and telemetry layer of the autonomy stack: the networked, async services that move sensor data and commands reliably between platforms. Frame the work as infrastructure for sensor networks and robot fleets, not as standalone CLIs.
+Tokio/Serde support a bounded task worker. Measure queues, duplicate messages, stale state, retries, disconnect/restart and recovery. Synthetic tasks are enough; a trained model is not required.
 
-## Materials
+Read [Start Here](../../curriculum/START_HERE.md), [Resource Spine](../../curriculum/RESOURCE_SPINE.md)
+and [the full route](../../curriculum/COMPETENCY_PATHWAY.md). One primary source
+serves the current artifact; the retained resources below are a reference menu.
+They do not add courses, deadlines or completion credit.
 
-- [Learn Rust by Building Real Applications](learn-rust-real-applications/README.md) — Catalog #4.
-- Official Tokio, Serde, tracing, Axum/Actix, Criterion, PyO3, and Maturin documentation as project needs demand.
+## Retained source folders
 
-## Evidence theme
-
-Mission-log replay, dataset validation, telemetry services, structured logs, graceful shutdown, tests, and benchmarks.
+- [learn-rust-real-applications](learn-rust-real-applications/README.md)

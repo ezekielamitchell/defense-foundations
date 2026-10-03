@@ -1,0 +1,57 @@
+{
+  "schema_version": "aegis.phase0-public-projection.v1",
+  "audience": "public educational summary",
+  "phase": {
+    "active": "P0",
+    "status": "active; current-period work unverified",
+    "later_phases": "not started"
+  },
+  "curriculum": {
+    "core_route": [
+      "P0",
+      "P1",
+      "P2",
+      "P4",
+      "P6",
+      "P8",
+      "P10",
+      "P11",
+      "P12"
+    ],
+    "optional_depth": [
+      "P3",
+      "P5",
+      "P7",
+      "P9"
+    ],
+    "parallel_topics": [
+      "Rust",
+      "Python",
+      "AI agents",
+      "battlefield AI",
+      "warfare"
+    ],
+    "language_priority": {
+      "primary": "Rust",
+      "secondary": "Python"
+    },
+    "source_policy": "Primary courses use only O'Reilly or Coursera, with one course per track; official documentation remains reference material.",
+    "intro_policy": "Begin with orientation and selected beginner essentials, with no inherited credit. Then use Project 0 and bounded agent practice to identify specific gaps and apply focused lessons immediately."
+  },
+  "project0": {
+    "python": "projects/file_stats",
+    "rust": "projects/hello-stats",
+    "contract": "Independently prove the same file-statistics behavior on identical fixtures.",
+    "proof": "Record the artifact, working directory, command, exit code, observed output, changed paths, verdict, blocker, and next command."
+  },
+  "evidence": {
+    "verified_current_period_foundation_work": 0,
+    "schedule_is_evidence": false,
+    "task_state_is_evidence": false,
+    "later_phase_promotion": "none"
+  },
+  "source": {
+    "kind": "privacy-filtered projection of validated private authority",
+    "schedule": "Consult the private calendar and Aegis plan for current reservations."
+  }
+}

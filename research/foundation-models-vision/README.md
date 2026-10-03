@@ -1,5 +1,8 @@
 # Foundation Models and Vision Research
 
+> **Prepared beginner route:** Research is a later, question-driven reference. No paper or topic here is a prerequisite for beginning P0. The existing paper schedule is unchanged until the separate reset; [the revised route](../../curriculum/COMPETENCY_PATHWAY.md) proposes optional beginner research and keeps advanced topics gated.
+
+
 ## Queue
 
 | Work | Why it matters |
@@ -13,4 +16,4 @@
 
 ## Curriculum connection
 
-P7 self-attention/ViT work and DINOv2 fine-tuning, feeding the P12 capstone. Reproduce small, controlled pieces before adopting a large model.
+P3 self-attention/ViT and bounded foundation-model work, feeding Flagship I and a possible P12 capstone. Reproduce small, controlled pieces against a credible baseline before adopting a large model.

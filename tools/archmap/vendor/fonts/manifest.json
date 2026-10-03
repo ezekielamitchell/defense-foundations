@@ -1,0 +1,91 @@
+{
+  "revision": "e44c4b011a820c2cbe2fd2cfa8052037d7edb571",
+  "fonts": [
+    {
+      "family": "Cormorant Garamond",
+      "weight": 500,
+      "file": "cormorantgaramond-500.woff2",
+      "bytes": 25608
+    },
+    {
+      "family": "Inter",
+      "weight": 400,
+      "file": "inter-400.woff2",
+      "bytes": 22496
+    },
+    {
+      "family": "Inter",
+      "weight": 500,
+      "file": "inter-500.woff2",
+      "bytes": 23080
+    },
+    {
+      "family": "Inter",
+      "weight": 600,
+      "file": "inter-600.woff2",
+      "bytes": 23188
+    },
+    {
+      "family": "IBM Plex Mono",
+      "weight": 400,
+      "file": "ibmplexmono-400.woff2",
+      "bytes": 10520
+    },
+    {
+      "family": "IBM Plex Mono",
+      "weight": 500,
+      "file": "ibmplexmono-500.woff2",
+      "bytes": 10752
+    },
+    {
+      "family": "endr-brackets",
+      "weight": 300,
+      "file": "notosansjp-300.woff2",
+      "bytes": 928
+    }
+  ],
+  "sources": [
+    {
+      "file": "sources/cormorantgaramond/CormorantGaramond[wght].ttf",
+      "url": "https://raw.githubusercontent.com/google/fonts/e44c4b011a820c2cbe2fd2cfa8052037d7edb571/ofl/cormorantgaramond/CormorantGaramond%5Bwght%5D.ttf",
+      "sha256": "b20b7d9626dd956b2c5e558692ad328b1f19e3275e2782db4fa07670d83f35e0",
+      "license": "sources/cormorantgaramond/OFL.txt"
+    },
+    {
+      "file": "sources/inter/Inter[opsz,wght].ttf",
+      "url": "https://raw.githubusercontent.com/google/fonts/e44c4b011a820c2cbe2fd2cfa8052037d7edb571/ofl/inter/Inter%5Bopsz%2Cwght%5D.ttf",
+      "sha256": "29160a80ff49ddcab2c97711247e08b1fab27a484a329ce8b813d820dc559031",
+      "license": "sources/inter/OFL.txt"
+    },
+    {
+      "file": "sources/inter/Inter[opsz,wght].ttf",
+      "url": "https://raw.githubusercontent.com/google/fonts/e44c4b011a820c2cbe2fd2cfa8052037d7edb571/ofl/inter/Inter%5Bopsz%2Cwght%5D.ttf",
+      "sha256": "29160a80ff49ddcab2c97711247e08b1fab27a484a329ce8b813d820dc559031",
+      "license": "sources/inter/OFL.txt"
+    },
+    {
+      "file": "sources/inter/Inter[opsz,wght].ttf",
+      "url": "https://raw.githubusercontent.com/google/fonts/e44c4b011a820c2cbe2fd2cfa8052037d7edb571/ofl/inter/Inter%5Bopsz%2Cwght%5D.ttf",
+      "sha256": "29160a80ff49ddcab2c97711247e08b1fab27a484a329ce8b813d820dc559031",
+      "license": "sources/inter/OFL.txt"
+    },
+    {
+      "file": "sources/ibmplexmono/IBMPlexMono-Regular.ttf",
+      "url": "https://raw.githubusercontent.com/google/fonts/e44c4b011a820c2cbe2fd2cfa8052037d7edb571/ofl/ibmplexmono/IBMPlexMono-Regular.ttf",
+      "sha256": "6a3412f058c7d8dfd9170c41e85ade48e5156ecb89356110ca57a0a27734af46",
+      "license": "sources/ibmplexmono/OFL.txt"
+    },
+    {
+      "file": "sources/ibmplexmono/IBMPlexMono-Medium.ttf",
+      "url": "https://raw.githubusercontent.com/google/fonts/e44c4b011a820c2cbe2fd2cfa8052037d7edb571/ofl/ibmplexmono/IBMPlexMono-Medium.ttf",
+      "sha256": "a9b4c49bb299e05b5f6c481e7fb5e78943d2793249a0c8874ab574a2d1ea6755",
+      "license": "sources/ibmplexmono/OFL.txt"
+    },
+    {
+      "file": "sources/notosansjp/NotoSansJP[wght].ttf",
+      "url": "https://raw.githubusercontent.com/google/fonts/e44c4b011a820c2cbe2fd2cfa8052037d7edb571/ofl/notosansjp/NotoSansJP%5Bwght%5D.ttf",
+      "sha256": "c2f3b4d463500a2ddcd3849cded1fceeb9fd6d1c32e6cbecd568453ba50fc68f",
+      "license": "sources/notosansjp/OFL.txt"
+    }
+  ]
+}

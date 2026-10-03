@@ -1,18 +1,14 @@
-# Math and Engineering Discipline
+# Contracts, measurement and quantitative prerequisites
 
-**Primary phases:** P1–P2
+**Curriculum v2 · prepared 2026-09-19 · P1–P2.**
 
-This focus group is topic-led; the vault does not currently prescribe a single commercial course.
+Learn data structures, schemas, reproducible logs, arithmetic/units, algebra, probability and evaluation through one synthetic harness. C++ is not a beginner prerequisite.
 
-## Learning sequence
+Read [Start Here](../../curriculum/START_HERE.md), [Resource Spine](../../curriculum/RESOURCE_SPINE.md)
+and [the full route](../../curriculum/COMPETENCY_PATHWAY.md). One primary source
+serves the current artifact; the retained resources below are a reference menu.
+They do not add courses, deadlines or completion credit.
 
-1. Linear algebra: vectors, matrices, eigenvalues, and SVD intuition.
-2. Calculus: derivatives, gradients, and chain rule.
-3. Probability: random variables, expectation, variance, and common distributions.
-4. Python quality: NumPy, Matplotlib, pytest, Ruff, mypy, pre-commit, and CI.
-5. Rust quality: modules, tests, errors, generics, traits, iterators, and full Rustlings completion.
-6. ML math: MLE/MAP, entropy, cross-entropy, ROC/PR, and calibration.
+## Retained source folders
 
-## Evidence
-
-Hand-worked derivations plus tested sensor-data and tabular-ML projects. Add specific courses here only after they are selected in the vault.
+Use the selected primary documentation in Resource Spine; no extra course is required.

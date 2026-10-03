@@ -1,0 +1,4049 @@
+{
+  "meta": {
+    "repo": "defense-foundations",
+    "modeled": "The evidence-governance process, not runtime software.",
+    "thesis": "Observed implementation work becomes structured receipts. Verification supports a human gate review; administrative activity does not earn Foundation credit.",
+    "sources": [
+      {
+        "path": "AGENTS.md",
+        "anchor": "## Evidence and safety boundaries",
+        "span": 13
+      }
+    ]
+  },
+  "tiers": [
+    {
+      "id": "authority",
+      "label": "Authority",
+      "order": 1,
+      "icon": "lock",
+      "hue": "#526444",
+      "sources": [
+        {
+          "path": "AGENTS.md",
+          "anchor": "1. Explicit current user direction.",
+          "span": 1
+        },
+        {
+          "path": "docs/aegis-phase0-projection.json",
+          "anchor": "    \"kind\": \"privacy-filtered projection of validated private authority\",",
+          "span": 1
+        },
+        {
+          "path": "tools/validate_phase0_integrity.py",
+          "anchor": "    config = read_frontmatter(vault / \"01_Daily/_Phase Config.md\")",
+          "span": 10
+        }
+      ],
+      "inferred": true
+    },
+    {
+      "id": "publish",
+      "label": "Publish",
+      "order": 2,
+      "icon": "doc",
+      "hue": "#526444",
+      "sources": [
+        {
+          "path": "docs/aegis-phase0-projection.json",
+          "anchor": "  \"schema_version\": \"aegis.phase0-public-projection.v1\",",
+          "span": 2
+        },
+        {
+          "path": "AGENTS.md",
+          "anchor": "Generated `AEGIS:PHASE0_PROJECTION` regions and",
+          "span": 4
+        },
+        {
+          "path": "tests/test_phase0_integrity.py",
+          "anchor": "    def test_current_public_projection_matches_private_authority_without_private_fields(self):",
+          "span": 5
+        }
+      ],
+      "inferred": true
+    },
+    {
+      "id": "route",
+      "label": "Route",
+      "order": 3,
+      "icon": "branch",
+      "hue": "#526444",
+      "sources": [
+        {
+          "path": "AGENTS.md",
+          "anchor": "1. Explicit current user direction.",
+          "span": 1
+        },
+        {
+          "path": "AGENTS.md",
+          "anchor": "## Active parallel curriculum amendment — September 19",
+          "span": 10
+        },
+        {
+          "path": "curriculum/route-v2.json",
+          "anchor": "{\n  \"schema_version\": \"defense-foundations.curriculum-route.v2\",",
+          "span": 173
+        }
+      ],
+      "inferred": true
+    },
+    {
+      "id": "operator",
+      "label": "Operator",
+      "order": 4,
+      "icon": "person",
+      "hue": "#526444",
+      "sources": [
+        {
+          "path": "mobile/app.js",
+          "anchor": "const PROJECTION_URL = \"../docs/aegis-phase0-projection.json\";",
+          "span": 2
+        },
+        {
+          "path": "mobile/app.js",
+          "anchor": "async function loadProjection() {",
+          "span": 12
+        },
+        {
+          "path": "mobile/sw.js",
+          "anchor": "async function networkFirstProjection(request) {",
+          "span": 22
+        }
+      ],
+      "inferred": true
+    },
+    {
+      "id": "build",
+      "label": "Build",
+      "order": 5,
+      "icon": "code",
+      "hue": "#526444",
+      "sources": [
+        {
+          "path": "curriculum/START_HERE.md",
+          "anchor": "## Project 0 contract, introduced gradually",
+          "span": 28
+        },
+        {
+          "path": "projects/file_stats/main.py",
+          "anchor": "def main():",
+          "span": 6
+        },
+        {
+          "path": "projects/file_stats/pyproject.toml",
+          "anchor": "description = \"Count lines, words, and bytes in files or stdin — a small wc-style CLI.\"",
+          "span": 1
+        }
+      ],
+      "inferred": true
+    },
+    {
+      "id": "observe",
+      "label": "Observe",
+      "order": 6,
+      "icon": "receipt",
+      "hue": "#526444",
+      "sources": [
+        {
+          "path": "README.md",
+          "anchor": "## Project 0 baseline",
+          "span": 14
+        },
+        {
+          "path": "AGENTS.md",
+          "anchor": "## Evidence and safety boundaries",
+          "span": 7
+        },
+        {
+          "path": "curriculum/FOUNDATIONS_FAST_TRACK.md",
+          "anchor": "Record artifact, exact working directory, command, exit code, observed output, changed paths, verdict, blocker and next command.",
+          "span": 1
+        }
+      ],
+      "inferred": true
+    },
+    {
+      "id": "verify",
+      "label": "Verify",
+      "order": 7,
+      "icon": "shield",
+      "hue": "#526444",
+      "sources": [
+        {
+          "path": "docs/phase0-proof.schema.json",
+          "anchor": "{\n  \"$schema\": \"https://json-schema.org/draft/2020-12/schema\",",
+          "span": 22
+        },
+        {
+          "path": "tools/validate_beginner_policy.py",
+          "anchor": "POLICY_PATH = ROOT / \"curriculum/beginner-policy-v1.json\"",
+          "span": 48
+        },
+        {
+          "path": "tests/test_beginner_policy.py",
+          "anchor": "    def test_current_policy_and_initial_card_pass(self):",
+          "span": 48
+        }
+      ],
+      "inferred": true
+    },
+    {
+      "id": "decide",
+      "label": "Decide",
+      "order": 8,
+      "icon": "flag",
+      "hue": "#526444",
+      "sources": [
+        {
+          "path": "curriculum/START_HERE.md",
+          "anchor": "## P0 exit gate",
+          "span": 12
+        },
+        {
+          "path": "docs/aegis-phase0-projection.json",
+          "anchor": "    \"later_phase_promotion\": \"none\"",
+          "span": 1
+        },
+        {
+          "path": "progress/README.md",
+          "anchor": "1. Update hard dates in Aegis Nexus `_Phase Config` first.",
+          "span": 3
+        }
+      ],
+      "inferred": true
+    },
+    {
+      "id": "external",
+      "label": "External",
+      "order": 9,
+      "icon": "globe",
+      "hue": "#526444",
+      "sources": [
+        {
+          "path": "curriculum/PARALLEL_COURSE_MAP.md",
+          "anchor": "Official provider pages checked October 2 support the source choices below.",
+          "span": 1
+        },
+        {
+          "path": "curriculum/parallel-policy-v1.json",
+          "anchor": "  \"primary_sources\": {",
+          "span": 7
+        },
+        {
+          "path": "AGENTS.md",
+          "anchor": "command. Use `phase0-proof.v1` receipts where applicable. Agent overlays,",
+          "span": 9
+        }
+      ],
+      "inferred": true
+    }
+  ],
+  "zones": [
+    {
+      "id": "z-outside",
+      "label": "Outside repo",
+      "tier": "authority",
+      "lane": 0,
+      "nodes": [
+        "authority",
+        "courses",
+        "endr",
+        "exporter",
+        "calendar"
+      ],
+      "sources": [
+        {
+          "path": "AGENTS.md",
+          "anchor": "1. Explicit current user direction.",
+          "span": 1
+        },
+        {
+          "path": "docs/aegis-phase0-projection.json",
+          "anchor": "    \"kind\": \"privacy-filtered projection of validated private authority\",",
+          "span": 1
+        },
+        {
+          "path": "tools/validate_phase0_integrity.py",
+          "anchor": "    config = read_frontmatter(vault / \"01_Daily/_Phase Config.md\")",
+          "span": 10
+        }
+      ],
+      "inferred": true
+    },
+    {
+      "id": "z-publish",
+      "label": "Published",
+      "tier": "publish",
+      "lane": 0,
+      "nodes": [
+        "projection",
+        "markers",
+        "mobile",
+        "archpage"
+      ],
+      "sources": [
+        {
+          "path": "docs/aegis-phase0-projection.json",
+          "anchor": "  \"schema_version\": \"aegis.phase0-public-projection.v1\",",
+          "span": 2
+        },
+        {
+          "path": "AGENTS.md",
+          "anchor": "Generated `AEGIS:PHASE0_PROJECTION` regions and",
+          "span": 4
+        },
+        {
+          "path": "tests/test_phase0_integrity.py",
+          "anchor": "    def test_current_public_projection_matches_private_authority_without_private_fields(self):",
+          "span": 5
+        }
+      ],
+      "inferred": true
+    },
+    {
+      "id": "z-hist",
+      "label": "Coursework",
+      "tier": "build",
+      "lane": 0,
+      "nodes": [
+        "exercises",
+        "invaders"
+      ],
+      "sources": [
+        {
+          "path": "learning-materials/01-foundations/python-crash-course/evidence/process_log.py",
+          "anchor": "\"\"\"Evidence — file-processing script for Python Crash Course (Part I).",
+          "span": 73
+        },
+        {
+          "path": "AGENTS.md",
+          "anchor": "- Existing paths, Git history, course work, and historical evidence remain",
+          "span": 3
+        },
+        {
+          "path": "curriculum/START_HERE.md",
+          "anchor": "These are learning checkpoints, not dates or session quotas. Repeat or split",
+          "span": 3
+        }
+      ],
+      "inferred": true
+    },
+    {
+      "id": "z-route",
+      "label": "Policy",
+      "tier": "route",
+      "lane": 1,
+      "nodes": [
+        "agents",
+        "beginner",
+        "issues",
+        "route",
+        "starthere",
+        "policy",
+        "contract",
+        "coursemap"
+      ],
+      "sources": [
+        {
+          "path": "AGENTS.md",
+          "anchor": "1. Explicit current user direction.",
+          "span": 1
+        },
+        {
+          "path": "AGENTS.md",
+          "anchor": "## Active parallel curriculum amendment — September 19",
+          "span": 10
+        },
+        {
+          "path": "curriculum/beginner-policy-v1.json",
+          "anchor": "{",
+          "span": 29
+        }
+      ],
+      "inferred": true
+    },
+    {
+      "id": "z-op",
+      "label": "Operator",
+      "tier": "operator",
+      "lane": 1,
+      "nodes": [
+        "learner"
+      ],
+      "sources": [
+        {
+          "path": "curriculum/START_HERE.md",
+          "anchor": "Start with the [first learning week](FOUNDATIONS_FAST_TRACK.md): Python, Rust",
+          "span": 3
+        },
+        {
+          "path": "curriculum/START_HERE.md",
+          "anchor": "## How to study a small slice",
+          "span": 17
+        },
+        {
+          "path": "AGENTS.md",
+          "anchor": "1. Explicit current user direction.",
+          "span": 1
+        }
+      ],
+      "inferred": true
+    },
+    {
+      "id": "z-p0",
+      "label": "Project 0",
+      "tier": "build",
+      "lane": 1,
+      "nodes": [
+        "filestats",
+        "hellostats",
+        "parity",
+        "commands"
+      ],
+      "sources": [
+        {
+          "path": "projects/file_stats/main.py",
+          "anchor": "def main():",
+          "span": 6
+        },
+        {
+          "path": "projects/file_stats/pyproject.toml",
+          "anchor": "description = \"Count lines, words, and bytes in files or stdin — a small wc-style CLI.\"",
+          "span": 1
+        },
+        {
+          "path": "projects/file_stats/pyproject.toml",
+          "anchor": "[tool.pytest.ini_options]",
+          "span": 3
+        }
+      ],
+      "inferred": true
+    },
+    {
+      "id": "z-proof",
+      "label": "Evidence",
+      "tier": "observe",
+      "lane": 1,
+      "nodes": [
+        "receipts",
+        "ledger"
+      ],
+      "sources": [
+        {
+          "path": "progress/proofs/README.md",
+          "anchor": "# Phase 0 proof receipts",
+          "span": 11
+        },
+        {
+          "path": "docs/phase0-proof.schema.json",
+          "anchor": "  \"required\": [\n    \"schema_version\",",
+          "span": 15
+        },
+        {
+          "path": "progress/README.md",
+          "anchor": "The Aegis Nexus vault remains the day-to-day private evidence ledger. This repository records public curriculum status and durable links, not daily personal logs.",
+          "span": 1
+        }
+      ],
+      "inferred": true
+    },
+    {
+      "id": "z-gate",
+      "label": "Gate",
+      "tier": "decide",
+      "lane": 1,
+      "nodes": [
+        "gate",
+        "later"
+      ],
+      "sources": [
+        {
+          "path": "curriculum/START_HERE.md",
+          "anchor": "## P0 exit gate",
+          "span": 12
+        },
+        {
+          "path": "docs/aegis-phase0-projection.json",
+          "anchor": "    \"later_phase_promotion\": \"none\"",
+          "span": 1
+        },
+        {
+          "path": "progress/README.md",
+          "anchor": "1. Update hard dates in Aegis Nexus `_Phase Config` first.",
+          "span": 3
+        }
+      ],
+      "inferred": true
+    },
+    {
+      "id": "z-verify",
+      "label": "Validators",
+      "tier": "verify",
+      "lane": 2,
+      "nodes": [
+        "schema",
+        "policyval",
+        "routeval",
+        "syntax",
+        "ci",
+        "integrity"
+      ],
+      "sources": [
+        {
+          "path": "docs/phase0-proof.schema.json",
+          "anchor": "{\n  \"$schema\": \"https://json-schema.org/draft/2020-12/schema\",",
+          "span": 22
+        },
+        {
+          "path": "tools/validate_beginner_policy.py",
+          "anchor": "POLICY_PATH = ROOT / \"curriculum/beginner-policy-v1.json\"",
+          "span": 48
+        },
+        {
+          "path": "tests/test_beginner_policy.py",
+          "anchor": "    def test_current_policy_and_initial_card_pass(self):",
+          "span": 48
+        }
+      ],
+      "inferred": true
+    }
+  ],
+  "nodes": [
+    {
+      "id": "authority",
+      "title": "Aegis phase authority",
+      "short": "Authority",
+      "role": "Private Aegis authority for dates, capacity and current-period records. This map observes only its privacy-filtered repository projection.",
+      "tier": "authority",
+      "zone": "z-outside",
+      "primary": false,
+      "owns": [],
+      "checks": [],
+      "sources": [
+        {
+          "path": "AGENTS.md",
+          "anchor": "1. Explicit current user direction.",
+          "span": 1
+        },
+        {
+          "path": "docs/aegis-phase0-projection.json",
+          "anchor": "    \"kind\": \"privacy-filtered projection of validated private authority\",",
+          "span": 1
+        },
+        {
+          "path": "tools/validate_phase0_integrity.py",
+          "anchor": "    config = read_frontmatter(vault / \"01_Daily/_Phase Config.md\")",
+          "span": 10
+        }
+      ],
+      "inferred": true,
+      "external": true,
+      "override": {
+        "maturity": "implemented",
+        "reason": "Inferred role described by repository sources; outside implementation is not inspected.",
+        "sources": [
+          {
+            "path": "AGENTS.md",
+            "anchor": "1. Explicit current user direction.",
+            "span": 1
+          },
+          {
+            "path": "docs/aegis-phase0-projection.json",
+            "anchor": "    \"kind\": \"privacy-filtered projection of validated private authority\",",
+            "span": 1
+          },
+          {
+            "path": "tools/validate_phase0_integrity.py",
+            "anchor": "    config = read_frontmatter(vault / \"01_Daily/_Phase Config.md\")",
+            "span": 10
+          }
+        ]
+      }
+    },
+    {
+      "id": "exporter",
+      "title": "Projection exporter",
+      "short": "Publisher",
+      "role": "Private Aegis publisher builds a validated public educational allowlist and generated marker regions; this map does not inspect its private implementation.",
+      "tier": "authority",
+      "zone": "z-outside",
+      "primary": false,
+      "owns": [],
+      "checks": [],
+      "sources": [
+        {
+          "path": "tools/validate_phase0_integrity.py",
+          "anchor": "    scripts = str(DEFAULT_VAULT / \"08_Assistant/scripts\")",
+          "span": 10
+        },
+        {
+          "path": "tools/validate_phase0_integrity.py",
+          "anchor": "def current_private_and_public_projection(vault: Path) -> tuple[dict, dict, object]:",
+          "span": 13
+        },
+        {
+          "path": "AGENTS.md",
+          "anchor": "Generated `AEGIS:PHASE0_PROJECTION` regions and",
+          "span": 4
+        },
+        {
+          "path": "curriculum/RESET_HANDOFF.md",
+          "anchor": "Generated projections must come from the publisher. Course access and actual",
+          "span": 1
+        }
+      ],
+      "inferred": true,
+      "external": true,
+      "override": {
+        "maturity": "implemented",
+        "reason": "Inferred role described by repository sources; outside implementation is not inspected.",
+        "sources": [
+          {
+            "path": "tools/validate_phase0_integrity.py",
+            "anchor": "    scripts = str(DEFAULT_VAULT / \"08_Assistant/scripts\")",
+            "span": 10
+          },
+          {
+            "path": "tools/validate_phase0_integrity.py",
+            "anchor": "def current_private_and_public_projection(vault: Path) -> tuple[dict, dict, object]:",
+            "span": 13
+          },
+          {
+            "path": "AGENTS.md",
+            "anchor": "Generated `AEGIS:PHASE0_PROJECTION` regions and",
+            "span": 4
+          },
+          {
+            "path": "curriculum/RESET_HANDOFF.md",
+            "anchor": "Generated projections must come from the publisher. Course access and actual",
+            "span": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": "calendar",
+      "title": "Calendar and Todoist",
+      "short": "Calendar",
+      "role": "External Calendar and Todoist reservations. The public projection omits their native events and task identities; reservations do not establish proof.",
+      "tier": "authority",
+      "zone": "z-outside",
+      "primary": false,
+      "owns": [],
+      "checks": [],
+      "sources": [
+        {
+          "path": "README.md",
+          "anchor": "The private Aegis plan owns dates and reservations; this public",
+          "span": 2
+        },
+        {
+          "path": "progress/proofs/README.md",
+          "anchor": "A receipt is a compact pointer to observed repository evidence, not a replacement for code, tests, output, or the private Aegis evidence ledger. Calendar reservations, Todoist state, generated documentation, elapsed time, paper reading, agent exercises, and endr activity cannot populate a verified Foundation receipt.",
+          "span": 1
+        },
+        {
+          "path": "docs/aegis-phase0-projection.json",
+          "anchor": "    \"schedule\": \"Consult the private calendar and Aegis plan for current reservations.\"",
+          "span": 1
+        }
+      ],
+      "inferred": true,
+      "external": true,
+      "override": {
+        "maturity": "implemented",
+        "reason": "Inferred role described by repository sources; outside implementation is not inspected.",
+        "sources": [
+          {
+            "path": "README.md",
+            "anchor": "The private Aegis plan owns dates and reservations; this public",
+            "span": 2
+          },
+          {
+            "path": "progress/proofs/README.md",
+            "anchor": "A receipt is a compact pointer to observed repository evidence, not a replacement for code, tests, output, or the private Aegis evidence ledger. Calendar reservations, Todoist state, generated documentation, elapsed time, paper reading, agent exercises, and endr activity cannot populate a verified Foundation receipt.",
+            "span": 1
+          },
+          {
+            "path": "docs/aegis-phase0-projection.json",
+            "anchor": "    \"schedule\": \"Consult the private calendar and Aegis plan for current reservations.\"",
+            "span": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": "projection",
+      "title": "Public Phase 0 projection",
+      "short": "Projection",
+      "role": "Publisher-owned, privacy-filtered educational JSON: P0 scope, parallel topics, Project 0 contract and evidence boundary. It contains no personal schedule.",
+      "tier": "publish",
+      "zone": "z-publish",
+      "primary": false,
+      "owns": [
+        "docs/aegis-phase0-projection.json"
+      ],
+      "checks": [
+        "unit-integrity"
+      ],
+      "sources": [
+        {
+          "path": "docs/aegis-phase0-projection.json",
+          "anchor": "  \"schema_version\": \"aegis.phase0-public-projection.v1\",",
+          "span": 2
+        },
+        {
+          "path": "AGENTS.md",
+          "anchor": "Generated `AEGIS:PHASE0_PROJECTION` regions and",
+          "span": 4
+        },
+        {
+          "path": "tests/test_phase0_integrity.py",
+          "anchor": "    def test_current_public_projection_matches_private_authority_without_private_fields(self):",
+          "span": 5
+        }
+      ],
+      "inferred": false,
+      "external": false,
+      "override": null
+    },
+    {
+      "id": "markers",
+      "title": "Generated marker blocks",
+      "short": "Markers",
+      "role": "Generated document regions that carry the projection digest.",
+      "tier": "publish",
+      "zone": "z-publish",
+      "primary": false,
+      "owns": [
+        "README.md",
+        "TIMELINE.md",
+        "curriculum/README.md",
+        "curriculum/modules/agent-engineering-sprint/README.md",
+        "curriculum/phases/00-foundations/README.md",
+        "docs/ISSUES.md",
+        "learning-materials/01-foundations/README.md",
+        "learning-materials/01-foundations/command-line-rust/README.md",
+        "learning-materials/01-foundations/python-testing-with-pytest/README.md",
+        "learning-materials/01-foundations/ultimate-rust-crash-course/README.md",
+        "learning-materials/12-agent-engineering/README.md",
+        "learning-materials/12-agent-engineering/hugging-face-agents-course/README.md",
+        "mobile/README.md",
+        "progress/README.md",
+        "docs/architecture.html"
+      ],
+      "checks": [],
+      "sources": [
+        {
+          "path": "README.md",
+          "anchor": "<!-- AEGIS:PHASE0_PROJECTION:START -->",
+          "span": 9
+        },
+        {
+          "path": "README.md",
+          "anchor": "<!-- AEGIS:PHASE0_PROJECTION:START -->",
+          "span": 15
+        },
+        {
+          "path": "tools/validate_phase0_integrity.py",
+          "anchor": "    digest = sha256(projection_path)",
+          "span": 2
+        }
+      ],
+      "inferred": false,
+      "external": false,
+      "override": null
+    },
+    {
+      "id": "courses",
+      "title": "Course platforms",
+      "short": "Courses",
+      "role": "Primary teaching sources named by the parallel course map. External access is not verified.",
+      "tier": "external",
+      "zone": "z-outside",
+      "primary": false,
+      "owns": [],
+      "checks": [],
+      "sources": [
+        {
+          "path": "curriculum/PARALLEL_COURSE_MAP.md",
+          "anchor": "Official provider pages checked October 2 support the source choices below.",
+          "span": 1
+        },
+        {
+          "path": "curriculum/parallel-policy-v1.json",
+          "anchor": "  \"primary_sources\": {",
+          "span": 7
+        }
+      ],
+      "inferred": true,
+      "external": true,
+      "override": {
+        "maturity": "planned",
+        "reason": "Inferred role described by repository sources; outside implementation is not inspected.",
+        "sources": [
+          {
+            "path": "curriculum/PARALLEL_COURSE_MAP.md",
+            "anchor": "Official provider pages checked October 2 support the source choices below.",
+            "span": 1
+          },
+          {
+            "path": "curriculum/parallel-policy-v1.json",
+            "anchor": "  \"primary_sources\": {",
+            "span": 7
+          }
+        ]
+      }
+    },
+    {
+      "id": "endr",
+      "title": "endr company lane",
+      "short": "Company lane",
+      "role": "Independent company lane. Company activity never earns Foundation credit.",
+      "tier": "external",
+      "zone": "z-outside",
+      "primary": false,
+      "owns": [],
+      "checks": [],
+      "sources": [
+        {
+          "path": "AGENTS.md",
+          "anchor": "command. Use `phase0-proof.v1` receipts where applicable. Agent overlays,",
+          "span": 9
+        },
+        {
+          "path": "AGENTS.md",
+          "anchor": "endr is an independently governed company lane.",
+          "span": 3
+        },
+        {
+          "path": "README.md",
+          "anchor": "- Educational work does not change any independently governed product's maturity or authority.",
+          "span": 1
+        },
+        {
+          "path": "AGENTS.md",
+          "anchor": "endr is an independently governed company lane.",
+          "span": 3
+        }
+      ],
+      "inferred": true,
+      "external": true,
+      "override": {
+        "maturity": "implemented",
+        "reason": "Inferred role described by repository sources; outside implementation is not inspected.",
+        "sources": [
+          {
+            "path": "AGENTS.md",
+            "anchor": "command. Use `phase0-proof.v1` receipts where applicable. Agent overlays,",
+            "span": 9
+          },
+          {
+            "path": "AGENTS.md",
+            "anchor": "endr is an independently governed company lane.",
+            "span": 3
+          },
+          {
+            "path": "README.md",
+            "anchor": "- Educational work does not change any independently governed product's maturity or authority.",
+            "span": 1
+          },
+          {
+            "path": "AGENTS.md",
+            "anchor": "endr is an independently governed company lane.",
+            "span": 3
+          }
+        ]
+      }
+    },
+    {
+      "id": "agents",
+      "title": "Repository contract",
+      "short": "Repo contract",
+      "role": "Repository precedence, evidence rules and active parallel curriculum amendment; older beginner preparation remains historical.",
+      "tier": "route",
+      "zone": "z-route",
+      "primary": false,
+      "owns": [
+        "AGENTS.md",
+        "CLAUDE.md"
+      ],
+      "checks": [],
+      "sources": [
+        {
+          "path": "AGENTS.md",
+          "anchor": "1. Explicit current user direction.",
+          "span": 1
+        },
+        {
+          "path": "AGENTS.md",
+          "anchor": "## Active parallel curriculum amendment — September 19",
+          "span": 10
+        }
+      ],
+      "inferred": false,
+      "external": false,
+      "override": null
+    },
+    {
+      "id": "route",
+      "title": "Curriculum route v2",
+      "short": "Route",
+      "role": "P0–P12 phase DAG: core order, optional modules, prerequisites and status. Only P0 may be active.",
+      "tier": "route",
+      "zone": "z-route",
+      "primary": false,
+      "owns": [
+        "curriculum/route-v2.json"
+      ],
+      "checks": [
+        "route"
+      ],
+      "sources": [
+        {
+          "path": "curriculum/route-v2.json",
+          "anchor": "{\n  \"schema_version\": \"defense-foundations.curriculum-route.v2\",",
+          "span": 173
+        },
+        {
+          "path": "tools/validate_curriculum_route.py",
+          "anchor": "def validate(data: dict, check_files: bool = True) -> list[str]:",
+          "span": 69
+        }
+      ],
+      "inferred": false,
+      "external": false,
+      "override": null
+    },
+    {
+      "id": "policy",
+      "title": "Parallel policy v1",
+      "short": "Track policy",
+      "role": "Active policy: five parallel tracks, one source each, Rust does not wait for Python, no paper quota.",
+      "tier": "route",
+      "zone": "z-route",
+      "primary": false,
+      "owns": [
+        "curriculum/parallel-policy-v1.json"
+      ],
+      "checks": [],
+      "sources": [
+        {
+          "path": "curriculum/parallel-policy-v1.json",
+          "anchor": "{\n  \"schema_version\": \"defense-foundations.parallel-policy.v1\",",
+          "span": 29
+        },
+        {
+          "path": "curriculum/route-v2.json",
+          "anchor": "  \"learning_policy\": \"parallel-policy-v1.json\"",
+          "span": 1
+        },
+        {
+          "path": "AGENTS.md",
+          "anchor": "## Active parallel curriculum amendment — September 19",
+          "span": 11
+        }
+      ],
+      "inferred": false,
+      "external": false,
+      "override": null
+    },
+    {
+      "id": "beginner",
+      "title": "Historical policy v1",
+      "short": "Historical policy",
+      "role": "Earlier Python-first preparation. Declared historical, not current routing.",
+      "tier": "route",
+      "zone": "z-route",
+      "primary": false,
+      "owns": [
+        "curriculum/beginner-policy-v1.json"
+      ],
+      "checks": [
+        "beginner"
+      ],
+      "sources": [
+        {
+          "path": "curriculum/beginner-policy-v1.json",
+          "anchor": "{",
+          "span": 29
+        },
+        {
+          "path": "curriculum/RESET_HANDOFF.md",
+          "anchor": "[parallel-policy-v1.json](parallel-policy-v1.json). The retained",
+          "span": 3
+        },
+        {
+          "path": "AGENTS.md",
+          "anchor": "credit. Current timing and capacity come from the active Aegis manifest. The",
+          "span": 2
+        }
+      ],
+      "inferred": false,
+      "external": false,
+      "override": null
+    },
+    {
+      "id": "starthere",
+      "title": "Start Here + first week",
+      "short": "Start Here",
+      "role": "Learner guide: Z0–Z9 checkpoints, first-week Python/Rust/agent basics, Project 0 contract and P0 evidence gate.",
+      "tier": "route",
+      "zone": "z-route",
+      "primary": false,
+      "owns": [
+        "curriculum/START_HERE.md",
+        "curriculum/FOUNDATIONS_FAST_TRACK.md"
+      ],
+      "checks": [],
+      "sources": [
+        {
+          "path": "curriculum/START_HERE.md",
+          "anchor": "## Beginner checkpoints",
+          "span": 27
+        },
+        {
+          "path": "curriculum/START_HERE.md",
+          "anchor": "## Project 0 contract, introduced gradually",
+          "span": 41
+        },
+        {
+          "path": "curriculum/FOUNDATIONS_FAST_TRACK.md",
+          "anchor": "| Order | Session |",
+          "span": 5
+        }
+      ],
+      "inferred": false,
+      "external": false,
+      "override": null
+    },
+    {
+      "id": "coursemap",
+      "title": "Parallel course map",
+      "short": "Course map",
+      "role": "Maps each track to one primary course and a session length; sets the evidence close-out per session.",
+      "tier": "route",
+      "zone": "z-route",
+      "primary": false,
+      "owns": [
+        "curriculum/PARALLEL_COURSE_MAP.md"
+      ],
+      "checks": [],
+      "sources": [
+        {
+          "path": "curriculum/PARALLEL_COURSE_MAP.md",
+          "anchor": "| Track | Primary course | Start and practice | Session |",
+          "span": 10
+        },
+        {
+          "path": "curriculum/PARALLEL_COURSE_MAP.md",
+          "anchor": "## Evidence and progression",
+          "span": 5
+        }
+      ],
+      "inferred": false,
+      "external": false,
+      "override": null
+    },
+    {
+      "id": "issues",
+      "title": "Issue ledger",
+      "short": "Issue ledger",
+      "role": "Stable P0-W1…W5 criterion IDs and acceptance text; resume the oldest unmet one.",
+      "tier": "route",
+      "zone": "z-route",
+      "primary": false,
+      "owns": [
+        "docs/ISSUES.md"
+      ],
+      "checks": [],
+      "sources": [
+        {
+          "path": "docs/ISSUES.md",
+          "anchor": "## Adaptive issue routing",
+          "span": 65
+        }
+      ],
+      "inferred": false,
+      "external": false,
+      "override": null
+    },
+    {
+      "id": "mobile",
+      "title": "Mobile PWA",
+      "short": "Mobile view",
+      "role": "Offline-capable public phone view. Fetches the educational projection network-first, renders topic and phase summaries, and keeps scratch notes outside evidence.",
+      "tier": "operator",
+      "zone": "z-publish",
+      "primary": false,
+      "owns": [
+        "mobile/*.js",
+        "mobile/*.html",
+        "mobile/*.css",
+        "mobile/*.webmanifest"
+      ],
+      "checks": [
+        "node-app",
+        "node-sw"
+      ],
+      "sources": [
+        {
+          "path": "mobile/app.js",
+          "anchor": "const PROJECTION_URL = \"../docs/aegis-phase0-projection.json\";",
+          "span": 2
+        },
+        {
+          "path": "mobile/app.js",
+          "anchor": "async function loadProjection() {",
+          "span": 12
+        },
+        {
+          "path": "mobile/sw.js",
+          "anchor": "async function networkFirstProjection(request) {",
+          "span": 22
+        },
+        {
+          "path": "mobile/app.js",
+          "anchor": "function buildTopics(projection) {",
+          "span": 14
+        }
+      ],
+      "inferred": false,
+      "external": false,
+      "override": null
+    },
+    {
+      "id": "archpage",
+      "title": "Architecture page",
+      "short": "Prior map",
+      "role": "Earlier single-page historical architecture view. Its current public projection marker is checked alongside the other generated regions.",
+      "tier": "operator",
+      "zone": "z-publish",
+      "primary": false,
+      "owns": [
+        "docs/architecture.html"
+      ],
+      "checks": [],
+      "sources": [
+        {
+          "path": "tools/validate_phase0_integrity.py",
+          "anchor": "    for relative, style in regions.items():",
+          "span": 16
+        },
+        {
+          "path": "docs/architecture.html",
+          "anchor": "<!-- AEGIS:PHASE0_PROJECTION:START -->",
+          "span": 1
+        }
+      ],
+      "inferred": false,
+      "external": false,
+      "override": null
+    },
+    {
+      "id": "learner",
+      "title": "Learner",
+      "short": "Learner",
+      "role": "The human who studies, implements, tests and records observed work.",
+      "tier": "operator",
+      "zone": "z-op",
+      "primary": false,
+      "owns": [],
+      "checks": [],
+      "sources": [
+        {
+          "path": "curriculum/START_HERE.md",
+          "anchor": "Start with the [first learning week](FOUNDATIONS_FAST_TRACK.md): Python, Rust",
+          "span": 3
+        },
+        {
+          "path": "curriculum/START_HERE.md",
+          "anchor": "## How to study a small slice",
+          "span": 17
+        },
+        {
+          "path": "AGENTS.md",
+          "anchor": "1. Explicit current user direction.",
+          "span": 1
+        }
+      ],
+      "inferred": true,
+      "external": false,
+      "override": {
+        "maturity": "implemented",
+        "reason": "Human actor described by the learning workflow; software maturity is an explicit modeling override.",
+        "sources": [
+          {
+            "path": "curriculum/START_HERE.md",
+            "anchor": "Start with the [first learning week](FOUNDATIONS_FAST_TRACK.md): Python, Rust",
+            "span": 3
+          },
+          {
+            "path": "curriculum/START_HERE.md",
+            "anchor": "## How to study a small slice",
+            "span": 17
+          },
+          {
+            "path": "AGENTS.md",
+            "anchor": "1. Explicit current user direction.",
+            "span": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": "contract",
+      "title": "CLI contract + fixtures",
+      "short": "CLI contract",
+      "role": "The agreed file-statistics behavior and shared input examples described in the learner guide.",
+      "tier": "build",
+      "zone": "z-route",
+      "primary": false,
+      "owns": [],
+      "checks": [],
+      "sources": [
+        {
+          "path": "curriculum/START_HERE.md",
+          "anchor": "## Project 0 contract, introduced gradually",
+          "span": 28
+        }
+      ],
+      "inferred": false,
+      "external": false,
+      "override": null,
+      "planningOnly": true
+    },
+    {
+      "id": "filestats",
+      "title": "file_stats (Python)",
+      "short": "Python CLI",
+      "role": "Python implementation of the Project 0 file-statistics contract.",
+      "tier": "build",
+      "zone": "z-p0",
+      "primary": true,
+      "owns": [
+        "projects/file_stats/main.py",
+        "projects/file_stats/pyproject.toml",
+        "projects/file_stats/README.md",
+        "projects/file_stats/tests/**/*.py"
+      ],
+      "checks": [],
+      "sources": [
+        {
+          "path": "projects/file_stats/main.py",
+          "anchor": "def main():",
+          "span": 6
+        },
+        {
+          "path": "projects/file_stats/pyproject.toml",
+          "anchor": "description = \"Count lines, words, and bytes in files or stdin — a small wc-style CLI.\"",
+          "span": 1
+        },
+        {
+          "path": "projects/file_stats/pyproject.toml",
+          "anchor": "[tool.pytest.ini_options]",
+          "span": 3
+        }
+      ],
+      "inferred": false,
+      "external": false,
+      "override": null,
+      "stubSignatures": [
+        {
+          "path": "projects/file_stats/main.py",
+          "anchor": "def main():\n    print(\"Hello from file-stats!\")\n\n\nif __name__ == \"__main__\":\n    main()",
+          "span": 6,
+          "exact": true
+        }
+      ]
+    },
+    {
+      "id": "hellostats",
+      "title": "hello-stats (Rust)",
+      "short": "Rust CLI",
+      "role": "Rust implementation of the same Project 0 file-statistics contract.",
+      "tier": "build",
+      "zone": "z-p0",
+      "primary": true,
+      "owns": [
+        "projects/hello-stats/src/**/*.rs",
+        "projects/hello-stats/tests/**/*.rs",
+        "projects/hello-stats/Cargo.toml"
+      ],
+      "checks": [],
+      "sources": [
+        {
+          "path": "projects/hello-stats/src/main.rs",
+          "anchor": "#![allow(dead_code)]",
+          "span": 13
+        },
+        {
+          "path": "README.md",
+          "anchor": "A greeting or zero-test exit is not gate evidence.",
+          "span": 3
+        }
+      ],
+      "inferred": false,
+      "external": false,
+      "override": null,
+      "stubSignatures": [
+        {
+          "path": "projects/hello-stats/src/main.rs",
+          "anchor": "#![allow(dead_code)]\n\nfn add_one(x: i16, y: i16) -> i16 {\n    x + y\n}\n\npub fn multiply_this(x: f32, y: f32) -> f32 {\n    x * y\n}\n\nfn main() {\n    println!(\"Hello, world! : {}\", multiply_this(5., 6.));\n}",
+          "span": 13,
+          "exact": true
+        }
+      ]
+    },
+    {
+      "id": "parity",
+      "title": "Parity comparison",
+      "short": "Parity",
+      "role": "Independent comparison of the two language implementations on identical inputs.",
+      "tier": "build",
+      "zone": "z-p0",
+      "primary": false,
+      "owns": [],
+      "checks": [],
+      "sources": [
+        {
+          "path": "curriculum/START_HERE.md",
+          "anchor": "| Z8 · Paired CLI | Rust Book Chapter 12; Command-Line Rust selected examples | Implement the same agreed contract in hello-stats | Both languages agree on counts, streams and exit status |",
+          "span": 1
+        },
+        {
+          "path": "docs/ISSUES.md",
+          "anchor": "| `P0-W1-C` | not-started | Compare Python and Rust outputs and cold-run instructions. | Parity transcript plus README install/run/test/example output exists. |",
+          "span": 1
+        },
+        {
+          "path": "docs/aegis-phase0-projection.json",
+          "anchor": "    \"contract\": \"Independently prove the same file-statistics behavior on identical fixtures.\"",
+          "span": 1
+        }
+      ],
+      "inferred": false,
+      "external": false,
+      "override": null,
+      "planningOnly": true
+    },
+    {
+      "id": "exercises",
+      "title": "Course exercises",
+      "short": "Coursework",
+      "role": "Retained exercise work and one file-processing script. Historical fact, no current-period credit.",
+      "tier": "build",
+      "zone": "z-hist",
+      "primary": false,
+      "owns": [
+        "learning-materials/01-foundations/python-crash-course/**/*.py",
+        "learning-materials/01-foundations/python-crash-course/**/*.rs",
+        "learning-materials/01-foundations/rustlings/**/*.py",
+        "learning-materials/01-foundations/rustlings/**/*.rs",
+        "learning-materials/01-foundations/ultimate-rust-crash-course/**/*.py",
+        "learning-materials/01-foundations/ultimate-rust-crash-course/**/*.rs"
+      ],
+      "checks": [],
+      "sources": [
+        {
+          "path": "learning-materials/01-foundations/python-crash-course/evidence/process_log.py",
+          "anchor": "\"\"\"Evidence — file-processing script for Python Crash Course (Part I).",
+          "span": 73
+        },
+        {
+          "path": "AGENTS.md",
+          "anchor": "- Existing paths, Git history, course work, and historical evidence remain",
+          "span": 3
+        },
+        {
+          "path": "curriculum/START_HERE.md",
+          "anchor": "These are learning checkpoints, not dates or session quotas. Repeat or split",
+          "span": 3
+        }
+      ],
+      "inferred": false,
+      "external": false,
+      "override": null
+    },
+    {
+      "id": "invaders",
+      "title": "invaders (Rust)",
+      "short": "Invaders",
+      "role": "Retained course-project starter; separate from Project 0 evidence.",
+      "tier": "build",
+      "zone": "z-hist",
+      "primary": false,
+      "owns": [
+        "projects/invaders/src/**/*.rs",
+        "projects/invaders/Cargo.toml"
+      ],
+      "checks": [],
+      "sources": [
+        {
+          "path": "projects/invaders/src/main.rs",
+          "anchor": "fn main() -> Result<(), Box<dyn Error>> {",
+          "span": 5
+        },
+        {
+          "path": "AGENTS.md",
+          "anchor": "Preserve all pre-existing dirty work. In particular, do not restore, replace,",
+          "span": 3
+        }
+      ],
+      "inferred": false,
+      "external": false,
+      "override": null,
+      "stubSignatures": [
+        {
+          "path": "projects/invaders/src/main.rs",
+          "anchor": "use rusty_audio::Audio;\nuse std::error::Error;\n\nfn main() -> Result<(), Box<dyn Error>> {\n    let mut audio = Audio::new();\n    println!(\"Hello, world!\");\n    Ok();\n}",
+          "span": 8,
+          "exact": true
+        }
+      ]
+    },
+    {
+      "id": "commands",
+      "title": "Observed command runs",
+      "short": "Command runs",
+      "role": "Observed program and test executions with working directory, exit code and captured output.",
+      "tier": "observe",
+      "zone": "z-p0",
+      "primary": false,
+      "owns": [],
+      "checks": [],
+      "sources": [
+        {
+          "path": "README.md",
+          "anchor": "## Project 0 baseline",
+          "span": 14
+        },
+        {
+          "path": "AGENTS.md",
+          "anchor": "## Evidence and safety boundaries",
+          "span": 7
+        },
+        {
+          "path": "curriculum/FOUNDATIONS_FAST_TRACK.md",
+          "anchor": "Record artifact, exact working directory, command, exit code, observed output, changed paths, verdict, blocker and next command.",
+          "span": 1
+        }
+      ],
+      "inferred": false,
+      "external": false,
+      "override": null,
+      "planningOnly": true
+    },
+    {
+      "id": "receipts",
+      "title": "Proof receipts",
+      "short": "Receipts",
+      "role": "Structured records of observed Foundation work. The local map can preflight shape; only the canonical private-authority validator can make a proof verdict.",
+      "tier": "observe",
+      "zone": "z-proof",
+      "primary": true,
+      "owns": [
+        "progress/proofs/*.json"
+      ],
+      "checks": [],
+      "sources": [
+        {
+          "path": "progress/proofs/README.md",
+          "anchor": "# Phase 0 proof receipts",
+          "span": 11
+        },
+        {
+          "path": "docs/phase0-proof.schema.json",
+          "anchor": "  \"required\": [\n    \"schema_version\",",
+          "span": 15
+        }
+      ],
+      "inferred": false,
+      "external": false,
+      "override": null
+    },
+    {
+      "id": "ledger",
+      "title": "Private ledger",
+      "short": "Private ledger",
+      "role": "Day-to-day private record of proof or no-proof, blocker and next command. Receipts point into it.",
+      "tier": "external",
+      "zone": "z-proof",
+      "primary": false,
+      "owns": [],
+      "checks": [],
+      "sources": [
+        {
+          "path": "progress/README.md",
+          "anchor": "The Aegis Nexus vault remains the day-to-day private evidence ledger. This repository records public curriculum status and durable links, not daily personal logs.",
+          "span": 1
+        },
+        {
+          "path": "progress/proofs/README.md",
+          "anchor": "A receipt is a compact pointer to observed repository evidence, not a replacement for code, tests, output, or the private Aegis evidence ledger. Calendar reservations, Todoist state, generated documentation, elapsed time, paper reading, agent exercises, and endr activity cannot populate a verified Foundation receipt.",
+          "span": 3
+        }
+      ],
+      "inferred": true,
+      "external": true,
+      "override": {
+        "maturity": "implemented",
+        "reason": "Inferred role described by repository sources; outside implementation is not inspected.",
+        "sources": [
+          {
+            "path": "progress/README.md",
+            "anchor": "The Aegis Nexus vault remains the day-to-day private evidence ledger. This repository records public curriculum status and durable links, not daily personal logs.",
+            "span": 1
+          },
+          {
+            "path": "progress/proofs/README.md",
+            "anchor": "A receipt is a compact pointer to observed repository evidence, not a replacement for code, tests, output, or the private Aegis evidence ledger. Calendar reservations, Todoist state, generated documentation, elapsed time, paper reading, agent exercises, and endr activity cannot populate a verified Foundation receipt.",
+            "span": 3
+          }
+        ]
+      }
+    },
+    {
+      "id": "schema",
+      "title": "Proof schema v1",
+      "short": "Proof schema",
+      "role": "The structured receipt contract; the validator separately implements its field checks.",
+      "tier": "verify",
+      "zone": "z-verify",
+      "primary": false,
+      "owns": [
+        "docs/phase0-proof.schema.json"
+      ],
+      "checks": [],
+      "sources": [
+        {
+          "path": "docs/phase0-proof.schema.json",
+          "anchor": "{\n  \"$schema\": \"https://json-schema.org/draft/2020-12/schema\",",
+          "span": 22
+        }
+      ],
+      "inferred": false,
+      "external": false,
+      "override": null
+    },
+    {
+      "id": "policyval",
+      "title": "Historical policy check",
+      "short": "Legacy check",
+      "role": "Asserts every field of the retired beginner policy and validates Z0 session drafts.",
+      "tier": "verify",
+      "zone": "z-verify",
+      "primary": false,
+      "owns": [
+        "tools/validate_beginner_policy.py",
+        "tests/test_beginner_policy.py"
+      ],
+      "checks": [
+        "beginner",
+        "unit-beginner"
+      ],
+      "sources": [
+        {
+          "path": "tools/validate_beginner_policy.py",
+          "anchor": "POLICY_PATH = ROOT / \"curriculum/beginner-policy-v1.json\"",
+          "span": 48
+        },
+        {
+          "path": "tests/test_beginner_policy.py",
+          "anchor": "    def test_current_policy_and_initial_card_pass(self):",
+          "span": 48
+        }
+      ],
+      "inferred": false,
+      "external": false,
+      "override": null
+    },
+    {
+      "id": "routeval",
+      "title": "Route validator",
+      "short": "Route check",
+      "role": "Route validator checks phase IDs, one active phase, prerequisite order, cycles and file presence; private-vault-dependent checks remain unavailable in this map.",
+      "tier": "verify",
+      "zone": "z-verify",
+      "primary": false,
+      "owns": [
+        "tools/validate_curriculum_route.py"
+      ],
+      "checks": [
+        "route"
+      ],
+      "sources": [
+        {
+          "path": "tools/validate_curriculum_route.py",
+          "anchor": "def validate(data: dict, check_files: bool = True) -> list[str]:",
+          "span": 69
+        },
+        {
+          "path": "tools/validate_curriculum_route.py",
+          "anchor": "def self_test(data: dict) -> None:",
+          "span": 14
+        }
+      ],
+      "inferred": false,
+      "external": false,
+      "override": null
+    },
+    {
+      "id": "syntax",
+      "title": "Syntax and diff checks",
+      "short": "Syntax checks",
+      "role": "Syntax and whitespace commands named in the repository contract.",
+      "tier": "verify",
+      "zone": "z-verify",
+      "primary": false,
+      "owns": [],
+      "checks": [
+        "diff-check"
+      ],
+      "sources": [
+        {
+          "path": "AGENTS.md",
+          "anchor": "## Safe checks",
+          "span": 10
+        },
+        {
+          "path": "README.md",
+          "anchor": "## Verification",
+          "span": 9
+        }
+      ],
+      "inferred": false,
+      "external": false,
+      "override": {
+        "maturity": "implemented",
+        "reason": "The named executable commands exist as a documented operator workflow; this node owns no software files and makes no tested claim.",
+        "sources": [
+          {
+            "path": "AGENTS.md",
+            "anchor": "## Safe checks",
+            "span": 10
+          },
+          {
+            "path": "README.md",
+            "anchor": "## Verification",
+            "span": 9
+          }
+        ]
+      }
+    },
+    {
+      "id": "ci",
+      "title": "CI workflow",
+      "short": "CI workflow",
+      "role": "First minimal workflow is issue P0-W1-L. The P0 exit gate requires CI evidence once a workflow has actually run.",
+      "tier": "verify",
+      "zone": "z-verify",
+      "primary": false,
+      "owns": [
+        ".github/workflows/*.yml",
+        ".github/workflows/*.yaml"
+      ],
+      "checks": [],
+      "sources": [
+        {
+          "path": "docs/ISSUES.md",
+          "anchor": "| `P0-W1-L` | not-started | Add the first minimal CI workflow and save local shell/Git proof. | Workflow committed; local commands pass; only then may a real Actions URL be cited. |",
+          "span": 1
+        },
+        {
+          "path": "curriculum/START_HERE.md",
+          "anchor": "- Show CI evidence when a workflow has actually run; local output is labeled local.",
+          "span": 1
+        }
+      ],
+      "inferred": false,
+      "external": false,
+      "override": null
+    },
+    {
+      "id": "integrity",
+      "title": "Integrity validator",
+      "short": "Integrity",
+      "role": "Repository validator compares the public allowlist with private authority, checks generated markers, the mobile contract and proof receipts.",
+      "tier": "verify",
+      "zone": "z-verify",
+      "primary": true,
+      "owns": [
+        "tools/validate_phase0_integrity.py",
+        "tests/test_phase0_integrity.py"
+      ],
+      "checks": [
+        "integrity",
+        "unit-integrity"
+      ],
+      "sources": [
+        {
+          "path": "tools/validate_phase0_integrity.py",
+          "anchor": "def validate_projection(projection: dict, projection_path: Path, vault: Path, repository: Path) -> list[str]:",
+          "span": 233
+        },
+        {
+          "path": "tools/validate_phase0_integrity.py",
+          "anchor": "def validate_proof(receipt: dict, projection: dict, repository: Path) -> list[str]:",
+          "span": 135
+        },
+        {
+          "path": "tools/validate_phase0_integrity.py",
+          "anchor": "def main() -> int:",
+          "span": 14
+        }
+      ],
+      "inferred": false,
+      "external": false,
+      "override": null
+    },
+    {
+      "id": "gate",
+      "title": "P0 gate review",
+      "short": "P0 gate",
+      "role": "Evidence-based review of the Phase 0 exit criteria. The map cannot grant progression.",
+      "tier": "decide",
+      "zone": "z-gate",
+      "primary": true,
+      "owns": [],
+      "checks": [],
+      "sources": [
+        {
+          "path": "curriculum/START_HERE.md",
+          "anchor": "## P0 exit gate",
+          "span": 12
+        },
+        {
+          "path": "docs/aegis-phase0-projection.json",
+          "anchor": "    \"later_phase_promotion\": \"none\"",
+          "span": 1
+        },
+        {
+          "path": "progress/README.md",
+          "anchor": "1. Update hard dates in Aegis Nexus `_Phase Config` first.",
+          "span": 3
+        }
+      ],
+      "inferred": false,
+      "external": false,
+      "override": null,
+      "planningOnly": true
+    },
+    {
+      "id": "later",
+      "title": "P1–P12 phases",
+      "short": "Later phases",
+      "role": "Later competencies remain planned until an explicit evidence-backed promotion.",
+      "tier": "decide",
+      "zone": "z-gate",
+      "primary": false,
+      "owns": [
+        "curriculum/COMPETENCY_PATHWAY.md",
+        "curriculum/phases/*/README.md"
+      ],
+      "checks": [],
+      "sources": [
+        {
+          "path": "curriculum/COMPETENCY_PATHWAY.md",
+          "anchor": "| ID | Competency | Entry proof | Role / status |",
+          "span": 27
+        },
+        {
+          "path": "curriculum/route-v2.json",
+          "anchor": "    {\n      \"id\": \"P1\",",
+          "span": 137
+        },
+        {
+          "path": "AGENTS.md",
+          "anchor": "- P0 is the only active phase. P1–P12 remain `not started` and undated until an",
+          "span": 2
+        }
+      ],
+      "inferred": false,
+      "external": false,
+      "override": null,
+      "planningOnly": true
+    }
+  ],
+  "edges": [
+    {
+      "id": "e-auth-exp",
+      "from": "authority",
+      "to": "exporter",
+      "kind": "config",
+      "payload": "p-config",
+      "sources": [
+        {
+          "path": "tools/validate_phase0_integrity.py",
+          "anchor": "    config = read_frontmatter(vault / \"01_Daily/_Phase Config.md\")",
+          "span": 10
+        },
+        {
+          "path": "tools/validate_phase0_integrity.py",
+          "anchor": "            build_public_projection,",
+          "span": 3
+        }
+      ],
+      "inferred": true,
+      "blocked": false,
+      "rule": null
+    },
+    {
+      "id": "e-exp-proj",
+      "from": "exporter",
+      "to": "projection",
+      "kind": "data",
+      "payload": "p-proj",
+      "sources": [
+        {
+          "path": "AGENTS.md",
+          "anchor": "Generated `AEGIS:PHASE0_PROJECTION` regions and",
+          "span": 4
+        },
+        {
+          "path": "curriculum/RESET_HANDOFF.md",
+          "anchor": "Generated projections must come from the publisher. Course access and actual",
+          "span": 1
+        }
+      ],
+      "inferred": false,
+      "blocked": false,
+      "rule": null
+    },
+    {
+      "id": "e-exp-mark",
+      "from": "exporter",
+      "to": "markers",
+      "kind": "data",
+      "payload": "p-marker",
+      "sources": [
+        {
+          "path": "AGENTS.md",
+          "anchor": "Generated `AEGIS:PHASE0_PROJECTION` regions and",
+          "span": 4
+        },
+        {
+          "path": "README.md",
+          "anchor": "<!-- AEGIS:PHASE0_PROJECTION:START -->",
+          "span": 15
+        }
+      ],
+      "inferred": false,
+      "blocked": false,
+      "rule": null
+    },
+    {
+      "id": "e-proj-mark",
+      "from": "projection",
+      "to": "markers",
+      "kind": "config",
+      "payload": "p-digest",
+      "sources": [
+        {
+          "path": "tools/validate_phase0_integrity.py",
+          "anchor": "    digest = sha256(projection_path)",
+          "span": 2
+        }
+      ],
+      "inferred": false,
+      "blocked": false,
+      "rule": null
+    },
+    {
+      "id": "e-auth-cal",
+      "from": "authority",
+      "to": "calendar",
+      "kind": "control",
+      "payload": "p-resv",
+      "sources": [
+        {
+          "path": "README.md",
+          "anchor": "The private Aegis plan owns dates and reservations; this public",
+          "span": 2
+        }
+      ],
+      "inferred": true,
+      "blocked": false,
+      "rule": null
+    },
+    {
+      "id": "e-proj-mob",
+      "from": "projection",
+      "to": "mobile",
+      "kind": "data",
+      "payload": "p-proj",
+      "sources": [
+        {
+          "path": "mobile/app.js",
+          "anchor": "const PROJECTION_URL = \"../docs/aegis-phase0-projection.json\";",
+          "span": 1
+        },
+        {
+          "path": "mobile/app.js",
+          "anchor": "async function loadProjection() {",
+          "span": 12
+        },
+        {
+          "path": "mobile/sw.js",
+          "anchor": "async function networkFirstProjection(request) {",
+          "span": 22
+        }
+      ],
+      "inferred": false,
+      "blocked": false,
+      "rule": null
+    },
+    {
+      "id": "e-mark-arch",
+      "from": "markers",
+      "to": "archpage",
+      "kind": "config",
+      "payload": "p-digest",
+      "sources": [
+        {
+          "path": "docs/architecture.html",
+          "anchor": "<!-- AEGIS:PHASE0_PROJECTION:START -->",
+          "span": 1
+        },
+        {
+          "path": "tools/validate_phase0_integrity.py",
+          "anchor": "    for relative, style in regions.items():",
+          "span": 16
+        }
+      ],
+      "inferred": false,
+      "blocked": false,
+      "rule": null
+    },
+    {
+      "id": "e-mark-lrn",
+      "from": "markers",
+      "to": "learner",
+      "kind": "data",
+      "payload": "p-marker",
+      "sources": [
+        {
+          "path": "README.md",
+          "anchor": "<!-- AEGIS:PHASE0_PROJECTION:START -->",
+          "span": 15
+        },
+        {
+          "path": "curriculum/START_HERE.md",
+          "anchor": "This is your learning guide. [The route](COMPETENCY_PATHWAY.md) explains later",
+          "span": 4
+        }
+      ],
+      "inferred": true,
+      "blocked": false,
+      "rule": null
+    },
+    {
+      "id": "e-mob-lrn",
+      "from": "mobile",
+      "to": "learner",
+      "kind": "data",
+      "payload": "p-dash",
+      "sources": [
+        {
+          "path": "mobile/app.js",
+          "anchor": "function renderDashboard() {",
+          "span": 20
+        }
+      ],
+      "inferred": true,
+      "blocked": false,
+      "rule": null
+    },
+    {
+      "id": "e-cal-lrn",
+      "from": "calendar",
+      "to": "learner",
+      "kind": "control",
+      "payload": "p-resv",
+      "sources": [
+        {
+          "path": "curriculum/PARALLEL_COURSE_MAP.md",
+          "anchor": "Project 0 remains the main curriculum build. Separate toy agent exercises do not authorize weapons, targeting, live systems or company deployment. The [competency pathway](COMPETENCY_PATHWAY.md) still governs later dependencies. Personal timing and capacity come only from the current private Aegis authority and its generated projection.",
+          "span": 1
+        },
+        {
+          "path": "curriculum/FOUNDATIONS_FAST_TRACK.md",
+          "anchor": "Exact reservations and personal capacity stay in the private Aegis calendar.",
+          "span": 1
+        }
+      ],
+      "inferred": true,
+      "blocked": false,
+      "rule": null
+    },
+    {
+      "id": "e-agt-route",
+      "from": "agents",
+      "to": "route",
+      "kind": "config",
+      "payload": "p-route",
+      "sources": [
+        {
+          "path": "AGENTS.md",
+          "anchor": "## Active parallel curriculum amendment — September 19",
+          "span": 10
+        }
+      ],
+      "inferred": false,
+      "blocked": false,
+      "rule": null
+    },
+    {
+      "id": "e-agt-start",
+      "from": "agents",
+      "to": "starthere",
+      "kind": "config",
+      "payload": "p-route",
+      "sources": [
+        {
+          "path": "AGENTS.md",
+          "anchor": "## Active parallel curriculum amendment — September 19",
+          "span": 10
+        },
+        {
+          "path": "curriculum/START_HERE.md",
+          "anchor": "**P0 active · parallel beginner curriculum.** Exact dates and current-period",
+          "span": 2
+        }
+      ],
+      "inferred": false,
+      "blocked": false,
+      "rule": null
+    },
+    {
+      "id": "e-route-pol",
+      "from": "route",
+      "to": "policy",
+      "kind": "config",
+      "payload": "p-policy",
+      "sources": [
+        {
+          "path": "curriculum/route-v2.json",
+          "anchor": "  \"learning_policy\": \"parallel-policy-v1.json\"",
+          "span": 1
+        }
+      ],
+      "inferred": false,
+      "blocked": false,
+      "rule": null
+    },
+    {
+      "id": "e-pol-map",
+      "from": "policy",
+      "to": "coursemap",
+      "kind": "config",
+      "payload": "p-policy",
+      "sources": [
+        {
+          "path": "AGENTS.md",
+          "anchor": "introductory tracks run in parallel, with one primary course per track. Follow",
+          "span": 3
+        }
+      ],
+      "inferred": false,
+      "blocked": false,
+      "rule": null
+    },
+    {
+      "id": "e-map-lrn",
+      "from": "coursemap",
+      "to": "learner",
+      "kind": "control",
+      "payload": "p-session",
+      "sources": [
+        {
+          "path": "curriculum/PARALLEL_COURSE_MAP.md",
+          "anchor": "| Track | Primary course | Start and practice | Session |",
+          "span": 10
+        }
+      ],
+      "inferred": false,
+      "blocked": false,
+      "rule": null
+    },
+    {
+      "id": "e-start-lrn",
+      "from": "starthere",
+      "to": "learner",
+      "kind": "control",
+      "payload": "p-check",
+      "sources": [
+        {
+          "path": "curriculum/START_HERE.md",
+          "anchor": "## Beginner checkpoints",
+          "span": 27
+        }
+      ],
+      "inferred": false,
+      "blocked": false,
+      "rule": null
+    },
+    {
+      "id": "e-start-ctr",
+      "from": "starthere",
+      "to": "contract",
+      "kind": "config",
+      "payload": "p-fixture",
+      "sources": [
+        {
+          "path": "curriculum/START_HERE.md",
+          "anchor": "## Project 0 contract, introduced gradually",
+          "span": 28
+        }
+      ],
+      "inferred": false,
+      "blocked": false,
+      "rule": null
+    },
+    {
+      "id": "e-iss-lrn",
+      "from": "issues",
+      "to": "learner",
+      "kind": "control",
+      "payload": "p-issue",
+      "sources": [
+        {
+          "path": "docs/ISSUES.md",
+          "anchor": "## Adaptive issue routing",
+          "span": 3
+        }
+      ],
+      "inferred": false,
+      "blocked": false,
+      "rule": null
+    },
+    {
+      "id": "e-crs-lrn",
+      "from": "courses",
+      "to": "learner",
+      "kind": "data",
+      "payload": "p-lesson",
+      "sources": [
+        {
+          "path": "curriculum/PARALLEL_COURSE_MAP.md",
+          "anchor": "| Python | [Python Crash Course, 3rd Edition — O’Reilly](https://www.oreilly.com/library/view/python-crash-course/9781098156664/)",
+          "span": 1
+        }
+      ],
+      "inferred": true,
+      "blocked": false,
+      "rule": null
+    },
+    {
+      "id": "e-lrn-py",
+      "from": "learner",
+      "to": "filestats",
+      "kind": "data",
+      "payload": "p-code",
+      "sources": [
+        {
+          "path": "curriculum/START_HERE.md",
+          "anchor": "The inspected starter prints `Hello from file-stats!`. This only demonstrates",
+          "span": 5
+        },
+        {
+          "path": "AGENTS.md",
+          "anchor": "- `projects/file_stats` is the Python half of Project 0. Inspect and test the",
+          "span": 2
+        }
+      ],
+      "inferred": false,
+      "blocked": false,
+      "rule": null
+    },
+    {
+      "id": "e-lrn-rs",
+      "from": "learner",
+      "to": "hellostats",
+      "kind": "data",
+      "payload": "p-code",
+      "sources": [
+        {
+          "path": "curriculum/START_HERE.md",
+          "anchor": "| Z7 · Rust introduction | Rust Book Chapters 1–3, then 4–6, 8–9 and 11 as needed | Rebuild small familiar Python ideas in Rust; learn ownership and Result | You can explain a borrow error and return an ordinary error without panic |",
+          "span": 2
+        },
+        {
+          "path": "AGENTS.md",
+          "anchor": "- `projects/hello-stats` is the Rust half. Inspect and test the current files",
+          "span": 2
+        }
+      ],
+      "inferred": false,
+      "blocked": false,
+      "rule": null
+    },
+    {
+      "id": "e-lrn-ex",
+      "from": "learner",
+      "to": "exercises",
+      "kind": "data",
+      "payload": "p-code",
+      "sources": [
+        {
+          "path": "curriculum/START_HERE.md",
+          "anchor": "These are learning checkpoints, not dates or session quotas. Repeat or split",
+          "span": 3
+        }
+      ],
+      "inferred": true,
+      "blocked": false,
+      "rule": null
+    },
+    {
+      "id": "e-lrn-inv",
+      "from": "learner",
+      "to": "invaders",
+      "kind": "data",
+      "payload": "p-code",
+      "sources": [
+        {
+          "path": "learning-materials/01-foundations/ultimate-rust-crash-course/ch07_invaders_project/notes.md",
+          "anchor": "# Section 7 — Project: Invaders",
+          "span": 41
+        },
+        {
+          "path": "projects/invaders/Cargo.toml",
+          "anchor": "[package]",
+          "span": 4
+        }
+      ],
+      "inferred": true,
+      "blocked": false,
+      "rule": null
+    },
+    {
+      "id": "e-ctr-py",
+      "from": "contract",
+      "to": "filestats",
+      "kind": "config",
+      "payload": "p-fixture",
+      "sources": [
+        {
+          "path": "curriculum/START_HERE.md",
+          "anchor": "Agree on this contract before comparing languages:",
+          "span": 22
+        }
+      ],
+      "inferred": false,
+      "blocked": false,
+      "rule": null
+    },
+    {
+      "id": "e-ctr-rs",
+      "from": "contract",
+      "to": "hellostats",
+      "kind": "config",
+      "payload": "p-fixture",
+      "sources": [
+        {
+          "path": "curriculum/START_HERE.md",
+          "anchor": "Agree on this contract before comparing languages:",
+          "span": 22
+        }
+      ],
+      "inferred": false,
+      "blocked": false,
+      "rule": null
+    },
+    {
+      "id": "e-ctr-par",
+      "from": "contract",
+      "to": "parity",
+      "kind": "config",
+      "payload": "p-fixture",
+      "sources": [
+        {
+          "path": "curriculum/START_HERE.md",
+          "anchor": "- Compare both programs on identical inputs; explain each mismatch or resolve it.",
+          "span": 1
+        }
+      ],
+      "inferred": false,
+      "blocked": false,
+      "rule": null
+    },
+    {
+      "id": "e-py-cmd",
+      "from": "filestats",
+      "to": "commands",
+      "kind": "data",
+      "payload": "p-cli",
+      "sources": [
+        {
+          "path": "README.md",
+          "anchor": "# From the repository root:",
+          "span": 3
+        },
+        {
+          "path": "projects/file_stats/pyproject.toml",
+          "anchor": "[tool.pytest.ini_options]",
+          "span": 4
+        }
+      ],
+      "inferred": false,
+      "blocked": false,
+      "rule": null
+    },
+    {
+      "id": "e-rs-cmd",
+      "from": "hellostats",
+      "to": "commands",
+      "kind": "data",
+      "payload": "p-cli",
+      "sources": [
+        {
+          "path": "README.md",
+          "anchor": "cargo test --locked --manifest-path projects/hello-stats/Cargo.toml",
+          "span": 1
+        }
+      ],
+      "inferred": false,
+      "blocked": false,
+      "rule": null
+    },
+    {
+      "id": "e-py-par",
+      "from": "filestats",
+      "to": "parity",
+      "kind": "data",
+      "payload": "p-cli",
+      "sources": [
+        {
+          "path": "curriculum/START_HERE.md",
+          "anchor": "| Z8 · Paired CLI | Rust Book Chapter 12; Command-Line Rust selected examples | Implement the same agreed contract in hello-stats | Both languages agree on counts, streams and exit status |",
+          "span": 1
+        }
+      ],
+      "inferred": false,
+      "blocked": false,
+      "rule": null
+    },
+    {
+      "id": "e-rs-par",
+      "from": "hellostats",
+      "to": "parity",
+      "kind": "data",
+      "payload": "p-cli",
+      "sources": [
+        {
+          "path": "curriculum/START_HERE.md",
+          "anchor": "| Z8 · Paired CLI | Rust Book Chapter 12; Command-Line Rust selected examples | Implement the same agreed contract in hello-stats | Both languages agree on counts, streams and exit status |",
+          "span": 1
+        }
+      ],
+      "inferred": false,
+      "blocked": false,
+      "rule": null
+    },
+    {
+      "id": "e-py-ci",
+      "from": "filestats",
+      "to": "ci",
+      "kind": "data",
+      "payload": "p-cmd",
+      "sources": [
+        {
+          "path": "docs/ISSUES.md",
+          "anchor": "| `P0-W1-L` | not-started | Add the first minimal CI workflow and save local shell/Git proof. | Workflow committed; local commands pass; only then may a real Actions URL be cited. |",
+          "span": 1
+        }
+      ],
+      "inferred": true,
+      "blocked": false,
+      "rule": null
+    },
+    {
+      "id": "e-rs-ci",
+      "from": "hellostats",
+      "to": "ci",
+      "kind": "data",
+      "payload": "p-cmd",
+      "sources": [
+        {
+          "path": "docs/ISSUES.md",
+          "anchor": "| `P0-W1-L` | not-started | Add the first minimal CI workflow and save local shell/Git proof. | Workflow committed; local commands pass; only then may a real Actions URL be cited. |",
+          "span": 1
+        }
+      ],
+      "inferred": true,
+      "blocked": false,
+      "rule": null
+    },
+    {
+      "id": "e-cmd-rcpt",
+      "from": "commands",
+      "to": "receipts",
+      "kind": "data",
+      "payload": "p-cmd",
+      "sources": [
+        {
+          "path": "tools/validate_phase0_integrity.py",
+          "anchor": "    if not isinstance(commands, list):",
+          "span": 27
+        },
+        {
+          "path": "progress/proofs/README.md",
+          "anchor": "Store observed Foundation receipts here as `YYYY-MM-DD.json` only after the cited commands have actually run. Each file must conform to [`phase0-proof.v1`](../../docs/phase0-proof.schema.json) and pass:",
+          "span": 5
+        }
+      ],
+      "inferred": false,
+      "blocked": false,
+      "rule": null
+    },
+    {
+      "id": "e-par-rcpt",
+      "from": "parity",
+      "to": "receipts",
+      "kind": "data",
+      "payload": "p-cmd",
+      "sources": [
+        {
+          "path": "docs/ISSUES.md",
+          "anchor": "| `P0-W1-C` | not-started | Compare Python and Rust outputs and cold-run instructions. | Parity transcript plus README install/run/test/example output exists. |",
+          "span": 1
+        }
+      ],
+      "inferred": true,
+      "blocked": false,
+      "rule": null
+    },
+    {
+      "id": "e-sch-rcpt",
+      "from": "schema",
+      "to": "receipts",
+      "kind": "config",
+      "payload": "p-receipt",
+      "sources": [
+        {
+          "path": "progress/proofs/README.md",
+          "anchor": "Store observed Foundation receipts here as `YYYY-MM-DD.json` only after the cited commands have actually run. Each file must conform to [`phase0-proof.v1`](../../docs/phase0-proof.schema.json) and pass:",
+          "span": 1
+        }
+      ],
+      "inferred": false,
+      "blocked": false,
+      "rule": null
+    },
+    {
+      "id": "e-rcpt-int",
+      "from": "receipts",
+      "to": "integrity",
+      "kind": "data",
+      "payload": "p-receipt",
+      "sources": [
+        {
+          "path": "tools/validate_phase0_integrity.py",
+          "anchor": "def validate_proof(receipt: dict, projection: dict, repository: Path) -> list[str]:",
+          "span": 135
+        },
+        {
+          "path": "tools/validate_phase0_integrity.py",
+          "anchor": "    if args.proof:",
+          "span": 2
+        }
+      ],
+      "inferred": false,
+      "blocked": false,
+      "rule": null
+    },
+    {
+      "id": "e-rcpt-led",
+      "from": "receipts",
+      "to": "ledger",
+      "kind": "data",
+      "payload": "p-receipt",
+      "sources": [
+        {
+          "path": "progress/proofs/README.md",
+          "anchor": "A receipt is a compact pointer to observed repository evidence, not a replacement for code, tests, output, or the private Aegis evidence ledger. Calendar reservations, Todoist state, generated documentation, elapsed time, paper reading, agent exercises, and endr activity cannot populate a verified Foundation receipt.",
+          "span": 3
+        }
+      ],
+      "inferred": true,
+      "blocked": false,
+      "rule": null
+    },
+    {
+      "id": "e-proj-int",
+      "from": "projection",
+      "to": "integrity",
+      "kind": "config",
+      "payload": "p-proj",
+      "sources": [
+        {
+          "path": "tools/validate_phase0_integrity.py",
+          "anchor": "    if projection != expected:",
+          "span": 2
+        },
+        {
+          "path": "tools/validate_phase0_integrity.py",
+          "anchor": "    projection = load_json(args.projection)",
+          "span": 2
+        }
+      ],
+      "inferred": false,
+      "blocked": false,
+      "rule": null
+    },
+    {
+      "id": "e-auth-int",
+      "from": "authority",
+      "to": "integrity",
+      "kind": "config",
+      "payload": "p-config",
+      "sources": [
+        {
+          "path": "tools/validate_phase0_integrity.py",
+          "anchor": "    config = read_frontmatter(vault / \"01_Daily/_Phase Config.md\")",
+          "span": 10
+        }
+      ],
+      "inferred": false,
+      "blocked": false,
+      "rule": null
+    },
+    {
+      "id": "e-exp-int",
+      "from": "exporter",
+      "to": "integrity",
+      "kind": "control",
+      "payload": "p-import",
+      "sources": [
+        {
+          "path": "tools/validate_phase0_integrity.py",
+          "anchor": "    scripts = str(DEFAULT_VAULT / \"08_Assistant/scripts\")",
+          "span": 10
+        },
+        {
+          "path": "tools/validate_phase0_integrity.py",
+          "anchor": "            build_public_projection,",
+          "span": 3
+        }
+      ],
+      "inferred": false,
+      "blocked": false,
+      "rule": null
+    },
+    {
+      "id": "e-mark-int",
+      "from": "markers",
+      "to": "integrity",
+      "kind": "config",
+      "payload": "p-digest",
+      "sources": [
+        {
+          "path": "tools/validate_phase0_integrity.py",
+          "anchor": "    digest = sha256(projection_path)",
+          "span": 2
+        }
+      ],
+      "inferred": false,
+      "blocked": false,
+      "rule": null
+    },
+    {
+      "id": "e-mob-int",
+      "from": "mobile",
+      "to": "integrity",
+      "kind": "config",
+      "payload": "p-pwa",
+      "sources": [
+        {
+          "path": "tools/validate_phase0_integrity.py",
+          "anchor": "    if PUBLIC_PROJECTION_SCHEMA not in app or \"../docs/aegis-phase0-projection.json\" not in app or \"fetch(\" not in app:",
+          "span": 8
+        }
+      ],
+      "inferred": false,
+      "blocked": false,
+      "rule": null
+    },
+    {
+      "id": "e-mob-syn",
+      "from": "mobile",
+      "to": "syntax",
+      "kind": "config",
+      "payload": "p-pwa",
+      "sources": [
+        {
+          "path": "AGENTS.md",
+          "anchor": "python3 tools/validate_phase0_integrity.py",
+          "span": 4
+        }
+      ],
+      "inferred": false,
+      "blocked": false,
+      "rule": null
+    },
+    {
+      "id": "e-route-val",
+      "from": "route",
+      "to": "routeval",
+      "kind": "config",
+      "payload": "p-route",
+      "sources": [
+        {
+          "path": "tools/validate_curriculum_route.py",
+          "anchor": "    route = json.loads((ROOT / 'curriculum/route-v2.json').read_text())",
+          "span": 4
+        }
+      ],
+      "inferred": false,
+      "blocked": false,
+      "rule": null
+    },
+    {
+      "id": "e-beg-val",
+      "from": "beginner",
+      "to": "policyval",
+      "kind": "config",
+      "payload": "p-beginner",
+      "sources": [
+        {
+          "path": "tools/validate_beginner_policy.py",
+          "anchor": "POLICY_PATH = ROOT / \"curriculum/beginner-policy-v1.json\"",
+          "span": 1
+        },
+        {
+          "path": "tools/validate_beginner_policy.py",
+          "anchor": "        policy = json.loads(args.policy.read_text())",
+          "span": 1
+        }
+      ],
+      "inferred": false,
+      "blocked": false,
+      "rule": null
+    },
+    {
+      "id": "e-int-gate",
+      "from": "integrity",
+      "to": "gate",
+      "kind": "data",
+      "payload": "p-verdict",
+      "sources": [
+        {
+          "path": "tools/validate_phase0_integrity.py",
+          "anchor": "    print(json.dumps({\"status\": \"PASS\" if not errors else \"FAIL\", \"errors\": errors}, indent=2))",
+          "span": 2
+        },
+        {
+          "path": "progress/proofs/README.md",
+          "anchor": "Store observed Foundation receipts here as `YYYY-MM-DD.json` only after the cited commands have actually run. Each file must conform to [`phase0-proof.v1`](../../docs/phase0-proof.schema.json) and pass:",
+          "span": 5
+        }
+      ],
+      "inferred": true,
+      "blocked": false,
+      "rule": null
+    },
+    {
+      "id": "e-ci-gate",
+      "from": "ci",
+      "to": "gate",
+      "kind": "telemetry",
+      "payload": "p-cmd",
+      "sources": [
+        {
+          "path": "curriculum/START_HERE.md",
+          "anchor": "- Show CI evidence when a workflow has actually run; local output is labeled local.",
+          "span": 1
+        }
+      ],
+      "inferred": true,
+      "blocked": false,
+      "rule": null
+    },
+    {
+      "id": "e-gate-later",
+      "from": "gate",
+      "to": "later",
+      "kind": "control",
+      "payload": "p-gate",
+      "sources": [
+        {
+          "path": "curriculum/START_HERE.md",
+          "anchor": "## P0 exit gate",
+          "span": 15
+        },
+        {
+          "path": "AGENTS.md",
+          "anchor": "- P0 is the only active phase. P1–P12 remain `not started` and undated until an",
+          "span": 2
+        }
+      ],
+      "inferred": false,
+      "blocked": false,
+      "rule": null
+    },
+    {
+      "id": "e-route-later",
+      "from": "route",
+      "to": "later",
+      "kind": "config",
+      "payload": "p-route",
+      "sources": [
+        {
+          "path": "curriculum/route-v2.json",
+          "anchor": "    {\n      \"id\": \"P1\",",
+          "span": 137
+        }
+      ],
+      "inferred": false,
+      "blocked": false,
+      "rule": null
+    },
+    {
+      "id": "e-gate-iss",
+      "from": "gate",
+      "to": "issues",
+      "kind": "config",
+      "payload": "p-gate",
+      "feedback": true,
+      "sources": [
+        {
+          "path": "progress/README.md",
+          "anchor": "1. Update hard dates in Aegis Nexus `_Phase Config` first.",
+          "span": 3
+        }
+      ],
+      "inferred": true,
+      "blocked": false,
+      "rule": null
+    },
+    {
+      "id": "x-cal-rcpt",
+      "from": "calendar",
+      "to": "receipts",
+      "kind": "data",
+      "payload": "p-resv",
+      "blocked": true,
+      "short": "Schedule ≠ proof",
+      "sources": [
+        {
+          "path": "tools/validate_phase0_integrity.py",
+          "anchor": "    if basis.get(\"schedule_only\") is not False or basis.get(\"task_state_only\") is not False:",
+          "span": 2
+        },
+        {
+          "path": "docs/aegis-phase0-projection.json",
+          "anchor": "    \"schedule_is_evidence\": false,",
+          "span": 2
+        }
+      ],
+      "inferred": false,
+      "rule": "Schedule and task state cannot be proof"
+    },
+    {
+      "id": "x-endr-rcpt",
+      "from": "endr",
+      "to": "receipts",
+      "kind": "data",
+      "payload": "p-code",
+      "blocked": true,
+      "short": "No company credit",
+      "sources": [
+        {
+          "path": "AGENTS.md",
+          "anchor": "command. Use `phase0-proof.v1` receipts where applicable. Agent overlays,",
+          "span": 3
+        }
+      ],
+      "inferred": false,
+      "rule": "endr never earns Foundation credit"
+    },
+    {
+      "id": "x-ex-rcpt",
+      "from": "exercises",
+      "to": "receipts",
+      "kind": "data",
+      "payload": "p-code",
+      "blocked": true,
+      "short": "No duplicate credit",
+      "sources": [
+        {
+          "path": "AGENTS.md",
+          "anchor": "- Existing paths, Git history, course work, and historical evidence remain",
+          "span": 3
+        }
+      ],
+      "inferred": false,
+      "rule": "Historical: no duplicate current credit"
+    },
+    {
+      "id": "x-rv-gate",
+      "from": "routeval",
+      "to": "gate",
+      "kind": "telemetry",
+      "payload": "p-verdict",
+      "blocked": true,
+      "short": "Admin ≠ proof",
+      "sources": [
+        {
+          "path": "README.md",
+          "anchor": "A curriculum/document check is administrative validation, not learning proof.",
+          "span": 1
+        }
+      ],
+      "inferred": false,
+      "rule": "Administrative check, not learning proof"
+    }
+  ],
+  "payloads": [
+    {
+      "id": "p-config",
+      "label": "Phase Config + manifest",
+      "kind": "config",
+      "sources": [
+        {
+          "path": "tools/validate_phase0_integrity.py",
+          "anchor": "    config = read_frontmatter(vault / \"01_Daily/_Phase Config.md\")",
+          "span": 10
+        }
+      ],
+      "inferred": false,
+      "schemaSource": 0
+    },
+    {
+      "id": "p-proj",
+      "label": "aegis.phase0-public-projection.v1",
+      "kind": "data",
+      "sources": [
+        {
+          "path": "docs/aegis-phase0-projection.json",
+          "anchor": "  \"schema_version\": \"aegis.phase0-public-projection.v1\",",
+          "span": 2
+        },
+        {
+          "path": "README.md",
+          "anchor": "<!-- AEGIS:PHASE0_PROJECTION:START -->",
+          "span": 9
+        }
+      ],
+      "inferred": false,
+      "schemaSource": 0
+    },
+    {
+      "id": "p-marker",
+      "label": "Generated marker block",
+      "kind": "data",
+      "sources": [
+        {
+          "path": "README.md",
+          "anchor": "<!-- AEGIS:PHASE0_PROJECTION:START -->",
+          "span": 15
+        }
+      ],
+      "inferred": false,
+      "schemaSource": 0
+    },
+    {
+      "id": "p-digest",
+      "label": "Projection digest",
+      "kind": "config",
+      "sources": [
+        {
+          "path": "tools/validate_phase0_integrity.py",
+          "anchor": "    digest = sha256(projection_path)",
+          "span": 2
+        }
+      ],
+      "inferred": false,
+      "schemaSource": 0
+    },
+    {
+      "id": "p-resv",
+      "label": "Private reservation",
+      "kind": "control",
+      "sources": [
+        {
+          "path": "README.md",
+          "anchor": "The private Aegis plan owns dates and reservations; this public",
+          "span": 2
+        },
+        {
+          "path": "docs/aegis-phase0-projection.json",
+          "anchor": "    \"schedule_is_evidence\": false,",
+          "span": 1
+        }
+      ],
+      "inferred": true,
+      "schemaSource": 0
+    },
+    {
+      "id": "p-dash",
+      "label": "Public topic view",
+      "kind": "data",
+      "sources": [
+        {
+          "path": "mobile/app.js",
+          "anchor": "function renderTopics() {",
+          "span": 12
+        }
+      ],
+      "inferred": false,
+      "schemaSource": 0
+    },
+    {
+      "id": "p-route",
+      "label": "Curriculum route v2",
+      "kind": "config",
+      "sources": [
+        {
+          "path": "curriculum/route-v2.json",
+          "anchor": "{\n  \"schema_version\": \"defense-foundations.curriculum-route.v2\",",
+          "span": 33
+        }
+      ],
+      "inferred": false,
+      "schemaSource": 0
+    },
+    {
+      "id": "p-policy",
+      "label": "Learning policy",
+      "kind": "config",
+      "sources": [
+        {
+          "path": "curriculum/parallel-policy-v1.json",
+          "anchor": "{\n  \"schema_version\": \"defense-foundations.parallel-policy.v1\",",
+          "span": 29
+        }
+      ],
+      "inferred": false,
+      "schemaSource": 0
+    },
+    {
+      "id": "p-session",
+      "label": "Session plan",
+      "kind": "control",
+      "sources": [
+        {
+          "path": "curriculum/PARALLEL_COURSE_MAP.md",
+          "anchor": "| Track | Primary course | Start and practice | Session |",
+          "span": 8
+        }
+      ],
+      "inferred": false,
+      "schemaSource": 0
+    },
+    {
+      "id": "p-check",
+      "label": "Checkpoint Z0–Z9",
+      "kind": "control",
+      "sources": [
+        {
+          "path": "curriculum/START_HERE.md",
+          "anchor": "| Checkpoint | Learn | Do without copying the example | Ready to continue when |",
+          "span": 12
+        }
+      ],
+      "inferred": false,
+      "schemaSource": 0
+    },
+    {
+      "id": "p-issue",
+      "label": "Issue ID",
+      "kind": "control",
+      "sources": [
+        {
+          "path": "docs/ISSUES.md",
+          "anchor": "| Issue | Status | Objective | Acceptance |\n|---|---|---|---|\n| `P0-W1-R` | not-started | Establish the Rust `hello-stats` CLI contract and first compiling slice. | `cargo test`/narrow run observed; `Result` error path and exact output contract recorded. |",
+          "span": 12
+        }
+      ],
+      "inferred": false,
+      "schemaSource": 0
+    },
+    {
+      "id": "p-lesson",
+      "label": "Course lesson",
+      "kind": "data",
+      "sources": [
+        {
+          "path": "curriculum/parallel-policy-v1.json",
+          "anchor": "  \"primary_sources\": {",
+          "span": 7
+        }
+      ],
+      "inferred": false,
+      "schemaSource": 0
+    },
+    {
+      "id": "p-code",
+      "label": "Learner code change",
+      "kind": "data",
+      "sources": [
+        {
+          "path": "tools/validate_phase0_integrity.py",
+          "anchor": "        \"test_count\",",
+          "span": 2
+        }
+      ],
+      "inferred": false,
+      "schemaSource": 0
+    },
+    {
+      "id": "p-fixture",
+      "label": "Shared fixture",
+      "kind": "config",
+      "sources": [
+        {
+          "path": "curriculum/START_HERE.md",
+          "anchor": "| Fixture | Lines | Words | Bytes |",
+          "span": 8
+        }
+      ],
+      "inferred": false,
+      "schemaSource": 0
+    },
+    {
+      "id": "p-cli",
+      "label": "CLI result line",
+      "kind": "data",
+      "sources": [
+        {
+          "path": "curriculum/START_HERE.md",
+          "anchor": "Agree on this contract before comparing languages:",
+          "span": 22
+        }
+      ],
+      "inferred": false,
+      "schemaSource": 0
+    },
+    {
+      "id": "p-cmd",
+      "label": "Command result",
+      "kind": "data",
+      "sources": [
+        {
+          "path": "tools/validate_phase0_integrity.py",
+          "anchor": "        command_fields = {\"command\", \"working_directory\", \"exit_code\", \"expected_exit_code\", \"output_digest\"}",
+          "span": 20
+        },
+        {
+          "path": "tests/test_phase0_integrity.py",
+          "anchor": "            \"command_results\": [",
+          "span": 9
+        }
+      ],
+      "inferred": false,
+      "schemaSource": 0
+    },
+    {
+      "id": "p-receipt",
+      "label": "phase0-proof.v1 receipt",
+      "kind": "data",
+      "sources": [
+        {
+          "path": "docs/phase0-proof.schema.json",
+          "anchor": "  \"required\": [\n    \"schema_version\",",
+          "span": 15
+        },
+        {
+          "path": "tests/test_phase0_integrity.py",
+          "anchor": "        return {\n            \"schema_version\": \"phase0-proof.v1\",",
+          "span": 28
+        }
+      ],
+      "inferred": false,
+      "schemaSource": 0
+    },
+    {
+      "id": "p-import",
+      "label": "Imported validator code",
+      "kind": "control",
+      "sources": [
+        {
+          "path": "tools/validate_phase0_integrity.py",
+          "anchor": "def current_private_and_public_projection(vault: Path) -> tuple[dict, dict, object]:",
+          "span": 13
+        },
+        {
+          "path": "tools/validate_phase0_integrity.py",
+          "anchor": "            build_public_projection,",
+          "span": 3
+        }
+      ],
+      "inferred": false,
+      "schemaSource": 0
+    },
+    {
+      "id": "p-pwa",
+      "label": "PWA contract tokens",
+      "kind": "config",
+      "sources": [
+        {
+          "path": "tools/validate_phase0_integrity.py",
+          "anchor": "    if PUBLIC_PROJECTION_SCHEMA not in app or \"../docs/aegis-phase0-projection.json\" not in app or \"fetch(\" not in app:",
+          "span": 8
+        }
+      ],
+      "inferred": false,
+      "schemaSource": 0
+    },
+    {
+      "id": "p-verdict",
+      "label": "Validator verdict",
+      "kind": "data",
+      "sources": [
+        {
+          "path": "tools/validate_phase0_integrity.py",
+          "anchor": "    if verdict == \"verified\":",
+          "span": 3
+        },
+        {
+          "path": "tools/validate_phase0_integrity.py",
+          "anchor": "    print(json.dumps({\"status\": \"PASS\" if not errors else \"FAIL\", \"errors\": errors}, indent=2))",
+          "span": 1
+        }
+      ],
+      "inferred": false,
+      "schemaSource": 0
+    },
+    {
+      "id": "p-gate",
+      "label": "Gate decision",
+      "kind": "control",
+      "sources": [
+        {
+          "path": "curriculum/START_HERE.md",
+          "anchor": "## P0 exit gate",
+          "span": 15
+        },
+        {
+          "path": "docs/ISSUES.md",
+          "anchor": "| `P0-FINAL-0926` | not-started | Legacy-stable gate-review criterion; the dated token is not active date authority. | Written decision based only on current proof at the private plan's review checkpoint; no automatic P1. |",
+          "span": 1
+        }
+      ],
+      "inferred": true,
+      "schemaSource": 0
+    },
+    {
+      "id": "p-beginner",
+      "label": "Earlier beginner policy",
+      "kind": "config",
+      "sources": [
+        {
+          "path": "curriculum/beginner-policy-v1.json",
+          "anchor": "{",
+          "span": 29
+        }
+      ],
+      "schemaSource": 0,
+      "inferred": false
+    }
+  ],
+  "tour": [
+    {
+      "id": "t1",
+      "title": "Authority lives outside the repo",
+      "focus": [
+        "authority",
+        "exporter",
+        "calendar"
+      ],
+      "edges": [
+        "e-auth-exp",
+        "e-auth-cal"
+      ],
+      "body": "Private Aegis authority owns the operating schedule. The public projection exposes only educational scope; this map marks uninspected external roles as inferred.",
+      "sources": [
+        {
+          "path": "AGENTS.md",
+          "anchor": "1. Explicit current user direction.",
+          "span": 1
+        },
+        {
+          "path": "docs/aegis-phase0-projection.json",
+          "anchor": "    \"kind\": \"privacy-filtered projection of validated private authority\",",
+          "span": 1
+        },
+        {
+          "path": "tools/validate_phase0_integrity.py",
+          "anchor": "    config = read_frontmatter(vault / \"01_Daily/_Phase Config.md\")",
+          "span": 10
+        },
+        {
+          "path": "tools/validate_phase0_integrity.py",
+          "anchor": "    scripts = str(DEFAULT_VAULT / \"08_Assistant/scripts\")",
+          "span": 10
+        },
+        {
+          "path": "tools/validate_phase0_integrity.py",
+          "anchor": "def current_private_and_public_projection(vault: Path) -> tuple[dict, dict, object]:",
+          "span": 13
+        },
+        {
+          "path": "AGENTS.md",
+          "anchor": "Generated `AEGIS:PHASE0_PROJECTION` regions and",
+          "span": 4
+        },
+        {
+          "path": "curriculum/RESET_HANDOFF.md",
+          "anchor": "Generated projections must come from the publisher. Course access and actual",
+          "span": 1
+        },
+        {
+          "path": "README.md",
+          "anchor": "The private Aegis plan owns dates and reservations; this public",
+          "span": 2
+        },
+        {
+          "path": "progress/proofs/README.md",
+          "anchor": "A receipt is a compact pointer to observed repository evidence, not a replacement for code, tests, output, or the private Aegis evidence ledger. Calendar reservations, Todoist state, generated documentation, elapsed time, paper reading, agent exercises, and endr activity cannot populate a verified Foundation receipt.",
+          "span": 1
+        },
+        {
+          "path": "docs/aegis-phase0-projection.json",
+          "anchor": "    \"schedule\": \"Consult the private calendar and Aegis plan for current reservations.\"",
+          "span": 1
+        },
+        {
+          "path": "tools/validate_phase0_integrity.py",
+          "anchor": "    config = read_frontmatter(vault / \"01_Daily/_Phase Config.md\")",
+          "span": 10
+        },
+        {
+          "path": "tools/validate_phase0_integrity.py",
+          "anchor": "            build_public_projection,",
+          "span": 3
+        },
+        {
+          "path": "README.md",
+          "anchor": "The private Aegis plan owns dates and reservations; this public",
+          "span": 2
+        }
+      ],
+      "inferred": true
+    },
+    {
+      "id": "t2",
+      "title": "A hash-stamped projection is published",
+      "focus": [
+        "projection",
+        "markers",
+        "archpage"
+      ],
+      "edges": [
+        "e-exp-proj",
+        "e-exp-mark",
+        "e-proj-mark",
+        "e-mark-arch"
+      ],
+      "body": "The published JSON is a privacy-filtered educational summary. Generated document regions carry its digest and are publisher-owned; this map observes them without changing them.",
+      "sources": [
+        {
+          "path": "docs/aegis-phase0-projection.json",
+          "anchor": "  \"schema_version\": \"aegis.phase0-public-projection.v1\",",
+          "span": 2
+        },
+        {
+          "path": "AGENTS.md",
+          "anchor": "Generated `AEGIS:PHASE0_PROJECTION` regions and",
+          "span": 4
+        },
+        {
+          "path": "tests/test_phase0_integrity.py",
+          "anchor": "    def test_current_public_projection_matches_private_authority_without_private_fields(self):",
+          "span": 5
+        },
+        {
+          "path": "README.md",
+          "anchor": "<!-- AEGIS:PHASE0_PROJECTION:START -->",
+          "span": 9
+        },
+        {
+          "path": "README.md",
+          "anchor": "<!-- AEGIS:PHASE0_PROJECTION:START -->",
+          "span": 15
+        },
+        {
+          "path": "tools/validate_phase0_integrity.py",
+          "anchor": "    digest = sha256(projection_path)",
+          "span": 2
+        },
+        {
+          "path": "tools/validate_phase0_integrity.py",
+          "anchor": "    for relative, style in regions.items():",
+          "span": 16
+        },
+        {
+          "path": "docs/architecture.html",
+          "anchor": "<!-- AEGIS:PHASE0_PROJECTION:START -->",
+          "span": 1
+        },
+        {
+          "path": "curriculum/RESET_HANDOFF.md",
+          "anchor": "Generated projections must come from the publisher. Course access and actual",
+          "span": 1
+        },
+        {
+          "path": "tools/validate_phase0_integrity.py",
+          "anchor": "    digest = sha256(projection_path)",
+          "span": 2
+        }
+      ],
+      "inferred": true
+    },
+    {
+      "id": "t3",
+      "title": "Policy routes the learner",
+      "focus": [
+        "agents",
+        "route",
+        "policy",
+        "starthere",
+        "coursemap",
+        "issues"
+      ],
+      "edges": [
+        "e-agt-route",
+        "e-agt-start",
+        "e-route-pol",
+        "e-pol-map"
+      ],
+      "body": "The repository contract sets precedence. The route, course map and learner guide describe parallel basics and the paired Project 0 contract. Exact schedule authority stays private.",
+      "sources": [
+        {
+          "path": "AGENTS.md",
+          "anchor": "1. Explicit current user direction.",
+          "span": 1
+        },
+        {
+          "path": "AGENTS.md",
+          "anchor": "## Active parallel curriculum amendment — September 19",
+          "span": 10
+        },
+        {
+          "path": "curriculum/route-v2.json",
+          "anchor": "{\n  \"schema_version\": \"defense-foundations.curriculum-route.v2\",",
+          "span": 173
+        },
+        {
+          "path": "tools/validate_curriculum_route.py",
+          "anchor": "def validate(data: dict, check_files: bool = True) -> list[str]:",
+          "span": 69
+        },
+        {
+          "path": "curriculum/parallel-policy-v1.json",
+          "anchor": "{\n  \"schema_version\": \"defense-foundations.parallel-policy.v1\",",
+          "span": 29
+        },
+        {
+          "path": "curriculum/route-v2.json",
+          "anchor": "  \"learning_policy\": \"parallel-policy-v1.json\"",
+          "span": 1
+        },
+        {
+          "path": "AGENTS.md",
+          "anchor": "## Active parallel curriculum amendment — September 19",
+          "span": 11
+        },
+        {
+          "path": "curriculum/START_HERE.md",
+          "anchor": "## Beginner checkpoints",
+          "span": 27
+        },
+        {
+          "path": "curriculum/START_HERE.md",
+          "anchor": "## Project 0 contract, introduced gradually",
+          "span": 41
+        },
+        {
+          "path": "curriculum/FOUNDATIONS_FAST_TRACK.md",
+          "anchor": "| Order | Session |",
+          "span": 5
+        },
+        {
+          "path": "curriculum/PARALLEL_COURSE_MAP.md",
+          "anchor": "| Track | Primary course | Start and practice | Session |",
+          "span": 10
+        },
+        {
+          "path": "curriculum/PARALLEL_COURSE_MAP.md",
+          "anchor": "## Evidence and progression",
+          "span": 5
+        },
+        {
+          "path": "docs/ISSUES.md",
+          "anchor": "## Adaptive issue routing",
+          "span": 65
+        },
+        {
+          "path": "AGENTS.md",
+          "anchor": "## Active parallel curriculum amendment — September 19",
+          "span": 10
+        },
+        {
+          "path": "AGENTS.md",
+          "anchor": "## Active parallel curriculum amendment — September 19",
+          "span": 10
+        },
+        {
+          "path": "curriculum/START_HERE.md",
+          "anchor": "**P0 active · parallel beginner curriculum.** Exact dates and current-period",
+          "span": 2
+        },
+        {
+          "path": "AGENTS.md",
+          "anchor": "introductory tracks run in parallel, with one primary course per track. Follow",
+          "span": 3
+        }
+      ],
+      "inferred": true
+    },
+    {
+      "id": "t4",
+      "title": "One human operator",
+      "focus": [
+        "learner",
+        "mobile",
+        "courses"
+      ],
+      "edges": [
+        "e-mark-lrn",
+        "e-mob-lrn",
+        "e-cal-lrn",
+        "e-map-lrn",
+        "e-start-lrn",
+        "e-iss-lrn",
+        "e-crs-lrn"
+      ],
+      "body": "The learner connects teaching sources and guidance to code and observed work. The mobile view shows public educational scope; calendar reservations and dashboard state do not earn evidence.",
+      "sources": [
+        {
+          "path": "curriculum/START_HERE.md",
+          "anchor": "Start with the [first learning week](FOUNDATIONS_FAST_TRACK.md): Python, Rust",
+          "span": 3
+        },
+        {
+          "path": "curriculum/START_HERE.md",
+          "anchor": "## How to study a small slice",
+          "span": 17
+        },
+        {
+          "path": "AGENTS.md",
+          "anchor": "1. Explicit current user direction.",
+          "span": 1
+        },
+        {
+          "path": "mobile/app.js",
+          "anchor": "const PROJECTION_URL = \"../docs/aegis-phase0-projection.json\";",
+          "span": 2
+        },
+        {
+          "path": "mobile/app.js",
+          "anchor": "async function loadProjection() {",
+          "span": 12
+        },
+        {
+          "path": "mobile/sw.js",
+          "anchor": "async function networkFirstProjection(request) {",
+          "span": 22
+        },
+        {
+          "path": "mobile/app.js",
+          "anchor": "function buildTopics(projection) {",
+          "span": 14
+        },
+        {
+          "path": "curriculum/PARALLEL_COURSE_MAP.md",
+          "anchor": "Official provider pages checked October 2 support the source choices below.",
+          "span": 1
+        },
+        {
+          "path": "curriculum/parallel-policy-v1.json",
+          "anchor": "  \"primary_sources\": {",
+          "span": 7
+        },
+        {
+          "path": "README.md",
+          "anchor": "<!-- AEGIS:PHASE0_PROJECTION:START -->",
+          "span": 15
+        },
+        {
+          "path": "curriculum/START_HERE.md",
+          "anchor": "This is your learning guide. [The route](COMPETENCY_PATHWAY.md) explains later",
+          "span": 4
+        },
+        {
+          "path": "mobile/app.js",
+          "anchor": "function renderDashboard() {",
+          "span": 20
+        },
+        {
+          "path": "curriculum/PARALLEL_COURSE_MAP.md",
+          "anchor": "Project 0 remains the main curriculum build. Separate toy agent exercises do not authorize weapons, targeting, live systems or company deployment. The [competency pathway](COMPETENCY_PATHWAY.md) still governs later dependencies. Personal timing and capacity come only from the current private Aegis authority and its generated projection.",
+          "span": 1
+        },
+        {
+          "path": "curriculum/FOUNDATIONS_FAST_TRACK.md",
+          "anchor": "Exact reservations and personal capacity stay in the private Aegis calendar.",
+          "span": 1
+        },
+        {
+          "path": "curriculum/PARALLEL_COURSE_MAP.md",
+          "anchor": "| Track | Primary course | Start and practice | Session |",
+          "span": 10
+        },
+        {
+          "path": "curriculum/START_HERE.md",
+          "anchor": "## Beginner checkpoints",
+          "span": 27
+        },
+        {
+          "path": "docs/ISSUES.md",
+          "anchor": "## Adaptive issue routing",
+          "span": 3
+        },
+        {
+          "path": "curriculum/PARALLEL_COURSE_MAP.md",
+          "anchor": "| Python | [Python Crash Course, 3rd Edition — O’Reilly](https://www.oreilly.com/library/view/python-crash-course/9781098156664/)",
+          "span": 1
+        }
+      ],
+      "inferred": true
+    },
+    {
+      "id": "t5",
+      "title": "Project 0: the paired implementation",
+      "focus": [
+        "contract",
+        "filestats",
+        "hellostats",
+        "parity"
+      ],
+      "edges": [
+        "e-start-ctr",
+        "e-lrn-py",
+        "e-lrn-rs",
+        "e-ctr-py",
+        "e-ctr-rs",
+        "e-ctr-par"
+      ],
+      "body": "Python and Rust must independently implement the agreed file-statistics behavior. Placeholder signatures and owned source files determine their current map state.",
+      "sources": [
+        {
+          "path": "curriculum/START_HERE.md",
+          "anchor": "## Project 0 contract, introduced gradually",
+          "span": 28
+        },
+        {
+          "path": "projects/file_stats/main.py",
+          "anchor": "def main():",
+          "span": 6
+        },
+        {
+          "path": "projects/file_stats/pyproject.toml",
+          "anchor": "description = \"Count lines, words, and bytes in files or stdin — a small wc-style CLI.\"",
+          "span": 1
+        },
+        {
+          "path": "projects/file_stats/pyproject.toml",
+          "anchor": "[tool.pytest.ini_options]",
+          "span": 3
+        },
+        {
+          "path": "projects/hello-stats/src/main.rs",
+          "anchor": "#![allow(dead_code)]",
+          "span": 13
+        },
+        {
+          "path": "README.md",
+          "anchor": "A greeting or zero-test exit is not gate evidence.",
+          "span": 3
+        },
+        {
+          "path": "curriculum/START_HERE.md",
+          "anchor": "| Z8 · Paired CLI | Rust Book Chapter 12; Command-Line Rust selected examples | Implement the same agreed contract in hello-stats | Both languages agree on counts, streams and exit status |",
+          "span": 1
+        },
+        {
+          "path": "docs/ISSUES.md",
+          "anchor": "| `P0-W1-C` | not-started | Compare Python and Rust outputs and cold-run instructions. | Parity transcript plus README install/run/test/example output exists. |",
+          "span": 1
+        },
+        {
+          "path": "docs/aegis-phase0-projection.json",
+          "anchor": "    \"contract\": \"Independently prove the same file-statistics behavior on identical fixtures.\"",
+          "span": 1
+        },
+        {
+          "path": "curriculum/START_HERE.md",
+          "anchor": "The inspected starter prints `Hello from file-stats!`. This only demonstrates",
+          "span": 5
+        },
+        {
+          "path": "AGENTS.md",
+          "anchor": "- `projects/file_stats` is the Python half of Project 0. Inspect and test the",
+          "span": 2
+        },
+        {
+          "path": "curriculum/START_HERE.md",
+          "anchor": "| Z7 · Rust introduction | Rust Book Chapters 1–3, then 4–6, 8–9 and 11 as needed | Rebuild small familiar Python ideas in Rust; learn ownership and Result | You can explain a borrow error and return an ordinary error without panic |",
+          "span": 2
+        },
+        {
+          "path": "AGENTS.md",
+          "anchor": "- `projects/hello-stats` is the Rust half. Inspect and test the current files",
+          "span": 2
+        },
+        {
+          "path": "curriculum/START_HERE.md",
+          "anchor": "Agree on this contract before comparing languages:",
+          "span": 22
+        },
+        {
+          "path": "curriculum/START_HERE.md",
+          "anchor": "- Compare both programs on identical inputs; explain each mismatch or resolve it.",
+          "span": 1
+        }
+      ],
+      "inferred": true
+    },
+    {
+      "id": "t6",
+      "title": "The evidence firewall",
+      "focus": [
+        "commands",
+        "receipts",
+        "calendar",
+        "endr",
+        "exercises"
+      ],
+      "edges": [
+        "e-cmd-rcpt",
+        "e-par-rcpt",
+        "e-sch-rcpt",
+        "x-cal-rcpt",
+        "x-endr-rcpt",
+        "x-ex-rcpt"
+      ],
+      "body": "Observed work is recorded as proof receipts. Schedule state, company work and duplicate historical credit cannot cross this boundary.",
+      "sources": [
+        {
+          "path": "README.md",
+          "anchor": "## Project 0 baseline",
+          "span": 14
+        },
+        {
+          "path": "AGENTS.md",
+          "anchor": "## Evidence and safety boundaries",
+          "span": 7
+        },
+        {
+          "path": "curriculum/FOUNDATIONS_FAST_TRACK.md",
+          "anchor": "Record artifact, exact working directory, command, exit code, observed output, changed paths, verdict, blocker and next command.",
+          "span": 1
+        },
+        {
+          "path": "progress/proofs/README.md",
+          "anchor": "# Phase 0 proof receipts",
+          "span": 11
+        },
+        {
+          "path": "docs/phase0-proof.schema.json",
+          "anchor": "  \"required\": [\n    \"schema_version\",",
+          "span": 15
+        },
+        {
+          "path": "README.md",
+          "anchor": "The private Aegis plan owns dates and reservations; this public",
+          "span": 2
+        },
+        {
+          "path": "progress/proofs/README.md",
+          "anchor": "A receipt is a compact pointer to observed repository evidence, not a replacement for code, tests, output, or the private Aegis evidence ledger. Calendar reservations, Todoist state, generated documentation, elapsed time, paper reading, agent exercises, and endr activity cannot populate a verified Foundation receipt.",
+          "span": 1
+        },
+        {
+          "path": "docs/aegis-phase0-projection.json",
+          "anchor": "    \"schedule\": \"Consult the private calendar and Aegis plan for current reservations.\"",
+          "span": 1
+        },
+        {
+          "path": "AGENTS.md",
+          "anchor": "command. Use `phase0-proof.v1` receipts where applicable. Agent overlays,",
+          "span": 9
+        },
+        {
+          "path": "AGENTS.md",
+          "anchor": "endr is an independently governed company lane.",
+          "span": 3
+        },
+        {
+          "path": "README.md",
+          "anchor": "- Educational work does not change any independently governed product's maturity or authority.",
+          "span": 1
+        },
+        {
+          "path": "AGENTS.md",
+          "anchor": "endr is an independently governed company lane.",
+          "span": 3
+        },
+        {
+          "path": "learning-materials/01-foundations/python-crash-course/evidence/process_log.py",
+          "anchor": "\"\"\"Evidence — file-processing script for Python Crash Course (Part I).",
+          "span": 73
+        },
+        {
+          "path": "AGENTS.md",
+          "anchor": "- Existing paths, Git history, course work, and historical evidence remain",
+          "span": 3
+        },
+        {
+          "path": "curriculum/START_HERE.md",
+          "anchor": "These are learning checkpoints, not dates or session quotas. Repeat or split",
+          "span": 3
+        },
+        {
+          "path": "tools/validate_phase0_integrity.py",
+          "anchor": "    if not isinstance(commands, list):",
+          "span": 27
+        },
+        {
+          "path": "progress/proofs/README.md",
+          "anchor": "Store observed Foundation receipts here as `YYYY-MM-DD.json` only after the cited commands have actually run. Each file must conform to [`phase0-proof.v1`](../../docs/phase0-proof.schema.json) and pass:",
+          "span": 5
+        },
+        {
+          "path": "docs/ISSUES.md",
+          "anchor": "| `P0-W1-C` | not-started | Compare Python and Rust outputs and cold-run instructions. | Parity transcript plus README install/run/test/example output exists. |",
+          "span": 1
+        },
+        {
+          "path": "progress/proofs/README.md",
+          "anchor": "Store observed Foundation receipts here as `YYYY-MM-DD.json` only after the cited commands have actually run. Each file must conform to [`phase0-proof.v1`](../../docs/phase0-proof.schema.json) and pass:",
+          "span": 1
+        },
+        {
+          "path": "tools/validate_phase0_integrity.py",
+          "anchor": "    if basis.get(\"schedule_only\") is not False or basis.get(\"task_state_only\") is not False:",
+          "span": 2
+        },
+        {
+          "path": "docs/aegis-phase0-projection.json",
+          "anchor": "    \"schedule_is_evidence\": false,",
+          "span": 2
+        },
+        {
+          "path": "AGENTS.md",
+          "anchor": "command. Use `phase0-proof.v1` receipts where applicable. Agent overlays,",
+          "span": 3
+        }
+      ],
+      "inferred": true
+    },
+    {
+      "id": "t7",
+      "title": "Fail-closed verification",
+      "focus": [
+        "integrity",
+        "schema",
+        "routeval",
+        "policyval"
+      ],
+      "edges": [
+        "e-rcpt-int",
+        "e-proj-int",
+        "e-auth-int",
+        "e-exp-int",
+        "e-mark-int",
+        "e-mob-int"
+      ],
+      "body": "The receipt contract checks observed evidence. Full projection-authority verification also needs the private vault, so those checks are explicitly unavailable here.",
+      "sources": [
+        {
+          "path": "tools/validate_phase0_integrity.py",
+          "anchor": "def validate_projection(projection: dict, projection_path: Path, vault: Path, repository: Path) -> list[str]:",
+          "span": 233
+        },
+        {
+          "path": "tools/validate_phase0_integrity.py",
+          "anchor": "def validate_proof(receipt: dict, projection: dict, repository: Path) -> list[str]:",
+          "span": 135
+        },
+        {
+          "path": "tools/validate_phase0_integrity.py",
+          "anchor": "def main() -> int:",
+          "span": 14
+        },
+        {
+          "path": "docs/phase0-proof.schema.json",
+          "anchor": "{\n  \"$schema\": \"https://json-schema.org/draft/2020-12/schema\",",
+          "span": 22
+        },
+        {
+          "path": "tools/validate_curriculum_route.py",
+          "anchor": "def validate(data: dict, check_files: bool = True) -> list[str]:",
+          "span": 69
+        },
+        {
+          "path": "tools/validate_curriculum_route.py",
+          "anchor": "def self_test(data: dict) -> None:",
+          "span": 14
+        },
+        {
+          "path": "tools/validate_beginner_policy.py",
+          "anchor": "POLICY_PATH = ROOT / \"curriculum/beginner-policy-v1.json\"",
+          "span": 48
+        },
+        {
+          "path": "tests/test_beginner_policy.py",
+          "anchor": "    def test_current_policy_and_initial_card_pass(self):",
+          "span": 48
+        },
+        {
+          "path": "tools/validate_phase0_integrity.py",
+          "anchor": "    if args.proof:",
+          "span": 2
+        },
+        {
+          "path": "tools/validate_phase0_integrity.py",
+          "anchor": "    if projection != expected:",
+          "span": 2
+        },
+        {
+          "path": "tools/validate_phase0_integrity.py",
+          "anchor": "    projection = load_json(args.projection)",
+          "span": 2
+        },
+        {
+          "path": "tools/validate_phase0_integrity.py",
+          "anchor": "    config = read_frontmatter(vault / \"01_Daily/_Phase Config.md\")",
+          "span": 10
+        },
+        {
+          "path": "tools/validate_phase0_integrity.py",
+          "anchor": "    scripts = str(DEFAULT_VAULT / \"08_Assistant/scripts\")",
+          "span": 10
+        },
+        {
+          "path": "tools/validate_phase0_integrity.py",
+          "anchor": "            build_public_projection,",
+          "span": 3
+        },
+        {
+          "path": "tools/validate_phase0_integrity.py",
+          "anchor": "    digest = sha256(projection_path)",
+          "span": 2
+        },
+        {
+          "path": "tools/validate_phase0_integrity.py",
+          "anchor": "    if PUBLIC_PROJECTION_SCHEMA not in app or \"../docs/aegis-phase0-projection.json\" not in app or \"fetch(\" not in app:",
+          "span": 8
+        }
+      ],
+      "inferred": true
+    },
+    {
+      "id": "t8",
+      "title": "The gate is starved",
+      "focus": [
+        "gate",
+        "later",
+        "integrity",
+        "ci"
+      ],
+      "edges": [
+        "e-int-gate",
+        "e-ci-gate",
+        "e-gate-later",
+        "x-rv-gate"
+      ],
+      "body": "The gate needs observed implementation evidence. The overview derives readiness from the current model; neither a map state nor an administrative check grants Foundation credit.",
+      "sources": [
+        {
+          "path": "curriculum/START_HERE.md",
+          "anchor": "## P0 exit gate",
+          "span": 12
+        },
+        {
+          "path": "docs/aegis-phase0-projection.json",
+          "anchor": "    \"later_phase_promotion\": \"none\"",
+          "span": 1
+        },
+        {
+          "path": "progress/README.md",
+          "anchor": "1. Update hard dates in Aegis Nexus `_Phase Config` first.",
+          "span": 3
+        },
+        {
+          "path": "curriculum/COMPETENCY_PATHWAY.md",
+          "anchor": "| ID | Competency | Entry proof | Role / status |",
+          "span": 27
+        },
+        {
+          "path": "curriculum/route-v2.json",
+          "anchor": "    {\n      \"id\": \"P1\",",
+          "span": 137
+        },
+        {
+          "path": "AGENTS.md",
+          "anchor": "- P0 is the only active phase. P1–P12 remain `not started` and undated until an",
+          "span": 2
+        },
+        {
+          "path": "tools/validate_phase0_integrity.py",
+          "anchor": "def validate_projection(projection: dict, projection_path: Path, vault: Path, repository: Path) -> list[str]:",
+          "span": 233
+        },
+        {
+          "path": "tools/validate_phase0_integrity.py",
+          "anchor": "def validate_proof(receipt: dict, projection: dict, repository: Path) -> list[str]:",
+          "span": 135
+        },
+        {
+          "path": "tools/validate_phase0_integrity.py",
+          "anchor": "def main() -> int:",
+          "span": 14
+        },
+        {
+          "path": "docs/ISSUES.md",
+          "anchor": "| `P0-W1-L` | not-started | Add the first minimal CI workflow and save local shell/Git proof. | Workflow committed; local commands pass; only then may a real Actions URL be cited. |",
+          "span": 1
+        },
+        {
+          "path": "curriculum/START_HERE.md",
+          "anchor": "- Show CI evidence when a workflow has actually run; local output is labeled local.",
+          "span": 1
+        },
+        {
+          "path": "tools/validate_phase0_integrity.py",
+          "anchor": "    print(json.dumps({\"status\": \"PASS\" if not errors else \"FAIL\", \"errors\": errors}, indent=2))",
+          "span": 2
+        },
+        {
+          "path": "progress/proofs/README.md",
+          "anchor": "Store observed Foundation receipts here as `YYYY-MM-DD.json` only after the cited commands have actually run. Each file must conform to [`phase0-proof.v1`](../../docs/phase0-proof.schema.json) and pass:",
+          "span": 5
+        },
+        {
+          "path": "curriculum/START_HERE.md",
+          "anchor": "## P0 exit gate",
+          "span": 15
+        },
+        {
+          "path": "README.md",
+          "anchor": "A curriculum/document check is administrative validation, not learning proof.",
+          "span": 1
+        }
+      ],
+      "inferred": true
+    }
+  ],
+  "implementation": [
+    {
+      "id": "how-0",
+      "title": "Data model & provenance",
+      "body": "Every object points to literal source anchors and spans. Current lines and hashes are resolved during extraction. Missing anchors remain visible as stale provenance.",
+      "sources": [
+        {
+          "path": "tools/archmap/extract.py",
+          "anchor": "def resolve_source(root,source):",
+          "span": 1
+        }
+      ]
+    },
+    {
+      "id": "how-1",
+      "title": "Extraction",
+      "body": "Python reads owned file globs, counts non-blank text lines and records Git facts. External roles are inferred from repository references.",
+      "sources": [
+        {
+          "path": "tools/archmap/extract.py",
+          "anchor": "def extract(root=ROOT,results=None,strict=False,generated=None):",
+          "span": 1
+        }
+      ]
+    },
+    {
+      "id": "how-2",
+      "title": "Maturity",
+      "body": "Sourced overrides, deployment proof, observed bound tests, exact placeholder signatures and file presence determine one maturity state. A command with no collected tests cannot establish tested maturity.",
+      "sources": [
+        {
+          "path": "tools/archmap/extract.py",
+          "anchor": "def maturity(node,files,results,root):",
+          "span": 1
+        }
+      ]
+    },
+    {
+      "id": "how-3",
+      "title": "Layered layout",
+      "body": "Source-to-gate ranks and deterministic barycenter ordering place modules in separate zone lanes. Content changes retain their positions. Height encodes owned lines; no performance or latency is implied.",
+      "sources": [
+        {
+          "path": "tools/archmap/layout.py",
+          "anchor": "def apply(model,previous=None):",
+          "span": 1
+        }
+      ]
+    },
+    {
+      "id": "how-4",
+      "title": "Rendering & fallback",
+      "body": "A perspective WebGL2 board uses crisp vector-like figures and selectable DOM titles. Canvas 2D and the keyboard-accessible Outline provide fallback views. Plan view is orthographic.",
+      "sources": [
+        {
+          "path": "tools/archmap/web/engine3d.js",
+          "anchor": "export function create3D(canvas,model){let context=null;try{context=canvas.getContext('webgl2',{alpha:false,antialias:true,powerPreference:'low-power'});}catch{}if(!context)return null;return new Engine3D(canvas,model,context);}",
+          "span": 1
+        }
+      ]
+    },
+    {
+      "id": "how-5",
+      "title": "Live updates & checks",
+      "body": "The local server watches repository inputs and sends patches. Only audited, fixed commands can run. Private-authority checks stay unavailable; local receipt shape preflight never grants a proof verdict.",
+      "sources": [
+        {
+          "path": "tools/archmap/serve.py",
+          "anchor": "class State:",
+          "span": 1
+        }
+      ]
+    },
+    {
+      "id": "how-6",
+      "title": "Scope & authority",
+      "body": "This map is administrative and never earns Foundation credit. It does not write receipts, authorize promotions, change schedules or inspect the private vault.",
+      "sources": [
+        {
+          "path": "AGENTS.md",
+          "anchor": "## Evidence and safety boundaries",
+          "span": 1
+        }
+      ]
+    }
+  ],
+  "copy": {
+    "what": {
+      "sources": [
+        {
+          "path": "AGENTS.md",
+          "anchor": "1. Explicit current user direction.",
+          "span": 1
+        },
+        {
+          "path": "progress/proofs/README.md",
+          "anchor": "# Phase 0 proof receipts",
+          "span": 11
+        },
+        {
+          "path": "projects/file_stats/main.py",
+          "anchor": "def main():",
+          "span": 6
+        }
+      ]
+    }
+  }
+}

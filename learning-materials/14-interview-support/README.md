@@ -1,7 +1,14 @@
-# C/C++ and Interview Support
+# Career and native integration support
 
-**Activation:** optional throughout the year, no more than one hour/week unless a role specifically demands more
+**Curriculum v2 · prepared 2026-09-19 · P1 onward, issue-selected.**
 
-- [Mastering Data Structures and Algorithms in C/C++](dsa-c-cpp/README.md) — Catalog #10.
+Learn arrays/maps/queues and basic complexity in P1. Add targeted interview practice for real roles. C++/CMake/debugging belongs to a selected native adapter, not a third beginner language.
 
-Rust remains the main systems-language investment. C++ is for reading/modifying ROS 2 code and interview fluency, not a competing curriculum.
+Read [Start Here](../../curriculum/START_HERE.md), [Resource Spine](../../curriculum/RESOURCE_SPINE.md)
+and [the full route](../../curriculum/COMPETENCY_PATHWAY.md). One primary source
+serves the current artifact; the retained resources below are a reference menu.
+They do not add courses, deadlines or completion credit.
+
+## Retained source folders
+
+- [dsa-c-cpp](dsa-c-cpp/README.md)

@@ -1,13 +1,14 @@
-# Research Capstone Materials
+# Integrated capstone
 
-**Primary phase:** P12
+**Curriculum v2 · prepared 2026-09-19 · P12.**
 
-Material selection follows the chosen niche; do not pre-load a generic mega-course.
+One question, existing baselines, controlled failures, raw results and clean reproduction. Report length follows evidence; no compulsory page count.
 
-## Selection rule
+Read [Start Here](../../curriculum/START_HERE.md), [Resource Spine](../../curriculum/RESOURCE_SPINE.md)
+and [the full route](../../curriculum/COMPETENCY_PATHWAY.md). One primary source
+serves the current artifact; the retained resources below are a reference menu.
+They do not add courses, deadlines or completion credit.
 
-Choose two strong papers to reproduce, one limitation to test, and only the documentation/courses needed to execute that experiment. Prefer primary papers and official framework documentation.
+## Retained source folders
 
-## Evidence
-
-Reproduction notes, controlled baselines, ablations, statistical reporting, failure analysis, and a 15–25 page technical report. Start from the [domain research queues](../../research/README.md).
+Use the selected primary documentation in Resource Spine; no extra course is required.

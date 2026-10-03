@@ -1,0 +1,3 @@
+All embedded typefaces are licensed under the SIL Open Font License 1.1.
+Complete original notices and licenses are preserved under sources/<family>/OFL.txt.
+See manifest.json for source URLs, revision, and hashes.

@@ -1,0 +1,798 @@
+{
+  "schema": "aegis.rust-first-studio-plan.v1",
+  "status": "active-teaching-policy",
+  "source_verified_date": "2026-10-02",
+  "final_destination": "curriculum/RUST_FIRST_STUDIO_PLAN.json",
+  "scope": "Relative learning cards and approximate regular-week teaching allocation only. Private Aegis authority and native Calendar own dates, capacity and reservations. P0 remains the only active phase; no company software rewrite is implied.",
+  "allocation_guidance": {
+    "regular_week_minutes": {
+      "rust": {
+        "course_guided_practice": 360,
+        "project_0": 120,
+        "total": 480
+      },
+      "python": {
+        "course_guided_practice": 180,
+        "project_0": 180,
+        "total": 360
+      },
+      "agents": 360,
+      "warfare": 120,
+      "defense-ai": 120,
+      "technical-reading": 60,
+      "daily-papers": 420
+    },
+    "coding_includes": [
+      "Project 0 implementation",
+      "tests",
+      "Rustlings inside Rust time",
+      "targeted course/book instruction"
+    ],
+    "daily_papers": "Use the existing one-hour daily reservation and the scheduled task's selected paper; do not preassign invented future papers.",
+    "capacity_authority": "Private Aegis authority and the current authorized Calendar amendment own exact reservations, company/degree allocation and the overall capacity limit.",
+    "introductory_week": "Selected beginner essentials end Sunday October 11, 2026. October 3 is the existing on-ramp; October 5–11 is the main sprint. Begin with orientation, then use the curated prerequisite sequence and immediate exercises, without requiring every lesson or repeated drill. No inherited credit or assumed mastery. From October 12, start each studio with a project behavior and use focused lessons for specific gaps; no whole-course restart.",
+    "agent_allocation": {
+      "guided_course": 120,
+      "bounded_practice": 240,
+      "total": 360,
+      "practice_sessions": 2,
+      "practice_session_minutes": 120,
+      "funding": "Reassigned from existing endr morning reservations; not added workload. First-week company setup exceptions follow private active authority."
+    },
+    "finals_period_policy": "No blanket finals-period reduction. Preserve actual classes, examinations and assessment deadlines under private active authority; retain exact resume points and create no catch-up debt."
+  },
+  "rules": [
+    "Selected beginner essentials end Sunday October 11, 2026. October 3 is the existing on-ramp; October 5–11 is the main sprint. Begin with orientation, then use the curated prerequisite sequence and immediate exercises, without requiring every lesson or repeated drill. No inherited credit or assumed mastery. From October 12, start each studio with a project behavior and use focused lessons for specific gaps; no whole-course restart.",
+    "Rust receives the largest language allocation; Python and agents start in parallel in the first seven days.",
+    "From October 12, project-led practice inside existing reservations: attempt the next unproved behavior; use a focused 20–30 minute explanation when blocked, apply it immediately, then record the exact gap. Do not stretch introductory course consumption across a month. P0 gates remain evidence-based.",
+    "Each course/project studio lasts 2–3 hours including short breaks; technical readings last one hour.",
+    "Courses and references support the current output. No mandatory completion of every provider exercise, optional project or roadmap node.",
+    "The first-50 freshly observed Rustlings gate remains, but drills occur inside Rust hours and do not replace independent CLI proof.",
+    "One weekly pair_cycle_id binds Python and Rust work on identical fixtures; independent per-language proof precedes parity.",
+    "Keep the agreed UTF-8, ASCII-whitespace, LF, byte-count, stdout/stderr and exit-status Project 0 contract; do not silently loosen it.",
+    "Agent/research/domain study earns no Foundation implementation credit and no later-phase, company deployment, weapons or operational authority.",
+    "O'Reilly and Coursera subscriptions were user-confirmed active 2026-10-02; four selected Coursera enrollments and the primary Python playlist entry were verified October 2; other item access and API credits remain unverified. Substitute an official reference for the same concept if unavailable; purchase is not required.",
+    "Active course selections use O'Reilly or Coursera only. Duke Rust Fundamentals replaces the retired Udemy primary; preserve historical exercises and do not replay Invaders. Current Rust Book guidance resolves tooling/edition questions.",
+    "Vanderbilt's coded API examples require paid access; manual traces and stubbed tools avoid making API use an introductory prerequisite.",
+    "Course certificates, checked tasks, reservations and zero-collected-test commands are not implementation proof.",
+    "End a coding studio with artifact, working directory, command, exit code, observed output, changed paths, verdict, blocker and next command.",
+    "Preserve historical work and pre-existing dirty files; this plan authorizes no commit, push, publication or destructive cleanup.",
+    "Optional official videos belong inside an existing studio, never as a second workload.",
+    "Roadmap navigation uses the existing weekly review, not extra mandatory course blocks.",
+    "Official documentation is implementation reference, not a course or extra syllabus. The two bounded practice sessions apply the current agent card to the same educational toy."
+  ],
+  "roadmap_navigation": {
+    "rust": "https://roadmap.sh/rust",
+    "python": "https://roadmap.sh/python",
+    "agents": "https://roadmap.sh/ai-agents",
+    "method": "Locate the current skill; mark demonstrated understanding only; select one prerequisite gap. Maps are navigation, not the syllabus."
+  },
+  "supporting_sources": {
+    "rust_book": "https://doc.rust-lang.org/book/",
+    "python_tutorial": "https://docs.python.org/3/tutorial/",
+    "python_sys": "https://docs.python.org/3/library/sys.html",
+    "pcc_publisher": "https://nostarch.com/python-crash-course-3rd-edition",
+    "local_contract": "curriculum/START_HERE.md",
+    "local_route": "curriculum/COMPETENCY_PATHWAY.md"
+  },
+  "cards": [
+    {
+      "week": 1,
+      "title": "Introductory foundations in parallel",
+      "tracks": {
+        "rust": {
+          "title": "rust — compressed essentials through October 11",
+          "source_url": "https://www.coursera.org/learn/rust-fundamentals",
+          "source_slice": "Duke: orientation/setup and selected fundamentals; Rust Book Chapters 1 and 3 for gaps. Duke selected ownership/borrowing lessons; Rust Book Chapter 4. Duke selected fundamentals and structs/types/enums lessons. Duke applying-Rust lessons; Rust Book Chapters 9, 11 and selected file-reading examples in 12. Selected Duke application lessons and official Rust reference only for the current gap. Duke and Rust Book only for a concrete implementation gap; existing Project 0 contract.",
+          "first_action": "Follow the session sequence in FOUNDATIONS_FAST_TRACK.md; start with the current concrete exercise.",
+          "done_when": "Run a tiny Cargo program; change a variable, function argument, branch and loop. Predict output before running. Save one compiler error and its repair. Pass a string by reference, distinguish owned String from borrowed str, and repair a move/borrow error. Explain why the repair works. Build a tiny in-memory record, iterate a vector, match an enum and handle a missing value with Option. Explain each using changed input. Read a tiny UTF-8 file, return Result, handle a missing path, and collect a meaningful test. Deliberately break the expected behavior and repair it. Combine arguments, a pure counting function, file input, Result and tests in the existing Project 0 context. Explain stdout, stderr and exit status. Preserve the exact shared count contract; repair a specific gap without replaying the course. Independently demonstrate a Rust function, ownership choice, file/error handling and meaningful test. Compare identical fixtures with Python only when both work independently. Use the same weekly pair_cycle_id; parity does not waive per-language proof. Log demonstrated/needs practice/blocked; no automatic mastery."
+        },
+        "python": {
+          "title": "python — compressed essentials through October 11",
+          "source_url": "https://www.oreilly.com/library/view/python-crash-course/9781098156664/",
+          "source_slice": "PCC introduction and selected Chapters 1–7. PCC selected Chapter 8, basic imports, Chapter 10 and first testing example in Chapter 11; brief Chapter 9 vocabulary only. PCC selected Chapters 8, 10 and 11 as needed; existing Project 0 contract.",
+          "first_action": "Follow the session sequence in FOUNDATIONS_FAST_TRACK.md; start with the current concrete exercise.",
+          "done_when": "Run a script, then write a small loop over a list and dictionary with a conditional. Explain inputs, types and output. Use one exercise per concept; omit repetitive drills. Write a function that reads a small UTF-8 file and returns one result. Handle a missing path. Write and run one meaningful test, make it fail deliberately, then repair it. Independently implement or explain the smallest Project 0 behavior. Exercise empty input, ordinary UTF-8 input and a missing path with meaningful tests. Show one deliberately failing assertion and its repair. Save precise gaps, not invented completion. Log demonstrated/needs practice/blocked; no automatic mastery."
+        },
+        "agents": {
+          "title": "agents — compressed essentials through October 11",
+          "source_url": "https://www.coursera.org/learn/ai-agents-python",
+          "source_slice": "Vanderbilt selected introductory concepts and tools/actions lessons. Later framework implementation is deferred.",
+          "first_action": "Follow the session sequence in FOUNDATIONS_FAST_TRACK.md; start with the current concrete exercise.",
+          "done_when": "Use one synthetic toy: define goal, observation/state, allowed tool and input/output, feedback, and step limit. Trace one allowed result and one refused/failed tool call; stop correctly. Implement a local stub only if Python functions/dictionaries/errors are understood; otherwise complete the manual trace. No paid API needed. Log demonstrated/needs practice/blocked; no automatic mastery."
+        },
+        "warfare": {
+          "title": "Warfare context — SUNY Cyber Conflicts and ICRC",
+          "source_url": "https://www.coursera.org/learn/cyber-conflicts",
+          "source_slice": "Begin at the first lesson, then proceed in source order from newly logged progress. Supplement SUNY with https://casebook.icrc.org/ inside the same allocation; cyber context is not comprehensive IHL.",
+          "first_action": "Resume the actual logged lesson; if unstarted, begin the opening lesson.",
+          "done_when": "Record lesson/page reached, an explained concept, limitation and exact next step; no automatic completion."
+        },
+        "defense-ai": {
+          "title": "defense-ai — compressed essentials through October 11",
+          "source_url": "https://www.coursera.org/learn/introduction-to-ai/",
+          "source_slice": "IBM Introduction to AI: selected introductory concepts, terminology and ethics lessons.",
+          "first_action": "Follow the session sequence in FOUNDATIONS_FAST_TRACK.md; start with the current concrete exercise.",
+          "done_when": "Explain AI vs ML vs deep learning vs generative AI; training vs inference; data quality, hallucinations, evaluation and human review. Sketch how prompts, retrieval and tools differ. Choose a baseline, success measure and failure example for the same synthetic toy. This is conceptual introduction, not model-training proficiency. Log demonstrated/needs practice/blocked; no automatic mastery."
+        },
+        "technical-reading": {
+          "title": "Doctrine reading — Warfighting from the beginning",
+          "source_url": "https://www.marines.mil/Portals/1/Publications/MCDP%201%20Warfighting.pdf",
+          "source_slice": "MCDP 1 Warfighting: begin at the preface/introduction, then Chapter 1 from its opening. Read in order; stop at the one-hour reservation and save the exact page.",
+          "first_action": "Open the beginning of the assigned reading and explain the first substantive claim in your own words.",
+          "done_when": "Record source, exact page/section reached, one claim and limitation; prior reading receives no new-period credit."
+        }
+      }
+    },
+    {
+      "week": 2,
+      "title": "Values, contracts and explicit assumptions",
+      "tracks": {
+        "rust": {
+          "title": "Rust build — strings, borrowing and a tiny count contract",
+          "source_url": "https://www.coursera.org/learn/rust-fundamentals",
+          "source_slice": "Targeted reference inside project-led practice; no full-source prerequisite. Duke Module 2 borrowing and basic error handling; Module 3 String and str. Rust Book Chapter 4 supports ownership gaps. Practice with empty and changed string input.",
+          "first_action": "Start with the current artifact and next unmet behavior. Write expected results for empty and changed input before modifying a small pure function.",
+          "done_when": "Explain ownership and borrowed input without copying; two predicted cases agree with observed output."
+        },
+        "python": {
+          "title": "Python build — the smallest counting function",
+          "source_url": "https://www.oreilly.com/library/view/python-crash-course/9781098156664/",
+          "source_slice": "Targeted reference inside project-led practice; no full-source prerequisite. Chapter 8; selected Chapters 3–6 for collection/condition gaps.",
+          "first_action": "Start with the current artifact and next unmet behavior. Write expected line, word and byte counts for empty and ordinary input.",
+          "done_when": "Explain changed and empty inputs and implement one pure behavior independently."
+        },
+        "agents": {
+          "title": "AI agents — structured request and response",
+          "source_url": "https://www.coursera.org/learn/ai-agents-python",
+          "source_slice": "Targeted reference inside project-led practice; no full-source prerequisite. Module 1 structured-output lesson; repeat loop concepts as needed.",
+          "first_action": "Start with the current artifact and next unmet behavior. Write a tiny structured request and an explicit unavailable-action case.",
+          "done_when": "The manual trace separates request, authorized action and observed result; an unsupported action is refused."
+        },
+        "warfare": {
+          "title": "Warfare context — SUNY Cyber Conflicts and ICRC",
+          "source_url": "https://www.coursera.org/learn/cyber-conflicts",
+          "source_slice": "Begin at the first lesson, then proceed in source order from newly logged progress. Supplement SUNY with https://casebook.icrc.org/ inside the same allocation; cyber context is not comprehensive IHL.",
+          "first_action": "Resume the actual logged lesson; if unstarted, begin the opening lesson.",
+          "done_when": "Record lesson/page reached, an explained concept, limitation and exact next step; no automatic completion."
+        },
+        "defense-ai": {
+          "title": "AI application — evaluate a synthetic claim",
+          "source_url": "https://www.coursera.org/learn/introduction-to-ai/",
+          "source_slice": "Selected IBM lesson only for a specific gap: baseline, metric, failure case and limitations.",
+          "first_action": "Evaluate one claim using a synthetic example and explain its evidence limits.",
+          "done_when": "Record lesson/page reached, an explained concept, limitation and exact next step; no automatic completion."
+        },
+        "technical-reading": {
+          "title": "AI assurance reading — human-centred questions",
+          "source_url": "https://www.icrc.org/en/document/artificial-intelligence-and-machine-learning-armed-conflict-human-centred-approach",
+          "source_slice": "Opening framing and human-control concerns.",
+          "first_action": "Identify the author's central question before reading details.",
+          "done_when": "Record question, source claim, limitation and a human-control question."
+        }
+      }
+    },
+    {
+      "week": 3,
+      "title": "Files, errors and tool boundaries",
+      "tracks": {
+        "rust": {
+          "title": "Rust build — UTF-8 files and ordinary errors",
+          "source_url": "https://doc.rust-lang.org/book/",
+          "source_slice": "Targeted reference inside project-led practice; no full-source prerequisite. Chapter 9.2; selected 12.2 file-reading example.",
+          "first_action": "Start with the current artifact and next unmet behavior. Read one tiny synthetic file, then deliberately supply a missing path.",
+          "done_when": "Success and ordinary error paths are observed; explain Result and the chosen error propagation."
+        },
+        "python": {
+          "title": "Python build — files and deliberate failure",
+          "source_url": "https://www.oreilly.com/library/view/python-crash-course/9781098156664/",
+          "source_slice": "Targeted reference inside project-led practice; no full-source prerequisite. Chapter 10, files and exceptions.",
+          "first_action": "Start with the current artifact and next unmet behavior. Read one UTF-8 synthetic file and deliberately provide a missing path.",
+          "done_when": "Observe success and clean error behavior; explain input, output and exception handling."
+        },
+        "agents": {
+          "title": "AI agents — tool names and feedback",
+          "source_url": "https://www.coursera.org/learn/ai-agents-python",
+          "source_slice": "Targeted reference inside project-led practice; no full-source prerequisite. Module 2 tool descriptions and results.",
+          "first_action": "Start with the current artifact and next unmet behavior. Describe one synthetic tool's input, output and permitted effects before tracing its use.",
+          "done_when": "A tool contract and two-step trace are clear; errors are recorded rather than imagined away."
+        },
+        "warfare": {
+          "title": "Warfare context — SUNY Cyber Conflicts and ICRC",
+          "source_url": "https://www.coursera.org/learn/cyber-conflicts",
+          "source_slice": "Begin at the first lesson, then proceed in source order from newly logged progress. Supplement SUNY with https://casebook.icrc.org/ inside the same allocation; cyber context is not comprehensive IHL.",
+          "first_action": "Resume the actual logged lesson; if unstarted, begin the opening lesson.",
+          "done_when": "Record lesson/page reached, an explained concept, limitation and exact next step; no automatic completion."
+        },
+        "defense-ai": {
+          "title": "AI application — evaluate a synthetic claim",
+          "source_url": "https://www.coursera.org/learn/introduction-to-ai/",
+          "source_slice": "Selected IBM lesson only for a specific gap: baseline, metric, failure case and limitations.",
+          "first_action": "Evaluate one claim using a synthetic example and explain its evidence limits.",
+          "done_when": "Record lesson/page reached, an explained concept, limitation and exact next step; no automatic completion."
+        },
+        "technical-reading": {
+          "title": "Doctrine reading — fluidity and complexity",
+          "source_url": "https://www.marines.mil/Portals/1/Publications/MCDP%201%20Warfighting.pdf",
+          "source_slice": "Chapter 1: fluidity, disorder and complexity.",
+          "first_action": "Choose one concept and distinguish it from an engineering guarantee.",
+          "done_when": "A concise note explains the concept and why a simulation cannot establish operational validity."
+        }
+      }
+    },
+    {
+      "week": 4,
+      "title": "Meaningful tests and explainable cases",
+      "tracks": {
+        "rust": {
+          "title": "Rust build — collected tests that fail and recover",
+          "source_url": "https://doc.rust-lang.org/book/",
+          "source_slice": "Targeted reference inside project-led practice; no full-source prerequisite. Chapters 11.1–11.2; familiar pure function and error case.",
+          "first_action": "Start with the current artifact and next unmet behavior. Write one assertion for the smallest unproved behavior and deliberately break it.",
+          "done_when": "At least one meaningful test is collected; record failure, repair, exact command and observed output."
+        },
+        "python": {
+          "title": "Python build — meaningful tests and repair",
+          "source_url": "https://www.oreilly.com/library/view/python-crash-course/9781098156664/",
+          "source_slice": "Targeted reference inside project-led practice; no full-source prerequisite. Chapter 11, testing functions and responding to failure.",
+          "first_action": "Start with the current artifact and next unmet behavior. Write one assertion for the current counting behavior, then deliberately make it fail.",
+          "done_when": "At least one relevant test is collected; explain failure and repaired behavior with exact command/output."
+        },
+        "agents": {
+          "title": "AI agents — one deterministic dispatcher",
+          "source_url": "https://www.coursera.org/learn/ai-agents-python",
+          "source_slice": "Targeted reference inside project-led practice; no full-source prerequisite. Module 2 function-calling concepts; code only after Python functions/errors are understood.",
+          "first_action": "Start with the current artifact and next unmet behavior. Trace one allowed and one unknown tool name; implement a tiny dispatcher only if prerequisites hold.",
+          "done_when": "Allowed input reaches the intended toy function and unknown input stops, or record the missing Python concept."
+        },
+        "warfare": {
+          "title": "Warfare context — SUNY Cyber Conflicts and ICRC",
+          "source_url": "https://www.coursera.org/learn/cyber-conflicts",
+          "source_slice": "Begin at the first lesson, then proceed in source order from newly logged progress. Supplement SUNY with https://casebook.icrc.org/ inside the same allocation; cyber context is not comprehensive IHL.",
+          "first_action": "Resume the actual logged lesson; if unstarted, begin the opening lesson.",
+          "done_when": "Record lesson/page reached, an explained concept, limitation and exact next step; no automatic completion."
+        },
+        "defense-ai": {
+          "title": "Defense AI — human control in armed-conflict research",
+          "source_url": "https://www.icrc.org/en/document/artificial-intelligence-and-machine-learning-armed-conflict-human-centred-approach",
+          "source_slice": "Targeted reference inside project-led practice; no full-source prerequisite. Human-centred approach and limitations discussion.",
+          "first_action": "Start with the current artifact and next unmet behavior. Select one source claim and write the human decision it assumes remains possible.",
+          "done_when": "Explain a human-control question and failure consequence without designing a weapon or operational system."
+        },
+        "technical-reading": {
+          "title": "AI assurance reading — reliability limits",
+          "source_url": "https://www.icrc.org/en/document/artificial-intelligence-and-machine-learning-armed-conflict-human-centred-approach",
+          "source_slice": "Discussion of AI/ML limitations relevant to predictability.",
+          "first_action": "Select one reliability concern and state the assumption behind it.",
+          "done_when": "Record a claim, an uncertainty and a synthetic evaluation question."
+        }
+      }
+    },
+    {
+      "week": 5,
+      "title": "CLI inputs and bounded loops",
+      "tracks": {
+        "rust": {
+          "title": "Rust build — file and stdin CLI input",
+          "source_url": "https://doc.rust-lang.org/book/",
+          "source_slice": "Targeted reference inside project-led practice; no full-source prerequisite. Selected Chapters 12.1–12.3; existing Project 0 contract.",
+          "first_action": "Start with the current artifact and next unmet behavior. State one-file-or-stdin behavior, then implement the oldest missing input case.",
+          "done_when": "Explain argument handling and a normal error; attempt shared parity only after both languages work independently."
+        },
+        "python": {
+          "title": "Python build — command-line input and stdin",
+          "source_url": "https://docs.python.org/3/library/argparse.html",
+          "source_slice": "Targeted reference inside project-led practice; no full-source prerequisite. Basic argument parsing; add the existing Project 0 stdin contract using Python sys reference only as needed.",
+          "first_action": "Start with the current artifact and next unmet behavior. Describe the valid argument shape and expected missing/extra-argument behavior before editing.",
+          "done_when": "A file-path case, stdin case and usage error are independently observed."
+        },
+        "agents": {
+          "title": "AI agents — bounded loop with stub results",
+          "source_url": "https://www.coursera.org/learn/ai-agents-python",
+          "source_slice": "Targeted reference inside project-led practice; no full-source prerequisite. Module 2 loop/feedback material; Module 3 conceptual design if ready.",
+          "first_action": "Start with the current artifact and next unmet behavior. Define a maximum step count and supply a fixed synthetic tool-result sequence.",
+          "done_when": "A loop or manual equivalent stops predictably and records each observation; no external action is taken."
+        },
+        "warfare": {
+          "title": "Warfare context — SUNY Cyber Conflicts and ICRC",
+          "source_url": "https://www.coursera.org/learn/cyber-conflicts",
+          "source_slice": "Begin at the first lesson, then proceed in source order from newly logged progress. Supplement SUNY with https://casebook.icrc.org/ inside the same allocation; cyber context is not comprehensive IHL.",
+          "first_action": "Resume the actual logged lesson; if unstarted, begin the opening lesson.",
+          "done_when": "Record lesson/page reached, an explained concept, limitation and exact next step; no automatic completion."
+        },
+        "defense-ai": {
+          "title": "Defense AI — context and risk",
+          "source_url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+          "source_slice": "Targeted reference inside project-led practice; no full-source prerequisite. AI RMF Core: Map overview; voluntary guidance, not certification.",
+          "first_action": "Start with the current artifact and next unmet behavior. Describe a synthetic software-only use case, affected users and excluded uses.",
+          "done_when": "Context, assumptions, one risk and a possible observation are explicit; no compliance claim."
+        },
+        "technical-reading": {
+          "title": "Doctrine reading — the human dimension",
+          "source_url": "https://www.marines.mil/Portals/1/Publications/MCDP%201%20Warfighting.pdf",
+          "source_slice": "Chapter 1: human dimension and the nature of war.",
+          "first_action": "Read for one claim about human judgment or uncertainty.",
+          "done_when": "Explain the claim critically and distinguish doctrine from empirical evidence."
+        }
+      }
+    },
+    {
+      "week": 6,
+      "title": "Shared edge cases and refusal",
+      "tracks": {
+        "rust": {
+          "title": "Rust build — empty, newline and Unicode fixtures",
+          "source_url": "https://doc.rust-lang.org/book/",
+          "source_slice": "Targeted reference inside project-led practice; no full-source prerequisite. Chapters 8.2, 9 and 11 as needed; existing Project 0 fixtures.",
+          "first_action": "Start with the current artifact and next unmet behavior. Predict LF, word and byte counts for one new fixture before running the CLI.",
+          "done_when": "Show empty, trailing-fragment, CRLF, Unicode and invalid-input results or identify the first precise blocker."
+        },
+        "python": {
+          "title": "Python build — shared edge fixtures",
+          "source_url": "https://www.oreilly.com/library/view/python-crash-course/9781098156664/",
+          "source_slice": "Targeted reference inside project-led practice; no full-source prerequisite. Chapters 10–11 as issue-bound reference; existing Project 0 fixture definitions.",
+          "first_action": "Start with the current artifact and next unmet behavior. Predict one Unicode or whitespace fixture before running either implementation.",
+          "done_when": "Both programs are compared on identical inputs; preserve disagreements as explicit blockers until resolved."
+        },
+        "agents": {
+          "title": "AI agents — malformed result and refusal",
+          "source_url": "https://www.coursera.org/learn/ai-agents-python",
+          "source_slice": "Targeted reference inside project-led practice; no full-source prerequisite. Modules 2–3 targeted review; focus on the current toy loop.",
+          "first_action": "Start with the current artifact and next unmet behavior. Inject one malformed result and one unavailable action into the existing toy.",
+          "done_when": "Observe refusal, a bounded retry or a stop; explain the rule instead of silently expanding authority."
+        },
+        "warfare": {
+          "title": "Warfare context — SUNY Cyber Conflicts and ICRC",
+          "source_url": "https://www.coursera.org/learn/cyber-conflicts",
+          "source_slice": "Begin at the first lesson, then proceed in source order from newly logged progress. Supplement SUNY with https://casebook.icrc.org/ inside the same allocation; cyber context is not comprehensive IHL.",
+          "first_action": "Resume the actual logged lesson; if unstarted, begin the opening lesson.",
+          "done_when": "Record lesson/page reached, an explained concept, limitation and exact next step; no automatic completion."
+        },
+        "defense-ai": {
+          "title": "Defense AI — evidence and evaluation design",
+          "source_url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+          "source_slice": "Targeted reference inside project-led practice; no full-source prerequisite. Measure overview; read only what supports the current question.",
+          "first_action": "Start with the current artifact and next unmet behavior. Choose one claim from the prior note and specify a baseline and failure case.",
+          "done_when": "A small evaluation plan identifies input scope, expected evidence and limits."
+        },
+        "technical-reading": {
+          "title": "AI assurance reading — context and control",
+          "source_url": "https://www.icrc.org/en/document/artificial-intelligence-and-machine-learning-armed-conflict-human-centred-approach",
+          "source_slice": "Human-centred framing and contextual limits.",
+          "first_action": "Revisit an earlier note and identify what context it omitted.",
+          "done_when": "Add a source-backed correction and one unresolved human-control question."
+        }
+      }
+    },
+    {
+      "week": 7,
+      "title": "Readable structure and protected persons",
+      "tracks": {
+        "rust": {
+          "title": "Rust build — small modules and reproducible checks",
+          "source_url": "https://doc.rust-lang.org/book/",
+          "source_slice": "Targeted reference inside project-led practice; no full-source prerequisite. Selected 12.3 modularity and 11.3 test organization; current project tooling.",
+          "first_action": "Start with the current artifact and next unmet behavior. Separate one tangled input/count/output responsibility without changing the agreed contract.",
+          "done_when": "Relevant tests, formatting and Clippy have actual observed results; a README command can be followed."
+        },
+        "python": {
+          "title": "Python build — README, types and useful checks",
+          "source_url": "https://www.oreilly.com/library/view/python-crash-course/9781098156664/",
+          "source_slice": "Targeted reference inside project-led practice; no full-source prerequisite. Chapter 8 organization, Chapter 11 testing, Appendix D Git where needed.",
+          "first_action": "Start with the current artifact and next unmet behavior. Follow the README from the stated directory and note the first missing step.",
+          "done_when": "A documented example works; type-aware code and Ruff/test results are observed, not inferred."
+        },
+        "agents": {
+          "title": "AI agents — explain the components",
+          "source_url": "https://www.coursera.org/learn/ai-agents-python",
+          "source_slice": "Targeted reference inside project-led practice; no full-source prerequisite. Module 3 conceptual framework and modular design.",
+          "first_action": "Start with the current artifact and next unmet behavior. Name goal, actions, memory and environment in the existing toy before any refactor.",
+          "done_when": "Each component's responsibility can be explained; a refactor preserves tested behavior."
+        },
+        "warfare": {
+          "title": "Warfare context — SUNY Cyber Conflicts and ICRC",
+          "source_url": "https://www.coursera.org/learn/cyber-conflicts",
+          "source_slice": "Begin at the first lesson, then proceed in source order from newly logged progress. Supplement SUNY with https://casebook.icrc.org/ inside the same allocation; cyber context is not comprehensive IHL.",
+          "first_action": "Resume the actual logged lesson; if unstarted, begin the opening lesson.",
+          "done_when": "Record lesson/page reached, an explained concept, limitation and exact next step; no automatic completion."
+        },
+        "defense-ai": {
+          "title": "Defense AI — uncertainty and failed assumptions",
+          "source_url": "https://www.icrc.org/en/document/artificial-intelligence-and-machine-learning-armed-conflict-human-centred-approach",
+          "source_slice": "Targeted reference inside project-led practice; no full-source prerequisite. Reliability, predictability and human-centred concerns.",
+          "first_action": "Start with the current artifact and next unmet behavior. Revisit a previous synthetic claim under one changed assumption.",
+          "done_when": "Explain how the conclusion changes and which evidence would be needed; no real-world performance inference."
+        },
+        "technical-reading": {
+          "title": "Doctrine reading — art, science and limits",
+          "source_url": "https://www.marines.mil/Portals/1/Publications/MCDP%201%20Warfighting.pdf",
+          "source_slice": "Chapter 1: science, art and dynamic of war; conclusion.",
+          "first_action": "Write what the passage can and cannot justify about a software model.",
+          "done_when": "A short comparison avoids treating doctrine as a tested technical specification."
+        }
+      }
+    },
+    {
+      "week": 8,
+      "title": "Reproduction and contextual evidence",
+      "tracks": {
+        "rust": {
+          "title": "Rust build — Linux cold run and honest CI evidence",
+          "source_url": "https://doc.rust-lang.org/cargo/guide/continuous-integration.html",
+          "source_slice": "Targeted reference inside project-led practice; no full-source prerequisite. Getting Started / GitHub Actions example; use the existing repository workflow and minimal needed configuration.",
+          "first_action": "Start with the current artifact and next unmet behavior. Inspect the existing workflow and identify how a real Linux run would exercise the same fixtures.",
+          "done_when": "Label local, Linux and CI results separately; record a real run or a concrete environment/authorization blocker."
+        },
+        "python": {
+          "title": "Python build — clean environment and Linux/CI run",
+          "source_url": "https://docs.github.com/en/actions/tutorials/build-and-test-code/python",
+          "source_slice": "Targeted reference inside project-led practice; no full-source prerequisite. Specifying Python, installing dependencies and testing; existing repository workflow takes precedence.",
+          "first_action": "Start with the current artifact and next unmet behavior. Identify the existing environment and fixture command before attempting a fresh run.",
+          "done_when": "Record actual local/Linux/CI evidence separately; no commit, push or publication is implied by this card."
+        },
+        "agents": {
+          "title": "AI agents — bounded read-only file tool",
+          "source_url": "https://www.coursera.org/learn/ai-agents-python",
+          "source_slice": "Targeted reference inside project-led practice; no full-source prerequisite. Module 2 tool contracts and Module 3 integration; synthetic inputs only.",
+          "first_action": "Start with the current artifact and next unmet behavior. Specify the allowed fixture directory and a denied path before connecting a read-only toy tool.",
+          "done_when": "One permitted read and one rejected access are demonstrated; paid APIs are optional and require known cost/access."
+        },
+        "warfare": {
+          "title": "Warfare context — SUNY Cyber Conflicts and ICRC",
+          "source_url": "https://www.coursera.org/learn/cyber-conflicts",
+          "source_slice": "Begin at the first lesson, then proceed in source order from newly logged progress. Supplement SUNY with https://casebook.icrc.org/ inside the same allocation; cyber context is not comprehensive IHL.",
+          "first_action": "Resume the actual logged lesson; if unstarted, begin the opening lesson.",
+          "done_when": "Record lesson/page reached, an explained concept, limitation and exact next step; no automatic completion."
+        },
+        "defense-ai": {
+          "title": "Defense AI — public evidence versus demonstration",
+          "source_url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+          "source_slice": "Targeted reference inside project-led practice; no full-source prerequisite. Measure and Map context; selected relevant paragraphs.",
+          "first_action": "Start with the current artifact and next unmet behavior. Compare a paper's reported result with what its dataset and evaluation actually test.",
+          "done_when": "Record claim, evidence, scope limit and untested condition; do not equate a demo with deployment readiness."
+        },
+        "technical-reading": {
+          "title": "AI assurance reading — decision support boundaries",
+          "source_url": "https://www.icrc.org/en/document/artificial-intelligence-and-machine-learning-armed-conflict-human-centred-approach",
+          "source_slice": "Relevant discussion of human decisions and AI/ML support.",
+          "first_action": "Draw a simple information flow and name its unknowns.",
+          "done_when": "Distinguish information support from decision authority and record one failure concern."
+        }
+      }
+    },
+    {
+      "week": 9,
+      "title": "Repair gaps and establish provenance",
+      "tracks": {
+        "rust": {
+          "title": "Rust build — repair the oldest ownership or error gap",
+          "source_url": "https://rustlings.rust-lang.org/",
+          "source_slice": "Targeted reference inside project-led practice; no full-source prerequisite. Resume the oldest unverified Rustlings exercise matching the current ownership/error gap; Rust Book as reference.",
+          "first_action": "Start with the current artifact and next unmet behavior. Predict the next exercise's compiler error or behavior before running it.",
+          "done_when": "Explain a repaired case and transfer the concept to Project 0; no credit for historical unchecked drills."
+        },
+        "python": {
+          "title": "Python build — oldest unproved behavior",
+          "source_url": "https://www.oreilly.com/library/view/python-crash-course/9781098156664/",
+          "source_slice": "Targeted reference inside project-led practice; no full-source prerequisite. The single Chapter 8, 10 or 11 section matching the oldest gap.",
+          "first_action": "Start with the current artifact and next unmet behavior. Read the last evidence blocker and attempt its smallest next action.",
+          "done_when": "One real gap is repaired or narrowed with exact output and next command."
+        },
+        "agents": {
+          "title": "AI agents — maintainable tool registry",
+          "source_url": "https://www.coursera.org/learn/ai-agents-python",
+          "source_slice": "Targeted reference inside project-led practice; no full-source prerequisite. Module 4 tool organization; decorators only after callable/function concepts are understood.",
+          "first_action": "Start with the current artifact and next unmet behavior. List the toy's actual tools and check their descriptions against observed behavior.",
+          "done_when": "A registry or simple explicit mapping stays understandable; advanced syntax waits if prerequisites fail."
+        },
+        "warfare": {
+          "title": "Warfare context — SUNY Cyber Conflicts and ICRC",
+          "source_url": "https://www.coursera.org/learn/cyber-conflicts",
+          "source_slice": "Begin at the first lesson, then proceed in source order from newly logged progress. Supplement SUNY with https://casebook.icrc.org/ inside the same allocation; cyber context is not comprehensive IHL.",
+          "first_action": "Resume the actual logged lesson; if unstarted, begin the opening lesson.",
+          "done_when": "Record lesson/page reached, an explained concept, limitation and exact next step; no automatic completion."
+        },
+        "defense-ai": {
+          "title": "Defense AI — data and source provenance",
+          "source_url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+          "source_slice": "Targeted reference inside project-led practice; no full-source prerequisite. Govern/Map material on third-party inputs and context.",
+          "first_action": "Start with the current artifact and next unmet behavior. Trace the origin and permissions of one public dataset or example used in study.",
+          "done_when": "The note distinguishes public access from permission to reuse and records any missing provenance."
+        },
+        "technical-reading": {
+          "title": "Doctrine reading — objectives and assumptions",
+          "source_url": "https://www.marines.mil/Portals/1/Publications/MCDP%201%20Warfighting.pdf",
+          "source_slice": "Chapter 2 introductory discussion; conceptual study only.",
+          "first_action": "Identify one high-level assumption without translating it into an operational plan.",
+          "done_when": "Label doctrine claim, assumption and a question requiring other evidence."
+        }
+      }
+    },
+    {
+      "week": 10,
+      "title": "Boundary tests and evaluation",
+      "tracks": {
+        "rust": {
+          "title": "Rust build — boundary tests and failure explanations",
+          "source_url": "https://doc.rust-lang.org/book/",
+          "source_slice": "Targeted reference inside project-led practice; no full-source prerequisite. Chapter 11; the oldest uncovered Project 0 boundary.",
+          "first_action": "Start with the current artifact and next unmet behavior. Choose one behavior a green test suite could still get wrong and write its expected result.",
+          "done_when": "A meaningful failing-then-passing boundary test is observed; state what remains untested."
+        },
+        "python": {
+          "title": "Python build — regression and boundary cases",
+          "source_url": "https://docs.pytest.org/en/stable/how-to/usage.html",
+          "source_slice": "Targeted reference inside project-led practice; no full-source prerequisite. Invocation and selecting tests; existing tests and Project 0 contract.",
+          "first_action": "Start with the current artifact and next unmet behavior. Choose an input that could expose an untested assumption and predict the result.",
+          "done_when": "Observe a relevant regression test and explain why it would have caught the bug."
+        },
+        "agents": {
+          "title": "AI agents — tiny evaluation set",
+          "source_url": "https://www.coursera.org/learn/ai-agents-python",
+          "source_slice": "Targeted reference inside project-led practice; no full-source prerequisite. Targeted Modules 2–4 review of the current toy; no new framework.",
+          "first_action": "Start with the current artifact and next unmet behavior. Write three expected actions or stops before running the toy.",
+          "done_when": "Compare expected and observed outcomes and name a failure; do not label a small evaluation production-ready."
+        },
+        "warfare": {
+          "title": "Warfare context — SUNY Cyber Conflicts and ICRC",
+          "source_url": "https://www.coursera.org/learn/cyber-conflicts",
+          "source_slice": "Begin at the first lesson, then proceed in source order from newly logged progress. Supplement SUNY with https://casebook.icrc.org/ inside the same allocation; cyber context is not comprehensive IHL.",
+          "first_action": "Resume the actual logged lesson; if unstarted, begin the opening lesson.",
+          "done_when": "Record lesson/page reached, an explained concept, limitation and exact next step; no automatic completion."
+        },
+        "defense-ai": {
+          "title": "Defense AI — human and machine handoffs",
+          "source_url": "https://www.icrc.org/en/document/artificial-intelligence-and-machine-learning-armed-conflict-human-centred-approach",
+          "source_slice": "Targeted reference inside project-led practice; no full-source prerequisite. Human-centred approach; questions of supervision and control.",
+          "first_action": "Start with the current artifact and next unmet behavior. Draw a synthetic information-only handoff and identify what the human must know.",
+          "done_when": "Identify ambiguity, a stop/review point and an unresolved usability question without consequential automation."
+        },
+        "technical-reading": {
+          "title": "AI assurance reading — review one source claim",
+          "source_url": "https://www.icrc.org/en/document/artificial-intelligence-and-machine-learning-armed-conflict-human-centred-approach",
+          "source_slice": "Return to the weakest understood passage from prior notes.",
+          "first_action": "Explain the claim from memory, then compare it with the article.",
+          "done_when": "Correct a misunderstanding and preserve source date and context."
+        }
+      }
+    },
+    {
+      "week": 11,
+      "title": "Independent parity and human review",
+      "tracks": {
+        "rust": {
+          "title": "Rust build — complete file/stdin/error parity",
+          "source_url": "https://doc.rust-lang.org/book/",
+          "source_slice": "Targeted reference inside project-led practice; no full-source prerequisite. Selected Chapter 12 and standard-library references reached from it; agreed CLI contract.",
+          "first_action": "Start with the current artifact and next unmet behavior. Compare one identical input fixture with the Python implementation and inspect both exit statuses.",
+          "done_when": "Resolve or explain each mismatch in counts, output streams or exit status without weakening the contract."
+        },
+        "python": {
+          "title": "Python build — parity, streams and exit status",
+          "source_url": "https://docs.python.org/3/tutorial/",
+          "source_slice": "Targeted reference inside project-led practice; no full-source prerequisite. Input/output and errors; existing Project 0 CLI contract.",
+          "first_action": "Start with the current artifact and next unmet behavior. Run the same fixture in Python and Rust and inspect stdout, stderr and exit status.",
+          "done_when": "Resolve or explicitly explain differences; strict UTF-8 and ASCII-whitespace rules remain intact."
+        },
+        "agents": {
+          "title": "AI agents — human review and cancellation",
+          "source_url": "https://www.coursera.org/learn/ai-agents-python",
+          "source_slice": "Targeted reference inside project-led practice; no full-source prerequisite. Selected loop/tool material; apply existing human-authority constraints.",
+          "first_action": "Start with the current artifact and next unmet behavior. Create a synthetic action that must wait for approval and a cancellation input.",
+          "done_when": "The toy waits or stops, and cancellation cannot increase its authority."
+        },
+        "warfare": {
+          "title": "Warfare context — SUNY Cyber Conflicts and ICRC",
+          "source_url": "https://www.coursera.org/learn/cyber-conflicts",
+          "source_slice": "Begin at the first lesson, then proceed in source order from newly logged progress. Supplement SUNY with https://casebook.icrc.org/ inside the same allocation; cyber context is not comprehensive IHL.",
+          "first_action": "Resume the actual logged lesson; if unstarted, begin the opening lesson.",
+          "done_when": "Record lesson/page reached, an explained concept, limitation and exact next step; no automatic completion."
+        },
+        "defense-ai": {
+          "title": "Defense AI — stale information and degraded conditions",
+          "source_url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+          "source_slice": "Targeted reference inside project-led practice; no full-source prerequisite. Map/Measure as a lens for context changes; no claim that RMF supplies networking implementation.",
+          "first_action": "Start with the current artifact and next unmet behavior. Describe one stale synthetic observation and the assumption it breaks.",
+          "done_when": "A hypothesis and bounded test question are recorded; degraded conditions never expand machine authority."
+        },
+        "technical-reading": {
+          "title": "Doctrine reading — uncertainty and preparation",
+          "source_url": "https://www.marines.mil/Portals/1/Publications/MCDP%201%20Warfighting.pdf",
+          "source_slice": "Chapter 3 introductory discussion of preparation; bounded conceptual reading.",
+          "first_action": "Select one educational principle and state where analogy to coding stops.",
+          "done_when": "Record a useful learning implication and an explicit limit to the analogy."
+        }
+      }
+    },
+    {
+      "week": 12,
+      "title": "Research questions and reproducible variation",
+      "tracks": {
+        "rust": {
+          "title": "Rust build — reproduce a bounded variation",
+          "source_url": "https://doc.rust-lang.org/book/",
+          "source_slice": "Targeted reference inside project-led practice; no full-source prerequisite. Only the chapter needed by the chosen small variation; no new framework.",
+          "first_action": "Start with the current artifact and next unmet behavior. Choose one unproved Project 0 behavior and rebuild a small variation without the prior solution in view.",
+          "done_when": "Run changed input, explain the result and preserve the exact resume point if independent recreation fails."
+        },
+        "python": {
+          "title": "Python build — a paper claim becomes a test question",
+          "source_url": "https://docs.pytest.org/en/stable/how-to/usage.html",
+          "source_slice": "Targeted reference inside project-led practice; no full-source prerequisite. Use the already-selected daily paper as context; pytest only for a bounded existing-project test if relevant.",
+          "first_action": "Start with the current artifact and next unmet behavior. Separate the paper's reported claim from a tiny synthetic behavior you could actually test.",
+          "done_when": "Write a falsifiable question and, where within current skill, a reproducible test; no P2 or research-result claim."
+        },
+        "agents": {
+          "title": "AI agents — compare against a simple baseline",
+          "source_url": "https://www.coursera.org/learn/ai-agents-python",
+          "source_slice": "Targeted reference inside project-led practice; no full-source prerequisite. Review only course concepts used by the existing toy; Module 5 as critical context.",
+          "first_action": "Start with the current artifact and next unmet behavior. Define a deterministic baseline and the same tiny evaluation cases for both systems.",
+          "done_when": "Explain what the agent adds, what it gets wrong and what the small comparison cannot establish."
+        },
+        "warfare": {
+          "title": "Warfare context — SUNY Cyber Conflicts and ICRC",
+          "source_url": "https://www.coursera.org/learn/cyber-conflicts",
+          "source_slice": "Begin at the first lesson, then proceed in source order from newly logged progress. Supplement SUNY with https://casebook.icrc.org/ inside the same allocation; cyber context is not comprehensive IHL.",
+          "first_action": "Resume the actual logged lesson; if unstarted, begin the opening lesson.",
+          "done_when": "Record lesson/page reached, an explained concept, limitation and exact next step; no automatic completion."
+        },
+        "defense-ai": {
+          "title": "Defense AI — risk response and documented limits",
+          "source_url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+          "source_slice": "Targeted reference inside project-led practice; no full-source prerequisite. Manage overview in the context of the existing educational question.",
+          "first_action": "Start with the current artifact and next unmet behavior. Choose one observed or hypothesized failure and name a proportionate response.",
+          "done_when": "A risk-control-test relationship is stated, with limits and no certification or field-readiness claim."
+        },
+        "technical-reading": {
+          "title": "AI assurance reading — evidence versus optimism",
+          "source_url": "https://www.icrc.org/en/document/artificial-intelligence-and-machine-learning-armed-conflict-human-centred-approach",
+          "source_slice": "Revisit limitations and human-centred conclusions.",
+          "first_action": "Compare one selected paper claim with an earlier human-control question.",
+          "done_when": "Separate reported result, personal inference and remaining evidence gap."
+        }
+      }
+    },
+    {
+      "week": 13,
+      "title": "Independent reconstruction and synthesis",
+      "tracks": {
+        "rust": {
+          "title": "Rust build — independent proof and Rustlings gaps",
+          "source_url": "https://rustlings.rust-lang.org/",
+          "source_slice": "Targeted reference inside project-led practice; no full-source prerequisite. Remaining first-50 exercises that lack fresh observation; targeted Rust Book review.",
+          "first_action": "Start with the current artifact and next unmet behavior. Inspect which required exercises lack current evidence and attempt the oldest matching gap.",
+          "done_when": "Record freshly observed exercises and an independently explained Project 0 variation; do not infer completion from count alone."
+        },
+        "python": {
+          "title": "Python build — unfamiliar independent variation",
+          "source_url": "https://www.oreilly.com/library/view/python-crash-course/9781098156664/",
+          "source_slice": "Targeted reference inside project-led practice; no full-source prerequisite. Targeted Chapter 8/10/11 reference; no solution replay.",
+          "first_action": "Start with the current artifact and next unmet behavior. Recreate a small variation of a known file-statistics behavior without copying implementation.",
+          "done_when": "Explain changed input and observed failure/recovery independently; document any remaining prerequisite."
+        },
+        "agents": {
+          "title": "AI agents — reproduce the bounded toy",
+          "source_url": "https://www.coursera.org/learn/ai-agents-python",
+          "source_slice": "Targeted reference inside project-led practice; no full-source prerequisite. Existing course slices needed by the toy; no follow-on course by default.",
+          "first_action": "Start with the current artifact and next unmet behavior. Start from the documented inputs and reproduce one allowed, refused and stopped case.",
+          "done_when": "A clean walkthrough matches observed behavior and names dependencies, cost assumptions and limits."
+        },
+        "warfare": {
+          "title": "Warfare context — SUNY Cyber Conflicts and ICRC",
+          "source_url": "https://www.coursera.org/learn/cyber-conflicts",
+          "source_slice": "Begin at the first lesson, then proceed in source order from newly logged progress. Supplement SUNY with https://casebook.icrc.org/ inside the same allocation; cyber context is not comprehensive IHL.",
+          "first_action": "Resume the actual logged lesson; if unstarted, begin the opening lesson.",
+          "done_when": "Record lesson/page reached, an explained concept, limitation and exact next step; no automatic completion."
+        },
+        "defense-ai": {
+          "title": "Defense AI — future-war forecast audit",
+          "source_url": "https://www.icrc.org/en/document/artificial-intelligence-and-machine-learning-armed-conflict-human-centred-approach",
+          "source_slice": "Targeted reference inside project-led practice; no full-source prerequisite. Use the human-centred article as a critical lens, not a prediction source.",
+          "first_action": "Start with the current artifact and next unmet behavior. Select one public future-war assertion and identify a falsifiable assumption and source date.",
+          "done_when": "Separate forecast, evidence, uncertainty and ethical/legal questions; no operational plan."
+        },
+        "technical-reading": {
+          "title": "Doctrine reading — revisit and critique",
+          "source_url": "https://www.marines.mil/Portals/1/Publications/MCDP%201%20Warfighting.pdf",
+          "source_slice": "One previously read Chapter 1–3 passage relevant to a persistent question.",
+          "first_action": "Read the prior note before choosing the passage.",
+          "done_when": "Write a corrected or defended interpretation with one competing explanation."
+        }
+      }
+    },
+    {
+      "week": 14,
+      "title": "Capability review without automatic promotion",
+      "tracks": {
+        "rust": {
+          "title": "Rust build — capability review and next unmet criterion",
+          "source_url": "https://doc.rust-lang.org/book/",
+          "source_slice": "Targeted reference inside project-led practice; no full-source prerequisite. Review only sections linked to unresolved P0 evidence; existing P0 gate is controlling.",
+          "first_action": "Start with the current artifact and next unmet behavior. Inspect artifact, tests, fixtures, README, Linux/CI and independent-variation evidence.",
+          "done_when": "Every Rust criterion has genuine evidence or a named gap; later phases remain unstarted without explicit promotion."
+        },
+        "python": {
+          "title": "Python build — honest P0 evidence review",
+          "source_url": "https://docs.pytest.org/en/stable/how-to/usage.html",
+          "source_slice": "Targeted reference inside project-led practice; no full-source prerequisite. Test invocation/collection and the existing P0 gate checklist.",
+          "first_action": "Start with the current artifact and next unmet behavior. Check the artifact, exact commands, collected tests, lint, README, Linux/CI and variation evidence.",
+          "done_when": "Each criterion has observed evidence or a named gap; scheduling and course completion earn no implementation credit."
+        },
+        "agents": {
+          "title": "AI agents — capability and prerequisite review",
+          "source_url": "https://www.coursera.org/learn/ai-agents-python",
+          "source_slice": "Targeted reference inside project-led practice; no full-source prerequisite. Review completed concepts and the oldest unresolved course exercise.",
+          "first_action": "Start with the current artifact and next unmet behavior. Demonstrate one bounded loop and list which later Python/API concepts remain unclear.",
+          "done_when": "Record capabilities, failure cases and next prerequisite; no P0 credit or deployment authority is inferred."
+        },
+        "warfare": {
+          "title": "Warfare context — SUNY Cyber Conflicts and ICRC",
+          "source_url": "https://www.coursera.org/learn/cyber-conflicts",
+          "source_slice": "Begin at the first lesson, then proceed in source order from newly logged progress. Supplement SUNY with https://casebook.icrc.org/ inside the same allocation; cyber context is not comprehensive IHL.",
+          "first_action": "Resume the actual logged lesson; if unstarted, begin the opening lesson.",
+          "done_when": "Record lesson/page reached, an explained concept, limitation and exact next step; no automatic completion."
+        },
+        "defense-ai": {
+          "title": "Defense AI — research evidence brief",
+          "source_url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+          "source_slice": "Targeted reference inside project-led practice; no full-source prerequisite. Review only relevant Map/Measure/Manage concepts from prior notes.",
+          "first_action": "Start with the current artifact and next unmet behavior. Compare the strongest and weakest claims recorded during the period.",
+          "done_when": "A short evidence brief distinguishes what was learned, tested, inferred and remains unknown."
+        },
+        "technical-reading": {
+          "title": "AI assurance reading — next research question",
+          "source_url": "https://www.icrc.org/en/document/artificial-intelligence-and-machine-learning-armed-conflict-human-centred-approach",
+          "source_slice": "Concluding framing and the most relevant earlier passage.",
+          "first_action": "Review the period's unresolved questions and select one bounded next question.",
+          "done_when": "A concise next question names its source, uncertainty and evidence needed."
+        }
+      }
+    }
+  ],
+  "teaching_amendment_date": "2026-10-02",
+  "provider_amendment_date": "2026-10-02",
+  "agent_practice_protocol": {
+    "shared_artifact": "Reuse one bounded synthetic toy or existing fixture harness, not a new weekly project.",
+    "guided_course_minutes": 120,
+    "practice_one": {
+      "minutes": 120,
+      "action": "Reproduce the current guided concept from a manual trace or local stub; explain goal, observation, allowed action and stop condition on changed input."
+    },
+    "practice_two": {
+      "minutes": 120,
+      "action": "Exercise one refusal/failure case and one allowed case; compare expected and observed trace, then record a blocker and exact next action."
+    },
+    "first_week": "Manual traces are sufficient; company setup exceptions and exact reservations come only from private active authority.",
+    "implementation_gate": "Use code only after its Python prerequisites are demonstrated. No paid API, external action, new framework or third project is required.",
+    "foundation_credit": false
+  },
+  "project_learning_strategy": {
+    "foundation": "Project 0 remains the single paired curriculum build: independent Python and Rust file-statistics CLIs. Transferable skills are explicit input/output contracts, error handling, meaningful tests, CLI use and reproducible runs; required acceptance fixtures remain unchanged.",
+    "company": "M.A.L. remains the primary company product experiment in its separate technical repository and company governance. Educational Rust priority does not change the current Python/scripted v0.2 implementation or company evidence.",
+    "second_scenario": "After synthetic supply-scheduling v0.2 acceptance, add synthetic virtual data-center maintenance as M.A.L. scenario two, reusing evaluator, event ledger, comparison report and replay. This is not a new parallel product.",
+    "service_decision": "A standalone evaluation service remains a hypothesis until reproducible technical evidence and discovery establish a repeated costly workflow, engaged engineering owner, credible budget owner and bounded delivery effort. Use existing company decisions; no new curriculum gate.",
+    "company_decision": "DEC-018, 2026-10-02"
+  },
+  "zero_start_policy": {
+    "effective_date": "2026-10-02",
+    "later_cards": "Project application prompts after October 11, using demonstrated prerequisites and targeted gap repair; no full-source completion prerequisite.",
+    "rule": "Selected beginner essentials end Sunday October 11, 2026. October 3 is the existing on-ramp; October 5–11 is the main sprint. Begin with orientation, then use the curated prerequisite sequence and immediate exercises, without requiring every lesson or repeated drill. No inherited credit or assumed mastery. From October 12, start each studio with a project behavior and use focused lessons for specific gaps; no whole-course restart."
+  },
+  "compressed_intro_amendment": {
+    "date": "2026-10-02",
+    "main_week_start": "2026-10-05",
+    "existing_on_ramp": "2026-10-03",
+    "checkpoint": "2026-10-11",
+    "rule": "Selected beginner essentials end Sunday October 11, 2026. October 3 is the existing on-ramp; October 5–11 is the main sprint. Begin with orientation, then use the curated prerequisite sequence and immediate exercises, without requiring every lesson or repeated drill. No inherited credit or assumed mastery. From October 12, start each studio with a project behavior and use focused lessons for specific gaps; no whole-course restart.",
+    "after_intro": "From October 12, project-led practice inside existing reservations: attempt the next unproved behavior; use a focused 20–30 minute explanation when blocked, apply it immediately, then record the exact gap. Do not stretch introductory course consumption across a month. P0 gates remain evidence-based.",
+    "learning_hours": {
+      "rust": 14.5,
+      "python": 7.5,
+      "ai": 4
+    },
+    "adds_reserved_hours": false,
+    "automatic_completion": false,
+    "changes_reset_boundary": false
+  },
+  "provider_decision_confirmed": "2026-10-02: user keeps OReilly/Coursera; no Udemy subscription or source change. SCSP recommendations remain unassigned."
+}

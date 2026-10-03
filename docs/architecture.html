@@ -1,0 +1,1577 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>defense-foundations — Historical Evidence Pipeline Architecture</title>
+<style>
+  :root{
+    --bg:#080d13;
+    --bg2:#0c1219;
+    --panel:#0e151d;
+    --panel2:#121b25;
+    --line:#1e2c3a;
+    --line2:#2a3d50;
+    --ink:#c9d6e2;
+    --ink-dim:#7d8fa1;
+    --ink-faint:#55677a;
+    --accent:#35c2e8;
+    --warn:#e0603a;
+    --ok:#4fbf6a;
+    --mono: ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;
+    --sans: ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,sans-serif;
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%;margin:0}
+  body{
+    background:var(--bg);color:var(--ink);
+    font-family:var(--sans);font-size:14px;
+    overflow:hidden;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  #app{display:flex;flex-direction:column;height:100%}
+
+  /* ---------- top bar ---------- */
+  header{
+    display:flex;align-items:center;gap:18px;
+    padding:10px 16px;
+    background:linear-gradient(180deg,#0d151e,#0a1017);
+    border-bottom:1px solid var(--line);
+    flex:0 0 auto;z-index:5;
+  }
+  .brand{display:flex;align-items:baseline;gap:10px;min-width:0}
+  .brand h1{
+    font-family:var(--mono);font-size:13px;font-weight:600;
+    letter-spacing:.06em;margin:0;color:#e6eef6;white-space:nowrap;
+  }
+  .brand span{
+    font-family:var(--mono);font-size:10.5px;color:var(--ink-faint);
+    letter-spacing:.1em;text-transform:uppercase;white-space:nowrap;
+  }
+  .controls{display:flex;gap:8px;margin-left:auto;flex-wrap:wrap}
+  button.ctl{
+    font-family:var(--mono);font-size:11px;letter-spacing:.05em;
+    color:var(--ink);background:#131d27;
+    border:1px solid var(--line2);border-radius:3px;
+    padding:7px 13px;cursor:pointer;white-space:nowrap;
+    transition:background .13s,border-color .13s,color .13s;
+  }
+  button.ctl:hover{background:#1a2836;border-color:#3d5670;color:#fff}
+  button.ctl:active{transform:translateY(1px)}
+  button.ctl.primary{border-color:#2b6d84;color:#9fe3f6;background:#0f2029}
+  button.ctl.primary:hover{background:#14303c}
+  button.ctl.on{border-color:#3f7a55;color:#a8e8bb;background:#0f2118}
+
+  /* ---------- body ---------- */
+  main{flex:1 1 auto;display:flex;min-height:0}
+  #stage{position:relative;flex:1 1 auto;min-width:0;cursor:grab;overflow:hidden}
+  #stage.dragging{cursor:grabbing}
+  canvas{display:block;width:100%;height:100%}
+
+  /* legend */
+  .legend{
+    position:absolute;left:0;right:0;bottom:0;
+    display:flex;flex-wrap:wrap;align-items:center;gap:4px 14px;
+    background:linear-gradient(180deg,rgba(8,13,19,0),rgba(8,13,19,.93) 38%);
+    padding:16px 14px 9px;
+    font-family:var(--mono);font-size:9.5px;letter-spacing:.02em;
+    color:var(--ink-dim);pointer-events:none;
+  }
+  .legend i{display:inline-block;width:8px;height:8px;border-radius:2px;margin-right:5px;
+    vertical-align:-1px;font-style:normal}
+  .legend .row{white-space:nowrap}
+  .legend .sep{flex:1 1 auto}
+  .legend .dash{display:inline-block;width:11px;height:0;border-top:2px dashed #b06fb0;
+    margin-right:5px;vertical-align:3px}
+  .legend .note{color:#4d5f71}
+
+  .hint{
+    position:absolute;right:14px;top:12px;
+    font-family:var(--mono);font-size:10px;color:var(--ink-faint);
+    background:rgba(10,16,22,.8);border:1px solid var(--line);
+    border-radius:4px;padding:6px 10px;pointer-events:none;letter-spacing:.03em;
+  }
+
+  /* tooltip */
+  #tip{
+    position:absolute;pointer-events:none;z-index:20;
+    max-width:290px;opacity:0;transform:translateY(4px);
+    transition:opacity .1s;
+    background:rgba(11,18,25,.97);border:1px solid #2f4a5e;
+    border-left:2px solid var(--accent);
+    border-radius:3px;padding:9px 11px;
+    box-shadow:0 10px 30px rgba(0,0,0,.6);
+  }
+  #tip.show{opacity:1;transform:translateY(0)}
+  #tip .k{font-family:var(--mono);font-size:9px;letter-spacing:.13em;
+    text-transform:uppercase;color:var(--ink-faint);margin-bottom:3px}
+  #tip .t{font-family:var(--mono);font-size:12px;color:#e8f3fa;margin-bottom:5px;font-weight:600}
+  #tip .d{font-size:11.5px;line-height:1.5;color:var(--ink-dim)}
+
+  /* ---------- side panel ---------- */
+  aside{
+    flex:0 0 380px;max-width:44vw;display:flex;flex-direction:column;
+    background:var(--panel);border-left:1px solid var(--line);min-height:0;
+  }
+  .tabs{display:flex;border-bottom:1px solid var(--line);flex:0 0 auto}
+  .tabs button{
+    flex:1;background:transparent;border:0;border-bottom:2px solid transparent;
+    color:var(--ink-faint);font-family:var(--mono);font-size:11px;letter-spacing:.05em;
+    padding:13px 8px;cursor:pointer;transition:color .13s,border-color .13s,background .13s;
+  }
+  .tabs button:hover{color:var(--ink);background:#101923}
+  .tabs button.active{color:#9fe3f6;border-bottom-color:var(--accent);background:#0d1720}
+
+  #inspector{
+    flex:0 0 auto;border-bottom:1px solid var(--line);
+    background:var(--panel2);padding:13px 16px;display:none;
+  }
+  #inspector.show{display:block}
+  #inspector .ik{font-family:var(--mono);font-size:9px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--ink-faint)}
+  #inspector .it{font-family:var(--mono);font-size:13px;color:#e8f3fa;margin:5px 0 6px;font-weight:600}
+  #inspector .id{font-size:12px;line-height:1.6;color:var(--ink-dim)}
+  #inspector .meta{margin-top:8px;font-family:var(--mono);font-size:10px;color:var(--ink-faint);
+    display:flex;gap:6px;flex-wrap:wrap}
+  #inspector .meta span{border:1px solid var(--line2);border-radius:2px;padding:2px 6px}
+  #inspector .close{float:right;background:transparent;border:0;color:var(--ink-faint);
+    cursor:pointer;font-family:var(--mono);font-size:14px;line-height:1;padding:0 2px}
+  #inspector .close:hover{color:var(--ink)}
+
+  .content{flex:1 1 auto;overflow-y:auto;padding:18px 18px 60px;min-height:0}
+  .content::-webkit-scrollbar{width:9px}
+  .content::-webkit-scrollbar-thumb{background:#1d2b39;border-radius:5px}
+  .content::-webkit-scrollbar-track{background:transparent}
+  .view{display:none}
+  .view.active{display:block}
+
+  .content h2{
+    font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--accent);margin:24px 0 9px;font-weight:600;
+  }
+  .content h2:first-child{margin-top:0}
+  .content h3{
+    font-family:var(--mono);font-size:12px;color:#dce8f2;margin:16px 0 5px;font-weight:600;
+  }
+  .content p{margin:0 0 11px;line-height:1.62;color:#a9bccc;font-size:13px}
+  .content ul{margin:0 0 12px;padding-left:17px}
+  .content li{margin-bottom:7px;line-height:1.55;color:#a9bccc;font-size:12.5px}
+  .content code{
+    font-family:var(--mono);font-size:11.5px;color:#8fd8ef;
+    background:#0f1b24;border:1px solid #1b2b38;border-radius:2px;padding:1px 5px;
+  }
+  .content strong{color:#e2edf5;font-weight:600}
+  .callout{
+    border-left:2px solid var(--warn);background:#17110e;
+    padding:10px 13px;margin:0 0 14px;border-radius:0 3px 3px 0;
+  }
+  .callout p{margin:0;font-size:12.5px;color:#dcae9c}
+  .callout.ok{border-left-color:var(--ok);background:#0d1712}
+  .callout.ok p{color:#9ed2ac}
+  .callout.info{border-left-color:var(--accent);background:#0b1a20}
+  .callout.info p{color:#96c8da}
+  .kv{border:1px solid var(--line);border-radius:3px;overflow:hidden;margin:0 0 14px}
+  .kv div{display:flex;border-bottom:1px solid var(--line);font-size:12px}
+  .kv div:last-child{border-bottom:0}
+  .kv b{flex:0 0 40%;background:#0d1620;padding:7px 10px;font-family:var(--mono);
+    font-size:10.5px;color:var(--ink-faint);font-weight:500}
+  .kv em{flex:1;padding:7px 10px;font-style:normal;color:#b6c8d6;font-size:12px}
+  .sect-chip{
+    display:inline-block;font-family:var(--mono);font-size:9.5px;letter-spacing:.08em;
+    border-radius:2px;padding:2px 7px;margin:0 5px 5px 0;border:1px solid;
+  }
+
+  @media (max-width:900px){
+    aside{flex-basis:300px}
+    .legend{display:none}
+  }
+</style>
+</head>
+<body>
+<aside role="note" style="padding:18px;border-bottom:2px solid #e0603a;background:#121b25;color:#fff">Historical architecture snapshot — retained September 19, 2026. Dates, counts, source routes and numerical phase order inside this illustration are superseded. Use <a href="../curriculum/START_HERE.md">Start Here</a> and <a href="../curriculum/COMPETENCY_PATHWAY.md">Curriculum v2</a> for the active teaching route; current dates come from the sealed Aegis authority. This illustration is not live status.</aside>
+<!-- AEGIS:PHASE0_PROJECTION:START -->
+<template id="aegis-phase0-projection" data-schema="aegis.phase0-public-projection.v1" data-projection-json-sha256="cfccf5c07a3074f24d9f4ffa2770419619093b8b912c285a8afd19fb2af8cbcf"></template>
+<!-- projection-json-sha256: cfccf5c07a3074f24d9f4ffa2770419619093b8b912c285a8afd19fb2af8cbcf -->
+<!-- AEGIS:PHASE0_PROJECTION:END -->
+<div id="app">
+
+  <header>
+    <div class="brand">
+      <h1>defense-foundations</h1>
+      <span>evidence pipeline · P0 architecture</span>
+    </div>
+    <div class="controls">
+      <button class="ctl primary" id="btn-flow">Resume the flow</button>
+      <button class="ctl" id="btn-step">Trace one step</button>
+      <button class="ctl" id="btn-reset">Reset view</button>
+    </div>
+  </header>
+
+  <main>
+    <div id="stage">
+      <canvas id="cv"></canvas>
+      <div id="tip"></div>
+      <div class="legend" id="legend"></div>
+      <div class="hint">drag to pan · scroll to zoom · hover a dot</div>
+    </div>
+
+    <aside>
+      <div class="tabs">
+        <button class="active" data-view="v-what">What it does</button>
+        <button data-view="v-how">How it's built</button>
+      </div>
+
+      <div id="inspector">
+        <button class="close" id="insp-close">&times;</button>
+        <div class="ik" id="insp-kind">payload</div>
+        <div class="it" id="insp-title">—</div>
+        <div class="id" id="insp-desc">—</div>
+        <div class="meta" id="insp-meta"></div>
+      </div>
+
+      <div class="content">
+        <!-- ============ WHAT IT DOES ============ -->
+        <section class="view active" id="v-what">
+          <h2>The system in one line</h2>
+          <p>
+            <strong>defense-foundations is not a running service — it is an evidence-gated
+            curriculum operating system.</strong> It takes a single external date authority,
+            turns it into scheduled work, turns work into artifacts, turns artifacts into
+            <em style="font-style:normal;color:#e2edf5">verifiable</em> evidence, and lets only
+            that evidence open a phase gate. Everything in the diagram exists to protect that
+            one conversion from being faked.
+          </p>
+
+          <h2>The overall flow</h2>
+          <p>Read the diagram top to bottom. Data flows downhill through nine bands:</p>
+          <ul>
+            <li><strong>External authority</strong> — the Aegis Nexus vault
+              (<code>01_Daily/_Phase Config.md</code>) is the sole hard-date source. This repo
+              never invents a date; it mirrors one. A Calendar manifest supplies issue
+              definitions, and the day envelope supplies capacity.</li>
+            <li><strong>The active boundary</strong> — the sole Phase 0 cutover at
+              <code>2026-09-04 00:00 PDT</code> is a real architectural component, not a note.
+              Everything crossing it has its counter set to zero. Prior work stays
+              audit-valid history but earns no active credit.</li>
+            <li><strong>Projection</strong> — <code>TIMELINE.md</code>, <code>README.md</code>,
+              and <code>progress/README.md</code> are read-only downstream copies of the
+              vault's dates plus the rules that govern status.</li>
+            <li><strong>Curriculum plane</strong> — 13 phases, of which exactly one (P0) is
+              powered. P1–P12 sit dormant and undated by design; their 18–24 month
+              bands are competency envelopes, not dates. The Agent Engineering Sprint
+              is a bounded side module, not a phase.</li>
+            <li><strong>Supply</strong> — learning materials, the Rustlings drill state, and
+              six research queues feed the execution loop. They are inputs, never outputs.</li>
+            <li><strong>The main loop</strong> — <code>Python stage ↔ Rust stage → bounded AI-agent
+              stage when allowed → manifest-owned support/research work</code>. Python and Rust
+              share one weekly <code>pair_cycle_id</code> while retaining independent proof; degree
+              commitments may split the language blocks across days.</li>
+            <li><strong>Artifacts</strong> — the Phase 0 deliverable is one shared Python/Rust
+              file-statistics contract plus a separately tracked, non-gate manual agent
+              policy/evaluation surface attached to that same contract. Both implementation
+              halves are currently stubs.</li>
+            <li><strong>Validation</strong> — local <code>pytest</code>/<code>ruff</code>/
+              <code>cargo test</code>/<code>clippy</code> transcripts are the only accepted
+              proof today, because <code>.github/</code> does not exist yet. The CI node is
+              drawn as a hollow, un-powered box for exactly that reason.</li>
+            <li><strong>Ledger and gate</strong> — current local issues carry acceptance
+              tests; the baseline checkpoint is <code>2026-09-26</code>, independent readiness
+              is reviewed <code>2026-10-15</code>, and the final capability decision is
+              <code>2026-10-30</code>, with the horizon ending at 23:25 PDT.</li>
+          </ul>
+
+          <h2>The two things worth staring at</h2>
+          <div class="callout">
+            <p><strong>The rejected path.</strong> The magenta dashed line from the overlay
+              boundary stops short of the gate and terminates in an ✕. The manual Project 0
+              agent overlay and daily research paper are scheduled; any future sampler would
+              require an exact manifest amendment. Those non-gate artifacts can never satisfy
+              the Python/Rust/Linux/Git exit gate. That severed edge is the single most
+              load-bearing design decision in the repo.</p>
+          </div>
+          <div class="callout info">
+            <p><strong>The remediation loop.</strong> A <code>PARTIAL / REMEDIATE</code> verdict
+              routes back up into Primary Build, and a written extension loops back into the
+              gate itself. Neither one resets the anchor. The system has no path that
+              silently restarts the clock. Only the active boundary at the top defines the
+              current denominator.</p>
+          </div>
+
+          <h2>Terminal nodes</h2>
+          <p>
+            Two nodes are dead ends on purpose. The mobile PWA's <code>localStorage</code>
+            drains into a <strong>NOT EVIDENCE</strong> terminator — quick notes and untouched
+            legacy checkbox state can never flow back into the ledger. And the CI node
+            has no inbound power at all until the Week 1 workflow is committed under issue
+            <code>P0-W1-L</code>.
+          </p>
+
+          <h2>What the moving dots are</h2>
+          <p>
+            Each dot is one unit of data actually travelling that edge: a date assignment, an
+            issue record, a command transcript, a gate verdict, a zeroed counter, a rejected
+            overlay artifact. Hover one for a summary; click to pin it in this panel.
+            <strong>Trace one step</strong> walks the pipeline band by band so you can talk
+            through it in order.
+          </p>
+        </section>
+
+        <!-- ============ HOW IT'S BUILT ============ -->
+        <section class="view" id="v-how">
+          <h2>Repository shape</h2>
+          <div class="kv">
+            <div><b>curriculum/</b><em>13 phase READMEs + competency pathway + bounded module</em></div>
+            <div><b>learning-materials/</b><em>14 focus groups + exact paid-source catalog</em></div>
+            <div><b>research/</b><em>6 domain paper queues</em></div>
+            <div><b>projects/</b><em>file_stats (Py), hello-stats (Rs), invaders (course)</em></div>
+            <div><b>docs/ISSUES.md</b><em>local acceptance keys, not GitHub issues</em></div>
+            <div><b>mobile/</b><em>static PWA: html + css + app.js + sw.js</em></div>
+            <div><b>progress/</b><em>status vocabulary + evidence standard</em></div>
+          </div>
+
+          <h2>Authority layer</h2>
+          <p>
+            The vault file <code>01_Daily/_Phase Config.md</code> lives outside this repo and is
+            the only writer of hard dates. Current identity is a literal string —
+            <code>FINAL-2026-09-04-0000-PHASE0</code> — which makes “which denominator am I
+            counting against?” answerable. Superseded reset administration is not carried in
+            the live timeline.
+          </p>
+
+          <h2>Curriculum plane</h2>
+          <p>
+            <code>curriculum/README.md</code> is the index; each
+            <code>phases/NN-*/README.md</code> holds focus, topics, materials, evidence target,
+            current baseline, and exit gate. The <em>promotion rule</em> is the state machine:
+            a phase becomes active only after prerequisites are demonstrated, a concrete output
+            is selected, and promotion is explicitly authorized. Reaching a date does not
+            promote anything.
+          </p>
+          <p>
+            Two orderings coexist deliberately: the <strong>execution order</strong> (P0→P12)
+            and the <strong>capability order</strong> (foundation → measurement → perception →
+            systems/edge → robotics/navigation → HMT/agents → decision/coordination →
+            assurance → capstone). The cross-phase build chains
+            (e.g. <code>Rust telemetry service → ROS 2 bridge → distributed mesh telemetry</code>)
+            are the edges between those two views.
+          </p>
+
+          <h2>Execution loop</h2>
+          <p>
+            Encoded in <code>TIMELINE.md</code> and the P0 README as distinct
+            <code>Python ↔ Rust → bounded AI-agent</code> stages on one weekly Project 0
+            <code>pair_cycle_id</code>. The manifest reports gate-foundation, bounded agent-overlay,
+            paper/endr, and overhead loads separately. The agent stage is non-gate and cut first
+            when proof lags; its scheduling separation does not create an independent artifact
+            lane or a new percentage bucket.
+          </p>
+
+          <h2>Artifact layer — current honest state</h2>
+          <div class="kv">
+            <div><b>file_stats/main.py</b><em>6-line greeting stub</em></div>
+            <div><b>file_stats/pyproject.toml</b><em>declares <code>testpaths=["tests"]</code>; <code>tests/</code> absent → pytest collects nothing</em></div>
+            <div><b>hello-stats/src/main.rs</b><em><code>multiply_this()</code> WIP; no <code>#[test]</code></em></div>
+            <div><b>hello-stats/Cargo.toml</b><em>edition 2024, empty <code>[dependencies]</code>; clap not wired</em></div>
+            <div><b>rustlings</b><em><code>.rustlings-state.txt</code> = <code>if2</code>, 15 historical; active credit 0/50</em></div>
+          </div>
+          <div class="callout">
+            <p>The Rust and Python halves are drawn at low elevation on purpose. Box height in
+              this diagram encodes how much real implementation exists, so the artifact band
+              is visibly the thinnest part of the system.</p>
+          </div>
+
+          <h2>Validation layer</h2>
+          <p>
+            The accepted evidence set is a runnable project, command transcript, test result,
+            benchmark, experiment table, demo recording, or a README with reproducible
+            instructions. <code>progress/README.md</code> adds the defense-specific bar: an
+            artifact is not interview-grade until it can state, in writing,
+            <strong>latency</strong>, <strong>failure modes</strong>,
+            <strong>false-positive rates</strong>, <strong>resource usage on the target
+            device</strong>, and <strong>tradeoffs</strong>.
+          </p>
+          <p>
+            The evidence-source rule is enforced as a hard branch: before
+            <code>.github/workflows/</code> exists, cite local output with the exact command
+            line; only after the workflow is committed may a GitHub Actions run URL be cited.
+            No document may cite a run URL today.
+          </p>
+
+          <h2>Ledger</h2>
+          <p>
+            <code>docs/ISSUES.md</code> holds current acceptance keys for the launch, weekly work, gates,
+            research, and endr. Each carries an
+            objective, an <strong>acceptance test</strong>, required evidence, dependencies, a
+            evidence boundary and a status. Dates and scheduled identities come from the active manifest; historical keys remain historical.
+          </p>
+
+          <h2>Gate mechanics</h2>
+          <p>
+            The September 26 baseline checkpoint diagnoses foundation gaps; the October 15
+            review assesses independent readiness. The October 30 final review reads the ledger and emits a written
+            promote, remain, or extension decision. Exit criteria: Python + Rust CLI built from a problem statement,
+            first 50 Rustlings exercises, shell/Git without notes, one repo meeting the README
+            evidence standard, and FizzBuzz/file-I/O/CLI from scratch.
+          </p>
+
+          <h2>Mobile PWA (read-only consumer)</h2>
+          <p>
+            <code>mobile/app.js</code> loads the generated
+            <code>docs/aegis-phase0-projection.json</code> and renders its nine calendar windows,
+            plus <code>phases[]</code> (14 rows including the <code>O0</code> non-gate overlay row).
+            <code>getCurrentWeek()</code> resolves today against generated
+            <code>start</code>/<code>end</code> values and clamps to first/last. The app exposes no
+            task-completion writer or evidence percentage.
+          </p>
+          <p>
+            Prior reset-scoped checkbox keys remain untouched as legacy, non-evidentiary browser
+            state, but the current app neither reads nor writes them. Scratch notes deliberately
+            retain their historical key so no genuine text is erased. <code>sw.js</code> is
+            cache-first for the app shell and network-first for the generated projection, with
+            the last verified response retained as an offline fallback in
+            <code>defense-foundations-mobile-shell-v3</code>. It uses
+            <code>skipWaiting()</code> + <code>clients.claim()</code> and old-cache eviction on
+            activate. A hash-checked generator and drift validator now replace the former
+            hand-mirrored date path.
+          </p>
+
+          <h2>Boundaries the code enforces</h2>
+          <ul>
+            <li>Overlay proof → Agent Engineering Sprint tracker, never the P0 gate.</li>
+            <li><code>endr</code> company work → tracked in endr/Aegis; cannot satisfy or delay a gate.</li>
+            <li>Mobile quick notes and legacy checkbox state → never repo evidence.</li>
+            <li>Reset administration, dashboard edits, Calendar work → not curriculum evidence.</li>
+            <li>Graduated projects (<code>project-aegis</code>, <code>CASEset</code>,
+              <code>GUARDEN</code>) → their own repos; <code>defense-foundations-lab</code> is retired.</li>
+          </ul>
+
+          <h2>Notable structural risks</h2>
+          <ul>
+            <li><strong>Dual date sources.</strong> Dates are duplicated across the vault,
+              <code>TIMELINE.md</code>, <code>README.md</code>, <code>progress/</code>, phase
+              READMEs, <code>ISSUES.md</code>, and <code>mobile/app.js</code> — seven hand-synced
+              copies of one authority.</li>
+            <li><strong>Un-powered CI.</strong> Every "deterministic check" claim currently rests
+              on manually pasted transcripts.</li>
+            <li><strong>Declared-but-absent test paths.</strong> <code>pyproject.toml</code>
+              points at a <code>tests/</code> directory that does not exist, so a green
+              <code>pytest</code> run today proves nothing.</li>
+          </ul>
+        </section>
+      </div>
+    </aside>
+  </main>
+</div>
+
+<script>
+"use strict";
+
+/* =========================================================================
+   1. MODEL — sections, nodes, edges, payloads
+   ========================================================================= */
+
+const SECTIONS = {
+  authority : { label:"EXTERNAL AUTHORITY",   color:"#d9a441", at:[-14,  0] },
+  control   : { label:"RESET BARRIER",        color:"#e0603a", at:[-14,  7] },
+  projection: { label:"DATE PROJECTION",      color:"#5b9dd9", at:[-14, 14] },
+  curriculum: { label:"CURRICULUM PLANE",     color:"#2fb6a5", at:[-16, 21] },
+  supply    : { label:"SUPPLY / MATERIALS",   color:"#8b7fd4", at:[-18, 28] },
+  execution : { label:"MAIN EXECUTION LOOP",  color:"#35c2e8", at:[-17, 36] },
+  artifact  : { label:"ARTIFACTS",            color:"#4fbf6a", at:[-18, 44] },
+  validation: { label:"VALIDATION",           color:"#c7d84a", at:[-15, 52] },
+  ledger    : { label:"ISSUE LEDGER",         color:"#8fa3b8", at:[-10, 60] },
+  gate      : { label:"GATE DECISION",        color:"#e0603a", at:[-8,  68] },
+  outcome   : { label:"OUTCOMES",             color:"#e6a35c", at:[-15, 76] },
+  overlay   : { label:"NON-GATE OVERLAY",     color:"#b06fb0", at:[ 21, 28] },
+  consumer  : { label:"EXTERNAL INTERFACES",  color:"#6f8598", at:[ 31, 12] }
+};
+
+/* w = width along grid-x, d = depth along grid-y, h = height (encodes substance) */
+const NODES = [
+  // --- external authority -------------------------------------------------
+  { id:"vault", s:"authority", x:-7, y:0, w:6.4, d:3.6, h:2.4,
+    t:"Aegis Nexus vault", sub:"01_Daily/_Phase Config.md",
+    desc:"Sole hard-date authority, external to this repository. Owns the reset ID, the gate clock, the operating envelope, and every phase date. Nothing downstream may invent a date it did not publish." },
+  { id:"manifest", s:"authority", x:1.5, y:0, w:6.4, d:3.6, h:1.8,
+    t:"Calendar manifest", sub:"full reset + live readback",
+    desc:"Approved static plan: 322 Research occurrences, including 148 technical events (145 language/agent stages), 57 papers, 57 daily endr blocks, five independent company reviews, and bounded closeout/review rows. Exact live state requires the hash-sealed connector receipt. Event presence is capacity, never proof." },
+  { id:"envelope", s:"authority", x:10, y:0, w:6.4, d:3.6, h:1.5,
+    t:"Day envelope", sub:"Mon–Fri 08:00–23:25",
+    desc:"Sixty mission hours per full week is a ceiling, not a quota. The active manifest recalculates each week's gate, optional agent, paper/endr, overhead, and gross totals; at least 14h10 of degree-critical capacity is reserved in each affected week segment from September 23. Protected commitments and recovery win; cut optional work before overload. Calendar time never proves completion." },
+
+  // --- reset barrier ------------------------------------------------------
+  { id:"reset", s:"control", x:1.5, y:7, w:19, d:2.4, h:1.1, kind:"barrier",
+    t:"PHASE 0 BOUNDARY", sub:"2026-09-04 00:00 PDT · new-period counters → 0",
+    desc:"Reset ID FINAL-2026-09-04-0000-PHASE0. Prior work, boundaries, manifests, and genuine evidence remain history without duplicate current-period credit. Company existence, implemented artifacts, strategy, and independently governed milestones do not reset. Courses support the oldest unmet acceptance criterion." },
+
+  // --- projection ---------------------------------------------------------
+  { id:"timeline", s:"projection", x:-7, y:14, w:6.4, d:3.6, h:1.8,
+    t:"TIMELINE.md", sub:"hard dates · launch + eight-week horizon",
+    desc:"Projection of the vault config. Holds the hard-date table, current build plan, and later-phase scheduling rule." },
+  { id:"readme", s:"projection", x:1.5, y:14, w:6.4, d:3.6, h:2.2,
+    t:"README.md", sub:"status · repo map · 9 rules",
+    desc:"Repository front door: current status table, phase map, autonomy capability map, nine operating rules, portfolio-integration targets, and the honest Project 0 baseline." },
+  { id:"progressdoc", s:"projection", x:10, y:14, w:6.4, d:3.6, h:1.8,
+    t:"progress/README.md", sub:"status vocab · evidence bar",
+    desc:"Defines the six status values, the evidence standard, the interview-grade weak/strong table, and the five-point defense bar: latency, failure modes, false positives, resource usage, tradeoffs." },
+
+  // --- curriculum ---------------------------------------------------------
+  { id:"curidx", s:"curriculum", x:-9.5, y:21, w:6.6, d:3.6, h:1.9,
+    t:"curriculum/README", sub:"index · build chains",
+    desc:"Groups the 13 phases into category bands and defines the cross-phase build chains and the promotion rule that gates every phase transition." },
+  { id:"p0", s:"curriculum", x:-1.5, y:21, w:6.6, d:3.6, h:2.8,
+    t:"P0 — Foundations", sub:"ACTIVE · gate-controlling",
+    desc:"The only powered phase. Python, Rust, Linux shell, Git. Target capability: write 100–200 line programs without a tutorial open. Exit gate requires paired CLIs, 50 Rustlings, shell/Git fluency, and one README-standard repo." },
+  { id:"phases", s:"curriculum", x:6.5, y:21, w:6.6, d:3.6, h:1.1,
+    t:"P1 – P12", sub:"not started · undated",
+    desc:"Twelve dormant phases: measurement discipline; operational ML; vision/DL; Rust edge systems; embedded interfaces; ROS 2 simulation; state estimation/SLAM; HMT/reliable agents; single-policy RL; degraded-comms multi-agent autonomy; safety/doctrine/security/T&E; integrated capstone. Their 18–24 month bands are planning envelopes only." },
+  { id:"sprint", s:"curriculum", x:14.5, y:21, w:6.6, d:3.6, h:1.4,
+    t:"Agent Eng. Sprint", sub:"manifest-only Project 0 stage · non-gate",
+    desc:"A specialization module, not a numbered phase. Full sprint is deferred to P8. During P0 an optional manual-harness stage stays attached to the active weekly pair cycle only where scheduled: max three allowlisted read-only repo/fixture tools and three Action→Observation→Stop steps. Cut it first when foundation proof or protected capacity requires." },
+
+  // --- supply -------------------------------------------------------------
+  { id:"materials", s:"supply", x:-11.5, y:28.5, w:6.6, d:3.6, h:1.6,
+    t:"learning-materials/", sub:"P0: 55 pytest · 50 CLR · 5 URCC routes",
+    desc:"The approved manifest offers 55 O'Reilly Python Testing with pytest routes, 50 O'Reilly Command-Line Rust routes, and five Udemy Ultimate Rust Crash Course Chapter 1–5 routes inside language blocks. Pull a section only if needed for the current acceptance gap; official documentation is primary. Cap min(30 minutes, 25% of block), apply immediately, save the resume point. Scheduling is zero evidence." },
+  { id:"rustlings", s:"supply", x:-4, y:28.5, w:6.2, d:3.6, h:1.5,
+    t:"rustlings", sub:"state if2 · credit 0/50",
+    desc:".rustlings-state.txt records if2 with 15 historical completions. Active credit is 0/50. Fresh work resumes from the actual pointer — no ordinal batch may be inferred from the historical count." },
+  { id:"researchq", s:"supply", x:3.5, y:28.5, w:6.2, d:3.6, h:1.5,
+    t:"research/", sub:"6 domain queues",
+    desc:"Detection & tracking, edge compression, foundation models, robotics/SLAM/sim-to-real, RL/MARL/swarms, gaze/HMT/policy. Five-step reading protocol; a paper that does not change a build is background reading." },
+  { id:"overlays", s:"overlay", x:13, y:28.5, w:7.2, d:3.6, h:1.5,
+    t:"Non-gate overlays", sub:"Project 0 agent · sampler · daily paper",
+    desc:"Bounded non-gate work through October 30: 35 optional artifact-bound agent stages across 55 technical dates and one 60-minute paper on all 57 dates. September 12 and October 11 contain no technical work; 20 dates cut the agent overlay. No generic course watching, new lane, or automatic sampler." },
+
+  // --- execution ----------------------------------------------------------
+  { id:"primary", s:"execution", x:-10.5, y:36.5, w:6.2, d:3.6, h:2.6,
+    t:"Weekly P ↔ R · optional A", sub:"separate blocks · one pair_cycle_id",
+    desc:"Python file_stats owns the contract; Rust hello-stats proves parity on identical fixtures in the same weekly pair cycle. Degree-critical commitments may split them across days. A bounded non-gate agent stage is optional and manifest-owned." },
+  { id:"support", s:"execution", x:-3.5, y:36.5, w:6.2, d:3.6, h:1.9,
+    t:"Support Work", sub:"attaches to primary",
+    desc:"Secondary effort stays attached to the oldest unmet paired-artifact criterion: shell/Git workflow, Rustlings drills, README and reproducibility work. The manifest owns exact capacity; missed work records one blocker and next command, never catch-up debt." },
+  { id:"researchblk", s:"execution", x:3.5, y:36.5, w:6.2, d:3.6, h:1.6,
+    t:"Research Block", sub:"60 minutes every day",
+    desc:"One named previous-local-date paper per active day on the Research calendar, with Monday/Thursday deep-read emphasis and the note written to the vault. Non-gate; nothing is backfilled." },
+  { id:"sampler", s:"execution", x:11, y:36.5, w:6.6, d:3.6, h:1.6,
+    t:"Weekly Sampler", sub:"manifest-authorized only",
+    desc:"A bounded non-gate sampler runs only where the exact active manifest names one. It is not the Project 0 agent overlay, and scheduling never marks it complete." },
+
+  // --- artifacts ----------------------------------------------------------
+  { id:"filestats", s:"artifact", x:-11.5, y:44.5, w:6.6, d:3.6, h:1.4,
+    t:"projects/file_stats", sub:"Python · greeting stub",
+    desc:"Python half of the paired Phase 0 CLI. main.py prints 'Hello from file-stats!'. pyproject.toml declares pytest with testpaths=['tests'] but tests/ does not exist, so pytest currently collects nothing." },
+  { id:"hellostats", s:"artifact", x:-4, y:44.5, w:6.6, d:3.6, h:1.4,
+    t:"projects/hello-stats", sub:"Rust · WIP, no tests",
+    desc:"Rust half of the pair. src/main.rs prints a greeting and a multiplication result; it does not implement file statistics. Cargo.toml is edition 2024 with an empty [dependencies] — clap is not wired." },
+  { id:"coursecode", s:"artifact", x:3.5, y:44.5, w:6.2, d:3.6, h:1.2,
+    t:"course exercises", sub:"invaders · rustlings drills",
+    desc:"Educational code that lives here by rule 4 until a project graduates into its own portfolio repo. projects/invaders is a crossterm + rusty_audio terminal game from the Rust crash course." },
+  { id:"overlayart", s:"overlay", x:12, y:44.5, w:6.6, d:3.6, h:1.4,
+    t:"AI-agent stage artifacts", sub:"policy tests · typed traces · refusals",
+    desc:"Each authorized Project 0 agent stage yields one bounded policy/test, typed trace, refusal result, or evaluation artifact attached to the weekly pair cycle, with max three read-only tools, max three steps, deterministic/malformed fixtures, and a written capability boundary. It is not generic course watching." },
+
+  // --- validation ---------------------------------------------------------
+  { id:"localcheck", s:"validation", x:-8.5, y:52.5, w:7.2, d:3.6, h:2.1,
+    t:"Local check output", sub:"pytest · ruff · cargo · clippy",
+    desc:"The only accepted proof today: saved pytest, ruff, cargo test, clippy, and rustfmt --check transcripts, each cited with the exact command line that produced it." },
+  { id:"ci", s:"validation", x:0.5, y:52.5, w:6.2, d:3.6, h:0.55, kind:"ghost",
+    t:"CI workflow", sub:".github/ — DOES NOT EXIST",
+    desc:"No .github directory and no GitHub Actions run has ever executed. Creating the workflow is a visible Week 1 task under P0-W1-L. No document may cite an Actions run URL before then." },
+  { id:"evstd", s:"validation", x:8.5, y:52.5, w:6.6, d:3.6, h:2.0,
+    t:"Evidence standard", sub:"interview-grade bar",
+    desc:"Filters attendance from capability. Weak: certificates, paper summaries, one-off notebooks, screenshots. Strong: fielded systems, benchmarks with baselines, seeded simulations, telemetry, runnable evaluation frameworks." },
+  { id:"overlaybound", s:"overlay", x:16.5, y:52.5, w:6.6, d:3.6, h:1.3,
+    t:"Overlay boundary", sub:"separate tracker",
+    desc:"A hard evidence firewall. Agent policy/tests, typed traces, refusal/evaluation output, sampler output, and paper notes are separately tracked and never satisfy the P0 foundation gate." },
+
+  // --- ledger -------------------------------------------------------------
+  { id:"ledger", s:"ledger", x:-2, y:60.5, w:7.4, d:3.6, h:2.2,
+    t:"docs/ISSUES.md", sub:"current acceptance keys + historical identities",
+    desc:"Local issue ledger — not GitHub issues. ID format P0-W<week>-<track>. Each issue carries an objective, an acceptance test, required evidence, dependencies, a gate-credit flag, and a status. No issue may be marked done without its acceptance test passing." },
+  { id:"statusvocab", s:"ledger", x:7, y:60.5, w:6.2, d:3.6, h:1.2,
+    t:"Status values", sub:"not-started → done",
+    desc:"not-started · in-progress · blocked · done · superseded-historical. At phase scope: not started · scheduled overlay · in progress · gate review · complete · extended. A calendar block elapsing is never completion." },
+
+  // --- gate ---------------------------------------------------------------
+  { id:"gate", s:"gate", x:0, y:68.5, w:11, d:3.8, h:3.2,
+    t:"P0 GATE", sub:"baseline Sep 26 · readiness Oct 15 · final Oct 30",
+    desc:"The first full calendar week is September 7–13, not the baseline gate. September 26 diagnoses foundation gaps; October 15 reviews independent readiness; October 30 records the final capability decision. Reaching any date does not promote the phase." },
+
+  // --- outcomes -----------------------------------------------------------
+  { id:"pass", s:"outcome", x:-8.5, y:76.5, w:5.6, d:3.4, h:2.0,
+    t:"PASS", sub:"→ promotion authorized",
+    desc:"All exit criteria backed by artifacts and measurements: paired CLIs built from a problem statement, first 50 Rustlings, shell/Git without notes, one repo meeting the README evidence standard." },
+  { id:"partial", s:"outcome", x:-0.8, y:76.5, w:7.2, d:3.4, h:1.5,
+    t:"PARTIAL / REMEDIATE", sub:"named gaps only",
+    desc:"Routes back into Primary Build. Only explicitly named gate gaps may be worked; no automatic advanced-lane activation, and P1–P12 stay unscheduled." },
+  { id:"extend", s:"outcome", x:7.8, y:76.5, w:7.2, d:3.4, h:1.5,
+    t:"WRITTEN EXTENSION", sub:"no anchor reset",
+    desc:"A failed or delayed gate causes scope cuts or a written extension — never another anchor reset and never an automatic advanced-lane ramp." },
+  { id:"promote", s:"outcome", x:-8.5, y:84.5, w:6.6, d:3.4, h:1.7,
+    t:"Phase promotion", sub:"P1 finally gets a date",
+    desc:"The only path that assigns a date to a later phase. Requires demonstrated prerequisites, a selected concrete output, and explicit authorization during a review." },
+
+  // --- consumers ----------------------------------------------------------
+  { id:"pwaapp", s:"consumer", x:23, y:14, w:6.6, d:3.6, h:1.9,
+    t:"mobile/app.js", sub:"generated authority consumer · nine calendar windows",
+    desc:"Read-only consumer of docs/aegis-phase0-projection.json plus 14 phase rows including the O0 overlay. No connector access, completion writer, or evidence ownership; local notes are scratch only." },
+  { id:"pwashell", s:"consumer", x:23, y:21, w:6.6, d:3.6, h:1.6,
+    t:"mobile/index.html", sub:"5 tabbed views",
+    desc:"Static app shell: Dashboard, Tasks, Phases, Evidence, Notes. Rendered client-side by app.js — renderDashboard, renderWeeks, renderPhases, setupTabs, setupNotes, setupInstallPrompt." },
+  { id:"pwasw", s:"consumer", x:30.5, y:21, w:6.6, d:3.6, h:1.3,
+    t:"mobile/sw.js", sub:"network-current projection · offline fallback",
+    desc:"The app shell is cache-first. The generated projection is network-first with its last successful response retained for offline fallback; activate also evicts every non-matching cache key." },
+  { id:"pwastore", s:"consumer", x:23, y:28.5, w:6.6, d:3.6, h:1.0,
+    t:"localStorage", sub:"quick-capture only",
+    desc:"Legacy checkbox keys remain untouched but are no longer read or written. Existing scratch notes retain their historical storage key so genuine notes are not erased. Scratch notes never grant gate credit." },
+  { id:"notevidence", s:"consumer", x:23, y:35.5, w:6.6, d:3.2, h:0.5, kind:"ghost",
+    t:"NOT EVIDENCE", sub:"terminal — planning aid",
+    desc:"Deliberate dead end. Quick-capture notes are scratch space and legacy checkbox keys are inert; neither can become evidence without separately observed, validated repository proof." },
+  { id:"portfolio", s:"consumer", x:23, y:44.5, w:7.2, d:3.6, h:1.5,
+    t:"Portfolio repos", sub:"aegis · CASEset · GUARDEN",
+    desc:"Separate repositories a project graduates into once it outgrows the curriculum repo. defense-foundations-lab is retired; current foundation work routes here instead." }
+];
+
+/* Edges. p = payloads (the moving dots). */
+const EDGES = [
+  { a:"vault", b:"reset", p:[
+    { t:"hard-date set", k:"config", d:"Boundary September 4 00:00 PDT; baseline September 26; readiness October 15; final review October 30 17:15–18:15 and horizon 23:25. First full calendar week September 7–13." },
+    { t:"reset ID", k:"identity", d:"FINAL-2026-09-04-0000-PHASE0 — current-period counters only; historical evidence and company existence are preserved." },
+    { t:"operating envelope", k:"config", d:"Mon–Fri 08:00–23:25, Sat 08:00–18:30, Sun 08:00–18:00. The 60-hour mission ceiling is reduced by protected and academic capacity; optional agent work is cut first. No generic watching or catch-up debt." }
+  ]},
+  { a:"manifest", b:"reset", p:[
+    { t:"issue definitions", k:"records", d:"Objective, acceptance test, evidence boundary, and status for every current issue key." },
+    { t:"stable issue map", k:"mapping", d:"Existing P0-Wn issue tokens remain stable execution identifiers; the active week ordinal comes from the vault and manifest." }
+  ]},
+  { a:"envelope", b:"reset", p:[
+    { t:"capacity block", k:"schedule", d:"A scheduled window. Capacity only — a calendar block elapsing is never completion." }
+  ]},
+
+  { a:"reset", b:"timeline", p:[
+    { t:"zeroed denominator", k:"counter", d:"Every active counter set to 0. Pre-cutover work stays audit-valid history with zero active credit." }
+  ]},
+  { a:"reset", b:"readme", p:[
+    { t:"status projection", k:"state", d:"Active phase P0, phase start, gate clock, baseline/final dates, reset ID and date authority written into the status table." }
+  ]},
+  { a:"reset", b:"progressdoc", p:[
+    { t:"evidence boundary", k:"rule", d:"Work before September 4 00:00 PDT remains genuine history without current-period credit. Reset administration is not curriculum evidence." }
+  ]},
+
+  { a:"timeline", b:"curidx", p:[
+    { t:"week plan", k:"schedule", d:"Launch and eight-week horizon: acceptance-driven paired build work, bounded non-gate research, protected company time, and explicit academic reserve. Weekly emphasis is adaptive, never an automatic gate." }
+  ]},
+  { a:"readme", b:"curidx", p:[
+    { t:"operating rules", k:"rule", d:"Evidence over completion claims, foundations gate the ramp, course pulls stay issue-bound inside artifact blocks, and later phases require explicit promotion." }
+  ]},
+  { a:"readme", b:"p0", p:[
+    { t:"phase status", k:"state", d:"P0 marked in progress; P1–P12 held at not started and undated until explicit promotion." }
+  ]},
+  { a:"progressdoc", b:"evstd", route:"right", p:[
+    { t:"interview-grade bar", k:"rule", d:"Latency, failure modes, false positives, resource usage on target hardware, and tradeoffs — all in writing and reproducible by someone else." },
+    { t:"status vocabulary", k:"rule", d:"not started · scheduled overlay · in progress · gate review · complete · extended." }
+  ]},
+
+  { a:"curidx", b:"p0", p:[
+    { t:"promotion rule", k:"rule", d:"A phase activates only after prerequisites are demonstrated, an output is selected, and promotion is explicitly authorized." }
+  ]},
+  { a:"curidx", b:"phases", p:[
+    { t:"category grouping", k:"mapping", d:"Foundation/measurement, perception assurance, systems/edge, robotics/navigation, HMT/agents, decision/coordination, assurance, capstone." }
+  ]},
+  { a:"curidx", b:"sprint", p:[
+    { t:"bounded authorization", k:"rule", d:"Manifest-owned Project 0 harness blocks only: max three allowlisted read-only repo/fixture tools and three Action→Observation→Stop steps. Separately tracked, non-gate, and cut first if foundation proof lags." }
+  ]},
+
+  { a:"p0", b:"materials", p:[
+    { t:"material request", k:"pull", d:"Ground-zero route: 55 Python Testing with pytest pulls, 50 Command-Line Rust pulls, and five Ultimate Rust Crash Course Chapter 1–5 pulls; official documentation remains authoritative." }
+  ]},
+  { a:"p0", b:"primary", p:[
+    { t:"phase objective", k:"task", d:"Build the paired Python/Rust file-statistics CLI with file and stdin input, clean failures, tests, and reproducible commands. Preserve one weekly pair_cycle_id even when the two languages run on different days." },
+    { t:"exit criteria", k:"rule", d:"Paired CLIs from a problem statement, 50 Rustlings, shell/Git without notes, one repo at the README evidence standard." }
+  ]},
+  { a:"sprint", b:"overlays", p:[
+    { t:"bounded scope", k:"rule", d:"Manual Python only; typed allowlisted read-only repo/fixture tools; max-three-step Action→Observation→Stop trace. No shell, network, browser, connectors, Git writes, deletion, install, secrets, persistence, self-modification, scheduling, autonomy, multi-agent/swarm, MCP, RAG, LangGraph, or consequential behavior." }
+  ]},
+
+  { a:"materials", b:"support", p:[
+    { t:"course slice", k:"input", d:"Issue-bound only, embedded inside an existing language block, capped at min(30 minutes, 25% of block), and applied immediately to file_stats or hello-stats. Watching alone earns zero credit." }
+  ]},
+  { a:"rustlings", b:"support", p:[
+    { t:"exercise pointer", k:"state", d:"Resume from the actual if2 state pointer — do not infer a new ordinal batch from the 15 historical completions." }
+  ]},
+  { a:"researchq", b:"researchblk", p:[
+    { t:"queued paper", k:"input", d:"One named paper from a domain queue. Protocol: abstract/intro/figures/conclusion, plain-English summary, one implementable detail, one limitation, one project link." }
+  ]},
+  { a:"overlays", b:"sampler", p:[
+    { t:"manifest sampler", k:"input", d:"Only an exact manifest-authorized bounded sampler; no alternating HF/OpenCV cadence and no launch sampler." }
+  ]},
+
+  { a:"primary", b:"support", route:"x", p:[
+    { t:"attachment point", k:"link", d:"Support work has no independent lane — it attaches to whatever the day's dominant artifact is." }
+  ]},
+  { a:"primary", b:"filestats", p:[
+    { t:"typed path slice", k:"code", d:"Smallest slice that fits the window: one valid fixture returns a deterministic result, one missing path fails cleanly and non-zero." }
+  ]},
+  { a:"primary", b:"hellostats", p:[
+    { t:"Rust CLI slice", k:"code", d:"Compiling tested slice toward the shared output contract; clap not yet wired into the empty [dependencies]." }
+  ]},
+  { a:"support", b:"hellostats", p:[
+    { t:"branch / diff / PR", k:"process", d:"Git workflow practice performed against the day's artifact rather than as an isolated drill." }
+  ]},
+  { a:"support", b:"coursecode", p:[
+    { t:"exercise commit", k:"code", d:"Course exercises and Rustlings work live in this repo until a project graduates to its own portfolio repository." }
+  ]},
+  { a:"researchblk", b:"researchq", route:"back", p:[
+    { t:"paper note", k:"note", d:"Written to the vault. A full note is created only when the paper changes a build, capstone, report, or interview claim." }
+  ]},
+  { a:"sampler", b:"overlayart", p:[
+    { t:"bounded artifact", k:"artifact", d:"Typed tool, FSM, deterministic router, replay harness or read-only project tool — with a stated capability boundary." }
+  ]},
+
+  { a:"filestats", b:"localcheck", p:[
+    { t:"pytest transcript", k:"evidence", d:"Saved output plus the exact command line. Today tests/ does not exist, so the suite collects nothing — that fact is the evidence." },
+    { t:"ruff output", k:"evidence", d:"Lint transcript. Ruff is configured (E,F,I,UP,B at line-length 88) but not yet declared as a dependency." }
+  ]},
+  { a:"hellostats", b:"localcheck", p:[
+    { t:"cargo test output", k:"evidence", d:"No #[test] functions currently exist in src/main.rs, so there is nothing to pass yet." },
+    { t:"clippy / rustfmt", k:"evidence", d:"Deterministic check transcripts required alongside the exact invoking command." }
+  ]},
+  { a:"coursecode", b:"localcheck", p:[
+    { t:"exercise pass record", k:"evidence", d:"Exact freshly passing exercise name and observed output — not an inferred count." }
+  ]},
+  { a:"ci", b:"localcheck", route:"back", blocked:true, p:[
+    { t:"Actions run URL", k:"blocked", d:"UNAVAILABLE. .github/ does not exist and no workflow has ever run. No document, issue, or evidence row may cite an Actions URL until the Week 1 workflow (P0-W1-L) is committed." }
+  ]},
+  { a:"localcheck", b:"evstd", p:[
+    { t:"command transcript", k:"evidence", d:"The accepted proof form before CI exists: saved output cited with the exact command line that produced it." }
+  ]},
+  { a:"evstd", b:"ledger", p:[
+    { t:"acceptance verdict", k:"verdict", d:"Pass or fail against a specific issue's acceptance test. An issue may not be marked done without it." }
+  ]},
+  { a:"statusvocab", b:"ledger", route:"x", p:[
+    { t:"status transition", k:"state", d:"not-started → in-progress → blocked → done, or superseded-historical for retained audit rows." }
+  ]},
+  { a:"overlayart", b:"overlaybound", p:[
+    { t:"overlay proof", k:"artifact", d:"Trace, typed tool, or evaluation harness — routed to the Agent Engineering Sprint tracker, not the curriculum ledger." }
+  ]},
+  { a:"overlaybound", b:"gate", blocked:true, p:[
+    { t:"REJECTED at gate", k:"blocked", d:"Overlay evidence can never satisfy the Python/Rust/Linux/Git exit gate. Neither the HF block, the OpenCV sampler, nor the daily paper earns gate credit. This edge is severed by design." }
+  ]},
+
+  { a:"ledger", b:"gate", p:[
+    { t:"gate-credit issue", k:"records", d:"Only issues flagged 'counts toward P0 gate: yes' are read. Sampler and operations issues are filtered out before evaluation." },
+    { t:"acceptance evidence", k:"evidence", d:"Per-issue proof bundle: observed output, focused diff or exact blocker, and one copy-pasteable resume command." }
+  ]},
+
+  { a:"gate", b:"pass", p:[
+    { t:"PASS verdict", k:"verdict", d:"The October 30 final decision requires all exit criteria backed by artifacts and measurements; the date itself awards no credit." }
+  ]},
+  { a:"gate", b:"partial", p:[
+    { t:"PARTIAL / REMEDIATION", k:"verdict", d:"Named gaps only. No automatic advanced-lane activation and no new anchor date." }
+  ]},
+  { a:"gate", b:"extend", p:[
+    { t:"EXTEND verdict", k:"verdict", d:"A written extension. Reaching the final date does not promote the phase and no gate review schedules P1." }
+  ]},
+  { a:"partial", b:"primary", route:"loop-left", p:[
+    { t:"remediation task", k:"task", d:"Feeds back into Primary Build. Only explicitly named gate gaps may be worked." }
+  ]},
+  { a:"extend", b:"gate", route:"back", p:[
+    { t:"extension window", k:"schedule", d:"Scope cuts or a written extension — never another anchor reset." }
+  ]},
+  { a:"pass", b:"promote", p:[
+    { t:"promotion authorization", k:"verdict", d:"The only signal that assigns a date to a later phase." }
+  ]},
+  { a:"promote", b:"phases", route:"loop-right", p:[
+    { t:"phase date assignment", k:"config", d:"P1 leaves the undated pool. Parallel exposure never changes phase status — only this edge does." }
+  ]},
+
+  { a:"filestats", b:"portfolio", route:"right", p:[
+    { t:"graduated project", k:"artifact", d:"Once a project outgrows the curriculum repo it moves to its own repository: project-aegis, CASEset, GUARDEN, computer-vision." }
+  ]},
+
+  { a:"timeline", b:"pwaapp", route:"over", dashed:true, p:[
+    { t:"generated plan", k:"sync", d:"app.js loads docs/aegis-phase0-projection.json, generated from the hash-verified Aegis manifest. Drift fails closed instead of inventing a current plan." }
+  ]},
+  { a:"pwaapp", b:"pwashell", p:[
+    { t:"rendered view", k:"render", d:"renderDashboard, renderWeeks, renderPhases populate the five tabbed sections client-side on load." }
+  ]},
+  { a:"pwashell", b:"pwasw", route:"x", p:[
+    { t:"fresh authority + offline shell", k:"cache", d:"The app shell is cache-first at defense-foundations-mobile-shell-v3. The generated projection is network-first and updates its cached offline fallback after every successful response." }
+  ]},
+  { a:"pwashell", b:"pwastore", p:[
+    { t:"legacy checkbox state", k:"state", d:"Prior reset-scoped keys remain stored but the current PWA never reads or writes them. They are never evidence." },
+    { t:"quick note", k:"note", d:"Existing notes retain their historical localStorage key. Genuine scratch text is preserved; it must be reviewed and supported by actual artifacts before any evidence claim." }
+  ]},
+  { a:"pwastore", b:"notevidence", blocked:true, p:[
+    { t:"planning aid only", k:"blocked", d:"Terminal by design. Mobile quick notes and inert legacy checkbox state are never repository evidence and cannot flow back into the ledger." }
+  ]}
+];
+
+/* ordered pipeline stages for "Trace one step" */
+const STAGES = [
+  { s:"authority",  title:"1 · External authority",
+    text:"The Aegis Nexus vault owns every hard date. The sealed manifest supplies exact event identities and acceptance routes; connector readbacks establish live schedule state only. Capacity is never completion." },
+  { s:"control",    title:"2 · The reset barrier",
+    text:"Phase 0 begins Friday September 4 at 00:00 PDT. New-period counters start at zero. Prior evidence, manifests, company facts, and implemented artifacts remain genuine history; none is erased or credited twice." },
+  { s:"projection", title:"3 · Date projection",
+    text:"TIMELINE.md, README.md and progress/README.md are read-only mirrors of the vault plus the rules that govern status vocabulary and the evidence bar." },
+  { s:"curriculum", title:"4 · Curriculum plane",
+    text:"Thirteen phases, one powered. P1–P12 stay flat and undated by design; their 18–24 month bands are competency envelopes. The Agent Engineering Sprint is a bounded side module, not a phase." },
+  { s:"supply",     title:"5 · Supply",
+    text:"Learning materials, the Rustlings state pointer, and six research queues feed the loop. These are inputs — nothing here counts as output." },
+  { s:"execution",  title:"6 · The main loop",
+    text:"Distinct Python/Rust stages share a weekly pair_cycle_id and identical fixture contract while retaining independent proof. Degree-critical commitments may split the language blocks across days; protected capacity creates no catch-up debt." },
+  { s:"artifact",   title:"7 · Artifacts",
+    text:"The paired file-statistics CLI. Both halves are stubs today, and the box heights say so — elevation encodes how much implementation actually exists." },
+  { s:"validation", title:"8 · Validation",
+    text:"Local transcripts are the only accepted proof. The CI node is hollow: .github/ does not exist, so nothing may cite an Actions run URL yet." },
+  { s:"overlay",    title:"9 · The rejected path",
+    text:"Overlays are scheduled, produce real artifacts, and are firewalled from the gate. The dashed magenta edge terminates in an ✕ before it reaches the decision node." },
+  { s:"ledger",     title:"10 · Issue ledger",
+    text:"Current acceptance keys resolve to observed commands, artifacts, and exact resume points. Historical keys are preserved separately. Only foundation-gate proof can support an authorized promotion." },
+  { s:"gate",       title:"11 · Gate decision",
+    text:"Baseline September 26, independent-readiness review October 15, final capability decision October 30. Reaching a date promotes nothing; only an explicitly authorized, evidence-backed decision does." },
+  { s:"outcome",    title:"12 · Outcomes",
+    text:"PASS → promotion. PARTIAL → back into Primary Build. EXTEND → loops the gate. No branch silently resets the anchor." },
+  { s:"consumer",   title:"13 · External interfaces",
+    text:"The mobile PWA is a generated read-only projection whose quick-capture localStorage drains into a NOT EVIDENCE terminator. Graduated work leaves for its own repos." }
+];
+
+/* =========================================================================
+   2. GEOMETRY
+   ========================================================================= */
+
+/* Layout space is authored as (lane, band). Node CENTRES are placed on a
+   screen-aligned lattice so the pipeline reads top-to-bottom, while each node's
+   FOOTPRINT is projected isometrically — compact layout, true pseudo-3D boxes. */
+const LX = 26, LY = 10.6;                 // px per authored lane / band unit
+const TW = 34, TH = 12, ZU = 15;          // box tile width / depth / z unit
+const FW = 0.96, FD = 0.72;               // global footprint trim
+
+const place  = (cx, cy, gz) => ({ x:cx*LX, y:cy*LY - (gz||0)*ZU });
+const isoOff = (dgx, dgy)   => ({ x:(dgx-dgy)*TW/2, y:(dgx+dgy)*TH/2 });
+const iso = (cx, cy, gz) => place(cx, cy, gz);   // wire/label anchor helper
+
+const NODEMAP = {};
+NODES.forEach(n => { NODEMAP[n.id] = n; n.color = SECTIONS[n.s].color; });
+
+/* precompute node world geometry */
+function buildNodes(){
+  NODES.forEach(n=>{
+    const hw=n.w*FW/2, hd=n.d*FD/2, h=n.h;
+    const g = [[-hw,-hd],[hw,-hd],[hw,hd],[-hw,hd]];
+    const c0 = place(n.x, n.y, 0), c1 = place(n.x, n.y, h);
+    n.base = g.map(([dx,dy])=>{ const o=isoOff(dx,dy); return {x:c0.x+o.x, y:c0.y+o.y}; });
+    n.top  = g.map(([dx,dy])=>{ const o=isoOff(dx,dy); return {x:c1.x+o.x, y:c1.y+o.y}; });
+    n.center = c1;                        // top-face centre (anchor for wires)
+    n.centerBase = c0;
+    n.halfW = (n.w*FW + n.d*FD) * TW / 4; // on-screen half extents
+    n.halfH = (n.w*FW + n.d*FD) * TH / 4;
+    n.depth = n.y*1000 + n.x;             // painter's order: band, then lane
+  });
+}
+
+/* route an edge into a list of grid-space waypoints, then project */
+function routeEdge(e){
+  const A = NODEMAP[e.a], B = NODEMAP[e.b];
+  const z = Math.max(A.h, B.h) * 0.62 + 0.25;
+  let pts;
+
+  const ay = A.y, by = B.y, ax = A.x, bx = B.x;
+  // clearances converted from on-screen extents back into authored units
+  const vA = A.halfH/LY + 0.9, vB = B.halfH/LY + 0.9;
+  const hA = A.halfW/LX + 0.5, hB = B.halfW/LX + 0.5;
+
+  if (e.route === "x") {
+    // horizontal hop between neighbours in the same band
+    const sx = ax + (bx>ax ? hA : -hA);
+    const tx = bx + (bx>ax ? -hB : hB);
+    pts = [[ax,ay],[sx,ay],[tx,by],[bx,by]];
+  } else if (e.route === "right") {
+    // step out sideways, then travel down the lane
+    const midY = (ay+by)/2;
+    const sx = ax + (bx>ax ? hA+1.4 : -hA-1.4);
+    pts = [[ax,ay],[sx,ay],[sx,midY],[bx,midY],[bx,by]];
+  } else if (e.route === "over") {
+    // lift above the band, cross, then drop in — avoids cutting through boxes
+    const up = Math.min(ay,by) - vA - 1.6;
+    pts = [[ax,ay],[ax,up],[bx,up],[bx,by]];
+  } else if (e.route === "back") {
+    // reverse / feedback hop, bowed out to the side
+    const off = hA + 2.2;
+    pts = [[ax,ay],[ax+off,ay],[ax+off,(ay+by)/2],[bx+off,by],[bx,by]];
+  } else if (e.route === "loop-left") {
+    const off = -16.5;
+    pts = [[ax,ay],[ax,ay+vA],[off,ay+vA],[off,by],[bx,by]];
+  } else if (e.route === "loop-right") {
+    const off = 20;
+    pts = [[ax,ay],[ax+off,ay],[ax+off,by],[bx,by]];
+  } else {
+    // default: straight down the bands with a lane jog
+    const sy = ay + (by>ay ? vA : -vA);
+    const ty = by + (by>ay ? -vB : vB);
+    const midY = (sy+ty)/2;
+    pts = (Math.abs(ax-bx) < 0.05)
+      ? [[ax,sy],[bx,ty]]
+      : [[ax,sy],[ax,midY],[bx,midY],[bx,ty]];
+    pts.unshift([ax,ay]); pts.push([bx,by]);
+  }
+
+  e.world = pts.map(([gx,gy])=>place(gx,gy,z));
+  // arc lengths
+  e.seg = []; e.len = 0;
+  for (let i=1;i<e.world.length;i++){
+    const dx=e.world[i].x-e.world[i-1].x, dy=e.world[i].y-e.world[i-1].y;
+    const L=Math.hypot(dx,dy); e.seg.push(L); e.len+=L;
+  }
+  e.color = e.blocked ? "#b06fb0" : SECTIONS[NODEMAP[e.a].s].color;
+  e.sect  = NODEMAP[e.b].s;
+}
+
+function pointAt(e, t){
+  const target = Math.max(0, Math.min(1,t)) * e.len;
+  let acc = 0;
+  for (let i=0;i<e.seg.length;i++){
+    if (acc + e.seg[i] >= target || i === e.seg.length-1){
+      const local = e.seg[i] === 0 ? 0 : (target-acc)/e.seg[i];
+      const p0=e.world[i], p1=e.world[i+1];
+      return { x:p0.x+(p1.x-p0.x)*local, y:p0.y+(p1.y-p0.y)*local };
+    }
+    acc += e.seg[i];
+  }
+  return e.world[e.world.length-1];
+}
+
+buildNodes();
+EDGES.forEach(routeEdge);
+/* placeSectionLabels() runs in boot(), once every module-level const exists */
+
+/* particles */
+const PARTS = [];
+EDGES.forEach((e, ei) => {
+  const n = e.p.length;
+  e.p.forEach((pay, i) => {
+    PARTS.push({
+      e, ei, pay,
+      t: (i/n) + Math.random()*0.12,
+      sp: 0.055 + Math.random()*0.02,        // units of t per second
+      sx:0, sy:0, vis:false
+    });
+  });
+});
+
+/* =========================================================================
+   3. CANVAS + CAMERA
+   ========================================================================= */
+
+const stage = document.getElementById("stage");
+const cv    = document.getElementById("cv");
+const ctx   = cv.getContext("2d");
+let W=0, H=0, DPR=1;
+
+const cam = { x:0, y:0, s:1 };
+let running = false;
+let hover = null;         // {type:'part'|'node', ref}
+let pinned = null;
+let stageIdx = -1;
+let highlightSect = null;
+
+function resize(){
+  DPR = Math.min(window.devicePixelRatio||1, 2);
+  W = stage.clientWidth; H = stage.clientHeight;
+  cv.width = W*DPR; cv.height = H*DPR;
+  cv.style.width = W+"px"; cv.style.height = H+"px";
+  ctx.setTransform(DPR,0,0,DPR,0,0);
+}
+
+function bounds(){
+  let x0=Infinity,y0=Infinity,x1=-Infinity,y1=-Infinity;
+  const add = p => { x0=Math.min(x0,p.x); y0=Math.min(y0,p.y); x1=Math.max(x1,p.x); y1=Math.max(y1,p.y); };
+  NODES.forEach(n=>n.base.concat(n.top).forEach(add));
+  Object.keys(SECTIONS).forEach(k=>{
+    const a=SECTIONS[k].anchor; if(!a) return;
+    // captions extend away from their anchor by roughly their text width
+    const span = SECTIONS[k].label.length * 0.28;
+    add(place(a.align==="right" ? a.x-span : a.x, a.y-1.6, 0));
+    add(place(a.align==="right" ? a.x : a.x+span, a.y+1.6, 0));
+  });
+  EDGES.forEach(e=>e.world.forEach(add));
+  return {x0,y0,x1,y1};
+}
+
+function fit(){
+  const b = bounds(), pad = 52;
+  const bw = b.x1-b.x0, bh = b.y1-b.y0;
+  const s = Math.min((W-pad*2)/bw, (H-pad*2)/bh);
+  cam.s = Math.max(0.09, Math.min(1.5, s));
+  cam.x = W/2 - ((b.x0+b.x1)/2)*cam.s;
+  cam.y = H/2 - ((b.y0+b.y1)/2)*cam.s;
+}
+
+const w2s = p => ({ x:p.x*cam.s + cam.x, y:p.y*cam.s + cam.y });
+
+/* =========================================================================
+   4. RENDER
+   ========================================================================= */
+
+function shade(hex, f){
+  const r=parseInt(hex.slice(1,3),16), g=parseInt(hex.slice(3,5),16), b=parseInt(hex.slice(5,7),16);
+  const m = v => Math.max(0,Math.min(255, Math.round(f<1 ? v*f : v + (255-v)*(f-1))));
+  return `rgb(${m(r)},${m(g)},${m(b)})`;
+}
+function rgba(hex, a){
+  const r=parseInt(hex.slice(1,3),16), g=parseInt(hex.slice(3,5),16), b=parseInt(hex.slice(5,7),16);
+  return `rgba(${r},${g},${b},${a})`;
+}
+
+const GRID = { x0:-20, x1:36, y0:-5, y1:91 };
+function drawGrid(){
+  const g=GRID;
+  ctx.lineWidth = 1;
+  ctx.strokeStyle = "rgba(64,100,132,.085)";
+  ctx.beginPath();
+  for (let x=g.x0; x<=g.x1; x+=4){
+    const a=w2s(place(x,g.y0,0)), c=w2s(place(x,g.y1,0));
+    ctx.moveTo(a.x,a.y); ctx.lineTo(c.x,c.y);
+  }
+  for (let y=g.y0; y<=g.y1; y+=4){
+    const a=w2s(place(g.x0,y,0)), c=w2s(place(g.x1,y,0));
+    ctx.moveTo(a.x,a.y); ctx.lineTo(c.x,c.y);
+  }
+  ctx.stroke();
+
+  // band separators behind each section row
+  ctx.strokeStyle = "rgba(90,130,165,.13)";
+  ctx.beginPath();
+  Object.keys(SECTIONS).forEach(k=>{
+    const y = SECTIONS[k].bandTop; if (y === undefined) return;
+    const a=w2s(place(g.x0,y,0)), c=w2s(place(g.x1,y,0));
+    ctx.moveTo(a.x,a.y); ctx.lineTo(c.x,c.y);
+  });
+  ctx.stroke();
+}
+
+function dim(sect){
+  return highlightSect && sect !== highlightSect ? 0.16 : 1;
+}
+
+/* truncate a label to an available width (ctx.font must already be set) */
+function fitText(s, maxW){
+  if (ctx.measureText(s).width <= maxW) return s;
+  let lo=1, hi=s.length;
+  while (lo < hi){
+    const mid = Math.ceil((lo+hi)/2);
+    if (ctx.measureText(s.slice(0,mid)+"…").width <= maxW) lo = mid; else hi = mid-1;
+  }
+  return lo <= 1 ? s.slice(0,1)+"…" : s.slice(0,lo)+"…";
+}
+
+function polyline(pts, close){
+  ctx.beginPath();
+  ctx.moveTo(pts[0].x, pts[0].y);
+  for (let i=1;i<pts.length;i++) ctx.lineTo(pts[i].x, pts[i].y);
+  if (close) ctx.closePath();
+}
+
+/* rounded polyline in screen space */
+function wire(pts, r){
+  ctx.beginPath();
+  ctx.moveTo(pts[0].x, pts[0].y);
+  for (let i=1;i<pts.length-1;i++){
+    const p=pts[i], a=pts[i-1], b=pts[i+1];
+    const d1=Math.hypot(p.x-a.x,p.y-a.y), d2=Math.hypot(b.x-p.x,b.y-p.y);
+    const rr=Math.min(r, d1/2, d2/2);
+    ctx.arcTo(p.x,p.y,b.x,b.y,rr);
+  }
+  const L=pts[pts.length-1];
+  ctx.lineTo(L.x,L.y);
+}
+
+function drawEdges(){
+  EDGES.forEach(e=>{
+    const pts = e.world.map(w2s);
+    const alpha = dim(e.sect) * dim(NODEMAP[e.a].s);
+    const a = Math.max(dim(e.sect), dim(NODEMAP[e.a].s));
+
+    // blocked edges are drawn truncated with an X terminator
+    let drawPts = pts;
+    if (e.blocked){
+      const cut = pointAt(e, 0.78); const cs = w2s(cut);
+      drawPts = pts.slice(0, Math.max(2, pts.length-1)).concat([cs]);
+    }
+
+    ctx.save();
+    ctx.setLineDash(e.blocked || e.dashed ? [5,5] : []);
+    ctx.lineCap="round"; ctx.lineJoin="round";
+
+    // glow
+    ctx.strokeStyle = rgba(e.color, 0.10*a);
+    ctx.lineWidth = Math.max(4, 7*cam.s);
+    wire(drawPts, 14*cam.s); ctx.stroke();
+
+    // core
+    ctx.strokeStyle = rgba(e.color, (e.blocked?0.72:0.55)*a);
+    ctx.lineWidth = Math.max(1, 1.7*cam.s);
+    wire(drawPts, 14*cam.s); ctx.stroke();
+    ctx.restore();
+
+    // terminator X for blocked edges
+    if (e.blocked){
+      const p = w2s(pointAt(e, 0.80));
+      const s = Math.max(5, 8*cam.s);
+      ctx.save();
+      ctx.strokeStyle = rgba("#e0603a", 0.95*a);
+      ctx.lineWidth = Math.max(1.6, 2.4*cam.s);
+      ctx.beginPath();
+      ctx.moveTo(p.x-s,p.y-s); ctx.lineTo(p.x+s,p.y+s);
+      ctx.moveTo(p.x+s,p.y-s); ctx.lineTo(p.x-s,p.y+s);
+      ctx.stroke();
+      ctx.restore();
+    } else {
+      // arrow head at target
+      const pEnd = w2s(pointAt(e, 1)), pPrev = w2s(pointAt(e, 0.965));
+      const ang = Math.atan2(pEnd.y-pPrev.y, pEnd.x-pPrev.x);
+      const s = Math.max(4, 6.5*cam.s);
+      ctx.save();
+      ctx.fillStyle = rgba(e.color, 0.8*a);
+      ctx.translate(pEnd.x,pEnd.y); ctx.rotate(ang);
+      ctx.beginPath();
+      ctx.moveTo(0,0); ctx.lineTo(-s,-s*0.5); ctx.lineTo(-s,s*0.5);
+      ctx.closePath(); ctx.fill();
+      ctx.restore();
+    }
+  });
+}
+
+function drawNode(n){
+  const a = dim(n.s);
+  const base = n.base.map(w2s), top = n.top.map(w2s);
+  const ghost = n.kind === "ghost";
+  const isHover = hover && hover.type==="node" && hover.ref===n;
+  const isPin = pinned && pinned.type==="node" && pinned.ref===n;
+
+  ctx.save();
+  ctx.globalAlpha = a;
+
+  // ground shadow
+  ctx.fillStyle = "rgba(0,0,0,.35)";
+  polyline(base, true); ctx.fill();
+
+  if (ghost){
+    ctx.setLineDash([4,4]);
+    ctx.strokeStyle = rgba(n.color,.55);
+    ctx.lineWidth = Math.max(1,1.3*cam.s);
+    polyline([top[0],top[1],top[2],top[3]], true); ctx.stroke();
+    polyline([top[3],top[2],base[2],base[3]], true); ctx.stroke();
+    polyline([top[2],top[1],base[1],base[2]], true); ctx.stroke();
+    ctx.setLineDash([]);
+    ctx.fillStyle = rgba(n.color,.05);
+    polyline([top[0],top[1],top[2],top[3]], true); ctx.fill();
+  } else {
+    const lit = isHover || isPin;
+    // left face  (D-C) — darkest
+    ctx.fillStyle = shade(n.color, lit ? .20 : .13);
+    polyline([top[3],top[2],base[2],base[3]], true); ctx.fill();
+    // right face (C-B)
+    ctx.fillStyle = shade(n.color, lit ? .30 : .20);
+    polyline([top[2],top[1],base[1],base[2]], true); ctx.fill();
+    // top face — deep tint so light labels stay readable
+    ctx.fillStyle = shade(n.color, lit ? .46 : .30);
+    polyline([top[0],top[1],top[2],top[3]], true); ctx.fill();
+    // luminous edges
+    ctx.strokeStyle = rgba(n.color, lit ? 1 : .72);
+    ctx.lineWidth = Math.max(1, (lit?2.1:1.25)*cam.s);
+    polyline([top[0],top[1],top[2],top[3]], true); ctx.stroke();
+    ctx.strokeStyle = rgba(n.color, lit ? .8 : .42);
+    polyline([top[3],top[2],base[2],base[3]], true); ctx.stroke();
+    polyline([top[2],top[1],base[1],base[2]], true); ctx.stroke();
+  }
+
+  // label on top face — title always drawn, with a legibility floor
+  const c = w2s(n.center);
+  const fs = Math.max(9.5, Math.min(15, 12.4*cam.s));
+  const wide = n.halfW*cam.s*2.15;              // usable label width (plate backs any overhang)
+  const showSub = cam.s > 0.62;
+  ctx.textAlign="center"; ctx.textBaseline="middle";
+  ctx.font = `600 ${fs}px ui-monospace, Menlo, monospace`;
+  const title = fitText(n.t, wide);
+  // dark plate behind text keeps it legible when the box is smaller than the label
+  const tw = ctx.measureText(title).width;
+  if (tw > n.halfW*cam.s*1.42){
+    ctx.fillStyle = "rgba(6,10,14,.55)";
+    ctx.fillRect(c.x-tw/2-4, c.y-(showSub?fs*1.05:fs*0.62), tw+8, showSub?fs*1.95:fs*1.25);
+  }
+  ctx.fillStyle = ghost ? rgba(n.color,.95) : "#f2f8fc";
+  ctx.fillText(title, c.x, c.y - (showSub ? fs*0.42 : 0));
+  if (showSub){
+    ctx.font = `500 ${fs*0.76}px ui-monospace, Menlo, monospace`;
+    ctx.fillStyle = ghost ? rgba(n.color,.7) : "rgba(228,240,249,.66)";
+    ctx.fillText(fitText(n.sub, wide*1.12), c.x, c.y + fs*0.62);
+  }
+  ctx.restore();
+}
+
+/* Captions for the main vertical spine live in a dedicated left gutter, clear of
+   every box AND every routed wire. The two side columns (overlay, consumer) get a
+   caption above their own stack instead. Both are drawn on a plate, so a caption
+   can never be lost against the diagram. */
+const RIGHT_SECTIONS = { overlay:1, consumer:1 };
+
+function placeSectionLabels(){
+  // leftmost occupied world-x across boxes and wires
+  let minX = Infinity;
+  NODES.forEach(n=>n.base.concat(n.top).forEach(p=>{ minX=Math.min(minX,p.x); }));
+  EDGES.forEach(e=>e.world.forEach(p=>{ minX=Math.min(minX,p.x); }));
+  const gutter = minX/LX - 1.4;                       // right edge of the caption column
+
+  Object.keys(SECTIONS).forEach(k=>{
+    const ns = NODES.filter(n=>n.s===k);
+    if (!ns.length) return;
+    if (RIGHT_SECTIONS[k]){
+      const topN = ns.reduce((a,n)=> (n.y < a.y ? n : a), ns[0]);
+      SECTIONS[k].anchor = {
+        x: topN.x - topN.halfW/LX,
+        y: topN.y - topN.halfH/LY - topN.h*ZU/LY - 2.7,
+        align: "left"
+      };
+    } else {
+      const ys = ns.map(n=>n.y);
+      SECTIONS[k].anchor = {
+        x: gutter,
+        y: (Math.min(...ys)+Math.max(...ys))/2,
+        align: "right"
+      };
+      const topN = ns.reduce((a,n)=> (n.y < a.y ? n : a), ns[0]);
+      SECTIONS[k].bandTop = topN.y - topN.halfH/LY - topN.h*ZU/LY - 1.6;
+    }
+  });
+}
+
+function drawSectionLabels(){
+  ctx.save();
+  ctx.textBaseline = "middle";
+  const fs = Math.max(8.5, Math.min(13, 11*cam.s));
+  ctx.font = `600 ${fs}px ui-monospace, Menlo, monospace`;
+  Object.keys(SECTIONS).forEach(k=>{
+    const s = SECTIONS[k];
+    if (!s.anchor) return;
+    const p = w2s(place(s.anchor.x, s.anchor.y, 0));
+    const w = ctx.measureText(s.label).width;
+    const right = s.anchor.align === "right";
+    const x0 = right ? p.x - w : p.x;
+    ctx.globalAlpha = dim(k);
+    // plate
+    ctx.fillStyle = "rgba(7,11,16,.92)";
+    ctx.fillRect(x0-7, p.y-fs*0.86, w+14, fs*1.72);
+    ctx.fillStyle = rgba(s.color, .28);
+    ctx.fillRect(right ? p.x+3 : p.x-5, p.y-fs*0.86, Math.max(1.5,2*cam.s), fs*1.72);
+    // text
+    ctx.textAlign = right ? "right" : "left";
+    ctx.fillStyle = rgba(s.color, .92);
+    ctx.fillText(s.label, p.x, p.y);
+  });
+  ctx.restore();
+}
+
+function drawParticles(){
+  PARTS.forEach(p=>{
+    const wpt = pointAt(p.e, p.e.blocked ? Math.min(p.t, 0.80) : p.t);
+    const s = w2s(wpt);
+    p.sx=s.x; p.sy=s.y;
+    p.vis = s.x>-30 && s.x<W+30 && s.y>-30 && s.y<H+30;
+    if (!p.vis) return;
+
+    const a = dim(p.e.sect) * dim(NODEMAP[p.e.a].s);
+    const isH = hover && hover.type==="part" && hover.ref===p;
+    const isP = pinned && pinned.type==="part" && pinned.ref===p;
+    const col = p.e.blocked ? "#e0603a" : p.e.color;
+    let r = Math.max(2.1, 3.4*cam.s) * (isH||isP ? 1.85 : 1);
+
+    // fade near the severed end
+    let fade = 1;
+    if (p.e.blocked && p.t > 0.62) fade = Math.max(0.12, 1 - (p.t-0.62)/0.18);
+
+    ctx.save();
+    ctx.globalAlpha = a*fade;
+    // halo
+    const g = ctx.createRadialGradient(s.x,s.y,0,s.x,s.y,r*4.2);
+    g.addColorStop(0, rgba(col,.55));
+    g.addColorStop(1, rgba(col,0));
+    ctx.fillStyle=g;
+    ctx.beginPath(); ctx.arc(s.x,s.y,r*4.2,0,6.2832); ctx.fill();
+    // core
+    ctx.fillStyle = isH||isP ? "#ffffff" : shade(col,1.5);
+    ctx.beginPath(); ctx.arc(s.x,s.y,r,0,6.2832); ctx.fill();
+    ctx.strokeStyle = rgba(col,.9);
+    ctx.lineWidth = Math.max(1,1.2*cam.s);
+    ctx.stroke();
+    if (isP){
+      ctx.strokeStyle = "rgba(255,255,255,.75)";
+      ctx.lineWidth = Math.max(1,1.4*cam.s);
+      ctx.beginPath(); ctx.arc(s.x,s.y,r*2.4,0,6.2832); ctx.stroke();
+    }
+    ctx.restore();
+  });
+}
+
+function render(){
+  ctx.clearRect(0,0,W,H);
+  // vignette background
+  const g = ctx.createRadialGradient(W*0.42,H*0.42,40, W*0.5,H*0.5, Math.max(W,H)*0.85);
+  g.addColorStop(0,"#0c141c"); g.addColorStop(1,"#06090d");
+  ctx.fillStyle=g; ctx.fillRect(0,0,W,H);
+
+  drawGrid();
+  drawEdges();
+  NODES.slice().sort((a,b)=>a.depth-b.depth).forEach(drawNode);
+  drawSectionLabels();   // captions ride on top, so a plate is never occluded
+  drawParticles();
+}
+
+/* =========================================================================
+   5. LOOP
+   ========================================================================= */
+let last = performance.now();
+let stepBudget = 0;
+
+function frame(now){
+  const dt = Math.min(0.05, (now-last)/1000); last = now;
+  if (running || stepBudget > 0){
+    const use = running ? dt : Math.min(dt, stepBudget);
+    if (!running) stepBudget -= use;
+    PARTS.forEach(p=>{
+      p.t += p.sp*use*(running?1:2.2);
+      if (p.t > 1) p.t -= 1 + Math.random()*0.15;
+    });
+  }
+  render();
+  requestAnimationFrame(frame);
+}
+
+/* =========================================================================
+   6. INTERACTION
+   ========================================================================= */
+
+const tip = document.getElementById("tip");
+
+function hitTest(mx,my){
+  // particles first
+  let best=null, bd=15;
+  for (const p of PARTS){
+    if (!p.vis) continue;
+    if (highlightSect && p.e.sect!==highlightSect && NODEMAP[p.e.a].s!==highlightSect) continue;
+    const d = Math.hypot(p.sx-mx, p.sy-my);
+    if (d<bd){ bd=d; best={type:"part", ref:p}; }
+  }
+  if (best) return best;
+  // nodes (top face polygon test), front-most first
+  const sorted = NODES.slice().sort((a,b)=>b.depth-a.depth);
+  for (const n of sorted){
+    const top = n.top.map(w2s);
+    if (pointInPoly(mx,my,top)) return {type:"node", ref:n};
+    const l = [n.top[3],n.top[2],n.base[2],n.base[3]].map(w2s);
+    const r = [n.top[2],n.top[1],n.base[1],n.base[2]].map(w2s);
+    if (pointInPoly(mx,my,l)||pointInPoly(mx,my,r)) return {type:"node", ref:n};
+  }
+  return null;
+}
+
+function pointInPoly(x,y,poly){
+  let inside=false;
+  for (let i=0,j=poly.length-1;i<poly.length;j=i++){
+    const xi=poly[i].x, yi=poly[i].y, xj=poly[j].x, yj=poly[j].y;
+    if (((yi>y)!==(yj>y)) && (x < (xj-xi)*(y-yi)/(yj-yi)+xi)) inside=!inside;
+  }
+  return inside;
+}
+
+function showTip(h, mx, my){
+  if (!h){ tip.classList.remove("show"); return; }
+  let k,t,d;
+  if (h.type==="part"){
+    k = h.ref.pay.k + " · in transit";
+    t = h.ref.pay.t;
+    d = h.ref.pay.d;
+  } else {
+    k = SECTIONS[h.ref.s].label;
+    t = h.ref.t;
+    d = h.ref.sub;
+  }
+  tip.innerHTML = `<div class="k">${esc(k)}</div><div class="t">${esc(t)}</div><div class="d">${esc(d)}</div>`;
+  tip.classList.add("show");
+  const w = tip.offsetWidth, hh = tip.offsetHeight;
+  let x = mx+16, y = my+16;
+  if (x+w > W-8) x = mx-w-16;
+  if (y+hh > H-8) y = my-hh-16;
+  tip.style.left = Math.max(6,x)+"px";
+  tip.style.top  = Math.max(6,y)+"px";
+}
+
+function esc(s){ return String(s).replace(/[&<>]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[c])); }
+
+const insp = document.getElementById("inspector");
+function showInspector(h){
+  if (!h){ insp.classList.remove("show"); return; }
+  let k,t,d,meta=[];
+  if (h.type==="part"){
+    const e = h.ref.e;
+    k = "payload in transit";
+    t = h.ref.pay.t;
+    d = h.ref.pay.d;
+    meta = [ h.ref.pay.k, `${NODEMAP[e.a].t} → ${NODEMAP[e.b].t}`, e.blocked?"SEVERED EDGE":"active edge" ];
+  } else if (h.type==="node"){
+    const n=h.ref;
+    k = SECTIONS[n.s].label;
+    t = n.t;
+    d = n.desc;
+    const ins = EDGES.filter(e=>e.b===n.id).length, outs = EDGES.filter(e=>e.a===n.id).length;
+    meta = [ n.sub, `in ${ins}`, `out ${outs}` ];
+  } else {
+    k = "stage"; t = h.title; d = h.text; meta = [ `${stageIdx+1} / ${STAGES.length}` ];
+  }
+  document.getElementById("insp-kind").textContent = k;
+  document.getElementById("insp-title").textContent = t;
+  document.getElementById("insp-desc").textContent = d;
+  document.getElementById("insp-meta").innerHTML = meta.map(m=>`<span>${esc(m)}</span>`).join("");
+  insp.classList.add("show");
+}
+document.getElementById("insp-close").onclick = ()=>{ pinned=null; showInspector(null); };
+
+/* pan + zoom */
+let drag=null;
+stage.addEventListener("pointerdown", ev=>{
+  drag = { x:ev.clientX, y:ev.clientY, cx:cam.x, cy:cam.y, moved:false };
+  stage.setPointerCapture(ev.pointerId);
+  stage.classList.add("dragging");
+});
+stage.addEventListener("pointermove", ev=>{
+  const r = cv.getBoundingClientRect();
+  const mx = ev.clientX-r.left, my = ev.clientY-r.top;
+  if (drag){
+    const dx=ev.clientX-drag.x, dy=ev.clientY-drag.y;
+    if (Math.abs(dx)+Math.abs(dy) > 3) drag.moved=true;
+    cam.x = drag.cx+dx; cam.y = drag.cy+dy;
+    tip.classList.remove("show");
+    return;
+  }
+  hover = hitTest(mx,my);
+  stage.style.cursor = hover ? "pointer" : "grab";
+  showTip(hover, mx, my);
+});
+stage.addEventListener("pointerup", ev=>{
+  stage.classList.remove("dragging");
+  const wasDrag = drag && drag.moved;
+  drag = null;
+  if (wasDrag) return;
+  const r = cv.getBoundingClientRect();
+  const h = hitTest(ev.clientX-r.left, ev.clientY-r.top);
+  if (h){ pinned = h; showInspector(h); }
+  else { pinned = null; showInspector(null); }
+});
+stage.addEventListener("pointerleave", ()=>{ hover=null; tip.classList.remove("show"); drag=null; stage.classList.remove("dragging"); });
+
+stage.addEventListener("wheel", ev=>{
+  ev.preventDefault();
+  const r = cv.getBoundingClientRect();
+  const mx = ev.clientX-r.left, my = ev.clientY-r.top;
+  const wx = (mx-cam.x)/cam.s, wy = (my-cam.y)/cam.s;
+  const k = Math.exp(-ev.deltaY*0.0016);
+  cam.s = Math.max(0.08, Math.min(3.2, cam.s*k));
+  cam.x = mx - wx*cam.s; cam.y = my - wy*cam.s;
+  tip.classList.remove("show");
+}, {passive:false});
+
+/* controls */
+const btnFlow = document.getElementById("btn-flow");
+function setFlow(on){
+  running = on;
+  btnFlow.textContent = on ? "Pause the flow" : "Resume the flow";
+  btnFlow.classList.toggle("on", on);
+}
+btnFlow.onclick = ()=> setFlow(!running);
+
+document.getElementById("btn-step").onclick = ()=>{
+  setFlow(false);
+  stageIdx = (stageIdx+1) % STAGES.length;
+  const st = STAGES[stageIdx];
+  highlightSect = st.s;
+  stepBudget = 0.85;                 // pulse the flow forward a beat
+  pinned = { type:"stage" };
+  showInspector(st);
+  focusSection(st.s);
+};
+
+function focusSection(sect){
+  const ns = NODES.filter(n=>n.s===sect);
+  if (!ns.length) return;
+  let x0=Infinity,y0=Infinity,x1=-Infinity,y1=-Infinity;
+  ns.forEach(n=>n.base.concat(n.top).forEach(p=>{
+    x0=Math.min(x0,p.x); y0=Math.min(y0,p.y); x1=Math.max(x1,p.x); y1=Math.max(y1,p.y);
+  }));
+  const pad=140;
+  const s = Math.max(0.2, Math.min(1.05, Math.min((W-pad*2)/(x1-x0||1),(H-pad*2)/(y1-y0||1))));
+  animateCam(W/2-((x0+x1)/2)*s, H/2-((y0+y1)/2)*s, s);
+}
+
+let camAnim=null;
+function animateCam(tx,ty,ts){
+  const s0={...cam}, t0=performance.now(), dur=520;
+  if (camAnim) cancelAnimationFrame(camAnim);
+  (function tick(){
+    const k = Math.min(1,(performance.now()-t0)/dur);
+    const e = 1-Math.pow(1-k,3);
+    cam.x = s0.x+(tx-s0.x)*e; cam.y = s0.y+(ty-s0.y)*e; cam.s = s0.s+(ts-s0.s)*e;
+    if (k<1) camAnim=requestAnimationFrame(tick);
+  })();
+}
+
+document.getElementById("btn-reset").onclick = ()=>{
+  highlightSect=null; stageIdx=-1; pinned=null; hover=null;
+  showInspector(null); tip.classList.remove("show");
+  const b=bounds(), pad=52;
+  const s = Math.max(0.09, Math.min(1.5, Math.min((W-pad*2)/(b.x1-b.x0),(H-pad*2)/(b.y1-b.y0))));
+  animateCam(W/2-((b.x0+b.x1)/2)*s, H/2-((b.y0+b.y1)/2)*s, s);
+  setFlow(true);
+};
+
+/* tabs */
+document.querySelectorAll(".tabs button").forEach(b=>{
+  b.onclick = ()=>{
+    document.querySelectorAll(".tabs button").forEach(x=>x.classList.remove("active"));
+    document.querySelectorAll(".view").forEach(v=>v.classList.remove("active"));
+    b.classList.add("active");
+    document.getElementById(b.dataset.view).classList.add("active");
+  };
+});
+
+/* keyboard */
+window.addEventListener("keydown", ev=>{
+  if (ev.key===" "){ ev.preventDefault(); setFlow(!running); }
+  if (ev.key==="s" || ev.key==="ArrowRight") document.getElementById("btn-step").click();
+  if (ev.key==="r") document.getElementById("btn-reset").click();
+  if (ev.key==="Escape"){ pinned=null; showInspector(null); highlightSect=null; }
+});
+
+/* legend */
+(function legend(){
+  const el = document.getElementById("legend");
+  const order = ["authority","control","projection","curriculum","supply","execution","artifact","validation","overlay","ledger","gate","outcome","consumer"];
+  el.innerHTML =
+    order.map(k=>`<div class="row"><i style="background:${SECTIONS[k].color}"></i>${SECTIONS[k].label.toLowerCase()}</div>`).join("") +
+    `<div class="row"><span class="dash"></span>severed / non-gate path</div>` +
+    `<div class="sep"></div>` +
+    `<div class="row note">box height = implementation depth</div>`;
+})();
+
+/* boot */
+function boot(){
+  placeSectionLabels();
+  resize(); fit(); setFlow(true);
+  requestAnimationFrame(frame);
+}
+window.addEventListener("resize", ()=>{ resize(); });
+boot();
+</script>
+</body>
+</html>

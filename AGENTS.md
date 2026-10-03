@@ -112,3 +112,72 @@ completion; parity still requires independent basic file handling in both.
 P0 remains the only active phase; agent and research study earns no Foundation
 credit. Current timing and capacity come from the active Aegis manifest. The
 retained beginner-policy-v1.json is historical preparation, not current policy.
+
+
+## Seven-day language introduction amendment — September 19
+
+The user reports very beginner Python knowledge and authorizes a seven-day Python/Rust introductory sweep. Follow `curriculum/FOUNDATIONS_FAST_TRACK.md`: diagnose and skip independently recalled basics; Python uses selected PCC 3e concepts/exercises, Rust selected Ultimate Rust Crash Course lessons. No Angela Yu Day 1 restart. After the introductory sweep, studios apply concepts through Project 0 and refresh gaps. The calendar does not establish mastery or waive gates. Exact dates and the authorized September 19 evening adjustment come only from the hash-verified private Aegis manifest. Other parallel tracks continue.
+
+## Rust-priority curriculum amendment — October 1, 2026
+
+Latest user direction makes Rust the priority programming language while Python
+and AI-agent foundations continue in parallel. Follow
+`curriculum/RUST_FIRST_STUDIO_PLAN.json`, `PARALLEL_COURSE_MAP.md` and
+`parallel-policy-v1.json`. Regular-week language allocations are approximately
+8 hours Rust and 6 hours Python, including their Project 0 studios and Rustlings;
+never add project hours on top. Current private Aegis authority and the authorized
+Calendar amendment own the learning start, first seven-day sweep, finals
+reductions and exact reservations. The September 30 reset-counter boundary is
+unchanged. P0 remains the only active phase; relative cards and dates never
+promote it. Use roadmap.sh only within the existing review. Rust educational
+priority does not imply rewriting endr software or changing company authority.
+
+## Course-provider amendment — October 2, 2026
+
+Current user direction limits all assigned courses, paid or free, to O'Reilly
+and Coursera. Other providers' courses remain historical; official documentation,
+books, papers and tools may support existing work without becoming extra courses.
+Use Duke University's Rust Fundamentals on Coursera as the Rust primary, retain
+Python Crash Course 3e on O'Reilly and Vanderbilt's introductory agents course
+on Coursera, and follow the updated `curriculum/PARALLEL_COURSE_MAP.md` for
+supporting and deferred choices. Udemy resources are retired from active
+selection; preserve their historical records, exercises and code. Official
+documentation remains available for implementation questions. Provider catalog
+verification does not establish account access, enrollment or completion.
+This provider amendment does not activate a reset, change dates or allocations,
+promote a phase, or change endr implementation scope.
+
+## Teaching allocation and project alignment amendment — October 2, 2026
+
+Latest user direction sets regular-week agent study to six hours: two guided
+course hours and four hours of bounded practice, reassigned from existing endr
+morning reservations rather than added workload. First-week company setup
+exceptions come from private active authority. Rust remains eight hours and
+Python six hours, including their Project 0 work and Rustlings; never add those
+projects on top. Follow the shared practice protocol in the parallel policy and
+studio plan. There is no blanket finals reduction: preserve actual classes,
+examinations and assessment deadlines, then resume the oldest unmet skill.
+
+The requested October 2–8 introduction is conditional on the private reset's
+activation and hash verification. Exact active dates, reservations and counters
+come only from `_Phase Config.md` and its active manifest. This amendment does
+not activate a reset or hand-edit generated projections; the October 1 date and
+finals statements above remain historical where superseded.
+
+Project 0 teaches transferable CLI, contracts, testing and reproduction skills.
+M.A.L. remains the primary company product experiment under separate company
+governance and its current implementation language. DEC-018 adds synthetic
+virtual data-center maintenance only after supply-scheduling v0.2 acceptance,
+reusing M.A.L.'s evaluator, event ledger, comparison report and replay rather
+than creating a parallel product. A standalone service still needs technical
+and customer evidence. No company activity earns Foundation credit. Official
+documentation is an implementation reference, not a course; all assigned
+courses remain on O'Reilly or Coursera.
+
+## From-the-beginning learning amendment — October 2, 2026
+
+ZERO-START RULE (October 2): Begin this assigned source at its first lesson/chapter/video (00:00); no inherited completion and no diagnostic skipping. Thereafter resume only from your newly logged page, lesson or timestamp. Later topics below are conditional previews until preceding material is actually covered. A newly assigned reading begins at its opening. Scheduled time never proves learning. Rust starts Duke Module 1 lesson 1, Python starts PCC 3e introduction/Chapter 1, and agents, AI literacy and warfare/law start their first introductory lesson. This supersedes the earlier diagnostic-skipping and selected-slice start. Current-period counters begin at zero; historical code, evidence and provider account records remain factual. Actual degree submissions and deadlines remain intact. P0 alone is active; no reset boundary or company status changes.
+
+## Compressed introduction — October 2, 2026, latest direction
+
+Selected beginner essentials end Sunday October 11, 2026. October 3 is the existing on-ramp; October 5–11 is the main sprint. Begin with orientation, then use the curated prerequisite sequence and immediate exercises, without requiring every lesson or repeated drill. No inherited credit or assumed mastery. From October 12, start each studio with a project behavior and use focused lessons for specific gaps; no whole-course restart. From October 12, project-led practice inside existing reservations: attempt the next unproved behavior; use a focused 20–30 minute explanation when blocked, apply it immediately, then record the exact gap. Do not stretch introductory course consumption across a month. P0 gates remain evidence-based. Exact session sequence and Sunday checkpoint: [compressed sprint](</Users/house/Developer/defense-foundations/curriculum/FOUNDATIONS_FAST_TRACK.md>). Current native Calendar times prevail. O’Reilly/Coursera sources, 80-hour ceiling, classes, zero inherited credit, existing reset boundary and P0 gates remain unchanged. Earlier full-source/no-skipping pacing is superseded for Rust, Python and AI; historical provider progress is preserved.

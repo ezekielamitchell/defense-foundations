@@ -1,6 +1,38 @@
 # Resource Spine — Active Parallel Route
 
-The [Parallel Course Map](PARALLEL_COURSE_MAP.md) is the current beginner source authority: Udemy Python/Rust, Coursera agents/AI/warfare, and selected O’Reilly/primary-source readings. One primary per track; 2–3-hour studios and one-hour readings. Python-only preparation and its single-source limit are superseded.
+The [Parallel Course Map](PARALLEL_COURSE_MAP.md) is the current beginner source authority: selected O’Reilly Python and Coursera Rust/agent/AI/law lessons, with official references for specific gaps. Active course selections use only O'Reilly or Coursera under the October 2, 2026 amendment; Udemy records remain history. The [first learning week](FOUNDATIONS_FAST_TRACK.md) starts Python, Rust and agent basics together. One primary course at a time per track; 2–3-hour studios and one-hour readings. Exact reservations live in private Aegis authority.
+
+The October 2 allocation is Rust 8 hours and Python 6 hours including Project 0,
+plus agents 6 hours: 2 guided and 4 bounded practice reassigned from existing
+endr morning time. First-week company setup exceptions and all exact dates come
+from private active authority; a requested introduction is not active merely
+because it appears in this source map. No blanket finals reduction overrides
+actual classes, examinations or assessment deadlines. Official documentation
+is implementation reference, not a course.
+
+## P0 source ladder and artifact
+
+| Need now | Primary or support | Use it to produce |
+|---|---|---|
+| Python functions, collections, files and tests | [Python Crash Course, 3e — O’Reilly](https://www.oreilly.com/library/view/python-crash-course/9781098156664/) as the selected primary; [Python tutorial](https://docs.python.org/3/tutorial/) for a specific syntax gap | One changed-input function, then a real file/error case and collected test in Project 0 |
+| Rust tooling, borrowing, errors and tests | [Duke Rust Fundamentals — Coursera](https://www.coursera.org/learn/rust-fundamentals) as the selected primary; [Rust Book](https://doc.rust-lang.org/book/) for current behavior | A tiny compiler experiment, a file/error case and a collected test independently of Python |
+| Agent-loop vocabulary | [Vanderbilt AI Agents — Coursera](https://www.coursera.org/learn/ai-agents-python) introductory lessons; no API/framework requirement in the first week | A synthetic trace with goal, observation, allowed action, result and stop rule; no Foundation gate credit |
+| AI and armed-conflict context | [IBM Introduction to AI — Coursera](https://www.coursera.org/learn/introduction-to-ai/) for general limits; [ICRC human-centred AI paper](https://www.icrc.org/en/document/artificial-intelligence-and-machine-learning-armed-conflict-human-centred-approach) for domain-specific concerns | A sourced claim, limitation and human-control question in a research note |
+| Warfare and legal vocabulary | [SUNY International Cyber Conflicts — Coursera](https://www.coursera.org/learn/cyber-conflicts) as the current contextual course, with [ICRC readings](https://casebook.icrc.org/) for IHL; [MCDP 1 — official doctrine](https://www.marines.mil/News/Publications/MCPEL/Electronic-Library-Display/Article/899837/mcdp-1/) for a bounded conceptual comparison | Distinguish a legal rule, doctrine claim, historical example and unsupported assumption |
+
+The selected O'Reilly Python source supplies explanations inside an existing
+Python studio: pause, predict one code change and run it. The former MIT course
+fallback is retired from active selection. All assigned courses, paid or free,
+must be from O'Reilly or Coursera; official documentation, books, papers and
+tools remain support. A privately selected research paper belongs in its existing
+reading block; record question, method, result and limitation without treating
+the reading as Project 0 evidence. Do not add either as an extra weekly course.
+
+Project 0 develops transferable CLI, testing and reproduction skills. Follow the
+[project progression](START_HERE.md#project-0-and-the-company-project) for its
+relationship to M.A.L.; company evidence, implementation language and authority
+remain separate. Virtual data-center maintenance follows accepted v0.2 as a
+second synthetic M.A.L. scenario, not a parallel product.
 
 ## Later main-route sources
 
@@ -23,7 +55,7 @@ The [Parallel Course Map](PARALLEL_COURSE_MAP.md) is the current beginner source
 - **P5 embedded:** platform vendor documentation and [Embedded Rust Book](https://docs.rust-embedded.org/book/).
   Simulation or a bench-safe substitute can satisfy the interface-learning goal.
 - **P7 estimation/navigation:** one selected estimator/package's official docs,
-  with [MIT linear algebra](https://ocw.mit.edu/courses/18-06sc-linear-algebra-fall-2011/)
+  with [Imperial College London's Mathematics for Machine Learning: Linear Algebra on Coursera](https://www.coursera.org/learn/linear-algebra-machine-learning)
   for the exact matrix/coordinate gap. Do not attempt every estimator.
 - **P9 RL:** [Sutton and Barto's author-hosted book](http://incompleteideas.net/book/the-book-2nd.html)
   for MDP/value/reward concepts, then one algorithm and a non-learning baseline.
@@ -34,19 +66,18 @@ The [Parallel Course Map](PARALLEL_COURSE_MAP.md) is the current beginner source
 
 ## Paid inventory and duplicate avoidance
 
-Keep any existing paid-resource inventory as history and optional references.
-Current introductory assignments are listed in the course map. Other inventory
-entries remain references or later choices. No subscription entitlement,
+Keep existing paid-resource inventory and exercises as history. Current
+introductory assignments are listed in the course map. Udemy entries are retired
+from active selection, including backup and deferred assignments. Other
+O'Reilly or Coursera entries remain references or later choices. No subscription entitlement,
 enrollment, purchase or completion is inferred from a catalog listing.
 
 ## Source verification and version rules
 
-Public primary pages for PCC, CS50P, the Rust Book, Missing Semester, Pro Git,
-Tokio, scikit-learn and PyTorch were checked on September 19. NIST and Lamport
-were also inspected during this route review. This verifies teaching scope, not
-paid access, completion, or future compatibility. Some ROS documentation pages
-were blocked to automated access; search results confirmed the tutorial route.
-Later reference links are pointers to recheck when their modules activate.
+The P0 provider and official source pages above were checked for this route
+update. This verifies teaching scope, not paid access, completion or future
+compatibility. Later-module references are pointers to recheck when those
+modules become eligible; a link in this document does not activate a phase.
 
 Use the installed project version's documentation. Preserve the existing Python
 minimum and Rust edition until a real implementation issue requires a change.
